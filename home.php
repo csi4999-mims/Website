@@ -1,7 +1,7 @@
 <!--File Name: home.php-->
 <!--Date Created: 1-14-2018-->
-<!--Start File-->
 <!--Created By: Nicole Cox-->
+<!--Start File-->
 
 <?php
 //pulls in bootstrap and javascript
