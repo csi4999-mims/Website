@@ -32,6 +32,7 @@
             <div>
                 <ul class="nav navbar-nav">
                     <li <?= ($pageid == 'home') ? 'class="active"' : '' ?>><a href="home.php">Home</a></li>
+                    <li <?= ($pageid == 'account') ? 'class="active"' : '' ?>><a href="account.php">My Account</a></li>
                    </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <!--uses username of person logged in-->
