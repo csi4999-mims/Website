@@ -1,5 +1,5 @@
-<!--File Name: index.php-->
-<!--Date Created: 1-14-2018-->
+<!--File Name: forgotpassword.php-->
+<!--Date Created: 1-15-2018-->
 <!--Created By: Nicole Cox-->
 <!--Start File-->
 
@@ -20,14 +20,14 @@ require('lib.php');
 
 <div class="container">
 
- <div id="login-form">
+ <div id="forgot-password-form">
      <!--need to add code to connect to the database-->
-    <form method="post" action="/home.php">
+    <form method="post" action="/newpassword.php">
     
      <div class="col-md-12">
         
          <div class="form-group">
-             <h2 class="">Sign In.</h2>
+             <h2 class="">Enter Your Email</h2>
         </div>
         
          <div class="form-group">
@@ -42,32 +42,12 @@ require('lib.php');
             </div>
             
             <div class="form-group">
-             <div class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-             <input type="password" name="pass" class="form-control" placeholder="Your Password" maxlength="15" />
-                </div>
-            </div>
-            
-            <div class="form-group">
              <hr />
             </div>
             
             <div class="form-group">
-             <button type="submit" class="btn btn-block btn-primary" name="btn-login">Sign In</button>
+             <button type="submit" class="btn btn-block btn-primary" name="btn-login">Reset Password</button>
             </div>
-            
-            <div class="form-group">
-             <hr />
-            </div>
-            
-            <div class="form-group">
-             <a href="register.php">Sign Up Here...</a>
-            </div>
-        
-            <div class="form-group">
-             <a href="forgotpassword.php">Forgot Password?</a>
-            </div>
-      
         </div>
    
     </form>
