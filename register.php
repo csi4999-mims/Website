@@ -49,7 +49,7 @@ require('lib.php');
             <div class="form-group">
              <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-             <input type="text" name="first-name" class="form-control" placeholder="Enter First Name" maxlength="50" value="<?php echo $fname ?>" />
+             <input type="text" name="firstname" class="form-control" placeholder="Enter First Name" maxlength="50" value="<?php echo $fname ?>" />
                 </div>
                 <span class="text-danger"><?php echo $nameError; ?></span>
             </div>
@@ -57,7 +57,7 @@ require('lib.php');
             <div class="form-group">
              <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-             <input type="text" name="last-name" class="form-control" placeholder="Enter Last Name" maxlength="50" value="<?php echo $lname ?>" />
+             <input type="text" name="lastname" class="form-control" placeholder="Enter Last Name" maxlength="50" value="<?php echo $lname ?>" />
                 </div>
                 <span class="text-danger"><?php echo $nameError; ?></span>
             </div>
