@@ -64,6 +64,10 @@ require('lib.php');
              <a href="register.php">Sign Up Here...</a>
             </div>
         
+            <div class="form-group">
+             <a href="forgotpassword.php">Forgot Password?</a>
+            </div>
+      
         </div>
    
     </form>
