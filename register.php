@@ -77,6 +77,13 @@ require('lib.php');
                 </div>
                 <span class="text-danger"><?php echo $passError; ?></span>
             </div>
+      
+             <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+             <input type="password" name="confirmpass" class="form-control" placeholder="Confirm Password" maxlength="15" />
+                </div>
+                <span class="text-danger"><?php echo $passError; ?></span>
+            </div>
             
             <div class="form-group">
              <hr />
