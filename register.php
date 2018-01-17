@@ -72,6 +72,14 @@ require('lib.php');
             
             <div class="form-group">
              <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
+             <input type="text" name="phone" class="form-control" placeholder="Enter Your Phone Number" maxlength="40" value="<?php echo $phone ?>" />
+                </div>
+                <span class="text-danger"><?php echo $phoneError; ?></span>
+            </div>
+      
+            <div class="form-group">
+             <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
              <input type="password" name="pass" class="form-control" placeholder="Enter Password" maxlength="15" />
                 </div>
