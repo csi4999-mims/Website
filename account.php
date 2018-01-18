@@ -71,10 +71,8 @@ require('lib.php');
          
             <div class="form-group">
              <div class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-             <input id="pass" type="password" name="pass" class="form-control" placeholder="****************" maxlength="15" readonly/>
-                </div>
-                <span class="text-danger"><?php echo $passError; ?></span>
+              <input id="pass" type="button" name="pass" class="btn-default form-control" value="Change Password" onclick="location.href='/newpassword.php'"/>
+             </div>
             </div>
             
             <div class="form-group">
