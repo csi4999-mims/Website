@@ -71,8 +71,10 @@ require('lib.php');
          
             <div class="form-group">
              <div class="input-group">
+
               <input id="pass" type="button" name="pass" class="btn-default form-control" value="Change Password" onclick="location.href='/newpassword.php'"/>
              </div>
+
             </div>
             
             <div class="form-group">
