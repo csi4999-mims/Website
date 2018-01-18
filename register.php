@@ -69,7 +69,7 @@ catch(PDOException $e)
             <div class="form-group">
              <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-             <input type="text" name="firstname" class="form-control" placeholder="Enter First Name" maxlength="50" value="<?php echo $fname ?>" />
+             <input type="text" id="fname" name="firstname" class="form-control" placeholder="Enter First Name" maxlength="50" value="<?php echo $fname ?>" />
                 </div>
                 <span class="text-danger"><?php echo $nameError; ?></span>
             </div>
@@ -77,7 +77,7 @@ catch(PDOException $e)
             <div class="form-group">
              <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-             <input type="text" name="lastname" class="form-control" placeholder="Enter Last Name" maxlength="50" value="<?php echo $lname ?>" />
+             <input type="text" id="lname" name="lastname" class="form-control" placeholder="Enter Last Name" maxlength="50" value="<?php echo $lname ?>" />
                 </div>
                 <span class="text-danger"><?php echo $nameError; ?></span>
             </div>
@@ -85,7 +85,7 @@ catch(PDOException $e)
             <div class="form-group">
              <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-             <input type="email" name="email" class="form-control" placeholder="Enter Your Email" maxlength="40" value="<?php echo $email ?>" />
+             <input type="email" id="email" name="email" class="form-control" placeholder="Enter Your Email" maxlength="40" value="<?php echo $email ?>" />
                 </div>
                 <span class="text-danger"><?php echo $emailError; ?></span>
             </div>
@@ -93,7 +93,7 @@ catch(PDOException $e)
             <div class="form-group">
              <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
-             <input type="text" name="phone" class="form-control" placeholder="Enter Your Phone Number" maxlength="40" value="<?php echo $phone ?>" />
+             <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter Your Phone Number" maxlength="40" value="<?php echo $phone ?>" />
                 </div>
                 <span class="text-danger"><?php echo $phoneError; ?></span>
             </div>
@@ -101,7 +101,7 @@ catch(PDOException $e)
             <div class="form-group">
              <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-             <input type="password" name="pass" class="form-control" placeholder="Enter Password" maxlength="15" />
+             <input type="password" id="pass" name="pass" class="form-control" placeholder="Enter Password" maxlength="15" />
                 </div>
                 <span class="text-danger"><?php echo $passError; ?></span>
             </div>
@@ -109,7 +109,7 @@ catch(PDOException $e)
            <div class="form-group">
              <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-             <input type="password" name="confirmpass" class="form-control" placeholder="Confirm Password" maxlength="15" />
+             <input type="password" id="confirmpass" name="confirmpass" class="form-control" placeholder="Confirm Password" maxlength="15" />
                 </div>
                 <span class="text-danger"><?php echo $passError; ?></span>
             </div>
