@@ -15,8 +15,8 @@ function EditInfo() {
 //temp function for updating account info
 //need to link to database to do updates
 function UpdateInfo() {
-    document.getElementById("firstname").readOnly = true;
-    document.getElementById("lastname").readOnly = true;
+    document.getElementById("fname").readOnly = true;
+    document.getElementById("fname").readOnly = true;
     document.getElementById("email").readOnly = true;
     document.getElementById("phone").readOnly = true;
     document.getElementById("pass").readOnly = true;
