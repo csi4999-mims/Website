@@ -15,7 +15,7 @@ require('lib.php');
 <title>Login System</title>
 <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css"  />
 <link rel="stylesheet" href="style.css" type="text/css" />
-<script src="js-register.js"></script>
+<script src="js-account.js"></script>
 </head>
 <body>
 
@@ -40,7 +40,7 @@ require('lib.php');
             <div class="form-group">
              <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-             <input id="f-name"type="text" name="first-name" class="form-control" placeholder="Bob" maxlength="50" readonly/>
+             <input id="fname"type="text" name="first-name" class="form-control" placeholder="Bob" maxlength="50" readonly/>
                 </div>
                 <span class="text-danger"><?php echo $nameError; ?></span>
             </div>
@@ -48,7 +48,7 @@ require('lib.php');
             <div class="form-group">
              <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-             <input id="l-name" type="text" name="last-name" class="form-control" placeholder="Smith" maxlength="50" readonly/>
+             <input id="lname" type="text" name="last-name" class="form-control" placeholder="Smith" maxlength="50" readonly/>
                 </div>
                 <span class="text-danger"><?php echo $nameError; ?></span>
             </div>
@@ -61,6 +61,14 @@ require('lib.php');
                 <span class="text-danger"><?php echo $emailError; ?></span>
             </div>
             
+            <div class="form-group">
+             <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
+             <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter Your Phone Number" maxlength="40" readonly />
+                </div>
+                <span class="text-danger"><?php echo $phoneError; ?></span>
+            </div>
+         
             <div class="form-group">
              <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
