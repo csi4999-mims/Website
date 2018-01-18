@@ -11,12 +11,12 @@ require('lib.php');
 
 <?php
 //Alex & Tyler
-$servername = "csi4999mims.online";
+//$servername = "csi4999mims.online";
 $username = "tcwatling";
 $password = "dankmemes";
-$databasename = "mims";
+//$databasename = "mims";
 try {
-    $conn = new PDO("mysql:host="$servername;"dbname="$databasename; $username, $password);
+    $conn = new PDO('mysql:host=csi4999mims.online;dbname=mims', $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Connected successfully"; 
