@@ -8,7 +8,6 @@
 require('lib.php');
 ?>
 
-
 <?php
 
 $site_root = $_SERVER['DOCUMENT_ROOT'];
