@@ -8,11 +8,10 @@
 require('lib.php');
 ?>
 
-
 <?php
 
-$site_root = $_SERVER['connection.php'];
-require_once("$site_root");
+$site_root = $_SERVER['DOCUMENT_ROOT'];
+require_once("$site_root/../connection.php");
 
 //"F" stands for "Form" because we are grabbing from a form
 $Email = $_POST['email'];
