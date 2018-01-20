@@ -8,26 +8,6 @@
 require('lib.php');
 ?>
 
-
-<?php
-//Alex & Tyler
-//$servername = "csi4999mims.online";
-$username = "tcwatling";
-$password = "dankmemes";
-//$databasename = "mims";
-try {
-    $conn = new PDO('mysql:host=50.116.24.189;port=3307;dbname=mims', $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully"; 
-    }
-catch(PDOException $e)
-    {
-    echo "Connection failed: " . $e->getMessage();
-    //echo "Connection Failed: " . $e->getCause();
-    }
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
