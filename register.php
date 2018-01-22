@@ -8,6 +8,27 @@
 require('lib.php');
 ?>
 
+<?php
+$sire_root = $_SERVER['DOCUMENT_ROOT'];
+require_once("$site_root/../connection.php");
+
+try {
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+    $phone = $_POST['phone'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    
+    $sql = "INSERT INTO profiles (firstname, lastname, email, pass, phone) VALUES ('" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $pass . "', '" . $phone . "')";
+    $conn->exec($sql);
+    $conn = null;
+    
+} catch(PDOException $e) {
+    echo $e->getMessage();
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +42,7 @@ require('lib.php');
 
  <div id="login-form">
      <!--need to add code to connect to the database-->
-    <form method="post" action="/home.php">
+    <form method="post" action="/register.php">
     
      <div class="col-md-12">
         
