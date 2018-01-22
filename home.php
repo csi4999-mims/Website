@@ -14,7 +14,7 @@ require_once("$site_root/../connection.php");
 
 try {
     $email = $_POST['email'];
-    $pass = $_POST9'pass'];
+    $pass = $_POST['pass'];
     $phone = $_POST['phone'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
