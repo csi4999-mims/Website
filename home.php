@@ -7,7 +7,7 @@
 //pulls in bootstrap and javascript
 require('lib.php');
 ?>
-
+  
 <!DOCTYPE html>
 <html>
 <head>
