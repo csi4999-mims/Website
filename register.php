@@ -9,7 +9,7 @@ require('lib.php');
 ?>
 
 <?php
-$sire_root = $_SERVER['DOCUMENT_ROOT'];
+$site_root = $_SERVER['DOCUMENT_ROOT'];
 require_once("$site_root/../connection.php");
 
 try {
