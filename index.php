@@ -9,40 +9,28 @@ require('lib.php');
 ?>
 
 <?php
-/*
 
 $site_root = $_SERVER['DOCUMENT_ROOT'];
 require_once("$site_root/../connection.php");
 
-if(isset($_POST['login'])) {
-    $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
-    passwordAttempt = !empty($_POST['pass']) ? trim($_POST['pass']) : null;
+if(isset($_POST['btn-login'])) {
+    $username = $_POST['email'];
+    $password = $_POST['pass'];
     
-    $sql = "SELECT email, pass FROM profiles where email = '" . $email . "'";
-    //$stmt = $pdo->prepare($sql);
-    //$stmt->bindValue(':email', $email);
-    $conn->exec($sql);
-    
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-    if($user === false) {
-        die('Incorrect username/password combination');
-        header('Location: index.php'); 
+    if(empty($username) || empty($password)) {
+        header('Location: /index.php');
     } else {
-        $validPassword = password_verify($passwordAttempt, $user['pass']);
-        if($validPassword) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['logged_in'] = time();
-            
-            header("Location: /home.php');
-            exit;
+        $sql = "SELECT email, pass FROM profiles WHERE email = '" . $username . "' AND pass = '" . $password . "';";
+        $stmt = $conn->query($sql);
+        
+        $count = $stmt->rowCount();
+        if($count > 0) {
+            header('Location: /home.php');
         } else {
-            die('Incorrect username/password combination');
             header('Location: /index.php');
         }
     }
-}
-*/
+}   
 ?>
 
 <!DOCTYPE html>
