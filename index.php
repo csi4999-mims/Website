@@ -47,7 +47,7 @@ if(isset($_POST['btn-login'])) {
 
  <div id="login-form">
      <!--need to add code to connect to the database-->
-    <form method="post" action="/home.php">
+    <form method="post" action="/index.php">
     
      <div class="col-md-12">
         
