@@ -18,7 +18,7 @@ if(isset($_POST['btn-login'])) {
     $password = $_POST['pass'];
     
     if(empty($username) || empty($password)) {
-        header('Location: /index.php');
+        echo "Please enter both an email and a password";
     } else {
         $sql = "SELECT email, pass FROM profiles WHERE email = '" . $username . "' AND pass = '" . $password . "';";
         $stmt = $conn->query($sql);
@@ -27,7 +27,7 @@ if(isset($_POST['btn-login'])) {
         if($count > 0) {
             header('Location: /home.php');
         } else {
-            header('Location: /index.php');
+            echo "Please enter valid login information";
         }
     }
 }   
