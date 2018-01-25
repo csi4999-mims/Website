@@ -25,6 +25,9 @@ if(isset($_POST['btn-login'])) {
         
         $count = $stmt->rowCount();
         if($count > 0) {
+            session_start();
+            $_SESSION['user'] = $username;
+            $_SESSION['loggedin'] = true;
             header('Location: /home.php');
         } else {
             echo "Please enter valid login information";
