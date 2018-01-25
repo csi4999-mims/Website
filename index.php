@@ -18,16 +18,19 @@ if(isset($_POST['btn-login'])) {
     $password = $_POST['pass'];
     
     if(empty($username) || empty($password)) {
-        header('Location: /index.php');
+        echo "Please enter both an email and a password";
     } else {
         $sql = "SELECT email, pass FROM profiles WHERE email = '" . $username . "' AND pass = '" . $password . "';";
         $stmt = $conn->query($sql);
         
         $count = $stmt->rowCount();
         if($count > 0) {
+            session_start();
+            $_SESSION['user'] = $username;
+            $_SESSION['loggedin'] = true;
             header('Location: /home.php');
         } else {
-            header('Location: /index.php');
+            echo "Please enter valid login information";
         }
     }
 }   

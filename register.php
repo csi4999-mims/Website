@@ -12,21 +12,32 @@ require('lib.php');
 $site_root = $_SERVER['DOCUMENT_ROOT'];
 require_once("$site_root/../connection.php");
 
-try {
-    $email = $_POST['email'];
-    $pass = $_POST['pass'];
-    $phone = $_POST['phone'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    
-    $sql = "INSERT INTO profiles (firstname, lastname, email, pass, phone) VALUES ('" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $pass . "', '" . $phone . "')";
-    $conn->exec($sql);
-    $conn = null;
-    
-} catch(PDOException $e) {
-    echo $e->getMessage();
-}
+if(isset($_POST['btn-signup'])) {
+    try {
+        $email = $_POST['email'];
+        $pass = $_POST['pass'];
+        $phone = $_POST['phone'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
 
+        if(empty($email) || empty($pass) || empty($phone) || empty($firstname) || empty($lastname)) {
+                echo "Please complete the registration form";
+        } else {
+            $query = "SELECT email FROM profiles where email = '" . $email . "'";
+            $stmt = $conn->query($query);
+            $count = $stmt->rowCount();
+            if($count == 1) {
+                echo "Email already in use. Please enter a new email";
+            } else {
+                $sql = "INSERT INTO profiles (firstname, lastname, email, pass, phone) VALUES ('" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $pass . "', '" . $phone . "')";
+                $conn->exec($sql);
+                $conn = null;
+            }
+        }
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+}
 ?>
 
 <!DOCTYPE html>
