@@ -19,7 +19,7 @@ try {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     
-    if(empty($email) || empty($pasS) || empty($phone) || empty($firstname) || empty($lastname)) {
+    if(empty($email) || empty($pass) || empty($phone) || empty($firstname) || empty($lastname)) {
             echo "Please complete the registration form";
     } else {
         $query = "SELECT email FROM profiles where email = '" . $email . "'";
