@@ -19,10 +19,20 @@ try {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     
-    $sql = "INSERT INTO profiles (firstname, lastname, email, pass, phone) VALUES ('" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $pass . "', '" . $phone . "')";
-    $conn->exec($sql);
-    $conn = null;
-    
+    if(empty($email) || empty($pasS) || empty($phone) || empty($firstname) || empty($lastname)) {
+            echo "Please complete the registration form";
+    } else {
+        $query = "SELECT email FROM profiles where email = '" . $email . "'";
+        $stmt = $conn->query($query);
+        $count = $stmt->rowCount();
+        if($count == 1) {
+            echo "Email already in use. Please enter a new email";
+        } else {
+            $sql = "INSERT INTO profiles (firstname, lastname, email, pass, phone) VALUES ('" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $pass . "', '" . $phone . "')";
+            $conn->exec($sql);
+            $conn = null;
+        }
+    }
 } catch(PDOException $e) {
     echo $e->getMessage();
 }
