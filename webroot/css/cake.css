@@ -319,15 +319,15 @@ pre {
 }
 
 .top-bar.expanded .title-area {
-    background: #01545b;
+    background: #000000;
 }
 
 .top-bar.expanded, .top-bar,.top-bar-section ul li,.top-bar-section li:not(.has-form) a:not(.button) {
-    background: #116d76;
+    background: #000000;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
-    background-color: #308e97;
+    background-color: #000000;
     background: #308e97;
 }
 
@@ -395,18 +395,18 @@ fieldset legend {
 }
 
 .form button[type="submit"] {
-    float: right;
+    float: left;
     text-transform: uppercase;
     box-shadow: none;
 }
 
 .form button:hover, .form button:focus {
-    background: #BE840B;
+    background: #808080;
     box-shadow: none;
 }
 
 button {
-    background: #966600;
+    background: #116D76;
 }
 
 div.message {
