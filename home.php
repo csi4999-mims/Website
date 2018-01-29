@@ -8,6 +8,19 @@
 require('lib.php');
 ?>
 
+<?php
+session_start();
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+  session_unset(); //Destroys any set variables
+  session_destroy(); //Destroys the existing session (Will be used for logging out)
+  //The two lines above this need to be removed once a logout button has been added. 
+  //They currently destroy the session information immediately after login. 
+  //Solely used to test the code
+} else {
+  header('Location: /index.php');
+}
+?>
+  
 <!DOCTYPE html>
 <html>
 <head>

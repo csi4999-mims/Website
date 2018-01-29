@@ -8,6 +8,34 @@
 require('lib.php');
 ?>
 
+<?php
+
+$site_root = $_SERVER['DOCUMENT_ROOT'];
+require_once("$site_root/../connection.php");
+
+if(isset($_POST['btn-login'])) {
+    $username = $_POST['email'];
+    $password = $_POST['pass'];
+    
+    if(empty($username) || empty($password)) {
+        echo "Please enter both an email and a password";
+    } else {
+        $sql = "SELECT email, pass FROM profiles WHERE email = '" . $username . "' AND pass = '" . $password . "';";
+        $stmt = $conn->query($sql);
+        
+        $count = $stmt->rowCount();
+        if($count > 0) {
+            session_start();
+            $_SESSION['user'] = $username;
+            $_SESSION['loggedin'] = true;
+            header('Location: /home.php');
+        } else {
+            echo "Please enter valid login information";
+        }
+    }
+}   
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +50,7 @@ require('lib.php');
 
  <div id="login-form">
      <!--need to add code to connect to the database-->
-    <form method="post" action="/home.php">
+    <form method="post" action="/index.php">
     
      <div class="col-md-12">
         
