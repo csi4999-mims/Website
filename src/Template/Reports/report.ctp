@@ -21,7 +21,7 @@
         echo $this->Form->input('SocialMedia', array('label' => 'Social Media Accounts', 'maxLength' => 50, 'title' => 'SocialMedia', 'type' => 'text'));
         echo $this->Form->input('additional', array('label' => 'Additional Information', 'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'text'));
 
-        echo $this->Form->submit('Submit', array('class' => 'form-submit',  'title' => 'Click here to submit the report') );
+        echo $this->Html->link("Next", array('controller' => 'Reports','action'=> 'report2'), array( 'class' => 'button'))
         ?>
     </fieldset>
     <?php echo $this->Form->end(); ?>

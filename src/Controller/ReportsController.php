@@ -15,5 +15,16 @@ class ReportsController extends AppController{
     public function report() {
         $this->render();
     }
+//function to render the second report page
+//functionality needs to be added
+    public function report2() {
+        $this->render();
+    }  
+//function to render the second report page
+//functionality needs to be added
+    public function report3() {
+        $this->render();
+    }  
+
 }
 ?>
