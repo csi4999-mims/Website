@@ -21,7 +21,11 @@ class UsersTable extends Table
             ->add('role', 'inList', [
                 'rule' => ['inList', ['admin', 'lawenforcement', 'thepublic']],
                 'message' => 'Please enter a valid role'
-            ]);
+            ])
+            ->add('ConfirmPassword', 'compareWith', [
+                'rule' => ['compareWith', 'password'],
+                'message' => 'Passwords do not match'
+            ];
     }
 
 }
