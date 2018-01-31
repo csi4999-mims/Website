@@ -2,32 +2,25 @@
 <!-- The syntax on this for pulling in user data needs to be verified --!>
 
 <div class="users form">
-    <?php echo $this->Form->create('$user'); ?>
+    <?php echo $this->Form->create('$user', [
+	'context' => ['validator' => 'default']
+    ]); ?>
     <fieldset>
         <legend><?php echo __('Edit User'); ?></legend>
         <?php
-        echo $this->Form->hidden('id', array('value' => $this->data['User']['id']));
-        echo $this->Form->input('username', array( 'readonly' => 'readonly', 'label' => 'Usernames 
-cannot be c$
-        echo $this->Form->input('email');
-        echo $this->Form->input('password_update', array( 'label' => 'New Password (leave empty if you 
-do not $
-        echo $this->Form->input('password_confirm_update', array('label' => 'Confirm New Password *', 
-'maxLeng$
-
-
-        echo $this->Form->input('role', array(
-            'options' => array('admin' => 'Admin', 'law enforcement' => 'Law Enforcement', 'public' => 
-'Public$
-        ));
-        echo $this->Form->submit('Edit User', array('class' => 'form-submit',  'title' => 'Click here 
-to add t$
+        echo $this->Form->input('FirstName', array('readonly' => 'readonly', 'label' => 'First Name', 'maxLength' => 30, 'title' => 'FirstName', 'type' => 'text'));
+        echo $this->Form->input('LastName', array('readonly' => 'readonly', 'label' => 'Last Name', 'maxLength' => 30, 'title' => 'LastName', 'type' => 'text'));
+        echo $this->Form->input('email', array('label' => 'Email', 'maxLength' => 20, 'title' => 'Email', 'type' => 'email'));
+        echo $this->Form->input('phone', array('label' => 'Phone', 'placeholder' => 'XXXXXXXXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'text'));
+        echo $this->Form->input('change_password', array('label' => 'Password', 'maxLength' => 255, 'title' => 'Password', 'type' => 'password'));
+        echo $this->Form->input('ChangeConfirmPassword', array('label' => 'Confirm Password', 'maxLength' => 255, 'title' => 'Confirm password', 'type'=>'password'));
+        echo $this->Form->submit('Update Account', array('class' => 'form-submit',  'title' => 'Click here to update the user account') );
         ?>
     </fieldset>
     <?php echo $this->Form->end(); ?>
 </div>
 <?php
-echo $this->Html->link( "Return to Dashboard",   array('action'=>'index') );
+echo $this->Html->link( "Return to Dashboard",   array('action'=>'home') );
 ?>
 <br/>
 <?php
