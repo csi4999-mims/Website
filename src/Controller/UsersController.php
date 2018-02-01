@@ -44,7 +44,7 @@ class UsersController extends AppController{
 //function used to edit a users information
 //login needs to be added to pull in the current users info
     public function edit() {
-        $this->loadComponent('Auth');
+        /*$this->loadComponent('Auth');*/
 
 $user =$this->Users->get($this->Auth->user('id'));
         if (!empty($this->request->data)) {
@@ -100,7 +100,7 @@ $user =$this->Users->get($this->Auth->user('id'));
 }
 
 
-//function for changing passwords
+//functions for changing passwords
 
    /* public function edit()
     {
@@ -124,7 +124,7 @@ $user =$this->Users->get($this->Auth->user('id'));
         $this->set('user',$user);
     }*/
 
-/*public function changePassword()
+/*public function edit()
     {
         $user = $this->Users->get($this->Auth->user('id'));
         

@@ -3,7 +3,7 @@
 
 <div class="users form">
     <?php echo $this->Form->create('$user', [
-	'context' => ['validator' => 'default']
+	'context' => ['validator' => 'edit']
     ]); ?>
     <fieldset>
         <legend><?php echo __('Edit User'); ?></legend>
