@@ -39,7 +39,7 @@ class UsersTable extends Table
                         $user = $this->get($context['data']['id']);
                         if($user)
                         {
-                            if((new CakeAuthDefaultPasswordHasher)->check($value, $user->password))
+                            if((new DefaultPasswordHasher)->check($value, $user->password))
                             {
                                 return true;
                             }

@@ -54,11 +54,11 @@ $user =$this->Users->get($this->Auth->user('id'));
                     'newpass'     => $this->request->data['newpass'],
                     'confpass'     => $this->request->data['confpass']
                 ],
-                ['validate' => 'password']
+                ['validate' => 'edit']
             );
             if ($this->Users->save($user)) {
                 $this->Flash->success('The password is successfully changed');
-                $this->redirect('/index');
+                $this->redirect('login');
             } else {
                 $this->Flash->error('There was an error during the save!');
             }
