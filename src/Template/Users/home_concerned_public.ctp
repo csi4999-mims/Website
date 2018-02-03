@@ -11,11 +11,28 @@
 echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
 ?>   
 </div>
-<br/>  
+<br/> 
+    
+<div id="open-case-info" style="background:#e6fff9">
+    <h2>Open Case</h2>
+    <div class="container">
+        <div>
+            <ul>
+                <li>Case Status:</li>
+                <li>Date Created:</li>
+                <li>Case Number:</li>
+                <li>Associated Officer(s):</li>
+                <li>Latest Update:</li>
+            </ul>
+        </div>
+    </div>
+</div>    
+<br/>
+    
 <div id="missing-person-info">
     <div class="container">
         <div id="basic-info">
-            <div class="row">
+            <div class="row" style="background:#e6fff9">
                 <div class="col-md-6">
                     <img src="/src/Template/Users/images/usericon.png" alt="this is the missing person image"> 
                 </div>  
@@ -31,8 +48,9 @@ echo $this->Html->link( "Logout",   array('action'=>'logout') );
                     </ul> 
                 </div>
             </div>
+            <br />
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" style="background:#e6fff9">
                     <img src="/src/Template/Users/images/usericon.png" alt="this is the missing person image"> 
                 </div>  
                 <div class="col-md-6">
