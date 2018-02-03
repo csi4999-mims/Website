@@ -15,5 +15,10 @@ class ReportsController extends AppController{
     public function report() {
         $this->render();
     }
+//function to view the detailed reports page
+    public function detailedReport() {
+        $this->render();
+    }
+    
 }
 ?>
