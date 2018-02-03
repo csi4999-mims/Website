@@ -47,6 +47,7 @@ class UsersController extends AppController{
         /*$this->loadComponent('Auth');*/
 
 $user =$this->Users->get($this->Auth->user('id'));
+        
         if (!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
                     'oldpass'  => $this->request->data['oldpass'],
@@ -58,9 +59,30 @@ $user =$this->Users->get($this->Auth->user('id'));
             );
             if ($this->Users->save($user)) {
                 $this->Flash->success('The password is successfully changed');
-                $this->redirect('login');
             } else {
                 $this->Flash->error('There was an error during the save!');
+            }
+        }
+        
+        if(!empty($this->request->data)) {
+            $user = $this->Users->patchEntity($user, [
+                'email' => $this->request->data['newemail'],
+            ]);
+            if ($this->Users->save($user)) {
+                $this->Flash->success('The email is successfully changed');
+            } else {
+                $this->Flash->error('Email was not saved');
+            }
+        }
+        
+        if(!empty($this->request->data)) {
+            $user = $this->Users->patchEntity($user, [
+                'phone' => $this->request->data['newphone'],
+                ]);
+            if ($this->Users->save($user)) {
+                $this->Flash->success('The Phone is successfully changed');
+            } else {
+                $this->Flash->error('Phone was not saved');
             }
         }
         $this->set('user',$user);

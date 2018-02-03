@@ -30,7 +30,7 @@ class UsersTable extends Table
     }
 
     
-//function used for validation on edit.ctop form fields
+//function used for validation on edit.ctp password form fields
   public function validationEdit(Validator $validator)
     {
         $validator
@@ -54,7 +54,7 @@ class UsersTable extends Table
                 ->add('newpass',[
                     'length' => [
                         'rule' => ['minLength',4],
-                        'message' => 'Please enter atleast 4 characters in password your password.'
+                        'message' => 'Please enter at least 4 characters in password your password.'
                     ]
                 ])
                 ->add('newpass',[
@@ -69,7 +69,7 @@ class UsersTable extends Table
                 ->add('confpass',[
                     'length' => [
                         'rule' => ['minLength',4],
-                        'message' => 'Please enter atleast 4 characters in password your password.'
+                        'message' => 'Please enter at least 4 characters in password your password.'
                     ]
                 ])
                 ->add('confpass',[
@@ -82,6 +82,8 @@ class UsersTable extends Table
         
         return $validator;
       
-    }      
+    }    
+    
+    
 }
 ?>
