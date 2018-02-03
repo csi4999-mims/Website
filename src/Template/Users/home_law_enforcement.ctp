@@ -17,48 +17,62 @@ echo $this->Html->link( "Logout",   array('action'=>'logout') );
     <th>Last Name</th>
     <th>DOB</th>
     <th>Date Submitted</th>
+    <th>Status</th>
+    <th>Approve Case</th>
   </tr>
   <tr>
-    <td><a href="">Insert Here</a></td>
+    <td><a href="/reports/detailed_report">Insert Here</a></td>
     <td>Insert Here</td>
     <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-  </tr>
-  <tr>
-    <td><a href="">Insert Here</a></td>
     <td>Insert Here</td>
     <td>Insert Here</td>
     <td>Insert Here</td>
     <td>Insert Here</td>
   </tr>
   <tr>
-    <td><a href="">Insert Here</a></td>
+    <td><a href="/reports/detailed_report">Insert Here</a></td>
     <td>Insert Here</td>
     <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-  </tr>
-  <tr>
-    <td><a href="">Insert Here</a></td>
     <td>Insert Here</td>
     <td>Insert Here</td>
     <td>Insert Here</td>
     <td>Insert Here</td>
   </tr>
   <tr>
-    <td><a href="">Insert Here</a></td>
+    <td><a href="/reports/detailed_report">Insert Here</a></td>
+    <td>Insert Here</td>
+    <td>Insert Here</td>
     <td>Insert Here</td>
     <td>Insert Here</td>
     <td>Insert Here</td>
     <td>Insert Here</td>
   </tr>
   <tr>
-    <td><a href="">Insert Here</a></td>
+    <td><a href="/reports/detailed_report">Insert Here</a></td>
     <td>Insert Here</td>
     <td>Insert Here</td>
     <td>Insert Here</td>
     <td>Insert Here</td>
+    <td>Insert Here</td>
+    <td>Insert Here</td>
+  </tr>
+  <tr>
+    <td><a href="/reports/detailed_report">Insert Here</a></td>
+    <td>Insert Here</td>
+    <td>Insert Here</td>
+    <td>Insert Here</td>
+    <td>Insert Here</td>
+    <td>Insert Here</td>
+    <td>Insert Here</td>
+  </tr>
+  <tr>
+    <td><a href="/reports/detailed_report">Insert Here</a></td>
+    <td>Insert Here</td>
+    <td>Insert Here</td>
+    <td>Insert Here</td>
+    <td>Insert Here</td>
+    <td>Insert Here</td>
+    <td><input id="checkBox" type="checkbox"></td>
   </tr>
 </table>
 </body>
