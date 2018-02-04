@@ -69,7 +69,7 @@ class AppController extends Controller
 //function to allow people to only access the login page and add(register) page if not logged in
 	public function beforeFilter(Event $event){
 		parent::beforeFilter($event);
-		$this->Auth->allow(['add','login']);
+		$this->Auth->allow(['add','login','forgotPassword', 'resetPassword']);
 	}
 }
 

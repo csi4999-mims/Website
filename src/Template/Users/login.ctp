@@ -22,6 +22,10 @@
     <?php
     echo $this->Html->link( "Add A New User",   array('action'=>'add') );
     ?>
+    <br/>
+    <?php
+    echo $this->Html->link( "Forgot Password?",   array('action'=>'forgot_password') );
+    ?>
 </div>
 </body>
 </html>

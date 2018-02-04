@@ -77,4 +77,14 @@ class UsersController extends AppController{
     public function logout() {
         return $this->redirect($this->Auth->logout());
     }
+    
+//function to send reset password email
+    public function forgotPassword(){
+        $this->render();
+    }
+//function to reset the users password
+    public function resetPassword() {
+        $this->render();
+    }
+    
 }
