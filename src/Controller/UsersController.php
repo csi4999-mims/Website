@@ -3,17 +3,17 @@ namespace App\Controller;
 use App\Controller\AppController;
 class UsersController extends AppController{
 
-//built in function of cakePHP
+    //built in function of cakePHP
     public $paginate = array(
         'limit' => 25,
         'conditions' => array('status' => '1'),
         'order' => array('User.username' => 'asc' )
     );
 
-//function to render home.ctp
-//login needs to be added to this for certain home page features
+    //function to render home.ctp
+    //login needs to be added to this for certain home page features
     public function home() {
-	$this->render();
+        $this->render();
     }
 
     public function view($id = null) {
@@ -24,7 +24,7 @@ class UsersController extends AppController{
         $this->set('user', $this->User->findById($id));
     }
 
-//function used to register a new user
+    //function used to register a new user
     public function add()
     {
         $user = $this->Users->newEntity();
@@ -40,27 +40,27 @@ class UsersController extends AppController{
         $this->set('user', $user);
     }
 
-//function used to edit a users information
-//login needs to be added to pull in the current users info
+    //function used to edit a users information
+    //login needs to be added to pull in the current users info
     public function edit() {
 
     }
 
-//function to delete a users account
-//logic needs to be added
-//UI features for delete need to be added
+    //function to delete a users account
+    //logic needs to be added
+    //UI features for delete need to be added
     public function delete($id = null) {
 
     }
 
-//function to reactivate deleted account
-//logic needs to be added 
-//dont even know if we want to use this
+    //function to reactivate deleted account
+    //logic needs to be added
+    //dont even know if we want to use this
     public function activate($id = null) {
 
     }
 
-//function to handle login functionality
+    //function to handle login functionality
     public function login()
     {
         if ($this->request->is('post')) {
@@ -73,18 +73,18 @@ class UsersController extends AppController{
         }
     }
 
-//function to handle logout functionality
+    //function to handle logout functionality
     public function logout() {
         return $this->redirect($this->Auth->logout());
     }
-    
-//function to send reset password email
+
+    //function to send reset password email
     public function forgotPassword(){
         $this->render();
     }
-//function to reset the users password
+    //function to reset the users password
     public function resetPassword() {
         $this->render();
     }
-    
+
 }
