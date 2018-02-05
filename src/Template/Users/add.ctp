@@ -1,6 +1,9 @@
-<!-- this is the register page --!>
-<!-- need to add 2nd factor of authentication for LE registration --!>
+<!DOCTYPE html>
+<html>
+<head>
 
+</head>
+<body>
 <div class="users form">
     <?php echo $this->Form->create('$user', [
 	'context' => ['validator' => 'default']
@@ -31,3 +34,5 @@ if($this->request->session()->check('Auth.User')){
     echo $this->Html->link( "Return to Login Screen",   array('action'=>'login') );
 }
 ?>
+</body>
+</html>

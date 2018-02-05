@@ -1,6 +1,9 @@
-<!-- This is the edit user info page -->
-<!-- The syntax on this for pulling in user data needs to be verified --!>
+<!DOCTYPE html>
+<html>
+<head>
 
+</head>
+<body>
 <div class="users form">
     <?php echo $this->Form->create('$user', [
 	'context' => ['validator' => 'edit']
@@ -27,3 +30,5 @@ echo $this->Html->link( "Return to Dashboard",   array('action'=>'home') );
 echo $this->Html->link( "Logout",   array('action'=>'logout') );
 ?>
 
+</body>
+</html>
