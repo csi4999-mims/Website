@@ -3,7 +3,7 @@
 
 <div class="report form">
     <?php echo $this->Form->create('$report', [
-	'context' => ['validator' => 'report']
+	'context' => ['validator' => 'report2']
     ]); ?>
     <fieldset>
         <legend><?php echo __('Family/Friend Information'); ?></legend>
