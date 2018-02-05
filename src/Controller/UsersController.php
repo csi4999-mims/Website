@@ -34,8 +34,9 @@ class UsersController extends AppController{
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
                 return $this->redirect(['action' => 'login']);
+            }else{
+                $this->Flash->error(__('Unable to add the user.'));
             }
-            $this->Flash->error(__('Unable to add the user.'));
         }
         $this->set('user', $user);
     }
@@ -43,7 +44,49 @@ class UsersController extends AppController{
 //function used to edit a users information
 //login needs to be added to pull in the current users info
     public function edit() {
-
+        /*$this->loadComponent('Auth');*/
+        
+        $this->set(compact('user'));
+        $user =$this->Users->get($this->Auth->user('id'));
+        
+        if (!empty($this->request->data)) {
+            $user = $this->Users->patchEntity($user, [
+                    'oldpass'  => $this->request->data['oldpass'],
+                    'password'      => $this->request->data['newpass'],
+                    'newpass'     => $this->request->data['newpass'],
+                    'confpass'     => $this->request->data['confpass']
+                ],
+                ['validate' => 'edit']
+            );
+            if ($this->Users->save($user)) {
+                $this->Flash->success('The password is successfully changed');
+            } else {
+                $this->Flash->error('There was an error during the save!');
+            }
+        }
+        
+        if(!empty($this->request->data)) {
+            $user = $this->Users->patchEntity($user, [
+                'email' => $this->request->data['newemail'],
+            ]);
+            if ($this->Users->save($user)) {
+                $this->Flash->success('The email is successfully changed');
+            } else {
+                $this->Flash->error('Email was not saved');
+            }
+        }
+        
+        if(!empty($this->request->data)) {
+            $user = $this->Users->patchEntity($user, [
+                'phone' => $this->request->data['newphone'],
+                ]);
+            if ($this->Users->save($user)) {
+                $this->Flash->success('The Phone is successfully changed');
+            } else {
+                $this->Flash->error('Phone was not saved');
+            }
+        }
+        $this->set('user',$user);
     }
 
 //function to delete a users account
@@ -78,3 +121,60 @@ class UsersController extends AppController{
         return $this->redirect($this->Auth->logout());
     }
 }
+
+
+//functions for changing passwords
+
+   /* public function edit()
+    {
+        $user =$this->Users->get($this->Auth->user('id'));
+        if (!empty($this->request->data)) {
+            $user = $this->Users->patchEntity($user, [
+                    'oldpass'  => $this->request->data['oldpass'],
+                    'password'      => $this->request->data['newpass'],
+                    'newpass'     => $this->request->data['newpass'],
+                    'confpass'     => $this->request->data['confpass']
+                ],
+                ['validate' => 'password']
+            );
+            if ($this->Users->save($user)) {
+                $this->Flash->success('The password is successfully changed');
+                $this->redirect('/index');
+            } else {
+                $this->Flash->error('There was an error during the save!');
+            }
+        }
+        $this->set('user',$user);
+    }*/
+
+/*public function edit()
+    {
+        $user = $this->Users->get($this->Auth->user('id'));
+        
+        if(!empty($this->request->data))
+        {
+            $user = $this->Users->patchEntity($user, [
+                    'oldpass'      => $this->request->data['oldpass'],
+                    'password'          => $this->request->data['newpass'],
+                    'newpass'      => $this->request->data['newpass'],
+                    'confpass'  => $this->request->data['confpass']
+                ],
+                    ['validate' => 'password']
+                
+            );
+            
+            if($this->Users->save($user))
+            {
+                $this->Flash->success('Your password has been changed successfully');
+                //Email code
+                $this->redirect(['action'=>'view']);
+            }
+            else
+            {
+                $this->Flash->error('Error changing password. Please try again!');
+            }
+            
+        }
+        
+        $this->set('user',$user);
+    }*/
