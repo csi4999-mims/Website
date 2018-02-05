@@ -8,6 +8,10 @@ use Cake\Auth\DefaultPasswordHasher;
 class UsersTable extends Table
 {
 
+    public function initialize(array $config){
+        
+    }
+    
 //function to add validation to add.ctp form fields
 //need to add additonal valition for each specific field still
     public function validationDefault(Validator $validator)

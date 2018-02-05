@@ -45,8 +45,9 @@ class UsersController extends AppController{
 //login needs to be added to pull in the current users info
     public function edit() {
         /*$this->loadComponent('Auth');*/
-
-$user =$this->Users->get($this->Auth->user('id'));
+        
+        $this->set(compact('user'));
+        $user =$this->Users->get($this->Auth->user('id'));
         
         if (!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
