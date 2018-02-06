@@ -13,15 +13,15 @@ class UsersTable extends Table
         return $validator
             ->notEmpty('FirstName', 'A first name is required')
 			->notEmpty('LastName', 'A last name is required')
-			->notEmpty('gender', 'A gender is required')
-			->notempty('ethinicity', 'An ethnicity is required')
+			->notEmpty('Gender', 'A gender is required')
+			->notempty('Ethinicity', 'An ethnicity is required')
 			->notEmpty('EyeColor', 'An eye color is required')
 			->notEmpty('HairColor', 'A hair color is required')
 			//->notEmpty('marks', 'Marks are required?') This should be allowed to be null.
-			->notEmpty('weight', 'Please enter a weight for the missing person')
-			->notEmpty('height', 'Please enter a height for the missing person')
-			->notEmpty('dob', 'Please enter a date of bitch')
-			->notEmpty('phone', 'Please enter a phone number for the missing person')
+			->notEmpty('Weight', 'Please enter a weight for the missing person')
+			->notEmpty('Height', 'Please enter a height for the missing person')
+			->notEmpty('DoB', 'Please enter a date of bitch')
+			->notEmpty('Phone', 'Please enter a phone number for the missing person')
 			//->notEmpty('SocialMedia', 'Please enter the missing persons social media account information')
 			//->notEmpty('additional', 'Please enter any additional information') This should be allowed to be null
             

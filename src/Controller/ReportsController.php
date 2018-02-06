@@ -13,22 +13,24 @@ class ReportsController extends AppController{
 //function to render report page
 //functionality needs to be added
     public function report() {
-        
-        $mp = $this->missingpersons->newEntity();
-		if ($this->request->is('post')) {
+        $this->loadModel('Users');
+        $this->set(compact('user'));
+        $user =$this->Users->get($this->Auth->user('id'));
+        $report = $this->Reports->newEntity();
+        if ($this->request->is('post')) {
+            // Prior to 3.4.0 $this->request->data() was used.
+            $report = $this->Reports->patchEntity($report, $this->request->getData());
+            if ($this->Reports->save($report)) {
+                $this->Flash->success(__('The report has been saved.'));
+                return $this->redirect(array('controller' => 'Users', 'action' => 'home_concerned_public'));
+            }else{
+                $this->Flash->error(__('Unable to add the report.'));
+            }
             
-			$mp = $this->missingpersons->patchEntity($mp, $this->request->getData());
-            
-			if ($this->missingpersons->save($mp)) {
-				$this->Flash->success(__('This missing person has been added.'));
-				return $this->redirect(['action' => 'report2']);
-			}
-			$this->Flash->error(__('Unable to add missing person.'));
-		}
-		$this->set('missingpersons', $mp); 
+        }
+        $this->set('report', $report);
 
     }
-//        $this->render();
     
 //function to render the second report page
 //functionality needs to be added
