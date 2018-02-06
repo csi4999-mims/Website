@@ -21,7 +21,7 @@ class UsersTable extends Table
 			->notEmpty('Weight', 'Please enter a weight for the missing person')
 			->notEmpty('Height', 'Please enter a height for the missing person')
 			->notEmpty('DoB', 'Please enter a date of bitch')
-			->notEmpty('Phone', 'Please enter a phone number for the missing person')
+			->notEmpty('Phone', 'Please enter a phone number for the missing person');
 			//->notEmpty('SocialMedia', 'Please enter the missing persons social media account information')
 			//->notEmpty('additional', 'Please enter any additional information') This should be allowed to be null
             
@@ -40,7 +40,7 @@ class UsersTable extends Table
          ->notempty('State', 'A State is required')
          ->notempty('Zip', 'A Zip Code is reqired')
          ->notempty('Phone', 'A Phone Number is required')
-         ->notempty('Email', 'An Email is required')
+         ->notempty('Email', 'An Email is required');
          
 
     }
@@ -55,7 +55,7 @@ class UsersTable extends Table
             ->notempty('City','A city is required')
             ->notempty('State','A state is required')
             ->notempty('Zip','A Zip Code is required')
-            ->notempty('Email','An Email is requred')
+            ->notempty('Email','An Email is requred');
                         
     }
 }
