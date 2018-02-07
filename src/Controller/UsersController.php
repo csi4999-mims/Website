@@ -12,11 +12,13 @@ class UsersController extends AppController{
 
     //function to render home.ctp
     //login needs to be added to this for certain home page features
-    public function home() {
+    public function home()
+    {
         $this->render();
     }
 
-    public function view($id = null) {
+    public function view($id = null)
+    {
         $this->User->id = $id;
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
@@ -42,21 +44,24 @@ class UsersController extends AppController{
 
     //function used to edit a users information
     //login needs to be added to pull in the current users info
-    public function edit() {
+    public function edit()
+    {
 
     }
 
     //function to delete a users account
     //logic needs to be added
     //UI features for delete need to be added
-    public function delete($id = null) {
+    public function delete($id = null)
+    {
 
     }
 
     //function to reactivate deleted account
     //logic needs to be added
     //dont even know if we want to use this
-    public function activate($id = null) {
+    public function activate($id = null)
+    {
 
     }
 
@@ -74,16 +79,20 @@ class UsersController extends AppController{
     }
 
     //function to handle logout functionality
-    public function logout() {
+    public function logout()
+    {
         return $this->redirect($this->Auth->logout());
     }
 
     //function to send reset password email
-    public function forgotPassword(){
+    public function forgotPassword()
+    {
         $this->render();
     }
+
     //function to reset the users password
-    public function resetPassword() {
+    public function resetPassword()
+    {
         $this->render();
     }
 
