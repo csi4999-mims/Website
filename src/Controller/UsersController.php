@@ -17,6 +17,7 @@ class UsersController extends AppController{
         $this->render();
     }
 
+    // Candidate for deletion
     public function view($id = null)
     {
         $this->User->id = $id;
