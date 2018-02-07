@@ -121,6 +121,7 @@ class UsersController extends AppController{
                 $this->Auth->setUser($user);
                 return $this->redirect(array('action' => 'home'));
             }
+            // Is the following line supposed to be part of an else?  -MR
             $this->Flash->error(__('Invalid username or password, try again'));
         }
     }
