@@ -5,9 +5,9 @@ class UsersController extends AppController{
 
     //built in function of cakePHP
     public $paginate = array(
-        'limit' => 25,
+        'limit'      => 25,
         'conditions' => array('status' => '1'),
-        'order' => array('User.username' => 'asc' )
+        'order'      => array('User.username' => 'asc' )
     );
 
     //function to render home.ctp
@@ -16,7 +16,8 @@ class UsersController extends AppController{
     {
         $this->render();
     }
-//concerned public home page
+
+    //concerned public home page
     public function homeConcernedPublic() {
         $this->render();
     }
@@ -41,37 +42,36 @@ class UsersController extends AppController{
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
                 return $this->redirect(['action' => 'login']);
-            }else{
+            } else {
                 $this->Flash->error(__('Unable to add the user.'));
             }
         }
         $this->set('user', $user);
     }
 
-//function used to edit a users information
-//login needs to be added to pull in the current users info
-    public function edit() {
+    //function used to edit a users information
+    //login needs to be added to pull in the current users info
+    public function edit()
+    {
         /*$this->loadComponent('Auth');*/
-        
+
         $this->set(compact('user'));
         $user =$this->Users->get($this->Auth->user('id'));
-        
+
         if (!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
-                    'oldpass'  => $this->request->data['oldpass'],
-                    'password'      => $this->request->data['newpass'],
-                    'newpass'     => $this->request->data['newpass'],
-                    'confpass'     => $this->request->data['confpass']
-                ],
-                ['validate' => 'edit']
-            );
+                'oldpass'  => $this->request->data['oldpass'],
+                'password' => $this->request->data['newpass'],
+                'newpass'  => $this->request->data['newpass'],
+                'confpass' => $this->request->data['confpass']
+            ], ['validate' => 'edit']);
             if ($this->Users->save($user)) {
                 $this->Flash->success('The password is successfully changed');
             } else {
                 $this->Flash->error('There was an error during the save!');
             }
         }
-        
+
         if(!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
                 'email' => $this->request->data['newemail'],
@@ -82,18 +82,18 @@ class UsersController extends AppController{
                 $this->Flash->error('Email was not saved');
             }
         }
-        
+
         if(!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
                 'phone' => $this->request->data['newphone'],
-                ]);
+            ]);
             if ($this->Users->save($user)) {
                 $this->Flash->success('The Phone is successfully changed');
             } else {
                 $this->Flash->error('Phone was not saved');
             }
         }
-        $this->set('user',$user);
+        $this->set('user', $user);
     }
 
     //function to delete a users account
