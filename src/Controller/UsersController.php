@@ -18,7 +18,8 @@ class UsersController extends AppController{
     
 //concerned public home page
     public function homeConcernedPublic() {
-        $this->render();
+        $user =$this->Users->get($this->Auth->user('id'));
+        $this->set('user',$user);
     }
 
     public function view($id = null) {
