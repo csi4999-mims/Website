@@ -14,7 +14,7 @@ echo $this->Html->link( "Logout",   array('action'=>'logout') );
 <br/>  
 <div>
  <?php 
-echo $this->Html->link( "Submit Report",   array('action'=>'/reports/report') ); 
+echo $this->Html->link( "Submit Report",   array('controller' => 'Users', 'action' => 'home_concerned_public') ); 
 ?>   
 </div>
 <br/>
