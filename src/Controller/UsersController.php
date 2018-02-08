@@ -13,36 +13,37 @@ class UsersController extends AppController{
 //function to render home.ctp
 //login needs to be added to this for certain home page features
     public function home() {
-	$this->render();
-    }
-    
-//concerned public home page
-    public function homeConcernedPublic() {
-        $user =$this->Users->get($this->Auth->user('id'));
-        $this->set('user',$user);
+	     $this->render();
     }
 
-    public function view($id = null) {
-        $this->User->id = $id;
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
-        }
-        $this->set('user', $this->User->findById($id));
+//concerned public home page
+    public function homeConcernedPublic() {
+      //these two lines of code load the Users model to be used in the view
+        $user =$this->Users->get($this->Auth->user('id'));
+        $this->set('user',$user);
     }
 
 //function used to register a new user
     public function add()
     {
+      //creates a new User entity (model)
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
-            // Prior to 3.4.0 $this->request->data() was used.
+            //grab the data from the form and set the data to the user model
             $user = $this->Users->patchEntity($user, $this->request->getData());
+            //save the users data
             if ($this->Users->save($user)) {
+              //display success message
                 $this->Flash->success(__('The user has been saved.'));
+                //redirect the user to the login page
                 return $this->redirect(['action' => 'login']);
             }
-            $this->Flash->error(__('Unable to add the user.'));
+            else{
+              //display error message
+              $this->Flash->error(__('Unable to add the user.'));
+            }
         }
+        //set the user model
         $this->set('user', $user);
     }
 
@@ -60,7 +61,7 @@ class UsersController extends AppController{
     }
 
 //function to reactivate deleted account
-//logic needs to be added 
+//logic needs to be added
 //dont even know if we want to use this
     public function activate($id = null) {
 
@@ -70,12 +71,18 @@ class UsersController extends AppController{
     public function login()
     {
         if ($this->request->is('post')) {
+          //identify if the user is in the databse
             $user = $this->Auth->identify();
             if ($user) {
+              //set the user model based on the login info
                 $this->Auth->setUser($user);
+                //redirect to the home page
                 return $this->redirect(array('action' => 'home'));
             }
-            $this->Flash->error(__('Invalid username or password, try again'));
+            else{
+              //display an error message
+                $this->Flash->error(__('Invalid username or password, try again'));
+            }
         }
     }
 
