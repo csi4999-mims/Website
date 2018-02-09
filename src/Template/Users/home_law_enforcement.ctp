@@ -4,12 +4,8 @@
 
 </head>
 <body>
-<h1> Welcome to the Home Page </h1>
+  <h1> Welcome <span class="display-user"><?php echo $this->Form->label('FirstName', array('value' => $user->get('FirstName'))); ?></span></h1>
 <br/>
-<?php 
-echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
-?>
-
 <table>
   <tr>
     <th>Report Number</th>
@@ -21,55 +17,10 @@ echo $this->Html->link( "Logout",   array('action'=>'logout') );
     <th>Approve Case</th>
   </tr>
   <tr>
-    <td><a href="/reports/detailed_report">Insert Here</a></td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-  </tr>
-  <tr>
-    <td><a href="/reports/detailed_report">Insert Here</a></td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-  </tr>
-  <tr>
-    <td><a href="/reports/detailed_report">Insert Here</a></td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-  </tr>
-  <tr>
-    <td><a href="/reports/detailed_report">Insert Here</a></td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-  </tr>
-  <tr>
-    <td><a href="/reports/detailed_report">Insert Here</a></td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-  </tr>
-  <tr>
-    <td><a href="/reports/detailed_report">Insert Here</a></td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
+    <td><a href="/reports/detailed_report"><?php echo $this->Form->label('CaseNumber', array('value' => $report->get('CaseNumber'))); ?></a></td>
+    <td><?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></td>
+    <td><?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></td>
+    <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
     <td>Insert Here</td>
     <td>Insert Here</td>
     <td><input id="checkBox" type="checkbox"></td>

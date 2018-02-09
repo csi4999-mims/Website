@@ -18,7 +18,18 @@ class UsersController extends AppController{
     }
 //law enforcement home page
     public function homeLawEnforcement() {
-        
+      //load the user model
+      $user =$this->Users->get($this->Auth->user('id'));
+      //set the user model
+      $this->set('user',$user);
+      //load the report model
+      $this->loadModel('Reports');
+      //get all rows in reports table in db
+      $report = $this->Reports->get('all');
+      //set report model
+      //only loads one report still
+      //need to work on loading multiple
+      $this->set('report',$report);
     }
 
     public function view($id = null) {
