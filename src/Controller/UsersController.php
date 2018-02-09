@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 use App\Controller\AppController;
+use App\Controller\ReportsController;
 class UsersController extends AppController{
 
 //built in function of cakePHP
@@ -13,11 +14,11 @@ class UsersController extends AppController{
 //function to render home.ctp
 //login needs to be added to this for certain home page features
     public function home() {
-	$this->render();
+	     $this->render();
     }
 //law enforcement home page
     public function homeLawEnforcement() {
-        $this->render();
+        
     }
 
     public function view($id = null) {
@@ -58,7 +59,7 @@ class UsersController extends AppController{
     }
 
 //function to reactivate deleted account
-//logic needs to be added 
+//logic needs to be added
 //dont even know if we want to use this
     public function activate($id = null) {
 
