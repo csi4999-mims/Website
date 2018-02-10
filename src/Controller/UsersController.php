@@ -138,7 +138,11 @@ class UsersController extends AppController
     //function to send reset password email
     public function forgotPassword()
     {
-        $this->render();
+        $email = new Email('default');
+        $email->from(['mims@csi4999mims.online' => 'My Site'])
+              ->to('mbroe@oakland.edu')
+              ->subject('Test')
+              ->send('This is just a test');
     }
 
     //function to reset the users password
