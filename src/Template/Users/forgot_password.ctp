@@ -14,7 +14,7 @@
             <fieldset>
                 <?php
                 echo $this->Form->input('email', array(
-                    'label'     => 'Email',
+                    'label'     => 'Email address',
                     'maxLength' => 20,
                     'title'     => 'Email',
                     'type'      => 'email')
