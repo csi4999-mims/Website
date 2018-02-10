@@ -139,10 +139,10 @@ class UsersController extends AppController
     public function forgotPassword()
     {
         $email = new Email('default');
-        $email->from(['mims@csi4999mims.online' => 'MIMS'])
+        $email->setFrom(['mims@csi4999mims.online' => 'MIMS'])
               ->setSender('mims@csi4999mims.online', 'MIMS')
-              ->to('mbroe@oakland.edu')
-              ->subject('Test')
+              ->setTo('mbroe@oakland.edu')
+              ->setSubject('Test')
               ->send('This is just a test');
     }
 
