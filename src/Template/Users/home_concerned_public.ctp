@@ -4,73 +4,43 @@
 
 </head>
 <body>
-<h1> Welcome to the Home Page </h1>
-<br/>
-<div>
- <?php 
-echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
-?>   
+<div class="page-header">
+    <h1> Welcome <span class="display-user"><?php echo $this->Form->label('FirstName', array('value' => $user->get('FirstName'))); ?></span></h1>
 </div>
-<br/>  
-<div>
- <?php 
-echo $this->Html->link( "Submit Report",   array('controller' => 'Users', 'action' => 'home_concerned_public') ); 
-?>   
-</div>
-<br/>
 
-<div id="open-case-info" style="background:#e6fff9">
-    <h2>Open Case</h2>
-    <div class="container">
-        <div>
-            <ul>
-                <li>Case Status:</li>
-                <li>Date Created:</li>
-                <li>Case Number:</li>
-                <li>Associated Officer(s):</li>
-                <li>Latest Update:</li>
-            </ul>
+<div id="display-missing" class="container-fluid">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">My Case</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li>Case Status:</li>
+                    <li>Date Created:</li>
+                    <li>Case Number:</li>
+                    <li>Associated Officer(s):</li>
+                    <li>Latest Update:</li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>    
-<br/>
-    
-<div id="missing-person-info">
-    <div class="container">
-        <div id="basic-info">
-            <div class="row" style="background:#e6fff9">
-                <div class="col-md-6">
-                    <img src="/src/Template/Users/images/usericon.png" alt="this is the missing person image"> 
-                </div>  
-                <div class="col-md-6">
-                    <ul>
-                        <li>Name:</li>
-                        <li>Age:</li>
-                        <li>Height:</li>
-                        <li>Weight:</li>
-                        <li>Marks/Tattoos:</li>
-                        <li>Gender:</li>
-                        <li>Last Seen:</li>
-                    </ul> 
-                </div>
-            </div>
-            <br/>
-            <div class="row" style="background:#e6fff9">
-                <div class="col-md-6">
-                    <img src="/src/Template/Users/images/usericon.png" alt="this is the missing person image"> 
-                </div>  
-                <div class="col-md-6">
-                    <ul>
-                        <li>Name:</li>
-                        <li>Age:</li>
-                        <li>Height:</li>
-                        <li>Weight:</li>
-                        <li>Marks/Tattoos:</li>
-                        <li>Gender:</li>
-                        <li>Last Seen:</li>
-                    </ul> 
-                </div>
-            </div>
+</div>
+<div id="display-missing" class="container-fluid">
+    <div class="row well">
+        <div class="col-md-6">
+            <?php echo $this->Html->image('usericon.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
+        </div>  
+        <div class="col-md-6">
+            <ul>
+                <li>Name:</li>
+                <li>Age:</li>
+                <li>Height:</li>
+                <li>Weight:</li>
+                <li>Marks/Tattoos:</li>
+                <li>Gender:</li>
+                <li>Last Seen:</li>
+            </ul> 
         </div>
     </div>
 </div>
