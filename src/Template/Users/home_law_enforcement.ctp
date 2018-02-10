@@ -16,15 +16,18 @@
     <th>Status</th>
     <th>Approve Case</th>
   </tr>
-  <tr>
-    <td><a href="/reports/detailed_report"><?php echo $this->Form->label('CaseNumber', array('value' => $report->get('CaseNumber'))); ?></a></td>
-    <td><?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></td>
-    <td><?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></td>
-    <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
-    <td>Insert Here</td>
-    <td>Insert Here</td>
-    <td><input id="checkBox" type="checkbox"></td>
-  </tr>
+  <!--create a new row in html table for each row in the reports array -->
+  <?php foreach ($reports as $report): ?>
+    <tr>
+      <td><a href="/reports/detailed_report"><?php echo $this->Form->label('CaseNumber', array('value' => $report->get('CaseNumber'))); ?></a></td>
+      <td><?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></td>
+      <td><?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></td>
+      <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
+      <td>Insert Here</td>
+      <td>Insert Here</td>
+      <td><input id="checkBox" type="checkbox"></td>
+    </tr>
+  <?php endforeach; ?>
 </table>
 </body>
 </html>
