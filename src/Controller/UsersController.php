@@ -84,7 +84,15 @@ class UsersController extends AppController{
             $user = $this->Auth->identify();
             if ($user) {
                 $this->Auth->setUser($user);
-                return $this->redirect(array('action' => 'home'));
+                if ( $user['role'] == 'thepublic'){
+                  return $this->redirect(array('action' => 'home_concerned_public'));
+                }
+                elseif ( $user['role'] == 'lawenforcement'){
+                  return $this->redirect(array('action' => 'home_law_enforcement'));
+                }
+                else {
+                  return $this->redirect(array('action' => 'login'));
+                }
             }
             $this->Flash->error(__('Invalid username or password, try again'));
         }

@@ -10,6 +10,8 @@ class Report extends Entity
       '*' => true,
       'Report_ID' => false,
       'CaseNumber' => true,
+      'status' => true,
+      'DateCreated' => true,
       'SubmitterEmail' => true,
       'FirstName' => true,
       'LastName' => true,
