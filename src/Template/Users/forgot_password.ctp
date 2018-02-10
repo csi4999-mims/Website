@@ -1,39 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
 
-    </head>
-    <body>
-
-        <div class="users form">
-            <?php echo $this->Form->create('$user', [
-                'context' => ['validator' => 'edit']
-            ]); ?>
-            <fieldset>
-                <legend><?php echo __('Reset Password'); ?></legend>
-                <?php
-                echo $this->Form->input('newpass',
-                                        array('label'     => 'Password',
-                                              'maxLength' => 255,
-                                              'title'     => 'Password',
-                                              'type'      => 'password')
-                );
-
-                echo $this->Form->input('confpass',
-                                        array('label'     => 'Confirm Password',
-                                              'maxLength' => 255,
-                                              'title'     => 'Confirm password',
-                                              'type'      => 'password')
-                );
-
-                echo $this->Form->submit('Reset Password',
-                                         array('class' => 'form-submit',
-                                               'title' => 'Click here to reset your password')
-                );
-                ?>
-            </fieldset>
-            <?php echo $this->Form->end(); ?>
-        </div>
-
-    </body>
+</head>
+<body>
+    <div>
+        <h1>Forgot Password</h1>
+        <h3>An email with a reset link will be sent to your email</h3>
+    </div>
+    <div class="reset form">
+    <?php echo $this->Form->create('$user'); ?>
+    <fieldset>
+        <?php
+        echo $this->Form->input('email', array('label' => 'Email', 'maxLength' => 20, 'title' => 'Email', 'type' => 'email'));
+        echo $this->Form->submit('Send Email', array('class' => 'form-submit',  'title' => 'Click here to send recovery email') );
+        ?>
+    </fieldset>
+    <?php echo $this->Form->end(); ?>
+</div>
+</body>
 </html>
