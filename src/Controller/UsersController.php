@@ -142,7 +142,7 @@ class UsersController extends AppController
         $email->setFrom(['mims@csi4999mims.online' => 'MIMS'])
               ->setSender('mims@csi4999mims.online', 'MIMS')
               ->setTo('mbroe@oakland.edu')
-              ->setSubject('Test')
+              ->setSubject('MIMS: Forgot your password?')
               ->send('This is just a test');
     }
 
