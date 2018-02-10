@@ -6,6 +6,7 @@ use Cake\ORM\Entity;
 
 class User extends Entity
 {
+
   protected $_accessible = [
     '*' => true,
     'id' => false,
@@ -16,6 +17,7 @@ class User extends Entity
     'password' => true,
     'role' => true,
   ];
+
 //function to hash the password field
 //this uses default hasing
 //we can choose a different kind of hashing if we want
