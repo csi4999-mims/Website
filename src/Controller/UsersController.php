@@ -138,12 +138,21 @@ class UsersController extends AppController
     //function to send reset password email
     public function forgotPassword()
     {
-        $email = new Email('default');
-        $email->setFrom(['mims@csi4999mims.online' => 'MIMS'])
-              ->setSender('mims@csi4999mims.online', 'MIMS')
-              ->setTo($this->Form->label('Email address'))
-              ->setSubject('MIMS: Forgot your password?')
-              ->send('This is just a test');
+        // Did they click the submit button?
+        if ($this->request->is('post')) {
+            // Did they provide an email address?
+            if (empty($this->request->data['email'])) {
+                $this->Flash->error('Please provide an email address');
+            } else {
+                $email = new Email('default');
+                $message = 'Please click the link below or copy and paste it into your browser to reset your password.';
+                $email->setFrom(['mims@csi4999mims.online' => 'MIMS'])
+                      ->setSender('mims@csi4999mims.online', 'MIMS')
+                      ->setTo($this->request->data['email'])
+                      ->setSubject('MIMS: Forgot your password?')
+                      ->send($message);
+            }
+        }
     }
 
     //function to reset the users password
