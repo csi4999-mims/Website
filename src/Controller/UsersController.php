@@ -141,7 +141,7 @@ class UsersController extends AppController
         $email = new Email('default');
         $email->setFrom(['mims@csi4999mims.online' => 'MIMS'])
               ->setSender('mims@csi4999mims.online', 'MIMS')
-              ->setTo('mbroe@oakland.edu')
+              ->setTo($this->Form->label('Email address'))
               ->setSubject('MIMS: Forgot your password?')
               ->send('This is just a test');
     }
