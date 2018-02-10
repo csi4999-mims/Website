@@ -31,6 +31,12 @@ class ReportsController extends AppController{
         $this->set('report', $report);
 
     }
+
+//function to view the detailed reports page
+    public function detailedReport() {
+        $this->render();
+    }
+    
     
 //function to render the second report page
 //functionality needs to be added

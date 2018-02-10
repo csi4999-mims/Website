@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 use App\Controller\AppController;
+use App\Controller\ReportsController;
 class UsersController extends AppController{
 
 //built in function of cakePHP
@@ -15,9 +16,21 @@ class UsersController extends AppController{
     public function home() {
 	     $this->render();
     }
-//concerned public home page
-    public function homeConcernedPublic() {
-        $this->render();
+//law enforcement home page
+    public function homeLawEnforcement() {
+      //Load the user model
+      $user =$this->Users->get($this->Auth->user('id'));
+      $this->set('user',$user);
+      //load the report model
+      $this->loadModel('Reports');
+      //get all rows in reports table in db
+      $reports = $this->Reports
+        ->find()
+        //grab all of the rows in the reports table in db
+        ->where(['Report_ID >=' => 0])
+        ->toArray();
+      //set report model
+      $this->set('reports', $reports);
     }
 
 //concerned public home page
@@ -122,8 +135,15 @@ class UsersController extends AppController{
             if ($user) {
               //set the user model based on the login info
                 $this->Auth->setUser($user);
-                //redirect to the home page
-                return $this->redirect(array('action' => 'home'));
+                if ( $user['role'] == 'thepublic'){
+                  return $this->redirect(array('action' => 'home_concerned_public'));
+                }
+                elseif ( $user['role'] == 'lawenforcement'){
+                  return $this->redirect(array('action' => 'home_law_enforcement'));
+                }
+                else {
+                  return $this->redirect(array('action' => 'login'));
+                }
             }
             else{
               //display an error message
@@ -138,59 +158,3 @@ class UsersController extends AppController{
     }
 }
 
-
-//functions for changing passwords
-
-   /* public function edit()
-    {
-        $user =$this->Users->get($this->Auth->user('id'));
-        if (!empty($this->request->data)) {
-            $user = $this->Users->patchEntity($user, [
-                    'oldpass'  => $this->request->data['oldpass'],
-                    'password'      => $this->request->data['newpass'],
-                    'newpass'     => $this->request->data['newpass'],
-                    'confpass'     => $this->request->data['confpass']
-                ],
-                ['validate' => 'password']
-            );
-            if ($this->Users->save($user)) {
-                $this->Flash->success('The password is successfully changed');
-                $this->redirect('/index');
-            } else {
-                $this->Flash->error('There was an error during the save!');
-            }
-        }
-        $this->set('user',$user);
-    }*/
-
-/*public function edit()
-    {
-        $user = $this->Users->get($this->Auth->user('id'));
-        
-        if(!empty($this->request->data))
-        {
-            $user = $this->Users->patchEntity($user, [
-                    'oldpass'      => $this->request->data['oldpass'],
-                    'password'          => $this->request->data['newpass'],
-                    'newpass'      => $this->request->data['newpass'],
-                    'confpass'  => $this->request->data['confpass']
-                ],
-                    ['validate' => 'password']
-                
-            );
-            
-            if($this->Users->save($user))
-            {
-                $this->Flash->success('Your password has been changed successfully');
-                //Email code
-                $this->redirect(['action'=>'view']);
-            }
-            else
-            {
-                $this->Flash->error('Error changing password. Please try again!');
-            }
-            
-        }
-        
-        $this->set('user',$user);
-    }*/

@@ -6,20 +6,20 @@ use Cake\ORM\Entity;
 
 class User extends Entity
 {
-    
-//function to tell which items in the UsersTable are accessible 
-    protected $_accessible = [
-      '*' => true,
-      'id' => false,
-      'FirstName' => true,
-      'LastName' => true,
-      'phone' => true,
-      'email' => true,
-      'password' => true,
-    ];
-    
+
+  protected $_accessible = [
+    '*' => true,
+    'id' => false,
+    'FirstName' => true,
+    'LastName' => true,
+    'phone' => true,
+    'email' => true,
+    'password' => true,
+    'role' => true,
+  ];
+
 //function to hash the password field
-//this uses default hasing 
+//this uses default hasing
 //we can choose a different kind of hashing if we want
     protected function _setPassword($password)
     {
