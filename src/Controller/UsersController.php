@@ -1,7 +1,8 @@
 <?php
 namespace App\Controller;
 use App\Controller\AppController;
-class UsersController extends AppController{
+class UsersController extends AppController
+{
 
     //built in function of cakePHP
     public $paginate = array(
@@ -18,7 +19,8 @@ class UsersController extends AppController{
     }
 
     //concerned public home page
-    public function homeConcernedPublic() {
+    public function homeConcernedPublic()
+    {
         $this->render();
     }
 
