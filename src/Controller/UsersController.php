@@ -130,10 +130,8 @@ class UsersController extends AppController{
     public function login()
     {
         if ($this->request->is('post')) {
-          //identify if the user is in the databse
             $user = $this->Auth->identify();
             if ($user) {
-              //set the user model based on the login info
                 $this->Auth->setUser($user);
                 if ( $user['role'] == 'thepublic'){
                   return $this->redirect(array('action' => 'home_concerned_public'));
@@ -145,10 +143,7 @@ class UsersController extends AppController{
                   return $this->redirect(array('action' => 'login'));
                 }
             }
-            else{
-              //display an error message
-                $this->Flash->error(__('Invalid username or password, try again'));
-            }
+            $this->Flash->error(__('Invalid username or password, try again'));
         }
     }
 
