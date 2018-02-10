@@ -55,7 +55,7 @@ class UsersController extends AppController
     //login needs to be added to pull in the current users info
     public function edit()
     {
-        /*$this->loadComponent('Auth');*/
+        // $this->loadComponent('Auth');
 
         $this->set(compact('user'));
         $user =$this->Users->get($this->Auth->user('id'));
