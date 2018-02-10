@@ -16,6 +16,7 @@
                 echo $this->Form->input('email', array(
                     'label'     => 'Email address',
                     'maxLength' => 20,
+		    // The ``title'' property is basically just the tooltip.
                     'title'     => 'Email',
                     'type'      => 'email')
                 );
