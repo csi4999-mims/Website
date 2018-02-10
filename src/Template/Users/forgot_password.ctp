@@ -6,7 +6,8 @@
     <body>
         <div>
             <h1>Forgot Password</h1>
-            <h3>An email with a reset link will be sent to your email</h3>
+            <p>Please provide the email address you use to sign in,
+            then check your email for a reset link.</p>
         </div>
         <div class="reset form">
             <?php echo $this->Form->create('$user'); ?>
