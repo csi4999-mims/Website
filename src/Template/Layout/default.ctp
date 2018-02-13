@@ -28,6 +28,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('custom.css') ?>
+    <?= $this->Html->css('bootstrap.min.css') ?>
+    <?= $this->Html->css('bootstrap-theme.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -44,6 +47,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <ul class="right">
                 <li><a href="/reports/report">Submit Report</a></li>
                 <li><a href="/users/edit">My Account</a></li>
+                <li><a href="/users/logout">Logout</a></li>
             </ul>
         </div>
     </nav>
