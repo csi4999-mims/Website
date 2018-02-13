@@ -1,7 +1,10 @@
 <?php
 namespace App\Controller;
+
 use App\Controller\AppController;
 use Cake\Mailer\Email;
+use Cake\Validator\Validator;
+
 class UsersController extends AppController
 {
 
