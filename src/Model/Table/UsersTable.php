@@ -9,9 +9,9 @@ class UsersTable extends Table
 {
 
     public function initialize(array $config){
-        
+
     }
-    
+
 //function to add validation to add.ctp form fields
 //need to add additonal valition for each specific field still
     public function validationDefault(Validator $validator)
@@ -24,7 +24,7 @@ class UsersTable extends Table
             ->notEmpty('phone', 'A phone is required')
             ->notEmpty('role', 'A role is required')
             ->add('role', 'inList', [
-                'rule' => ['inList', ['admin', 'lawenforcement', 'thepublic']],
+                'rule' => ['inList', ['lawenforcement', 'thepublic']],
                 'message' => 'Please enter a valid role'
             ])
             ->add('confpass', 'compareWith', [
@@ -33,7 +33,7 @@ class UsersTable extends Table
             ]);
     }
 
-    
+
 //function used for validation on edit.ctp password form fields
   public function validationEdit(Validator $validator)
     {
@@ -53,7 +53,7 @@ class UsersTable extends Table
                     'message' => 'Your old password does not match the entered password!',
                 ])
                 ->notEmpty('oldpass');
-        
+
         $validator
                 ->add('newpass',[
                     'length' => [
@@ -68,7 +68,7 @@ class UsersTable extends Table
                     ]
                 ])
                 ->notEmpty('newpass');
-        
+
         $validator
                 ->add('confpass',[
                     'length' => [
@@ -83,11 +83,11 @@ class UsersTable extends Table
                     ]
                 ])
                 ->notEmpty('confpass');
-        
+
         return $validator;
-      
-    }    
-    
-    
+
+    }
+
+
 }
 ?>
