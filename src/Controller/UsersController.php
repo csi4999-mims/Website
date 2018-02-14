@@ -58,6 +58,7 @@ class UsersController extends AppController{
             else{
               //display error message
               $this->Flash->error(__('Unable to add the user.'));
+//                $this->model->validationError;
             }
         }
         //set the user model
