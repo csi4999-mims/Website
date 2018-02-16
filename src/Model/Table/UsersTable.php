@@ -17,15 +17,15 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
        return $validator
-            ->notEmpty('FirstName', 'A first name is required')
-            ->notEmpty('LastName', 'A last name is required')
-            ->notEmpty('password', 'A password is required')
-            ->notEmpty('email', 'An email address is required')
-            ->notEmpty('phone', 'A phone number is required')
-            ->notEmpty('role', 'A role is required')
+            ->notEmpty('FirstName', 'A first name is required.')
+            ->notEmpty('LastName', 'A last name is required.')
+            ->notEmpty('password', 'A password is required.')
+            ->notEmpty('email', 'An email address is required.')
+            ->notEmpty('phone', 'A phone number is required.')
+            ->notEmpty('role', 'A role is required.')
             ->add('role', 'inList', [
                 'rule' => ['inList', ['lawenforcement', 'thepublic']],
-                'message' => 'Please enter a valid role'
+                'message' => 'Please enter a valid role.'
             ])
             ->add('confpass', 'compareWith', [
                 'rule' => ['compareWith', 'password'],
