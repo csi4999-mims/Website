@@ -20,8 +20,8 @@ class UsersTable extends Table
             ->notEmpty('FirstName', 'A first name is required')
             ->notEmpty('LastName', 'A last name is required')
             ->notEmpty('password', 'A password is required')
-            ->notEmpty('email', 'An email is required')
-            ->notEmpty('phone', 'A phone is required')
+            ->notEmpty('email', 'An email address is required')
+            ->notEmpty('phone', 'A phone number is required')
             ->notEmpty('role', 'A role is required')
             ->add('role', 'inList', [
                 'rule' => ['inList', ['lawenforcement', 'thepublic']],
