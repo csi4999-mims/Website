@@ -17,8 +17,8 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
        return $validator
-            ->notEmpty('FirstName', 'A First Name is required')
-            ->notEmpty('LastName', 'A Last Name is required')
+            ->notEmpty('FirstName', 'A first name is required')
+            ->notEmpty('LastName', 'A last name is required')
             ->notEmpty('password', 'A password is required')
             ->notEmpty('email', 'An email is required')
             ->notEmpty('phone', 'A phone is required')
@@ -58,13 +58,13 @@ class UsersTable extends Table
                 ->add('newpass',[
                     'length' => [
                         'rule' => ['minLength',4],
-                        'message' => 'Please enter at least 4 characters in password your password.'
+                        'message' => 'Your new password is too short. Please try again.'
                     ]
                 ])
                 ->add('newpass',[
                     'match' => [
                         'rule' => ['compareWith','confpass'],
-                        'message' => 'Sorry! Password dose not match. Please try again!'
+                        'message' => 'The passwords you entered do not match. Please try again.'
                     ]
                 ])
                 ->notEmpty('newpass');
@@ -73,13 +73,13 @@ class UsersTable extends Table
                 ->add('confpass',[
                     'length' => [
                         'rule' => ['minLength',4],
-                        'message' => 'Please enter at least 4 characters in password your password.'
+                        'message' => 'Your new password is too short. Please try again.'
                     ]
                 ])
                 ->add('confpass',[
                     'match' => [
                         'rule' => ['compareWith','newpass'],
-                        'message' => 'Sorry! Password dose not match. Please try again!'
+                        'message' => 'The passwords you entered do not match. Please try again.'
                     ]
                 ])
                 ->notEmpty('confpass');
