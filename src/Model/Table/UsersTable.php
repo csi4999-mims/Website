@@ -29,7 +29,7 @@ class UsersTable extends Table
             ])
             ->add('confpass', 'compareWith', [
                 'rule' => ['compareWith', 'password'],
-                'message' => 'Passwords do not match'
+                'message' => 'The passwords you entered do not match.'
             ]);
     }
 
@@ -50,7 +50,7 @@ class UsersTable extends Table
                         }
                         return false;
                     },
-                    'message' => 'Your old password does not match the entered password!',
+                    'message' => 'Your old password does not match the entered password.',
                 ])
                 ->notEmpty('oldpass');
 
