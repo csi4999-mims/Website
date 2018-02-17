@@ -19,7 +19,7 @@ class UsersController extends AppController{
 //law enforcement home page
     public function homeLawEnforcement() {
       //Load the user model
-      $user =$this->Users->get($this->Auth->user('id'));
+      $user =$this->Users->get($this->Auth->user('UserID'));
       $this->set('user',$user);
       //load the report model
       $this->loadModel('Reports');
@@ -27,7 +27,7 @@ class UsersController extends AppController{
       $reports = $this->Reports
         ->find()
         //grab all of the rows in the reports table in db
-        ->where(['Report_ID >=' => 0])
+        ->where(['ReportID >=' => 0])
         ->toArray();
       //set report model
       $this->set('reports', $reports);
@@ -35,9 +35,19 @@ class UsersController extends AppController{
 
 //concerned public home page
     public function homeConcernedPublic() {
-      //these two lines of code load the Users model to be used in the view
-        $user =$this->Users->get($this->Auth->user('id'));
-        $this->set('user',$user);
+      //Load the user model
+      $user =$this->Users->get($this->Auth->user('UserID'));
+      $this->set('user',$user);
+      //load the report model
+      $this->loadModel('Reports');
+      //get all rows in reports table in db
+      $report = $this->Reports
+        ->find()
+        ->where(['ReportID >=' => 0])
+        ->toArray();
+      //set report model
+      //$this->set('report',$report);
+      $this->set('reports', $report);
     }
 
 //function used to register a new user
@@ -68,10 +78,10 @@ class UsersController extends AppController{
 //login needs to be added to pull in the current users info
     public function edit() {
         /*$this->loadComponent('Auth');*/
-        
+
         $this->set(compact('user'));
-        $user =$this->Users->get($this->Auth->user('id'));
-        
+        $user =$this->Users->get($this->Auth->user('UserID'));
+
         if (!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
                     'oldpass'  => $this->request->data['oldpass'],
@@ -87,7 +97,7 @@ class UsersController extends AppController{
                 $this->Flash->error('There was an error during the save!');
             }
         }
-        
+
         if(!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
                 'email' => $this->request->data['newemail'],
@@ -98,7 +108,7 @@ class UsersController extends AppController{
                 $this->Flash->error('Email was not saved');
             }
         }
-        
+
         if(!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
                 'phone' => $this->request->data['newphone'],
@@ -133,10 +143,10 @@ class UsersController extends AppController{
             $user = $this->Auth->identify();
             if ($user) {
                 $this->Auth->setUser($user);
-                if ( $user['role'] == 'thepublic'){
+                if ( $user['role'] == 'Public'){
                   return $this->redirect(array('action' => 'home_concerned_public'));
                 }
-                elseif ( $user['role'] == 'lawenforcement'){
+                elseif ( $user['role'] == 'Law Enforcement'){
                   return $this->redirect(array('action' => 'home_law_enforcement'));
                 }
                 else {
@@ -152,4 +162,3 @@ class UsersController extends AppController{
         return $this->redirect($this->Auth->logout());
     }
 }
-
