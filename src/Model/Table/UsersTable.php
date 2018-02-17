@@ -24,7 +24,7 @@ class UsersTable extends Table
             ->notEmpty('phone', 'A phone is required')
             ->notEmpty('role', 'A role is required')
             ->add('role', 'inList', [
-                'rule' => ['inList', ['lawenforcement', 'thepublic']],
+                'rule' => ['inList', ['Law Enforcement', 'Public']],
                 'message' => 'Please enter a valid role'
             ])
             ->add('confpass', 'compareWith', [
