@@ -43,36 +43,49 @@ class UsersController extends AppController{
 //function used to register a new user
     public function add()
     {
-      //creates a new User entity (model)
+        //creates a new User entity (model)
         $user = $this->Users->newEntity();
+
         if ($this->request->is('post')) {
-            //grab the data from the form and set the data to the user model
+
+            // Prior to 3.4.0 $this->request->data() was used.
             $user = $this->Users->patchEntity($user, $this->request->getData());
-            //save the users data
+
             if ($this->Users->save($user)) {
-              //display success message
                 $this->Flash->success(__('The user has been saved.'));
-                //redirect the user to the login page
                 return $this->redirect(['action' => 'login']);
+
+                //this is the code to check if there are any errors from the UsersTable.php
+                //If there are, it lists out all errors
+            } elseif ($user->errors()) {
+                $error_msg = [];
+                foreach( $user->errors() as $errors) {
+                    if(is_array($errors)) {
+                        foreach($errors as $error) {
+                            $error_msg[] = $error;
+                        }
+                    } else {
+                        $error_msg[] = $errors;
+                    }
+                }
+                if (!empty($error_msg)) {
+                    $this->Flash->error(
+                        __("Please fix the following error(s):".implode("\n \r", $error_msg))
+                    );
+                }
             }
-            else{
-              //display error message
-              $this->Flash->error(__('Unable to add the user.'));
-//                $this->model->validationError;
-            }
-        }
-        //set the user model
-        $this->set('user', $user);
+      }
+      $this->set('user', $user);
     }
 
 //function used to edit a users information
 //login needs to be added to pull in the current users info
     public function edit() {
         /*$this->loadComponent('Auth');*/
-        
+
         $this->set(compact('user'));
         $user =$this->Users->get($this->Auth->user('id'));
-        
+
         if (!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
                     'oldpass'  => $this->request->data['oldpass'],
@@ -88,7 +101,7 @@ class UsersController extends AppController{
                 $this->Flash->error('There was an error during the save!');
             }
         }
-        
+
         if(!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
                 'email' => $this->request->data['newemail'],
@@ -99,7 +112,7 @@ class UsersController extends AppController{
                 $this->Flash->error('Email was not saved');
             }
         }
-        
+
         if(!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
                 'phone' => $this->request->data['newphone'],
@@ -153,4 +166,3 @@ class UsersController extends AppController{
         return $this->redirect($this->Auth->logout());
     }
 }
-
