@@ -158,7 +158,7 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
 
-    //function to send reset password email
+    // Function to send reset password email
     public function forgotPassword()
     {
         // Did they click the submit button?
@@ -168,7 +168,9 @@ class UsersController extends AppController
                 $this->Flash->error('Please provide an email address');
             } else {
                 $email = new Email('default');
-                $message = 'Please click the link below or copy and paste it into your browser to reset your password.';
+                $message = 'Please click the link below or copy and '  .
+                           'paste it into your browser to reset your ' .
+                           'password.';
                 $email->setFrom(['mims@csi4999mims.online' => 'MIMS'])
                       ->setSender('mims@csi4999mims.online', 'MIMS')
                       ->setTo($this->request->data['email'])
