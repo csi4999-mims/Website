@@ -56,7 +56,12 @@ class UsersTable extends Table
             ->add('confpass', 'compareWith', [
                 'rule' => ['compareWith', 'password'],
                 'message' => 'Passwords do not match'
-            ]);
+            ])
+			
+			->add('email', [
+				'unique' => ['rule' => 'validateUnique', 'provider' => 'table'],
+				//'message' => 'Email is already taken'
+					]);
         
     return $validator;
     }
