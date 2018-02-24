@@ -19,7 +19,7 @@ class UsersController extends AppController{
 //law enforcement home page
     public function homeLawEnforcement() {
       //Load the user model
-      $user =$this->Users->get($this->Auth->user('UserID'));
+      $user =$this->Users->get($this->Auth->user('id'));
       $this->set('user',$user);
       //load the report model
       $this->loadModel('Reports');
@@ -27,7 +27,7 @@ class UsersController extends AppController{
       $reports = $this->Reports
         ->find()
         //grab all of the rows in the reports table in db
-        ->where(['ReportID >=' => 0])
+        ->where(['Report_ID >=' => 0])
         ->toArray();
       //set report model
       $this->set('reports', $reports);
@@ -36,14 +36,14 @@ class UsersController extends AppController{
 //concerned public home page
     public function homeConcernedPublic() {
       //Load the user model
-      $user =$this->Users->get($this->Auth->user('UserID'));
+      $user =$this->Users->get($this->Auth->user('id'));
       $this->set('user',$user);
       //load the report model
       $this->loadModel('Reports');
       //get all rows in reports table in db
       $report = $this->Reports
         ->find()
-        ->where(['ReportID >=' => 0])
+        ->where(['Report_ID >=' => 0])
         ->toArray();
       //set report model
       //$this->set('report',$report);
@@ -80,7 +80,7 @@ class UsersController extends AppController{
         /*$this->loadComponent('Auth');*/
 
         $this->set(compact('user'));
-        $user =$this->Users->get($this->Auth->user('UserID'));
+        $user =$this->Users->get($this->Auth->user('id'));
 
         if (!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
@@ -143,10 +143,10 @@ class UsersController extends AppController{
             $user = $this->Auth->identify();
             if ($user) {
                 $this->Auth->setUser($user);
-                if ( $user['role'] == 'Public'){
+                if ( $user['role'] == 'thepublic'){
                   return $this->redirect(array('action' => 'home_concerned_public'));
                 }
-                elseif ( $user['role'] == 'Law Enforcement'){
+                elseif ( $user['role'] == 'lawenforcement'){
                   return $this->redirect(array('action' => 'home_law_enforcement'));
                 }
                 else {
