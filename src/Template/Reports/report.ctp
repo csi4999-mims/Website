@@ -11,10 +11,13 @@
         //echo $this->Form->hidden('SubmitterEmail', array('controller' => 'Users', 'value' => $user->get('email')));
         echo $this->Form->input('FirstName', array('class' => 'report-input', 'label' => 'First Name', 'maxLength' => 30, 'title' => 'FirstName', 'type' => 'text'));
         echo $this->Form->input('LastName', array('class' => 'report-input','label' => 'Last Name', 'maxLength' => 30, 'title' => 'LastName', 'type' => 'text'));
-        echo $this->Form->input('Gender', array('class' => 'report-input','label' => 'Gender', 'maxLength' => 20, 'title' => 'Gender', 'type' => 'text'));
-        echo $this->Form->input('Ethnicity', array('class' => 'report-input','label' => 'Ethnicity', 'maxLength' => 20, 'title' => 'Ethnicity', 'type' => 'text'));
-        echo $this->Form->input('EyeColor', array('class' => 'report-input','label' => 'Eye Color', 'maxLength' => 20, 'title' => 'EyeColor', 'type' => 'text'));
-        echo $this->Form->input('HairColor', array('class' => 'report-input','label' => 'Hair Color', 'maxLength' => 20, 'title' => 'HairColor', 'type' => 'text'));
+        echo $this->Form->input('Gender', array('options' => array('Male' => 'Male','Female' =>'Female')));
+-       echo $this->Form->input('Ethnicity', array('options' => array('American Indian' => 'Native American','Asian' => 'Asian',
+-        'African American' => 'African American','Hispanic/Latino' => 'Hispanic/Latino','Pacific Islander' => 'Pacific Islander',
+-        'White' => 'White')));
+-       echo $this->Form->input('EyeColor', array('options' => array('Brown' => 'Brown','Blue' => 'Blue','Amber' => 'Amber','Gray' => 'Gray',
+-        'Green' => 'Green','Hazel' => 'Hazel','Red' => 'Red','Black' => 'Black')));
+-       echo $this->Form->input('HairColor', array('label' => 'Hair Color', 'maxLength' => 256, 'title' => 'HairColor', 'type' => 'text'));
         echo $this->Form->input('Marks', array('class' => 'report-input','label' => 'Marks/Tattoos', 'maxLength' => 20, 'title' => 'marks', 'type' => 'text'));
         echo $this->Form->input('Weight', array('class' => 'report-input','label' => 'Weight', 'maxLength' => 20, 'title' => 'weight', 'type' => 'number'));
         echo $this->Form->input('Height', array('class' => 'report-input','label' => 'Height', 'maxLength' => 20, 'title' => 'height', 'type' => 'number'));
