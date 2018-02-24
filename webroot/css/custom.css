@@ -10,3 +10,8 @@ label .display-user {
 select {
   height: 30px;
 }
+
+ul li {
+  font-size: 12px;
+  font-weight: bold;
+}
