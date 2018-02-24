@@ -35,9 +35,19 @@ class UsersController extends AppController{
 
 //concerned public home page
     public function homeConcernedPublic() {
-      //these two lines of code load the Users model to be used in the view
-        $user =$this->Users->get($this->Auth->user('id'));
-        $this->set('user',$user);
+      //Load the user model
+      $user =$this->Users->get($this->Auth->user('id'));
+      $this->set('user',$user);
+      //load the report model
+      $this->loadModel('Reports');
+      //get all rows in reports table in db
+      $report = $this->Reports
+        ->find()
+        ->where(['Report_ID >=' => 0])
+        ->toArray();
+      //set report model
+      //$this->set('report',$report);
+      $this->set('reports', $report);
     }
 
 //function used to register a new user
