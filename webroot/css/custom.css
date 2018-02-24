@@ -6,3 +6,7 @@
 label .display-user {
     font-size: 36px;
 }
+
+select {
+  height: 30px;
+}
