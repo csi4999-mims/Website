@@ -8,22 +8,42 @@
     <fieldset>
         <legend><?php echo __('Missing Person Information'); ?></legend>
         <?php
-        echo $this->Form->input('FirstName', array('label' => 'First Name', 'maxLength' => 256, 'title' => 'FirstName', 'type' => 'text'));
-        echo $this->Form->input('LastName', array('label' => 'Last Name', 'maxLength' => 256, 'title' => 'LastName', 'type' => 'text'));
-        echo $this->Form->input('Gender', array('options' => array('Male' => 'Male','Female' =>'Female')));
-        echo $this->Form->input('Ethnicity', array('options' => array('American Indian' => 'Native American','Asian' => 'Asian',
-        'African American' => 'African American','Hispanic/Latino' => 'Hispanic/Latino','Pacific Islander' => 'Pacific Islander',
-        'White' => 'White')));
-        echo $this->Form->input('EyeColor', array('options' => array('Brown' => 'Brown','Blue' => 'Blue','Amber' => 'Amber','Gray' => 'Gray',
-        'Green' => 'Green','Hazel' => 'Hazel','Red' => 'Red','Black' => 'Black')));
-        echo $this->Form->input('HairColor', array('label' => 'Hair Color', 'maxLength' => 256, 'title' => 'HairColor', 'type' => 'text'));
-        echo $this->Form->input('MarksTattoos', array('label' => 'Marks/Tattoos', 'maxLength' => 256, 'title' => 'marks', 'type' => 'text'));
-        echo $this->Form->input('Weight', array('label' => 'Weight', 'maxLength' => 20, 'title' => 'weight', 'type' => 'number'));
-        echo $this->Form->input('Height', array('label' => 'Height', 'maxLength' => 20, 'title' => 'height', 'type' => 'number'));
-        echo $this->Form->input('DoB', array('label' => 'Date of Birth', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'DOB', 'type' => 'date'));
-        echo $this->Form->input('Phone', array('label' => 'Phone', 'placeholder' => 'XXXXXXXXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'text'));
-        echo $this->Form->input('SocialMediaAccount', array('label' => 'Social Media Accounts', 'maxLength' => 50, 'title' => 'SocialMedia', 'type' => 'text'));
-        echo $this->Form->input('ReportMiscInfo', array('label' => 'Additional Information', 'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'text'));
+        //echo $this->Form->hidden('SubmitterEmail', array('controller' => 'Users', 'value' => $user->get('email')));
+        echo $this->Form->input('FirstName', array('class' => 'report-input', 'label' => 'First Name', 'maxLength' => 30, 'title' => 'FirstName', 'type' => 'text'));
+        echo $this->Form->input('LastName', array('class' => 'report-input','label' => 'Last Name', 'maxLength' => 30, 'title' => 'LastName', 'type' => 'text'));
+        echo $this->Form->input('Gender', array('class' => 'report-input','label' => 'Gender', 'maxLength' => 20, 'title' => 'Gender', 'type' => 'text'));
+        echo $this->Form->input('Ethnicity', array('class' => 'report-input','label' => 'Ethnicity', 'maxLength' => 20, 'title' => 'Ethnicity', 'type' => 'text'));
+        echo $this->Form->input('EyeColor', array('class' => 'report-input','label' => 'Eye Color', 'maxLength' => 20, 'title' => 'EyeColor', 'type' => 'text'));
+        echo $this->Form->input('HairColor', array('class' => 'report-input','label' => 'Hair Color', 'maxLength' => 20, 'title' => 'HairColor', 'type' => 'text'));
+        echo $this->Form->input('Marks', array('class' => 'report-input','label' => 'Marks/Tattoos', 'maxLength' => 20, 'title' => 'marks', 'type' => 'text'));
+        echo $this->Form->input('Weight', array('class' => 'report-input','label' => 'Weight', 'maxLength' => 20, 'title' => 'weight', 'type' => 'number'));
+        echo $this->Form->input('Height', array('class' => 'report-input','label' => 'Height', 'maxLength' => 20, 'title' => 'height', 'type' => 'number'));
+        echo $this->Form->label('Date of Birth');
+        echo $this->Form->date('DoB', [
+          'minYear' => 1900,
+          'monthNames' => true,
+          'empty' => [
+            'year' => true,
+            'year' => 'Choose Year...',
+            'month' => 'Choose Month...',
+            'day' => 'Choose Day...'
+          ],
+          'day' => true,
+          'day' => [
+            'class' => 'report-input'
+          ],
+          'month' => [
+            'class' => 'report-input'
+          ],
+          'year' => [
+              'label' => 'Date of Birth',
+              'class' => 'report-input',
+              'title' => 'Date of Birth'
+          ]
+        ]);
+        echo $this->Form->input('Phone', array('class' => 'report-input','label' => 'Phone', 'placeholder' => 'XXXXXXXXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'text'));
+        echo $this->Form->input('SocialMedia', array('class' => 'report-input','label' => 'Social Media Accounts', 'maxLength' => 50, 'title' => 'SocialMedia', 'type' => 'text'));
+        echo $this->Form->input('Misc', array('class' => 'report-input','label' => 'Additional Information', 'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'text'));
         ?>
     </fieldset>
     <fieldset>
