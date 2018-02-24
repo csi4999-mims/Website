@@ -18,7 +18,7 @@
         echo $this->Form->input('password', array('label' => 'Password', 'maxLength' => 255, 'title' => 'Password', 'type' => 'password'));
         echo $this->Form->input('confpass', array('label' => 'Confirm Password', 'maxLength' => 255, 'title' => 'Confirm password', 'type'=>'password'));
         echo $this->Form->input('role', array(
-            'options' => array('Law Enforcement' => 'lawenforcement', 'thepublic' => 'Public')
+            'options' => array('lawenforcement' => 'Law Enforcement', 'thepublic' => 'Public')
         ));
         echo $this->Form->submit('Register', array('class' => 'form-submit',  'title' => 'Click here to add the user') );
         ?>
