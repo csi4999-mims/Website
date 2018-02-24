@@ -27,22 +27,25 @@
     </div>
 </div>
 <div id="display-missing" class="container-fluid">
+  <?php foreach ($reports as $report): ?>
     <div class="row well">
         <div class="col-md-6">
             <?php echo $this->Html->image('usericon.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
-        </div>  
+        </div>
         <div class="col-md-6">
             <ul>
-                <li>Name:</li>
-                <li>Age:</li>
-                <li>Height:</li>
-                <li>Weight:</li>
-                <li>Marks/Tattoos:</li>
-                <li>Gender:</li>
+                <li>First Name: <?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></li>
+                <li>Last Name: <?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></li>
+                <li>Date of Birth: <?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></li>
+                <li>Height: <?php echo $this->Form->label('Height', array('value' => $report->get('Height'))); ?></li>
+                <li>Weight: <?php echo $this->Form->label('Weight', array('value' => $report->get('Weight'))); ?></li>
+                <li>Marks/Tattoos: <?php echo $this->Form->label('MarksTattoos', array('value' => $report->get('MarksTattoos'))); ?></li>
+                <li>Gender: <?php echo $this->Form->label('Gender', array('value' => $report->get('Gender'))); ?></li>
                 <li>Last Seen:</li>
-            </ul> 
+            </ul>
         </div>
     </div>
+  <?php endforeach; ?>
 </div>
 </body>
 </html>
