@@ -1,0 +1,17 @@
+.photos-missing {
+    height: 50%;
+    width: 50%;
+}
+
+label .display-user {
+    font-size: 36px;
+}
+
+select {
+  height: 30px;
+}
+
+ul li {
+  font-size: 12px;
+  font-weight: bold;
+}

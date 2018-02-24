@@ -37,18 +37,39 @@ class AppController extends Controller
      *
      * @return void
      */
+
+//function to initialize built-in components of cakePHP
     public function initialize()
     {
         parent::initialize();
-
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                        'username' => 'email',
+                        'password' => 'password'
+                    ]
+                ]
+            ],
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+             // If unauthorized, return them to page they were just on
+            'unauthorizedRedirect' => $this->referer()
+        ]);
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
-        //$this->loadComponent('Security');
-        //$this->loadComponent('Csrf');
     }
+
+//function to allow people to only access the login page and add(register) page if not logged in
+	public function beforeFilter(Event $event){
+		parent::beforeFilter($event);
+    //determines which pages the user can access when not logged in
+		$this->Auth->allow(['add','login']);
+	}
 }

@@ -1,5 +1,9 @@
-<!-- This is the login page --!>
+<!DOCTYPE html>
+<html>
+<head>
 
+</head>
+<body>
 <div class="users form">
     <?php echo $this->Flash->render('auth'); ?>
     <?php echo $this->Form->create('$user'); ?>
@@ -19,3 +23,5 @@
     echo $this->Html->link( "Add A New User",   array('action'=>'add') );
     ?>
 </div>
+</body>
+</html>
