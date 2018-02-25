@@ -60,7 +60,7 @@ class UsersTable extends Table
 			
 			->add('email', [
 				'unique' => ['rule' => 'validateUnique', 'provider' => 'table'],
-				'message' => 'Email is already taken'
+				//'message' => 'Email is already taken'
 					]);
         
     return $validator;
