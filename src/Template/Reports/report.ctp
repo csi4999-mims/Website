@@ -18,7 +18,7 @@
         echo $this->Form->input('EyeColor', array('options' => array('Brown' => 'Brown','Blue' => 'Blue','Amber' => 'Amber','Gray' => 'Gray',
         'Green' => 'Green','Hazel' => 'Hazel','Red' => 'Red','Black' => 'Black')));
         echo $this->Form->input('HairColor', array('label' => 'Hair Color', 'maxLength' => 256, 'title' => 'HairColor', 'type' => 'text'));
-        echo $this->Form->input('Marks', array('class' => 'report-input','label' => 'Marks/Tattoos', 'maxLength' => 20, 'title' => 'marks', 'type' => 'text'));
+        echo $this->Form->input('MarksTattoos', array('class' => 'report-input','label' => 'Marks/Tattoos', 'maxLength' => 20, 'title' => 'marks', 'type' => 'text'));
         echo $this->Form->input('Weight', array('class' => 'report-input','label' => 'Weight', 'maxLength' => 20, 'title' => 'weight', 'type' => 'number'));
         echo $this->Form->input('Height', array('class' => 'report-input','label' => 'Height', 'maxLength' => 20, 'title' => 'height', 'type' => 'number'));
         echo $this->Form->label('Date of Birth');
