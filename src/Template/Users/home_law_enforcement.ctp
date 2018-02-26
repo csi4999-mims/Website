@@ -14,17 +14,19 @@
     <th>First Name</th>
     <th>Last Name</th>
     <th>DOB</th>
-    <th>Date Submitted</th>
+    <th>Last Seen:</th>
     <th>Status</th>
     <th>Approve Case</th>
   </tr>
   <?php foreach ($reports as $report): ?>
     <tr>
-      <td><a href="/reports/detailed_report"><?php echo $this->Form->label('CaseNumber', array('value' => $report->get('CaseNumber'))); ?></a></td>
+      <td>
+            <?= $this->Html->link($report->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $report->Report_ID]) ?>
+      </td>
       <td><?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></td>
       <td><?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></td>
       <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
-      <td><?php echo $this->Form->label('DateSubmitted', array('value' => $report->get('DateSubmitted'))); ?></td>
+      <td><?php echo $this->Form->label('LastSeen', array('value' => $report->get('LastSeen'))); ?></td>
       <td><?php echo $this->Form->label('status', array('value' => $report->get('status'))); ?></td>
       <td><input id="checkBox" type="checkbox"></td>
     </tr>
