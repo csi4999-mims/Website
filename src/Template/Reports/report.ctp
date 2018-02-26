@@ -46,6 +46,7 @@
         ]);
         echo $this->Form->input('Phone', array('class' => 'report-input','label' => 'Phone', 'placeholder' => 'XXXXXXXXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'text'));
         echo $this->Form->input('SocialMedia', array('class' => 'report-input','label' => 'Social Media Accounts', 'maxLength' => 50, 'title' => 'SocialMedia', 'type' => 'text'));
+        echo $this->Form->input('LastSeen', array('class' => 'report-input','label' => 'Last Seen', 'maxLength' => 2000, 'title' => 'LastSeen', 'type' => 'text'));
         echo $this->Form->input('Misc', array('class' => 'report-input','label' => 'Additional Information', 'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'text'));
         ?>
     </fieldset>
