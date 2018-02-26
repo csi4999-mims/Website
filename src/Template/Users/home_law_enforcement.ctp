@@ -14,7 +14,7 @@
     <th>First Name</th>
     <th>Last Name</th>
     <th>DOB</th>
-    <th>Date Submitted</th>
+    <th>Last Seen:</th>
     <th>Status</th>
     <th>Approve Case</th>
   </tr>
