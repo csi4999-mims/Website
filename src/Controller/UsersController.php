@@ -53,38 +53,48 @@ class UsersController extends AppController{
 //function used to register a new user
     public function add()
     {
+
+
+      $conn->begin();
+      $conn->execute('INSERT INTO user (`first_name`,`last_name`,`middle_name`, `email_address`,`password`,`phone`)
+                      VALUES (' . $FirstName . ', ' . $LastName . ', '. $MiddleName .', '. $Email . ', '. $password .', '. $phone')');
+//once javascript for lawenforcement is created use 2nd execute
+      $conn->execute('INSERT INTO law_enforcment (`badge_number`, `department`)
+                      VALUES (' . $BadgeNumber . ', ' . $Department' )');
+      $conn->commit();
+
         //creates a new User entity (model)
         $user = $this->Users->newEntity();
 
-        if ($this->request->is('post')) {
-
-            // Prior to 3.4.0 $this->request->data() was used.
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'login']);
-
-                //this is the code to check if there are any errors from the UsersTable.php
-                //If there are, it lists out all errors
-            } elseif ($user->errors()) {
-                $error_msg = [];
-                foreach( $user->errors() as $errors) {
-                    if(is_array($errors)) {
-                        foreach($errors as $error) {
-                            $error_msg[] = $error;
-                        }
-                    } else {
-                        $error_msg[] = $errors;
-                    }
-                }
-                if (!empty($error_msg)) {
-                    $this->Flash->error(
-                        __("Please fix the following error(s):".implode("\n \r", $error_msg))
-                    );
-                }
-            }
-      }
+      //   if ($this->request->is('post')) {
+      //
+      //       // Prior to 3.4.0 $this->request->data() was used.
+      //       $user = $this->Users->patchEntity($user, $this->request->getData());
+      //
+      //       if ($this->Users->save($user)) {
+      //           $this->Flash->success(__('The user has been saved.'));
+      //           return $this->redirect(['action' => 'login']);
+      //
+      //           //this is the code to check if there are any errors from the UsersTable.php
+      //           //If there are, it lists out all errors
+      //       } elseif ($user->errors()) {
+      //           $error_msg = [];
+      //           foreach( $user->errors() as $errors) {
+      //               if(is_array($errors)) {
+      //                   foreach($errors as $error) {
+      //                       $error_msg[] = $error;
+      //                   }
+      //               } else {
+      //                   $error_msg[] = $errors;
+      //               }
+      //           }
+      //           if (!empty($error_msg)) {
+      //               $this->Flash->error(
+      //                   __("Please fix the following error(s):".implode("\n \r", $error_msg))
+      //               );
+      //           }
+      //       }
+      // }
       $this->set('user', $user);
     }
 

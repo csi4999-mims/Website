@@ -11,6 +11,7 @@ class User extends Entity
     '*' => true,
     'id' => false,
     'FirstName' => true,
+    'MiddleName' => true,
     'LastName' => true,
     'status' => true,
     'phone' => true,

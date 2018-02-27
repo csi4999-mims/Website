@@ -12,6 +12,7 @@
         <legend><?php echo __('Add User'); ?></legend>
         <?php
         echo $this->Form->input('FirstName', array('label' => 'First Name', 'maxLength' => 30, 'title' => 'FirstName', 'type' => 'text'));
+        echo $this->Form->input('MiddleName', array('label' => 'Middle Name', 'maxlength' => 30, 'title' => 'MiddleName', 'type' => 'text'));
         echo $this->Form->input('LastName', array('label' => 'Last Name', 'maxLength' => 30, 'title' => 'LastName', 'type' => 'text'));
         echo $this->Form->input('email', array('label' => 'Email', 'maxLength' => 100, 'title' => 'Email', 'type' => 'email'));
         echo $this->Form->input('phone', array('label' => 'Phone', 'placeholder' => '(XXX)-XXX-XXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'text'));
