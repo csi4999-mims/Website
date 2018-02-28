@@ -2,6 +2,7 @@
 namespace App\Controller;
 use App\Controller\AppController;
 use App\Controller\ReportsController;
+use Cake\Datasource\ConnectionManager;
 class UsersController extends AppController{
 
 //built in function of cakePHP
@@ -53,18 +54,58 @@ class UsersController extends AppController{
 //function used to register a new user
     public function add()
     {
+      $user = $this->Users->newEntity();
 
+      if ($this->request->is('post'))
+      {
+        $conn = ConnectionManager::get('default');
 
-      $conn->begin();
-      $conn->execute('INSERT INTO user (`first_name`,`last_name`,`middle_name`, `email_address`,`password`,`phone`)
-                      VALUES (' . $FirstName . ', ' . $LastName . ', '. $MiddleName .', '. $Email . ', '. $password .', '. $phone')');
-//once javascript for lawenforcement is created use 2nd execute
-      $conn->execute('INSERT INTO law_enforcment (`badge_number`, `department`)
-                      VALUES (' . $BadgeNumber . ', ' . $Department' )');
-      $conn->commit();
+        $user = $this->Users->patchEntity($user, $this->request->getData());
+        //$this->set('user', $user);
+
+        if (
+        $conn->insert('users', [
+          'first_name' => $user->get('FirstName'),
+          'last_name' => $user->get('LastName'),
+          'middle_name' => $user->get('MiddleName'),
+          'email' => $user->get('email'),
+          'password' => $user->get('password'),
+          'phone' => $user->get('phone')
+        ]))
+        {
+          $this->Flash->success(__('The user has been saved.'));
+          return $this->redirect(['action' => 'login']);
+
+                 //this is the code to check if there are any errors from the UsersTable.php
+                 //If there are, it lists out all errors
+        }
+			  elseif ($user->errors())
+			  {
+          $error_msg = [];
+          foreach( $user->errors() as $errors)
+				  {
+            if(is_array($errors))
+				    {
+              foreach($errors as $error)
+						  {
+                $error_msg[] = $error;
+              }
+            }
+					  else
+					  {
+              $error_msg[] = $errors;
+            }
+          }
+          if (!empty($error_msg))
+				  {
+            $this->Flash->error(__("Please fix the following error(s):".implode("\n \r", $error_msg)));
+          }
+        }
+
+      }
 
         //creates a new User entity (model)
-        $user = $this->Users->newEntity();
+        //$user = $this->Users->newEntity();
 
       //   if ($this->request->is('post')) {
       //
@@ -95,7 +136,7 @@ class UsersController extends AppController{
       //           }
       //       }
       // }
-      $this->set('user', $user);
+      //$this->set('user', $user);
     }
 
 //function used to edit a users information
