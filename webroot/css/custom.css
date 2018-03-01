@@ -15,3 +15,16 @@ ul li {
   font-size: 12px;
   font-weight: bold;
 }
+
+input.approve-button {
+  float: right;
+}
+
+.button.update-button {
+  color: white !important;
+}
+
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
