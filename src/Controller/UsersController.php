@@ -163,19 +163,36 @@ class UsersController extends AppController
     {
         // Did they click the submit button?
         if ($this->request->is('post')) {
+            $provided_email = $this->request->data['email'];
             // Did they provide an email address?
-            if (empty($this->request->data['email'])) {
+            if (empty($provided_email)) {
                 $this->Flash->error('Please provide an email address');
             } else {
-                $email = new Email('default');
-                $message = 'Please click the link below or copy and '  .
-                           'paste it into your browser to reset your ' .
-                           'password.';
-                $email->setFrom(['mims@csi4999mims.online' => 'MIMS'])
-                      ->setSender('mims@csi4999mims.online', 'MIMS')
-                      ->setTo($this->request->data['email'])
-                      ->setSubject('MIMS: Forgot your password?')
-                      ->send($message);
+                // Check to make sure the email they provided is one
+                // we have on file.
+                $user_entities = $this->Users
+                                      ->find()
+                                      ->select(['email'])
+                                      ->toArray();
+                // Had some trouble with ``where'' statements taking
+                // effect in the above query, so I'm just iterating over
+                // the array of all the email addresses instead.
+                //
+                // Not an elegant solution, but it works.
+                foreach ($user_entities as $user_entity) {
+                    if ($user_entity['email'] == $provided_email) {
+                        $email = new Email('default');
+                        $message = 'Please click the link below or copy and '  .
+                                   'paste it into your browser to reset your ' .
+                                   'password.';
+                        $email->setFrom(['mims@csi4999mims.online' => 'MIMS'])
+                              ->setSender('mims@csi4999mims.online', 'MIMS')
+                              ->setTo($provided_email)
+                              ->setSubject('MIMS: Forgot your password?')
+                              ->send($message);
+                        break;
+                    }
+                }
             }
         }
     }
