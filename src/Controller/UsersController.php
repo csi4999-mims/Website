@@ -63,7 +63,47 @@ class UsersController extends AppController{
         $user = $this->Users->patchEntity($user, $this->request->getData());
         //$this->set('user', $user);
 
-        if (
+        try
+        {
+          if (
+            $conn->insert('users',
+            [
+              'first_name' => $user->get('FirstName'),
+              'last_name' => $user->get('LastName'),
+              'middle_name' => $user->get('MiddleName'),
+              'email' => $user->get('email'),
+              'password' => $user->get('password'),
+              'phone' => $user->get('phone')
+            ]))
+          {
+            $this->Flash->success(__('The user has been saved.'));
+            return $this->redirect(['action' => 'login']);
+
+                   //this is the code to check if there are any errors from the UsersTable.php
+                   //If there are, it lists out all errors
+          }
+        }
+        catch (\Exception $e)
+        {
+          //echo $e->getMessage();
+          switch ($e->getMessage())
+          {
+            case "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'first_name' cannot be null":
+              echo "A first name is required";
+              break;
+            case "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'last_name' cannot be null":
+              echo "A last name is required";
+              break;
+            case "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'email' cannot be null":
+              echo "Email is already taken. Please use another email";
+              break;
+            case "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'password' cannot be null":
+              echo "A password is required";
+              break;
+          }
+        }
+
+        /*if (
         $conn->insert('users', [
           'first_name' => $user->get('FirstName'),
           'last_name' => $user->get('LastName'),
@@ -100,9 +140,10 @@ class UsersController extends AppController{
 				  {
             $this->Flash->error(__("Please fix the following error(s):".implode("\n \r", $error_msg)));
           }
-        }
+        }*/
 
       }
+    }
 
         //creates a new User entity (model)
         //$user = $this->Users->newEntity();
@@ -137,7 +178,7 @@ class UsersController extends AppController{
       //       }
       // }
       //$this->set('user', $user);
-    }
+
 
 //function used to edit a users information
 //login needs to be added to pull in the current users info
