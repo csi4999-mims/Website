@@ -16,6 +16,7 @@
             </div>
             <div class="panel-body">
                 <ul>
+                    <li>Case Number:</li>
                     <li>Case Status:</li>
                     <li>Date Created:</li>
                     <li>Case Number:</li>

@@ -40,11 +40,11 @@ class UsersController extends AppController{
       $user =$this->Users->get($this->Auth->user('id'));
       $this->set('user',$user);
       //load the report model
-      $this->loadModel('Reports');
+      $this->loadModel('Report');
       //get all rows in reports table in db
-      $report = $this->Reports
+      $report = $this->Report
         ->find()
-        ->where(['Report_ID >=' => 0])
+        ->where(['id >=' => 0])
         ->toArray();
       //set report model
       //$this->set('report',$report);
@@ -95,7 +95,14 @@ class UsersController extends AppController{
               echo "A last name is required";
               break;
             case "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'email' cannot be null":
-              echo "Email is already taken. Please use another email";
+              if ($user->get('email') === null)
+              {
+                echo "An email is required";
+              }
+              else
+              {
+                echo "Email is already taken. Please use another email";
+              }
               break;
             case "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'password' cannot be null":
               echo "A password is required";
@@ -249,19 +256,20 @@ class UsersController extends AppController{
             $user = $this->Auth->identify();
             if ($user) {
                 $this->Auth->setUser($user);
-                if ( $user['role'] == 'thepublic'){
+                //if ( $user['role'] == 'thepublic'){
                   return $this->redirect(array('action' => 'home_concerned_public'));
-                }
-                elseif ( $user['role'] == 'lawenforcement'){
-                  return $this->redirect(array('action' => 'home_law_enforcement'));
+                //}
+                //elseif ( $user['role'] == 'lawenforcement'){
+                  //return $this->redirect(array('action' => 'home_law_enforcement'));
                 }
                 else {
+                  $this->Flash->error(__('Invalid username or password, try again'));
                   return $this->redirect(array('action' => 'login'));
                 }
             }
-            $this->Flash->error(__('Invalid username or password, try again'));
+            //$this->Flash->error(__('Invalid username or password, try again'));
         }
-    }
+
 
 //function to handle logout functionality
     public function logout() {

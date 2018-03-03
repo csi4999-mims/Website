@@ -38,6 +38,20 @@
     </fieldset>
 
     <fieldset>
+        <legend><?php echo __('Missing Person Last Seen'); ?></legend>
+        <?php
+        echo $this->Form->input('seen_name', array('label' => 'Name of place last seen', 'maxLength' => 30, 'title' => 'Name', 'type' => 'text'));
+        echo $this->Form->input('seen_street', array('label' => 'Street Name', 'maxLength' => 20, 'title' => 'Street', 'type' => 'text'));
+        echo $this->Form->input('seen_number', array('label' => 'Address Number', 'maxLength' => 10, 'title' => 'Address', 'type' => 'text'));
+        echo $this->Form->input('seen_city', array('label' => 'City', 'maxLength' => 20, 'title' => 'City', 'type' => 'text'));
+        echo $this->Form->input('seen_state', array('label' => 'State', 'maxLength' => 2, 'title' => 'State', 'type' => 'text'));
+        echo $this->Form->input('seen_zip', array('label' => 'Zip', 'maxLength' => 5, 'title' => 'Zip', 'type' => 'text'));
+        echo $this->Form->input('seen_when', array('label' => 'Date of occurance ', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'datetime'));
+        echo $this->Form->input('seen_notes', array('label' => 'Additional Information', 'maxLength' => 2000, 'title' => 'Description', 'type' => 'text'));
+        ?>
+    </fieldset>
+
+    <fieldset>
         <legend><?php echo __('Missing Person Family/Friend Information'); ?></legend>
         <?php
         echo $this->Form->input('ff_first_name', array('label' => 'First Name', 'maxLength' => 256, 'title' => 'FirstName', 'type' => 'text'));
@@ -58,19 +72,7 @@
         echo $this->Form->input('ff_email', array('label' => 'Email', 'maxLength' => 256, 'title' => 'Email', 'type' => 'email'));
         ?>
     </fieldset>
-    <fieldset>
-        <legend><?php echo __('Missing Person Last Seen'); ?></legend>
-        <?php
-        echo $this->Form->input('seen_name', array('label' => 'Name of place last seen', 'maxLength' => 30, 'title' => 'Name', 'type' => 'text'));
-        echo $this->Form->input('seen_street', array('label' => 'Street Name', 'maxLength' => 20, 'title' => 'Street', 'type' => 'text'));
-        echo $this->Form->input('seen_number', array('label' => 'Address Number', 'maxLength' => 10, 'title' => 'Address', 'type' => 'text'));
-        echo $this->Form->input('seen_city', array('label' => 'City', 'maxLength' => 20, 'title' => 'City', 'type' => 'text'));
-        echo $this->Form->input('seen_state', array('label' => 'State', 'maxLength' => 2, 'title' => 'State', 'type' => 'text'));
-        echo $this->Form->input('seen_zip', array('label' => 'Zip', 'maxLength' => 5, 'title' => 'Zip', 'type' => 'text'));
-        echo $this->Form->input('seen_when', array('label' => 'Date of occurance ', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'datetime'));
-        echo $this->Form->input('seen_notes', array('label' => 'Additional Information', 'maxLength' => 2000, 'title' => 'Description', 'type' => 'text'));
-        ?>
-    </fieldset>
+
     <fieldset>
         <legend><?php echo __('Missing Person Workplace'); ?></legend>
         <?php
