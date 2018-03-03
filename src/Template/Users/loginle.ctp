@@ -9,6 +9,8 @@
     <?php echo $this->Form->create('$user'); ?>
     <fieldset>
         <legend>
+            <?php echo('Law Enforcement'); ?>
+          </br>
             <?php echo __('Please enter your username and password'); ?>
         </legend>
         <?php echo $this->Form->input('email');

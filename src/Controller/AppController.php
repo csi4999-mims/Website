@@ -70,6 +70,6 @@ class AppController extends Controller
 	public function beforeFilter(Event $event){
 		parent::beforeFilter($event);
     //determines which pages the user can access when not logged in
-		$this->Auth->allow(['add','login']);
+		$this->Auth->allow(['home','add','login','addle','loginle']);
 	}
 }
