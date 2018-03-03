@@ -204,15 +204,16 @@ class UsersController extends AppController
                 // Not an elegant solution, but it works.
                 foreach ($user_entities as $user_entity) {
                     if ($user_entity['email'] == $provided_email) {
-                        $email = new Email('default');
-                        $message = 'Please click the link below or copy and '  .
-                                   'paste it into your browser to reset your ' .
-                                   'password.';
-                        $email->setFrom(['mims@csi4999mims.online' => 'MIMS'])
-                              ->setSender('mims@csi4999mims.online', 'MIMS')
-                              ->setTo($provided_email)
-                              ->setSubject('MIMS: Forgot your password?')
-                              ->send($message);
+                        // Create a random verification code
+                        $verification_code = __getVerificationCode(6);
+                        // Send them an email with this verification code.
+                        $message = "Forgot your MIMS password?\n" .
+                                   "Type in (or copy and paste) the " .
+                                   "code below into the form on the " .
+                                   "MIMS site:\n\n" .
+                                   $verification_code;
+
+                        __sendEmail($provided_email, $message);
                         break;
                     }
                 }
