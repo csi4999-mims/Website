@@ -161,6 +161,29 @@ class UsersController extends AppController
     // Function to send reset password email
     public function forgotPassword()
     {
+
+        function __getVerificationCode($num_of_chars)
+        {
+            if (!is_int($num_of_chars)) {
+                throw new \InvalidArgumentException("Invalid data type.  __getVerificationCode only accepts an integer.");
+            } else {
+                // While not _completely_ random, it's random enough
+                // for our purposes.
+                return strtoupper(substr(md5(rand()), 0, $num_of_chars));
+            }
+        }
+
+        function __sendEmail($recipient, $message)
+        {
+            $email = new Email('default');
+            $email->setFrom(['mims@csi4999mims.online' => 'MIMS'])
+                  ->setSender('mims@csi4999mims.online', 'MIMS')
+                  ->setTo($recipient)
+                  ->setSubject('MIMS: Forgot your password?')
+                  ->send($message);
+
+        }
+
         // Did they click the submit button?
         if ($this->request->is('post')) {
             $provided_email = $this->request->data['email'];
