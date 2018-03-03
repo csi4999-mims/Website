@@ -17,11 +17,19 @@ ul li {
 }
 
 input.approve-button {
+  color: #ffffff !important;
   float: right;
+  background-color: #116D76;
+}
+
+input.approve-button:hover {
+  color: #ffffff !important;
+  text-decoration: none;
+  background-color: #808080;
 }
 
 .button.update-button {
-  color: white !important;
+  color: #ffffff !important;
 }
 
 button {
