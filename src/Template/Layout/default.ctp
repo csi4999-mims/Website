@@ -55,6 +55,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('content') ?>
     </div>
     <footer>
+      <div class="le-links">
+        <?php echo $this->Html->link("Law Enforcement Sign Up", array('controller' => 'Users','action'=> 'addle'), array( 'class' => 'home-footer')) ?>
+        </br>
+        <?php echo $this->Html->link("Law Enforcement Sign In", array('controller' => 'Users','action'=> 'loginle'), array( 'class' => 'home-footer')) ?>
+      </br>
+      <div class="contact">
+        <?php echo $this->Html->link("Local Police Contact Info", array('controller' => 'Users','action'=> 'home'), array( 'class' => 'home-footer contact-info')) ?>
+        <ul class="contact-list">
+          <li>Phone: </li>
+          <li>Address: </li>
+        </ul>
+      </div>
+      </div>
     </footer>
 </body>
 </html>
