@@ -3,7 +3,7 @@
     width: 50%;
 }
 
-label .display-user {
+label.display-user {
     font-size: 36px;
 }
 
@@ -24,6 +24,10 @@ input.approve-button {
   color: white !important;
 }
 
+button {
+  color: #ffffff !important;
+}
+
 .row {
   margin: 0 auto !important;
 }
@@ -41,7 +45,7 @@ input.approve-button {
   text-align: center;
 }
 
-.button {
+.button.home-button {
     border-radius: 12px;
 }
 
@@ -49,6 +53,12 @@ input.approve-button {
   font-size: 50px;
   margin: 2px;
   border-radius: 12px;
+  background-color: #116D76;
+}
+
+.button.home-button:hover {
+  text-decoration: none;
+  background-color: #808080;
 }
 
 .about {
@@ -79,4 +89,16 @@ a.home-footer:hover {
 .contact-list {
   color: #ffffff;
   list-style-type: none;
+}
+
+.button.register-button {
+  margin-top: 5px;
+  font-size: 14px;
+  background-color: #116D76;
+
+}
+
+.button.register-button:hover {
+  background-color: #808080;
+  text-decoration: none;
 }
