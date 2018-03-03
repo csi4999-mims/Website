@@ -25,6 +25,58 @@ input.approve-button {
 }
 
 .row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  margin: 0 auto !important;
+}
+
+.jumbotron {
+  background-image: url('../img/michigan.png');
+  background-size: 100% 100%;
+  height: 400px;
+  margin-top: 10px;
+}
+
+.home-title {
+  color: #ffffff;
+  font-size: 100px;
+  text-align: center;
+}
+
+.button {
+    border-radius: 12px;
+}
+
+.home-button {
+  font-size: 50px;
+  margin: 2px;
+  border-radius: 12px;
+}
+
+.about {
+  text-align: center;
+}
+
+.join {
+  text-align: center;
+}
+
+.about-paragraph {
+  font-size: 18px;
+}
+
+footer {
+  background-color: #000000;
+}
+
+.home-footer {
+  color: #ffffff;
+}
+
+a.home-footer:hover {
+  color: #008CBA !important;
+  text-decoration: none !important;
+}
+
+.contact-list {
+  color: #ffffff;
+  list-style-type: none;
 }
