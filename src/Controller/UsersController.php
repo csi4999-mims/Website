@@ -162,17 +162,6 @@ class UsersController extends AppController
     public function forgotPassword()
     {
 
-        function __getVerificationCode($num_of_chars)
-        {
-            if (!is_int($num_of_chars)) {
-                throw new \InvalidArgumentException("Invalid data type.  __getVerificationCode only accepts an integer.");
-            } else {
-                // While not _completely_ random, it's random enough
-                // for our purposes.
-                return strtoupper(substr(md5(rand()), 0, $num_of_chars));
-            }
-        }
-
         function __sendEmail($recipient, $message)
         {
             $email = new Email('default');
@@ -205,7 +194,7 @@ class UsersController extends AppController
                 foreach ($user_entities as $user_entity) {
                     if ($user_entity['email'] == $provided_email) {
                         // Create a random verification code
-                        $verification_code = __getVerificationCode(6);
+                        $verification_code = strtoupper(substr(md5(rand()), 0, $num_of_chars));
                         // Send them an email with this verification code.
                         $message = "Forgot your MIMS password?\n" .
                                    "Type in (or copy and paste) the " .
