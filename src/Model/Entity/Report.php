@@ -37,6 +37,7 @@ class Report extends Entity
       'missing_markings' => true,
       'missing_weight_pounds' => true,
       'missing_height_inches' => true,
+      'missing_height_feet' => true,
       'missing_date_of_birth' => true,
       'missing_facebook_username'=> true,
       'missing_twitter_username' => true,
@@ -63,15 +64,25 @@ class Report extends Entity
       'ff_phone' => true,
       'ff_email' => true,
 
-      //columns for place table
+      //variables for hangouts
+      'hangout_name' => true,
+      'hangout_street' => true,
+      'hangout_number' => true,
+      'hangout_city' => true,
+      'hangout_state' => true,
+      'hangout_zip' => true,
+      'hangout_misc' => true,
+
+
+      //columns for workplace variables
       'place_id' => false,
-      'place_name' => true,
-      'place_state' => true,
-      'place_city' => true,
-      'place_street' => true,
-      'place_number' => true,
-      'place_zip' => true,
-      'place_misc' => true,
+      'workplace_name' => true,
+      'workplace_state' => true,
+      'workplace_city' => true,
+      'workplace_street' => true,
+      'workplace_number' => true,
+      'workplace_zip' => true,
+      'workplace_misc' => true,
 
       //columns for workplace table
       'workplace_report_id' => false,
@@ -93,23 +104,6 @@ class Report extends Entity
       'seen_state' => true,
       'seen_zip' => true,
 
-
-      // 'status' => true,
-      // 'DateCreated' => true,
-      // 'SubmitterEmail' => true,
-      // 'FirstName' => true,
-      // 'LastName' => true,
-      // 'Gender' => true,
-      // 'Ethnicity' => true,
-      // 'EyeColor' => true,
-      // 'HairColor' => true,
-      //   'MarksTattoos' => true,
-      //   'Weight' => true,
-      //   'Height' => true,
-      //   'DoB' => true,
-      //   'Phone' => true,
-      //   'SocialMediaAccount' => true,
-      //   'ReportMiscInfo' => true,
     ];
 
 }

@@ -15,7 +15,7 @@
         echo $this->Form->input('MiddleName', array('label' => 'Middle Name', 'maxlength' => 30, 'title' => 'MiddleName', 'type' => 'text'));
         echo $this->Form->input('LastName', array('label' => 'Last Name', 'maxLength' => 30, 'title' => 'LastName', 'type' => 'text'));
         echo $this->Form->input('email', array('label' => 'Email', 'maxLength' => 100, 'title' => 'Email', 'type' => 'email'));
-        echo $this->Form->input('phone', array('label' => 'Phone', 'placeholder' => '(XXX)-XXX-XXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'text'));
+        echo $this->Form->input('phone', array('label' => 'Phone', 'placeholder' => '(XXX)-XXX-XXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'number'));
         echo $this->Form->input('password', array('label' => 'Password', 'maxLength' => 255, 'title' => 'Password', 'type' => 'password'));
         echo $this->Form->input('confpass', array('label' => 'Confirm Password', 'maxLength' => 255, 'title' => 'Confirm password', 'type'=>'password'));
         echo $this->Form->input('role', array(
