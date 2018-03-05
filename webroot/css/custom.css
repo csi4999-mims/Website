@@ -3,7 +3,7 @@
     width: 50%;
 }
 
-label .display-user {
+label.display-user {
     font-size: 36px;
 }
 
@@ -14,4 +14,135 @@ select {
 ul li {
   font-size: 12px;
   font-weight: bold;
+}
+
+input.approve-button {
+  color: #ffffff !important;
+  background-color: #116D76;
+}
+
+input.approve-button:hover {
+  color: #ffffff !important;
+  text-decoration: none;
+  background-color: #808080;
+}
+
+.button.update-button {
+  color: #ffffff !important;
+  background-color: #116D76;
+}
+
+button {
+  color: #ffffff !important;
+}
+
+.row {
+  margin: 0 auto !important;
+}
+
+.jumbotron {
+  background-image: url('../img/family.png');
+  background-size: 100% 100%;
+  height: 400px;
+  margin-top: 10px;
+}
+
+.jumbotron.jumbotron-public-home {
+  background-image: url('../img/michigan2.png');
+  background-size: 100% 100%;
+  height: 200px;
+  margin-top: 10px;
+}
+
+.home-title {
+  color: #ffffff;
+  font-size: 100px;
+  text-align: center;
+}
+
+.button.home-button {
+    border-radius: 12px;
+}
+
+.home-button {
+  font-size: 50px;
+  margin: 2px;
+  border-radius: 12px;
+  background-color: #116D76;
+}
+
+.button.home-button:hover {
+  text-decoration: none;
+  background-color: #808080;
+}
+
+.about {
+  text-align: center;
+}
+
+.join {
+  text-align: center;
+}
+
+.about-paragraph {
+  font-size: 18px;
+}
+
+footer {
+  background-color: #000000;
+}
+
+.home-footer {
+  color: #ffffff;
+}
+
+a.home-footer:hover {
+  color: #008CBA !important;
+  text-decoration: none !important;
+}
+
+.contact-list {
+  color: #ffffff;
+  list-style-type: none;
+}
+
+.button.register-button {
+  margin-top: 5px;
+  font-size: 14px;
+  background-color: #116D76;
+
+}
+
+.button.register-button:hover {
+  background-color: #808080;
+  text-decoration: none;
+}
+
+
+.inline-left {
+  padding-left: 0px !important;
+}
+
+.inline-right {
+  padding-left: 10px !important;
+  padding-right: 0px !important;
+}
+
+.photo-row {
+  padding-bottom: 20px;
+}
+
+.missing-info {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.display-missing {
+  height: 600px;
+  overflow-y:scroll;
+  margin-bottom: 50px;
+}
+
+.mising-panel {
+  margin-top: 60px;
 }

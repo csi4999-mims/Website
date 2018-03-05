@@ -28,11 +28,10 @@
       <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
       <td><?php echo $this->Form->label('LastSeen', array('value' => $report->get('LastSeen'))); ?></td>
       <td><?php echo $this->Form->label('status', array('value' => $report->get('status'))); ?></td>
-      <td><input id="checkBox" type="checkbox"></td>
+      <td><input class="approve-button" type="button" value="Approve"></td>
     </tr>
   <?php endforeach; ?>
 </table>
-<input class="approve-button" type="button" value="Approve">
 </div>
 </body>
 </html>
