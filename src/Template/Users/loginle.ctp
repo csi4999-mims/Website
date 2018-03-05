@@ -9,6 +9,8 @@
     <?php echo $this->Form->create('$user'); ?>
     <fieldset>
         <legend>
+            <?php echo('Law Enforcement'); ?>
+          </br>
             <?php echo __('Please enter your username and password'); ?>
         </legend>
         <?php echo $this->Form->input('email');
@@ -19,7 +21,9 @@
     <?= $this->Form->end(); ?>
 </div>
 <div>
-  <?php echo $this->Html->link("Register", array('controller' => 'Users','action'=> 'add'), array( 'class' => 'register-button button')) ?>
+    <?php
+    echo $this->Html->link( "Add A New User",   array('action'=>'addle') );
+    ?>
 </div>
 </body>
 </html>
