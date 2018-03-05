@@ -66,6 +66,28 @@ class AppController extends Controller
          */
     }
 
+//bootstrap $helpers
+public $helpers = [
+    'Form' => [
+        'className' => 'Bootstrap.Form'
+    ],
+    'Html' => [
+        'className' => 'Bootstrap.Html'
+    ],
+    'Modal' => [
+        'className' => 'Bootstrap.Modal'
+    ],
+    'Navbar' => [
+        'className' => 'Bootstrap.Navbar'
+    ],
+    'Paginator' => [
+        'className' => 'Bootstrap.Paginator'
+    ],
+    'Panel' => [
+        'className' => 'Bootstrap.Panel'
+    ]
+];
+
 //function to allow people to only access the login page and add(register) page if not logged in
 	public function beforeFilter(Event $event){
 		parent::beforeFilter($event);
