@@ -29,6 +29,7 @@ input.approve-button:hover {
 
 .button.update-button {
   color: #ffffff !important;
+  background-color: #116D76;
 }
 
 button {
@@ -108,4 +109,18 @@ a.home-footer:hover {
 .button.register-button:hover {
   background-color: #808080;
   text-decoration: none;
+}
+
+
+.inline-left {
+  padding-left: 0px !important;
+}
+
+.inline-right {
+  padding-left: 10px !important;
+  padding-right: 0px !important;
+}
+
+.photo-row {
+  padding-bottom: 20px;
 }
