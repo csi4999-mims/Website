@@ -9,6 +9,7 @@
 	'context' => ['validator' => 'default']
     ]); ?>
     <fieldset>
+        <legend><?php echo ('Law Enforcement'); ?></legend>
         <legend><?php echo __('Add User'); ?></legend>
         <?php
         echo $this->Form->input('FirstName', array('label' => 'First Name', 'maxLength' => 30, 'title' => 'FirstName', 'type' => 'text'));
