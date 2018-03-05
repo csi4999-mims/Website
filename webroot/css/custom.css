@@ -47,6 +47,13 @@ button {
   margin-top: 10px;
 }
 
+.jumbotron.jumbotron-public-home {
+  background-image: url('../img/michigan2.png');
+  background-size: 100% 100%;
+  height: 200px;
+  margin-top: 10px;
+}
+
 .home-title {
   color: #ffffff;
   font-size: 100px;
@@ -123,4 +130,19 @@ a.home-footer:hover {
 
 .photo-row {
   padding-bottom: 20px;
+}
+
+.missing-info {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.display-missing {
+  height: 600px;
+  overflow-y:scroll;
+  margin-bottom: 50px;
+}
+
+.mising-panel {
+  margin-top: 60px;
 }
