@@ -34,6 +34,8 @@ input.approve-button:hover {
 
 button {
   color: #ffffff !important;
+  background-color: #116D76 !important;
+  border-radius: 0px !important;
 }
 
 .row {
