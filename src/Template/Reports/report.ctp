@@ -29,16 +29,25 @@
             <?php echo $this->Form->input('missing_alias', array('label' => 'Alias',
             'maxLength' => 100, 'title' => 'Alias', 'type' => 'text')); ?>
           </div>
-
-          <div class="col-md-4">
-            <?php echo $this->Form->input('missing_date_of_birth', array('label'
-             => 'Date of Birth', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'DOB', 'type' => 'date')); ?>
-          </div>
         </div>
+
+        <div class="row">
+
+            <div class="col-md-3">
+              <?php echo $this->Form->input('missing_date_of_birth', array('label'
+               => 'Date of Birth', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'DOB', 'type' => 'date')); ?>
+            </div>
+
+        </div>
+
         <div class="row">
           <div class="col-md-4">
             <?php echo $this->Form->input('missing_email_address', array('label'
              => 'Email Address', 'maxLength' => 100, 'title' => 'Email', 'type' => 'email')); ?>
+          </div>
+          <div class="col-md-4">
+            <?php echo $this->Form->input('missing_phone_number', array('label'
+             => 'Phone', 'placeholder' => '(XXX)XXX-XXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'text')); ?>
           </div>
         </div>
         <div class="row">
@@ -61,34 +70,44 @@
         </div>
         <div class="row">
           <div class="col-md-4">
-            <?php echo $this->Form->input('missing_eye_color', array('-' => '-',
+            <?php echo $this->Form->input('missing_eye_color', array('id' => 'ecDD',
             'options' => array('amber' => 'Amber','black' => 'Black','blue' => 'Blue',
-            'brown' => 'Brown','green' => 'Green','grey' => 'Grey','hazel' => 'Hazel','other' => 'Other'))); ?>
+            'brown' => 'Brown','green' => 'Green','grey' => 'Grey','hazel' => 'Hazel','other' => 'Other')
+          , 'onchange' => 'other(this)')); ?>
           </div>
           <div class="col-md-4">
-            <?php echo $this->Form->input('missing_eye_color_other', array('label'
+            <?php echo $this->Form->input( 'missing_eye_color_other', array('id' => 'ecO','label'
             => 'Eye Color Other', 'maxLength' => 255, 'title' => 'EyeColorOther', 'type' => 'text')); ?>
           </div>
-          <div class="col-md-4">
-            <?php echo $this->Form->input('missing_hair_color', array('options'
-             => array('auburn' => 'Auburn','black' => 'Black','blonde' => 'Blonde',
-             'brown' => 'Brown','grey' => 'Grey','red' => 'Red','white' => 'White','other' => 'Other'))); ?>
-          </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-4">
+              <?php echo $this->Form->input('missing_hair_color', array('options'
+               => array('auburn' => 'Auburn','black' => 'Black','blonde' => 'Blonde',
+               'brown' => 'Brown','grey' => 'Grey','red' => 'Red','white' => 'White','other' => 'Other'))); ?>
+            </div>
+            <div class="col-md-4">
+              <?php echo $this->Form->input('missing_hair_color_other', array('label'
+               => 'Hair Color Other', 'maxLength' => 255, 'title' => 'EyeColorOther', 'type' => 'text')); ?>
+            </div>
+
         </div>
         <div class="row">
             <div class="col-md-4">
-              <?php echo $this->Form->input('missing_hair_color_other', array('label'
-               => 'Other', 'maxLength' => 255, 'title' => 'EyeColorOther', 'type' => 'text')); ?>
-            </div>
-            <div class="col-md-4">
               <?php echo $this->Form->input('missing_markings', array('label'
-              => 'Marks/Tattoos', 'maxLength' => 256, 'title' => 'marks', 'type' => 'text')); ?>
-            </div>
-            <div class="col-md-4">
-              <?php echo $this->Form->input('missing_weight_pounds', array('label'
-               => 'Weight (lbs)', 'maxLength' => 20, 'title' => 'weight', 'type' => 'number')); ?>
+              => 'Marks/Tattoos', 'maxLength' => 256, 'title' => 'marks', 'type' => 'textarea')); ?>
             </div>
         </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <?php echo $this->Form->input('missing_weight_pounds', array('label'
+             => 'Weight (lbs)', 'maxLength' => 20, 'title' => 'weight', 'type' => 'number')); ?>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-md-4">
             <?php echo $this->Form->input('missing_height_feet', array('label'
@@ -98,10 +117,7 @@
             <?php echo $this->Form->input('missing_height_inches', array('label'
              => 'Height (in)', 'maxLength' => 20, 'title' => 'Inches', 'type' => 'number')); ?>
           </div>
-          <div class="col-md-4">
-            <?php echo $this->Form->input('missing_phone_number', array('label'
-             => 'Phone', 'placeholder' => 'XXXXXXXXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'text')); ?>
-          </div>
+
         </div>
 
 
@@ -114,16 +130,19 @@
               <?php echo $this->Form->input('missing_twitter_username', array('label'
                => 'Twitter Account', 'maxLength' => 50, 'title' => 'SocialMedia', 'type' => 'text')); ?>
             </div>
-            <div class="col-md-4">
-              <?php echo $this->Form->input('missing_instagram_username', array('label'
-               => 'Instagram Account', 'maxLength' => 50, 'title' => 'SocialMedia', 'type' => 'text')); ?>
-            </div>
+
         </div>
         <div class="row">
           <div class="col-md-4">
             <?php echo $this->Form->input('missing_snapchat_username', array('label'
              => 'Snapchat Account', 'maxLength' => 50, 'title' => 'SocialMedia', 'type' => 'text')); ?>
           </div>
+          <div class="col-md-4">
+            <?php echo $this->Form->input('missing_instagram_username', array('label'
+             => 'Instagram Account', 'maxLength' => 50, 'title' => 'SocialMedia', 'type' => 'text')); ?>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-md-4">
             <?php echo $this->Form->input('missing_misc', array('label' =>
             'Additional Information', 'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
@@ -162,14 +181,17 @@
           </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <?php echo $this->Form->input('seen_when', array('label' => 'Date of occurance ',
               'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'datetime')); ?>
             </div>
-            <div class="col-md-4">
-              <?php echo $this->Form->input('seen_notes', array('label' => 'Additional Information',
-               'maxLength' => 2000, 'title' => 'Description', 'type' => 'text')); ?>
-            </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <?php echo $this->Form->input('seen_notes', array('label' => 'Additional Information',
+             'maxLength' => 2000, 'title' => 'Description', 'type' => 'textarea')); ?>
+          </div>
         </div>
 
 
@@ -191,50 +213,6 @@
           </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-              <?php echo $this->Form->input('ff_gender', array('label' => 'Gender',
-              'options' => array('-' => '-', 'Male' => 'Male','Female' =>'Female'))); ?>
-            </div>
-            <div class="col-md-4">
-              <?php echo $this->Form->input('ff_alias', array('label' => 'Relation to Missing', 'options' => array('-' => '-', 'Mother' => 'Mother', 'Father' =>
-               'Father', 'Daughter' => 'Daughter', 'Son' => 'Son', 'Sister' => 'Sister','Brother' => 'Brother', 'Aunt' => 'Aunt', 'Uncle' => 'Uncle', 'Niece' =>
-               'Niece', 'Nephew' => 'Nephew', 'Cousin' => 'Cousin', 'Friend' => 'Friend', 'Other' => 'Other' ))); ?>
-            </div>
-            <div class="col-md-4">
-              <?php echo $this->Form->input('ff_alias_other', array('label' =>
-              'Relation Other', 'maxLength' => 256, 'title' => 'Relation Other', 'type' => 'text')); ?>
-            </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <?php echo $this->Form->input('ff_ethnicity', array('label' => 'Ethnicity','options' => array('american_indian' => 'Native American','asian' => 'Asian',
-                'african_american' => 'African American','hispanic_latino' => 'Hispanic/Latino','middle_eastern' => 'Middle Eastern','pacific_islander' => 'Pacific Islander',
-                'white' => 'White','other' => 'Other'))); ?>
-          </div>
-          <div class="col-md-4">
-            <?php echo $this->Form->input('ff_ethnicity_other', array('label' =>
-            'Ethnicity Other', 'maxLength' => 255, 'title' => 'EthinicityOther', 'type' => 'text')); ?>
-          </div>
-          <div class="col-md-4">
-            <?php echo $this->Form->input('ff_street', array('label' => 'Street',
-             'maxLength' => 256, 'title' => 'street', 'type' => 'text')); ?>
-          </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-              <?php echo $this->Form->input('ff_city', array('label' => 'City',
-              'maxLength' => 256, 'title' => 'city', 'type' => 'text')); ?>
-            </div>
-            <div class="col-md-4">
-              <?php echo $this->Form->input('ff_state', array('label' => 'State',
-               'maxLength' => 2, 'title' => 'state', 'type' => 'text')); ?>
-            </div>
-            <div class="col-md-4">
-              <?php echo $this->Form->input('ff_zip', array('label' => 'Zip',
-              'maxLength' => 5, 'title' => 'zip', 'type' => 'text')); ?>
-            </div>
-        </div>
-        <div class="row">
           <div class="col-md-4">
             <?php echo $this->Form->input('ff_phone', array('label' => 'Phone',
              'placeholder' => '(XXX)XXX-XXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'text')); ?>
@@ -245,6 +223,56 @@
           </div>
 
         </div>
+        <div class="row">
+            <div class="col-md-4">
+              <?php echo $this->Form->input('ff_gender', array('label' => 'Gender',
+              'options' => array('-' => '-', 'Male' => 'Male','Female' =>'Female'))); ?>
+            </div>
+            <div class="col-md-4">
+              <?php echo $this->Form->input('ff_ethnicity', array('label' => 'Ethnicity','options' => array('-' => '-', 'american_indian' => 'Native American','asian' => 'Asian',
+                  'african_american' => 'African American','hispanic_latino' => 'Hispanic/Latino','middle_eastern' => 'Middle Eastern','pacific_islander' => 'Pacific Islander',
+                  'white' => 'White','other' => 'Other'))); ?>
+            </div>
+            <div class="col-md-4">
+              <?php echo $this->Form->input('ff_ethnicity_other', array('label' =>
+              'Ethnicity Other', 'maxLength' => 255, 'title' => 'EthinicityOther', 'type' => 'text')); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+              <?php echo $this->Form->input('ff_alias', array('label' => 'Relation to Missing', 'options' => array('-' => '-', 'Mother' => 'Mother', 'Father' =>
+               'Father', 'Daughter' => 'Daughter', 'Son' => 'Son', 'Sister' => 'Sister','Brother' => 'Brother', 'Aunt' => 'Aunt', 'Uncle' => 'Uncle', 'Niece' =>
+               'Niece', 'Nephew' => 'Nephew', 'Cousin' => 'Cousin', 'Friend' => 'Friend', 'Other' => 'Other' ))); ?>
+            </div>
+            <div class="col-md-4">
+              <?php echo $this->Form->input('ff_alias_other', array('label' =>
+              'Relation Other', 'maxLength' => 256, 'title' => 'Relation Other', 'type' => 'text')); ?>
+            </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-4">
+            <?php echo $this->Form->input('ff_street', array('label' => 'Street',
+             'maxLength' => 256, 'title' => 'street', 'type' => 'text')); ?>
+          </div>
+          <div class="col-md-4">
+            <?php echo $this->Form->input('ff_city', array('label' => 'City',
+            'maxLength' => 256, 'title' => 'city', 'type' => 'text')); ?>
+          </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-4">
+              <?php echo $this->Form->input('ff_state', array('label' => 'State',
+               'maxLength' => 2, 'title' => 'state', 'type' => 'text')); ?>
+            </div>
+            <div class="col-md-4">
+              <?php echo $this->Form->input('ff_zip', array('label' => 'Zip',
+              'maxLength' => 5, 'title' => 'zip', 'type' => 'text')); ?>
+            </div>
+        </div>
+
 
 
       <legend><?php echo __('Missing Person Hangouts'); ?></legend>
@@ -317,21 +345,22 @@
 
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
               <?php echo $this->Form->input('workplace_start_date', array('label'
               => 'Started working: ', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'date')); ?>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
               <?php echo $this->Form->input('workplace_end_date', array('label'
               => 'Stopped working: ', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'date')); ?>
             </div>
-
-            <div class="col-md-4">
-              <?php echo $this->Form->input('workplace_misc', array('label' => 'Additional Information',
-               'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <?php echo $this->Form->input('workplace_misc', array('label' => 'Additional Information',
+             'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
+          </div>
         </div>
 
 
@@ -350,3 +379,16 @@
 <?php echo $this->Html->link( "Return to Dashboard",   array('action'=>'home') );
 ?>
 </html>
+
+<script>
+function other() {
+  var x = document.getElementById("ecDD").selectedIndex;
+  if(x != "Other"){
+    document.getElementById("ecO").disabled = false;
+
+  }
+  else if( x == "Other"){
+    document.getElementById("ecO").disabled = true;
+  }
+}
+</script>
