@@ -153,40 +153,43 @@ class UsersController extends AppController{
       }
     }
 
-        //creates a new User entity (model)
-        //$user = $this->Users->newEntity();
+    //function used to register a new LE user
+        public function addle()
+        {
+            //creates a new User entity (model)
+            $user = $this->Users->newEntity();
 
-      //   if ($this->request->is('post')) {
-      //
-      //       // Prior to 3.4.0 $this->request->data() was used.
-      //       $user = $this->Users->patchEntity($user, $this->request->getData());
-      //
-      //       if ($this->Users->save($user)) {
-      //           $this->Flash->success(__('The user has been saved.'));
-      //           return $this->redirect(['action' => 'login']);
-      //
-      //           //this is the code to check if there are any errors from the UsersTable.php
-      //           //If there are, it lists out all errors
-      //       } elseif ($user->errors()) {
-      //           $error_msg = [];
-      //           foreach( $user->errors() as $errors) {
-      //               if(is_array($errors)) {
-      //                   foreach($errors as $error) {
-      //                       $error_msg[] = $error;
-      //                   }
-      //               } else {
-      //                   $error_msg[] = $errors;
-      //               }
-      //           }
-      //           if (!empty($error_msg)) {
-      //               $this->Flash->error(
-      //                   __("Please fix the following error(s):".implode("\n \r", $error_msg))
-      //               );
-      //           }
-      //       }
-      // }
-      //$this->set('user', $user);
+            if ($this->request->is('post')) {
 
+                // Prior to 3.4.0 $this->request->data() was used.
+                $user = $this->Users->patchEntity($user, $this->request->getData());
+
+                if ($this->Users->save($user)) {
+                    $this->Flash->success(__('The user has been saved.'));
+                    return $this->redirect(['action' => 'login']);
+
+                    //this is the code to check if there are any errors from the UsersTable.php
+                    //If there are, it lists out all errors
+                } elseif ($user->errors()) {
+                    $error_msg = [];
+                    foreach( $user->errors() as $errors) {
+                        if(is_array($errors)) {
+                            foreach($errors as $error) {
+                                $error_msg[] = $error;
+                            }
+                        } else {
+                            $error_msg[] = $errors;
+                        }
+                    }
+                    if (!empty($error_msg)) {
+                        $this->Flash->error(
+                            __("Please fix the following error(s):".implode("\n \r", $error_msg))
+                        );
+                    }
+                }
+          }
+          $this->set('user', $user);
+        }
 
 //function used to edit a users information
 //login needs to be added to pull in the current users info
@@ -271,6 +274,27 @@ class UsersController extends AppController{
             //$this->Flash->error(__('Invalid username or password, try again'));
         }
 
+
+    //function to handle LE login functionality
+        public function loginle()
+        {
+            if ($this->request->is('post')) {
+                $user = $this->Auth->identify();
+                if ($user) {
+                    $this->Auth->setUser($user);
+                    if ( $user['role'] == 'thepublic'){
+                      return $this->redirect(array('action' => 'home_concerned_public'));
+                    }
+                    elseif ( $user['role'] == 'lawenforcement'){
+                      return $this->redirect(array('action' => 'home_law_enforcement'));
+                    }
+                    else {
+                      return $this->redirect(array('action' => 'login'));
+                    }
+                }
+                $this->Flash->error(__('Invalid username or password, try again'));
+            }
+        }
 
 //function to handle logout functionality
     public function logout() {

@@ -38,8 +38,9 @@ class ReportsController extends AppController{
     }
 
 //function to view the detailed reports page
-    public function detailedReport() {
-        $this->render();
+    public function detailedReport($Report_ID = null) {
+      $report = $this->Reports->get($Report_ID);
+      $this->set(compact('report'));
     }
 
 

@@ -20,9 +20,7 @@
     <?= $this->Form->end(); ?>
 </div>
 <div>
-    <?php
-    echo $this->Html->link( "Add A New User",   array('action'=>'add') );
-    ?>
+  <?php echo $this->Html->link("Register", array('controller' => 'Users','action'=> 'add'), array( 'class' => 'register-button button')) ?>
 </div>
 </body>
 </html>

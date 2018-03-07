@@ -34,6 +34,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <?php
+    echo $this->Html->css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+    echo $this->Html->script([
+    'https://code.jquery.com/jquery-1.12.4.min.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
+      ]);
+      ?>
 </head>
 <body>
     <nav class="top-bar expanded" data-topbar role="navigation">
@@ -55,6 +62,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('content') ?>
     </div>
     <footer>
+      <div class="le-links">
+        <?php echo $this->Html->link("Law Enforcement Sign In", array('controller' => 'Users','action'=> 'loginle'), array( 'class' => 'home-footer')) ?>
+      </br>
+      <div class="contact">
+        <?php echo $this->Html->link("Local Police Contact Info", array('controller' => 'Users','action'=> 'home'), array( 'class' => 'home-footer contact-info')) ?>
+        <ul class="contact-list">
+          <li>Phone: </li>
+          <li>Address: </li>
+        </ul>
+      </div>
+      </div>
     </footer>
 </body>
 </html>
