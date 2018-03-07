@@ -21,42 +21,6 @@
             <div class="panel-body">
               <div class=" row panel-img">
                 <?php echo $this->Html->image('usericon2.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
-                <div class="row comment-row">
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#commentModal">
-                    comment
-                  </button>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Enter Your Comment</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <form>
-                            <div class="form-group">
-                              <label for="sender-email" class="col-form-label">Email:</label>
-                              <input type="text" class="form-control" id="sender-email">
-                            </div>
-                            <div class="form-group">
-                              <label for="comment-text" class="col-form-label">Comment:</label>
-                              <textarea class="form-control" id="comment-text"></textarea>
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Send Comment</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
               <div class="row">
                 <ul>
@@ -66,6 +30,10 @@
                     <li>Associated Officer(s):</li>
                     <li>Latest Update:</li>
                 </ul>
+                <!-- Comment Button trigger modal -->
+                <button type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#commentModal">
+                  comment
+                </button>
               </div>
             </div>
         </div>
@@ -76,6 +44,42 @@
           <div class="row well missing-info">
               <div class="col-md-6">
                   <?php echo $this->Html->image('usericon2.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
+                  <div class="row comment-row">
+                    <!-- Comment Button trigger modal -->
+                    <button type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#commentModal">
+                      comment
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Enter Your Comment</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form>
+                              <div class="form-group">
+                                <label for="sender-email" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control" id="sender-email">
+                              </div>
+                              <div class="form-group">
+                                <label for="comment-text" class="col-form-label">Comment:</label>
+                                <textarea class="form-control" id="comment-text"></textarea>
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Send Comment</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </div>
               <div class="col-md-6">
                   <ul>

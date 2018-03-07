@@ -30,6 +30,19 @@ input.approve-button:hover {
 .button.update-button {
   color: #ffffff !important;
   background-color: #116D76;
+  margin: 5px;
+}
+
+.button.btn.categorize-button {
+  color: #ffffff !important;
+  background-color: #116D76;
+  margin: 5px;
+}
+
+.button.btn.found-button {
+  color: #ffffff !important;
+  background-color: #116D76;
+  margin: 5px;
 }
 
 button {
