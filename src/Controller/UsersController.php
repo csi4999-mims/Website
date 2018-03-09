@@ -74,7 +74,7 @@ class UsersController extends AppController{
               'email' => $user->get('email'),
               'password' => $user->get('password'),
               'phone' => $user->get('phone'),
-              'role' => $user->get('role')
+              //'role' => $user->get('role')
             ]))
           {
             $this->Flash->success(__('The user has been saved.'));

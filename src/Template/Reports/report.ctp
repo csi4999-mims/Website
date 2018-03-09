@@ -240,12 +240,12 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-              <?php echo $this->Form->input('ff_alias', array('label' => 'Relation to Missing', 'options' => array('-' => '-', 'Mother' => 'Mother', 'Father' =>
+              <?php echo $this->Form->input('ff_relation', array('label' => 'Relation to Missing', 'options' => array('-' => '-', 'Mother' => 'Mother', 'Father' =>
                'Father', 'Daughter' => 'Daughter', 'Son' => 'Son', 'Sister' => 'Sister','Brother' => 'Brother', 'Aunt' => 'Aunt', 'Uncle' => 'Uncle', 'Niece' =>
                'Niece', 'Nephew' => 'Nephew', 'Cousin' => 'Cousin', 'Friend' => 'Friend', 'Other' => 'Other' ))); ?>
             </div>
             <div class="col-md-4">
-              <?php echo $this->Form->input('ff_alias_other', array('label' =>
+              <?php echo $this->Form->input('ff_relation_other', array('label' =>
               'Relation Other', 'maxLength' => 256, 'title' => 'Relation Other', 'type' => 'text')); ?>
             </div>
         </div>
