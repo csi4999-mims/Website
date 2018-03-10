@@ -31,14 +31,35 @@
           </div>
         </div>
 
-        <div class="row">
 
-            <div class="col-md-3">
-              <?php echo $this->Form->input('missing_date_of_birth', array('label'
-               => 'Date of Birth', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'DOB', 'type' => 'date')); ?>
-            </div>
 
-        </div>
+        <?php
+        echo $this->Form->label('Date of Birth');
+        echo $this->Form->date('missing_date_of_birth', [
+          'minYear' => 1900,
+          'monthNames' => true,
+          'empty' => [
+            'year' => true,
+            'year' => 'Choose Year...',
+            'month' => 'Choose Month...',
+            'day' => 'Choose Day...'
+          ],
+          'day' => true,
+          'day' => [
+            'class' => 'report-input'
+          ],
+          'month' => [
+            'class' => 'report-input'
+          ],
+          'year' => [
+              'label' => 'Date of Birth',
+              'class' => 'report-input',
+              'title' => 'Date of Birth'
+          ]
+        ]); ?>
+
+
+
 
         <div class="row">
           <div class="col-md-4">
@@ -180,13 +201,40 @@
             'maxLength' => 5, 'title' => 'Zip', 'type' => 'text')); ?>
           </div>
         </div>
-        <div class="row">
+
+
+                <?php
+                echo $this->Form->label('Date of Occurance');
+                echo $this->Form->date('seen_when', [
+                  'minYear' => 1900,
+                  'monthNames' => true,
+                  'empty' => [
+                    'year' => true,
+                    'year' => 'Choose Year...',
+                    'month' => 'Choose Month...',
+                    'day' => 'Choose Day...'
+                  ],
+                  'day' => true,
+                  'day' => [
+                    'class' => 'report-input'
+                  ],
+                  'month' => [
+                    'class' => 'report-input'
+                  ],
+                  'year' => [
+                      'label' => 'Date of Birth',
+                      'class' => 'report-input',
+                      'title' => 'Date of Birth'
+                  ]
+                ]); ?>
+
+        <!-- <div class="row">
             <div class="col-md-6">
               <?php echo $this->Form->input('seen_when', array('label' => 'Date of occurance ',
               'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'datetime')); ?>
             </div>
 
-        </div>
+        </div> -->
         <div class="row">
           <div class="col-md-4">
             <?php echo $this->Form->input('seen_notes', array('label' => 'Additional Information',
@@ -240,12 +288,12 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-              <?php echo $this->Form->input('ff_relation', array('label' => 'Relation to Missing', 'options' => array('-' => '-', 'Mother' => 'Mother', 'Father' =>
+              <?php echo $this->Form->input('ff_alias', array('label' => 'Relation to Missing', 'options' => array('-' => '-', 'Mother' => 'Mother', 'Father' =>
                'Father', 'Daughter' => 'Daughter', 'Son' => 'Son', 'Sister' => 'Sister','Brother' => 'Brother', 'Aunt' => 'Aunt', 'Uncle' => 'Uncle', 'Niece' =>
                'Niece', 'Nephew' => 'Nephew', 'Cousin' => 'Cousin', 'Friend' => 'Friend', 'Other' => 'Other' ))); ?>
             </div>
             <div class="col-md-4">
-              <?php echo $this->Form->input('ff_relation_other', array('label' =>
+              <?php echo $this->Form->input('ff_alias_other', array('label' =>
               'Relation Other', 'maxLength' => 256, 'title' => 'Relation Other', 'type' => 'text')); ?>
             </div>
         </div>
@@ -343,8 +391,57 @@
           </div>
         </div>
 
+        <?php
+        echo $this->Form->label('Started Working:');
+        echo $this->Form->date('workplace_start_date', [
+          'minYear' => 1900,
+          'monthNames' => true,
+          'empty' => [
+            'year' => true,
+            'year' => 'Choose Year...',
+            'month' => 'Choose Month...',
+            'day' => 'Choose Day...'
+          ],
+          'day' => true,
+          'day' => [
+            'class' => 'report-input'
+          ],
+          'month' => [
+            'class' => 'report-input'
+          ],
+          'year' => [
+              'label' => 'Date of Birth',
+              'class' => 'report-input',
+              'title' => 'Date of Birth'
+          ]
+        ]); ?>
 
-        <div class="row">
+        <?php
+        echo $this->Form->label('Stopped Working:');
+        echo $this->Form->date('workplace_end_date', [
+          'minYear' => 1900,
+          'monthNames' => true,
+          'empty' => [
+            'year' => true,
+            'year' => 'Choose Year...',
+            'month' => 'Choose Month...',
+            'day' => 'Choose Day...'
+          ],
+          'day' => true,
+          'day' => [
+            'class' => 'report-input'
+          ],
+          'month' => [
+            'class' => 'report-input'
+          ],
+          'year' => [
+              'label' => 'Date of Birth',
+              'class' => 'report-input',
+              'title' => 'Date of Birth'
+          ]
+        ]); ?>
+
+        <!-- <div class="row">
             <div class="col-md-3">
               <?php echo $this->Form->input('workplace_start_date', array('label'
               => 'Started working: ', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'date')); ?>
@@ -355,7 +452,7 @@
               <?php echo $this->Form->input('workplace_end_date', array('label'
               => 'Stopped working: ', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'date')); ?>
             </div>
-        </div>
+        </div> -->
         <div class="row">
           <div class="col-md-4">
             <?php echo $this->Form->input('workplace_misc', array('label' => 'Additional Information',
@@ -381,14 +478,14 @@
 </html>
 
 <script>
-function other() {
+function showOnOther() {
   var x = document.getElementById("ecDD").selectedIndex;
-  if(x != "Other"){
-    document.getElementById("ecO").disabled = false;
+  if(x == "Other"){
+    document.getElementById("ecO").style.visibility = "visible";
 
   }
-  else if( x == "Other"){
-    document.getElementById("ecO").disabled = true;
+  else {
+    document.getElementById("ecO").style.visibility = "hidden";
   }
 }
 </script>
