@@ -76,8 +76,10 @@
               <?php echo $this->Form->input('missing_gender', array('label' =>
               'Gender', 'options' => array('-' => '-', 'Male' => 'Male','Female' =>'Female','androgynous' => 'Androgynous'))); ?>
             </div>
+        </div>
+        <div class="row">
             <div class="col-md-4">
-              <?php echo $this->Form->input('missing_ethnicity', array('label'
+              <?php echo $this->Form->input('missing_ethnicity', array('id' => 'ME', 'onchange' => 'meOther(this)','label'
                => 'Ethnicity','options' => array('-' => '-', 'american_indian' =>
                'Native American','asian' => 'Asian', 'african_american' =>
                'African American','hispanic_latino' => 'Hispanic/Latino','middle_eastern' =>
@@ -85,33 +87,34 @@
               'white' => 'White','other' => 'Other'))); ?>
             </div>
             <div class="col-md-4">
-              <?php echo $this->Form->input('missing_ethnicity_other', array('label'
-              => 'Ethnicity Other', 'maxLength' => 255, 'title' => 'EthinicityOther', 'type' => 'text')); ?>
+              <?php echo $this->Form->input('missing_ethnicity_other', array('id' => 'MEO', 'label'
+              => 'Ethnicity Other', 'maxLength' => 255, 'title' => 'EthinicityOther', 'type' => 'text', 'disabled' => 'disabled')); ?>
             </div>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <?php echo $this->Form->input('missing_eye_color', array('id' => 'ecDD',
+            <?php echo $this->Form->input('missing_eye_color', array('id' => 'MEC',
             'options' => array('amber' => 'Amber','black' => 'Black','blue' => 'Blue',
             'brown' => 'Brown','green' => 'Green','grey' => 'Grey','hazel' => 'Hazel','other' => 'Other')
-          , 'onchange' => 'other(this)')); ?>
+          , 'onchange' => 'mecOther(this)'
+        )); ?>
           </div>
           <div class="col-md-4">
-            <?php echo $this->Form->input( 'missing_eye_color_other', array('id' => 'ecO','label'
-            => 'Eye Color Other', 'maxLength' => 255, 'title' => 'EyeColorOther', 'type' => 'text')); ?>
+            <?php echo $this->Form->input( 'missing_eye_color_other', array('id' => 'MECO','label'
+            => 'Eye Color Other', 'maxLength' => 255, 'title' => 'EyeColorOther', 'type' => 'text', 'disabled' => 'disabled')); ?>
           </div>
 
         </div>
         <div class="row">
 
             <div class="col-md-4">
-              <?php echo $this->Form->input('missing_hair_color', array('options'
+              <?php echo $this->Form->input('missing_hair_color', array('id' => 'MHC', 'onchange' => 'mhcOther(this)', 'options'
                => array('auburn' => 'Auburn','black' => 'Black','blonde' => 'Blonde',
                'brown' => 'Brown','grey' => 'Grey','red' => 'Red','white' => 'White','other' => 'Other'))); ?>
             </div>
             <div class="col-md-4">
-              <?php echo $this->Form->input('missing_hair_color_other', array('label'
-               => 'Hair Color Other', 'maxLength' => 255, 'title' => 'EyeColorOther', 'type' => 'text')); ?>
+              <?php echo $this->Form->input('missing_hair_color_other', array('id' => 'MHCO','label'
+               => 'Hair Color Other', 'maxLength' => 255, 'title' => 'EyeColorOther', 'type' => 'text', 'disabled' => 'disabled')); ?>
             </div>
 
         </div>
@@ -276,25 +279,27 @@
               <?php echo $this->Form->input('ff_gender', array('label' => 'Gender',
               'options' => array('-' => '-', 'Male' => 'Male','Female' =>'Female'))); ?>
             </div>
+        </div>
+        <div class="row">
             <div class="col-md-4">
-              <?php echo $this->Form->input('ff_ethnicity', array('label' => 'Ethnicity','options' => array('-' => '-', 'american_indian' => 'Native American','asian' => 'Asian',
+              <?php echo $this->Form->input('ff_ethnicity', array('id' => 'FFE', 'onchange' => 'ffeOther(this)','label' => 'Ethnicity','options' => array('-' => '-', 'american_indian' => 'Native American','asian' => 'Asian',
                   'african_american' => 'African American','hispanic_latino' => 'Hispanic/Latino','middle_eastern' => 'Middle Eastern','pacific_islander' => 'Pacific Islander',
                   'white' => 'White','other' => 'Other'))); ?>
             </div>
             <div class="col-md-4">
-              <?php echo $this->Form->input('ff_ethnicity_other', array('label' =>
-              'Ethnicity Other', 'maxLength' => 255, 'title' => 'EthinicityOther', 'type' => 'text')); ?>
+              <?php echo $this->Form->input('ff_ethnicity_other', array('id' => 'FFEO', 'label' =>
+              'Ethnicity Other', 'maxLength' => 255, 'title' => 'EthinicityOther', 'type' => 'text', 'disabled' => 'disabled')); ?>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-              <?php echo $this->Form->input('ff_alias', array('label' => 'Relation to Missing', 'options' => array('-' => '-', 'Mother' => 'Mother', 'Father' =>
+              <?php echo $this->Form->input('ff_alias', array('id' => 'FFA', 'onchange' => 'ffaOther(this)','label' => 'Relation to Missing', 'options' => array('-' => '-', 'Mother' => 'Mother', 'Father' =>
                'Father', 'Daughter' => 'Daughter', 'Son' => 'Son', 'Sister' => 'Sister','Brother' => 'Brother', 'Aunt' => 'Aunt', 'Uncle' => 'Uncle', 'Niece' =>
                'Niece', 'Nephew' => 'Nephew', 'Cousin' => 'Cousin', 'Friend' => 'Friend', 'Other' => 'Other' ))); ?>
             </div>
             <div class="col-md-4">
-              <?php echo $this->Form->input('ff_alias_other', array('label' =>
-              'Relation Other', 'maxLength' => 256, 'title' => 'Relation Other', 'type' => 'text')); ?>
+              <?php echo $this->Form->input('ff_alias_other', array('id' => 'FFAO', 'label' =>
+              'Relation Other', 'maxLength' => 256, 'title' => 'Relation Other', 'type' => 'text', 'disabled' => 'disabled')); ?>
             </div>
         </div>
 
@@ -477,15 +482,81 @@
 ?>
 </html>
 
-<script>
-function showOnOther() {
-  var x = document.getElementById("ecDD").selectedIndex;
-  if(x == "Other"){
-    document.getElementById("ecO").style.visibility = "visible";
 
+
+
+
+<script>
+  function meOther() {
+
+    var e = document.getElementById("ME");
+    var x = e.options[e.selectedIndex].value;
+    if(x == "other"){
+      document.getElementById("MEO").disabled = false;
+
+    }
+    else {
+      document.getElementById("MEO").disabled = true;
+    }
   }
-  else {
-    document.getElementById("ecO").style.visibility = "hidden";
+</script>
+
+<script>
+  function mecOther() {
+
+    var e = document.getElementById("MEC");
+    var x = e.options[e.selectedIndex].value;
+    if(x == "other"){
+      document.getElementById("MECO").disabled = false;
+
+    }
+    else {
+      document.getElementById("MECO").disabled = true;
+    }
   }
-}
+</script>
+
+<script>
+  function mhcOther() {
+
+    var e = document.getElementById("MHC");
+    var x = e.options[e.selectedIndex].value;
+    if(x == "other"){
+      document.getElementById("MHCO").disabled = false;
+
+    }
+    else {
+      document.getElementById("MHCO").disabled = true;
+    }
+  }
+</script>
+
+<script>
+  function ffeOther() {
+
+    var e = document.getElementById("FFE");
+    var x = e.options[e.selectedIndex].value;
+    if(x == "other"){
+      document.getElementById("FFEO").disabled = false;
+
+    }
+    else {
+      document.getElementById("FFEO").disabled = true;
+    }
+  }
+</script>
+
+<script>
+  function ffaOther() {
+
+    var e = document.getElementById("FFA");
+    var x = e.options[e.selectedIndex].value;
+    if(x == "Other"){
+      document.getElementById("FFAO").disabled = false;
+
+    }
+    else {
+      document.getElementById("FFAO").disabled = true;
+    }
+  }
 </script>
