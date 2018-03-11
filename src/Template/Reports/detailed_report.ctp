@@ -113,8 +113,8 @@
                       <?php echo $this->Form->input('editPlaceName', array('value' => $report->get('PlaceName'))); ?>
                       <?php echo $this->Form->input('editPlaceStreet', array('value' => $report->get('PlaceStreet'))); ?>
                       <?php echo $this->Form->input('editPlaceCity', array('value' => $report->get('PlaceCity'))); ?>
-                      <?php echo $this->Form->input('editFamilyState', array('value' => $report->get('PlaceState'))); ?>
                       <?php echo $this->Form->input('editPlaceState', array('value' => $report->get('PlaceState'))); ?>
+                      <?php echo $this->Form->input('editPlaceZip', array('value' => $report->get('PlaceZip'))); ?>
                     </ul>
                 </div>
               </div>

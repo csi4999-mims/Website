@@ -297,6 +297,62 @@ class ReportsController extends AppController{
               $this->Flash->error('Email was not saved');
           }
       }
+      //Edit the Workplace/Hangouts section of the form
+      //edit place name
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'PlaceName' => $this->request->data['editPlaceName'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Place Name is successfully changed');
+          } else {
+              $this->Flash->error('Place Name was not saved');
+          }
+      }
+      //edit place street
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'PlaceStreet' => $this->request->data['editPlaceStreet'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Street is successfully changed');
+          } else {
+              $this->Flash->error('Street was not saved');
+          }
+      }
+      //edit place city
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'PlaceCity' => $this->request->data['editPlaceCity'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The City is successfully changed');
+          } else {
+              $this->Flash->error('City was not saved');
+          }
+      }
+      //edit place state
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'PlaceState' => $this->request->data['editPlaceState'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The State is successfully changed');
+          } else {
+              $this->Flash->error('State was not saved');
+          }
+      }
+      //edit place zip
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'PlaceZip' => $this->request->data['editPlaceZip'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Zip is successfully changed');
+          } else {
+              $this->Flash->error('Zip was not saved');
+          }
+      }
 
       $this->set('report',$report);
     }
