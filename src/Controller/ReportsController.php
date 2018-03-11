@@ -186,44 +186,119 @@ class ReportsController extends AppController{
               $this->Flash->error('Social Media was not saved');
           }
       }
+      //Edit Family/Friend Info Section
+      //edit family first name
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FamilyFirstName' => $this->request->data['editFamilyFirstName'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Family First Name is successfully changed');
+          } else {
+              $this->Flash->error('Family First Name was not saved');
+          }
+      }
+      //edit family last name
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FamilyLastName' => $this->request->data['editFamilyLastName'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Family Last Name is successfully changed');
+          } else {
+              $this->Flash->error('Family Last Name was not saved');
+          }
+      }
+      //edit family gender
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FamilyGender' => $this->request->data['editFamilyGender'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Family Gender is successfully changed');
+          } else {
+              $this->Flash->error('Family Gender was not saved');
+          }
+      }
+      //edit family relation
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'Relation' => $this->request->data['editRelation'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Relation is successfully changed');
+          } else {
+              $this->Flash->error('Relation was not saved');
+          }
+      }
+      //edit family street
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FamilyStreet' => $this->request->data['editFamilyStreet'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Street is successfully changed');
+          } else {
+              $this->Flash->error('Street was not saved');
+          }
+      }
+      //edit family city
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FamilyCity' => $this->request->data['editFamilyCity'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The City is successfully changed');
+          } else {
+              $this->Flash->error('City was not saved');
+          }
+      }
+      //edit family State
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FamilyState' => $this->request->data['editFamilyState'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The State is successfully changed');
+          } else {
+              $this->Flash->error('State was not saved');
+          }
+      }
+      //edit family zip
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FamilyZip' => $this->request->data['editFamilyZip'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Zip is successfully changed');
+          } else {
+              $this->Flash->error('Zip was not saved');
+          }
+      }
+      //edit family phone
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FamilyPhone' => $this->request->data['editFamilyPhone'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Phone is successfully changed');
+          } else {
+              $this->Flash->error('Phone was not saved');
+          }
+      }
+      //edit family email
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FamilyEmail' => $this->request->data['editFamilyEmail'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Email is successfully changed');
+          } else {
+              $this->Flash->error('Email was not saved');
+          }
+      }
 
       $this->set('report',$report);
-    }
-
-
-//function to render the second report page
-//functionality needs to be added
-    public function report2() {
-
-//        $persons = $this->persons->newEntity();
-//		if ($this->request->is('post')) {
-//			$persons = $this->persons->patchEntity($persons, $this->request->getData());
-//			if ($this->persons->save($persons)) {
-//				$this->Flash->success(__('This person has been added.'));
-//				return $this->redirect(['action' => 'home']);
-//			}
-//			$this->Flash->error(__('Unable to add person.'));
-//		}
-//		$this->set('user', $user);
-//
-//        $this->render();
-    }
-//function to render the second report page
-//functionality needs to be added
-    public function report3() {
-
-//        places = $this->places->newEntity();
-//		if ($this->request->is('post')) {
-//			$places = $this->places->patchEntity($places, $this->request->getData());
-//			if ($this->places->save($places)) {
-//				$this->Flash->success(__('This place has been added.'));
-//				return $this->redirect(['action' => 'home']);
-//			}
-//			$this->Flash->error(__('Unable to add place.'));
-//		}
-//		$this->set('user', $user);
-
-//        $this->render();
     }
 
 }
