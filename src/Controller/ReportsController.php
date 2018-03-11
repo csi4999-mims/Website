@@ -46,7 +46,7 @@ class ReportsController extends AppController{
       //edit first name
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'FirstName' => $this->request->data['newFirstName'],
+              'FirstName' => $this->request->data['editFirstName'],
           ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The First Name is successfully changed');
@@ -57,7 +57,7 @@ class ReportsController extends AppController{
       //edit last name
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'LastName' => $this->request->data['newLastName'],
+              'LastName' => $this->request->data['editLastName'],
           ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The Last Name is successfully changed');
@@ -68,7 +68,7 @@ class ReportsController extends AppController{
       //edit gender
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'Gender' => $this->request->data['newGender'],
+              'Gender' => $this->request->data['editGender'],
           ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The Gender is successfully changed');
@@ -79,7 +79,7 @@ class ReportsController extends AppController{
       //edit ethnicity
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'Ethnicity' => $this->request->data['newEthnicity'],
+              'Ethnicity' => $this->request->data['editEthnicity'],
           ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The Ethnicity is successfully changed');
@@ -90,7 +90,7 @@ class ReportsController extends AppController{
       //edit dob
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'DoB' => $this->request->data['newDoB'],
+              'DoB' => $this->request->data['editDoB'],
           ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The Date of Birth is successfully changed');
@@ -101,7 +101,7 @@ class ReportsController extends AppController{
       //edit height(feet)
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'Feet' => $this->request->data['newFeet'],
+              'Feet' => $this->request->data['editFeet'],
           ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The Height Feet is successfully changed');
@@ -112,7 +112,7 @@ class ReportsController extends AppController{
       //edit height(inches)
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'Inches' => $this->request->data['newInches'],
+              'Inches' => $this->request->data['editInches'],
           ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The Height Inches is successfully changed');
@@ -123,7 +123,7 @@ class ReportsController extends AppController{
       //edit marks/tattoos
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'MarksTattoos' => $this->request->data['newMarksTattoos'],
+              'MarksTattoos' => $this->request->data['editMarksTattoos'],
           ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The Marks/Tattoos is successfully changed');
@@ -134,7 +134,7 @@ class ReportsController extends AppController{
       //edit weight
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'Weight' => $this->request->data['newWeight'],
+              'Weight' => $this->request->data['editWeight'],
           ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The Weight is successfully changed');
@@ -145,7 +145,7 @@ class ReportsController extends AppController{
       //edit eye color
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'EyeColor' => $this->request->data['newEyeColor'],
+              'EyeColor' => $this->request->data['editEyeColor'],
           ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The Eye Color is successfully changed');
@@ -156,7 +156,7 @@ class ReportsController extends AppController{
       //edit hair color
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'HairColor' => $this->request->data['newHairColor'],
+              'HairColor' => $this->request->data['editHairColor'],
           ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The Hair Color is successfully changed');
@@ -167,7 +167,7 @@ class ReportsController extends AppController{
       //edit phone
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'phone' => $this->request->data['newPhone'],
+              'phone' => $this->request->data['editPhone'],
               ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The Phone is successfully changed');
@@ -178,7 +178,7 @@ class ReportsController extends AppController{
       //edit social media
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'SocialMediaAccount' => $this->request->data['newSocialMediaAccount'],
+              'SocialMediaAccount' => $this->request->data['editSocialMediaAccount'],
               ]);
           if ($this->Reports->save($report)) {
               $this->Flash->success('The Social Media is successfully changed');

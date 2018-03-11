@@ -56,65 +56,65 @@
                               <?php echo $this->Form->input('status', array('value' => $report->get('status'))); ?>
                           </div>
                       </div>
-                        <?php echo $this->Form->input('newLastSeen', array('value' => $report->get('LastSeen'))); ?>
-                        <?php echo $this->Form->input('newFirstName', array('value' => $report->get('FirstName'))); ?>
-                        <?php echo $this->Form->input('newLastName', array('value' => $report->get('LastName'))); ?>
-                        <div class="row">
-                            <div class="col-md-6 inline-left">
-                                <?php echo $this->Form->input('newGender', array('value' => $report->get('Gender'))); ?>
-                            </div>
-                            <div class="col-md-6 inline-right">
-                                <?php echo $this->Form->input('newEthnicity', array('value' => $report->get('Ethnicity'))); ?>
-                            </div>
-                        </div>
-                        <?php echo $this->Form->input('DoB', array('value' => $report->get('DoB'))); ?>
-                        <div class="row">
-                            <div class="col-md-6 inline-left">
-                                <?php echo $this->Form->input('newFeet', array('value' => $report->get('HeightFeet')));  ?>
-                            </div>
-                            <div class="col-md-6 inline-right">
-                                <?php echo $this->Form->input('newInches', array('value' => $report->get('HeightInches')));  ?>
-                            </div>
-                        </div>
-                        <?php echo $this->Form->input('newMarksTattoos', array('value' => $report->get('MarksTattoos'))); ?>
-                        <div class="row">
-                            <div class="col-md-4 inline-left">
-                                <?php echo $this->Form->input('newWeight', array('value' => $report->get('Weight'))); ?>
-                            </div>
-                            <div class="col-md-4 inline-middle">
-                                <?php echo $this->Form->input('newEyeColor', array('value' => $report->get('EyeColor'))); ?>
-                            </div>
-                            <div class="col-md-4 inline-right">
-                                <?php echo $this->Form->input('newHairColor', array('value' => $report->get('HairColor'))); ?>
-                            </div>
-                        </div>
-                        <?php echo $this->Form->input('newPhone', array('value' => $report->get('Phone'))); ?>
-                        <?php echo $this->Form->input('newSocialMediaAccount', array('value' => $report->get('SocialMediaAccounts'))); ?>
+                      <?php echo $this->Form->input('editLastSeen', array('value' => $report->get('LastSeen'))); ?>
+                      <?php echo $this->Form->input('editFirstName', array('value' => $report->get('FirstName'))); ?>
+                      <?php echo $this->Form->input('editLastName', array('value' => $report->get('LastName'))); ?>
+                      <div class="row">
+                          <div class="col-md-6 inline-left">
+                              <?php echo $this->Form->input('editGender', array('value' => $report->get('Gender'))); ?>
+                          </div>
+                          <div class="col-md-6 inline-right">
+                              <?php echo $this->Form->input('editEthnicity', array('value' => $report->get('Ethnicity'))); ?>
+                          </div>
+                      </div>
+                      <?php echo $this->Form->input('editDoB', array('value' => $report->get('DoB'))); ?>
+                      <div class="row">
+                          <div class="col-md-6 inline-left">
+                              <?php echo $this->Form->input('editFeet', array('value' => $report->get('HeightFeet')));  ?>
+                          </div>
+                          <div class="col-md-6 inline-right">
+                              <?php echo $this->Form->input('editInches', array('value' => $report->get('HeightInches')));  ?>
+                          </div>
+                      </div>
+                      <?php echo $this->Form->input('editMarksTattoos', array('value' => $report->get('MarksTattoos'))); ?>
+                      <div class="row">
+                          <div class="col-md-4 inline-left">
+                              <?php echo $this->Form->input('editWeight', array('value' => $report->get('Weight'))); ?>
+                          </div>
+                          <div class="col-md-4 inline-middle">
+                              <?php echo $this->Form->input('editEyeColor', array('value' => $report->get('EyeColor'))); ?>
+                          </div>
+                          <div class="col-md-4 inline-right">
+                              <?php echo $this->Form->input('editHairColor', array('value' => $report->get('HairColor'))); ?>
+                          </div>
+                      </div>
+                      <?php echo $this->Form->input('editPhone', array('value' => $report->get('Phone'))); ?>
+                      <?php echo $this->Form->input('editSocialMediaAccount', array('value' => $report->get('SocialMediaAccounts'))); ?>
                     </ul>
                 </div>
                 <div class="col-md-4">
                   <legend><?php echo __('Family/Friend'); ?></legend>
                     <ul>
-                        <?php echo $this->Form->input('newFamilyFirstName', array('value' => $report->get('FamilyFirstName'))); ?>
-                        <?php echo $this->Form->input('newFamilyLastName', array('value' => $report->get('FamilyLastName'))); ?>
-                        <?php echo $this->Form->input('newFamilyGender', array('value' => $report->get('FamilyGender'))); ?>
-                        <?php echo $this->Form->input('newRelation', array('value' => $report->get('Relation'))); ?>
-                        <?php echo $this->Form->input('newFamilyStreet', array('value' => $report->get('FamilyStreet'))); ?>
-                        <?php echo $this->Form->input('newFamilyCity', array('value' => $report->get('FamilyCity'))); ?>
-                        <?php echo $this->Form->input('newFamilyState', array('value' => $report->get('FamilyState'))); ?>
-                        <?php echo $this->Form->input('newFamilyZip', array('value' => $report->get('FamilyZip'))); ?>
-                        <?php echo $this->Form->input('newFamilyPhone', array('value' => $report->get('FamilyPhone'))); ?>
-                        <?php echo $this->Form->input('newFamilyEmail', array('value' => $report->get('FamilyEmail'))); ?>
+                      <?php echo $this->Form->input('editFamilyFirstName', array('value' => $report->get('FamilyFirstName'))); ?>
+                      <?php echo $this->Form->input('editFamilyLastName', array('value' => $report->get('FamilyLastName'))); ?>
+                      <?php echo $this->Form->input('editFamilyGender', array('value' => $report->get('FamilyGender'))); ?>
+                      <?php echo $this->Form->input('editRelation', array('value' => $report->get('Relation'))); ?>
+                      <?php echo $this->Form->input('editFamilyStreet', array('value' => $report->get('FamilyStreet'))); ?>
+                      <?php echo $this->Form->input('editFamilyCity', array('value' => $report->get('FamilyCity'))); ?>
+                      <?php echo $this->Form->input('editFamilyState', array('value' => $report->get('FamilyState'))); ?>
+                      <?php echo $this->Form->input('editFamilyZip', array('value' => $report->get('FamilyZip'))); ?>
+                      <?php echo $this->Form->input('editFamilyPhone', array('value' => $report->get('FamilyPhone'))); ?>
+                      <?php echo $this->Form->input('editFamilyEmail', array('value' => $report->get('FamilyEmail'))); ?>
                     </ul>
                 </div>
                 <div class="col-md-4">
                   <legend><?php echo __('Workplace/Hangout'); ?></legend>
                     <ul>
-                        <?php echo $this->Form->input('newPlaceName', array('value' => $report->get('PlaceName'))); ?>
-                        <?php echo $this->Form->input('newPlaceStreet', array('value' => $report->get('PlaceStreet'))); ?>
-                        <?php echo $this->Form->input('newPlaceCity', array('value' => $report->get('PlaceCity'))); ?>
-                        <?php echo $this->Form->input('newFamilyState', array('value' => $report->get('PlaceState'))); ?>
-                        <?php echo $this->Form->input('newPlaceState', array('value' => $report->get('PlaceState'))); ?>
+                      <?php echo $this->Form->input('editPlaceName', array('value' => $report->get('PlaceName'))); ?>
+                      <?php echo $this->Form->input('editPlaceStreet', array('value' => $report->get('PlaceStreet'))); ?>
+                      <?php echo $this->Form->input('editPlaceCity', array('value' => $report->get('PlaceCity'))); ?>
+                      <?php echo $this->Form->input('editFamilyState', array('value' => $report->get('PlaceState'))); ?>
+                      <?php echo $this->Form->input('editPlaceState', array('value' => $report->get('PlaceState'))); ?>
                     </ul>
                 </div>
               </div>
