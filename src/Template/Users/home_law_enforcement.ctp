@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+  <?= $this->Html->script("//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", [false]); ?>
+  <?= $this->Html->script('http://maps.google.com/maps/api/js?key=AIzaSyD0h-HXglQ5F0qt0pCRanVJsPwO6EnJYBg&sensor=true', [false]); ?>
 </head>
 <body>
 <div class="page-header">
@@ -60,6 +61,58 @@
     </div>
   </div>
 </div>
+</div>
+<div class="containter-fluid map">
+  <div class="row map-row law">
+    <div class="col-md-6">
+      <legend><?php echo __('Map of Missing People'); ?></legend>
+      <p>
+        The map to the right has the last seen locations of people who were reported missing.
+      </br>
+      </br>
+        When you click on a map marker you can see the following information about the missing person:
+      </br>
+      <ul>
+        <li>Name</li>
+        <li>Date of Birth</li>
+        <li>Last Seen Location</li>
+        <li>Hair Color</li>
+        <li>Eye Color</li>
+        <li>Height</li>
+        <li>Weight</li>
+      </ul>
+      </p>
+
+    </div>
+    <div class="col-md-6">
+      <?=
+        // Override any of the following default options to customize your map
+        $map_options = array(
+          'id' => 'map_canvas',
+          'width' => '600px',
+          'height' => '600px',
+          'style' => '',
+          'zoom' => 10,
+          'type' => 'ROADMAP',
+          'custom' => null,
+          'localize' => true,
+          'latitude' => 42.6666979,
+          'longitude' => -83.399939,
+          'marker' => true,
+          'markerTitle' => 'This is my position',
+          'markerIcon' => 'http://google-maps-icons.googlecode.com/files/home.png',
+          'markerShadow' => 'http://google-maps-icons.googlecode.com/files/shadow.png',
+          'infoWindow' => true,
+          'windowText' => 'My Position',
+          'draggableMarker' => false
+        );
+      ?>
+      <?= $this->GoogleMap->map($map_options); ?>
+      <?php foreach ($reports as $report): ?>
+          <?= $this->GoogleMap->addMarker("map_canvas", 1, $report->get('FamilyStreet')); ?>
+      <?php endforeach; ?>
+    </div>
+  </div>
 </div>
 </body>
 </html>
