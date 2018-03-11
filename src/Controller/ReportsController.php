@@ -41,6 +41,153 @@ class ReportsController extends AppController{
     public function detailedReport($Report_ID = null) {
       $report = $this->Reports->get($Report_ID);
       $this->set(compact('report'));
+
+      //Edit Missing Person Info Section
+      //edit first name
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FirstName' => $this->request->data['newFirstName'],
+          ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The First Name is successfully changed');
+          } else {
+              $this->Flash->error('First Name was not saved');
+          }
+      }
+      //edit last name
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'LastName' => $this->request->data['newLastName'],
+          ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Last Name is successfully changed');
+          } else {
+              $this->Flash->error('Last Name was not saved');
+          }
+      }
+      //edit gender
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'Gender' => $this->request->data['newGender'],
+          ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Gender is successfully changed');
+          } else {
+              $this->Flash->error('Gender was not saved');
+          }
+      }
+      //edit ethnicity
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'Ethnicity' => $this->request->data['newEthnicity'],
+          ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Ethnicity is successfully changed');
+          } else {
+              $this->Flash->error('Ethnicity was not saved');
+          }
+      }
+      //edit dob
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'DoB' => $this->request->data['newDoB'],
+          ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Date of Birth is successfully changed');
+          } else {
+              $this->Flash->error('Date of Birth was not saved');
+          }
+      }
+      //edit height(feet)
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'Feet' => $this->request->data['newFeet'],
+          ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Height Feet is successfully changed');
+          } else {
+              $this->Flash->error('Height Feet was not saved');
+          }
+      }
+      //edit height(inches)
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'Inches' => $this->request->data['newInches'],
+          ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Height Inches is successfully changed');
+          } else {
+              $this->Flash->error('Height Inches was not saved');
+          }
+      }
+      //edit marks/tattoos
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'MarksTattoos' => $this->request->data['newMarksTattoos'],
+          ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Marks/Tattoos is successfully changed');
+          } else {
+              $this->Flash->error('Marks/Tattoos was not saved');
+          }
+      }
+      //edit weight
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'Weight' => $this->request->data['newWeight'],
+          ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Weight is successfully changed');
+          } else {
+              $this->Flash->error('Weight was not saved');
+          }
+      }
+      //edit eye color
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'EyeColor' => $this->request->data['newEyeColor'],
+          ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Eye Color is successfully changed');
+          } else {
+              $this->Flash->error('Eye Color was not saved');
+          }
+      }
+      //edit hair color
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'HairColor' => $this->request->data['newHairColor'],
+          ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Hair Color is successfully changed');
+          } else {
+              $this->Flash->error('Hair Color was not saved');
+          }
+      }
+      //edit phone
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'phone' => $this->request->data['newPhone'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Phone is successfully changed');
+          } else {
+              $this->Flash->error('Phone was not saved');
+          }
+      }
+      //edit social media
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'SocialMediaAccount' => $this->request->data['newSocialMediaAccount'],
+              ]);
+          if ($this->Reports->save($report)) {
+              $this->Flash->success('The Social Media is successfully changed');
+          } else {
+              $this->Flash->error('Social Media was not saved');
+          }
+      }
+
+      $this->set('report',$report);
     }
 
 
