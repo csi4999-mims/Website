@@ -27,13 +27,28 @@ input.approve-button:hover {
   background-color: #808080;
 }
 
-.button.update-button {
+input.form-submit.btn.update-button.btn-default {
+  color: #ffffff !important;
+  background-color: #116D76 !important;
+  margin: 5px !important;
+}
+
+.button.btn.categorize-button {
   color: #ffffff !important;
   background-color: #116D76;
+  margin: 5px;
+}
+
+.button.btn.found-button {
+  color: #ffffff !important;
+  background-color: #116D76;
+  margin: 5px;
 }
 
 button {
   color: #ffffff !important;
+  background-color: #116D76 !important;
+  border-radius: 0px !important;
 }
 
 .row {
@@ -41,14 +56,14 @@ button {
 }
 
 .jumbotron {
-  background-image: url('../img/family.png');
+  background-image: url('../img/family2.png');
   background-size: 100% 100%;
   height: 400px;
   margin-top: 10px;
 }
 
 .jumbotron.jumbotron-public-home {
-  background-image: url('../img/michigan2.png');
+  background-image: url('../img/park2.png');
   background-size: 100% 100%;
   height: 200px;
   margin-top: 10px;
@@ -150,4 +165,15 @@ a.home-footer:hover {
 .comment-row {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
+}
+
+.map-row {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.row.map-row.law {
+  margin-left: 0px !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
 }

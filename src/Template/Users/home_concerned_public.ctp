@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+  <?= $this->Html->script("//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", [false]); ?>
+  <?= $this->Html->script('http://maps.google.com/maps/api/js?key=AIzaSyD0h-HXglQ5F0qt0pCRanVJsPwO6EnJYBg&sensor=true', [false]); ?>
 </head>
 <body>
   <div class="jumbotron jumbotron-public-home">
@@ -21,42 +22,6 @@
             <div class="panel-body">
               <div class=" row panel-img">
                 <?php echo $this->Html->image('usericon2.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
-                <div class="row comment-row">
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#commentModal">
-                    comment
-                  </button>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Enter Your Comment</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <form>
-                            <div class="form-group">
-                              <label for="sender-email" class="col-form-label">Email:</label>
-                              <input type="text" class="form-control" id="sender-email">
-                            </div>
-                            <div class="form-group">
-                              <label for="comment-text" class="col-form-label">Comment:</label>
-                              <textarea class="form-control" id="comment-text"></textarea>
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Send Comment</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
               <div class="row">
                 <ul>
@@ -66,6 +31,10 @@
                     <li>Associated Officer(s):</li>
                     <li>Latest Update:</li>
                 </ul>
+                <!-- Comment Button trigger modal -->
+                <button type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#commentModal">
+                  comment
+                </button>
               </div>
             </div>
         </div>
@@ -76,6 +45,42 @@
           <div class="row well missing-info">
               <div class="col-md-6">
                   <?php echo $this->Html->image('usericon2.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
+                  <div class="row comment-row">
+                    <!-- Comment Button trigger modal -->
+                    <button type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#commentModal">
+                      comment
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Enter Your Comment</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form>
+                              <div class="form-group">
+                                <label for="sender-email" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control" id="sender-email">
+                              </div>
+                              <div class="form-group">
+                                <label for="comment-text" class="col-form-label">Comment:</label>
+                                <textarea class="form-control" id="comment-text"></textarea>
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Send Comment</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </div>
               <div class="col-md-6">
                   <ul>
@@ -93,6 +98,58 @@
         <?php endforeach; ?>
       </div>
     </div>
+</div>
+<div class="containter-fluid map">
+  <div class="row map-row">
+    <div class="col-md-6">
+      <legend><?php echo __('Map of Missing People'); ?></legend>
+      <p>
+        The map to the right has the last seen locations of people who were reported missing.
+      </br>
+      </br>
+        When you click on a map marker you can see the following information about the missing person:
+      </br>
+      <ul>
+        <li>Name</li>
+        <li>Date of Birth</li>
+        <li>Last Seen Location</li>
+        <li>Hair Color</li>
+        <li>Eye Color</li>
+        <li>Height</li>
+        <li>Weight</li>
+      </ul>
+      </p>
+
+    </div>
+    <div class="col-md-6">
+      <?=
+        // Override any of the following default options to customize your map
+        $map_options = array(
+          'id' => 'map_canvas',
+          'width' => '400px',
+          'height' => '400px',
+          'style' => '',
+          'zoom' => 10,
+          'type' => 'ROADMAP',
+          'custom' => null,
+          'localize' => true,
+          'latitude' => 42.6666979,
+          'longitude' => -83.399939,
+          'marker' => true,
+          'markerTitle' => 'This is my position',
+          'markerIcon' => 'http://google-maps-icons.googlecode.com/files/home.png',
+          'markerShadow' => 'http://google-maps-icons.googlecode.com/files/shadow.png',
+          'infoWindow' => true,
+          'windowText' => 'My Position',
+          'draggableMarker' => false
+        );
+      ?>
+      <?= $this->GoogleMap->map($map_options); ?>
+      <?php foreach ($reports as $report): ?>
+          <?= $this->GoogleMap->addMarker("map_canvas", 1, $report->get('FamilyStreet')); ?>
+      <?php endforeach; ?>
+    </div>
+  </div>
 </div>
 </body>
 </html>

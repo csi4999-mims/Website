@@ -4,6 +4,9 @@ use App\Controller\AppController;
 use App\Controller\ReportsController;
 class UsersController extends AppController{
 
+  //adding google maps helper
+  public $helpers = array('GoogleMap');
+  
 //built in function of cakePHP
     public $paginate = array(
         'limit' => 25,
@@ -232,6 +235,6 @@ class UsersController extends AppController{
 
 //function to handle logout functionality
     public function logout() {
-        return $this->redirect($this->Auth->logout());
+        return $this->redirect(array('action' => 'home'),$this->Auth->logout());
     }
 }
