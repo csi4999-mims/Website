@@ -22,7 +22,7 @@
                     <div class="col-md-12">
                       <!-- Update Case Button trigger modal -->
                       <?php
-                      echo $this->Form->submit('Update Case', array('class' => 'form-submit btn categorize-button',  'title' => 'Click here to update the user account') );
+                      echo $this->Form->submit('Update Case', array('class' => 'form-submit btn update-button',  'title' => 'Click here to update the user account') );
                       ?>
                     </div>
                   </div>
