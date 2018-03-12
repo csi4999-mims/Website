@@ -2,7 +2,7 @@
 <html>
 <head>
   <?= $this->Html->script("//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", [false]); ?>
-  <?= $this->Html->script('http://maps.google.com/maps/api/js?key=AIzaSyD0h-HXglQ5F0qt0pCRanVJsPwO6EnJYBg&sensor=true', [false]); ?>
+  <?= $this->Html->script('http://maps.google.com/maps/api/js?key=AIzaSyB5X03H1AvAfoqOWYIGb4fUUgyk7Bocd2w&sensor=true', [false]); ?>
 </head>
 <body>
   <div class="jumbotron jumbotron-public-home">
@@ -136,17 +136,25 @@
           'latitude' => 42.6666979,
           'longitude' => -83.399939,
           'marker' => true,
-          'markerTitle' => 'This is my position',
+          'markerTitle' => '',
           'markerIcon' => 'http://google-maps-icons.googlecode.com/files/home.png',
           'markerShadow' => 'http://google-maps-icons.googlecode.com/files/shadow.png',
           'infoWindow' => true,
-          'windowText' => 'My Position',
+          'windowText' => '',
           'draggableMarker' => false
         );
       ?>
       <?= $this->GoogleMap->map($map_options); ?>
       <?php foreach ($reports as $report): ?>
-          <?= $this->GoogleMap->addMarker("map_canvas", 1, $report->get('FamilyStreet')); ?>
+            <?= $this->GoogleMap->addMarker("map_canvas", 1, $report->get('FamilyStreet') . $report->get('FamilyCity') . $report->get('FamilyState') . $report->get('FamilyZip'), array(
+          "showWindow"   => true,
+          "windowText"   => "Name: " . $report->get('FirstName') . " " . $report->get('LastName') .  " DOB: " . $report->get('DoB') . " Last Seen: "
+          . $report->get('LastSeen') . " Hair Color: " . $report->get('HairColor') . " Eye Color: " . $report->get('EyeColor') . " Height: "
+          . $report->get('Height') . " Weight: " . $report->get('Weight'),
+          "markerTitle"  => "Title",
+          "markerIcon"   => "http://labs.google.com/ridefinder/images/mm_20_purple.png",
+          "markerShadow" => "http://labs.google.com/ridefinder/images/mm_20_purpleshadow.png"
+        )); ?>
       <?php endforeach; ?>
     </div>
   </div>

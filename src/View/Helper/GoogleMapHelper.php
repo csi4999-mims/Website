@@ -73,7 +73,7 @@ class GoogleMapHelper extends Helper {
   // Default marker title (HTML title tag)
   var $defaultMarkerTitle   = 'My Position';
   // Default icon of the marker
-  var $defaultMarkerIcon    = 'http://google-maps-icons.googlecode.com/files/home.png';
+  var $defaultMarkerIcon    = 'https://google-maps-icons.googlecode.com/files/home.png';
   // Default shadow for the marker icon
   var $defaultMarkerShadow  = '';
   // Boolean to show an information window when you click the marker or not
@@ -89,9 +89,9 @@ class GoogleMapHelper extends Helper {
   // Default marker title (HTML title tag)
   var $defaultmarkerTitleM  = "Title";
   // Default icon of the marker
-  var $defaultmarkerIconM   = "http://maps.google.com/mapfiles/marker.png";
+  var $defaultmarkerIconM   = "https://maps.google.com/mapfiles/marker.png";
   // Default shadow for the marker icon
-  var $defaultmarkerShadowM = "http://maps.google.com/mapfiles/shadow50.png";
+  var $defaultmarkerShadowM = "https://maps.google.com/mapfiles/shadow50.png";
     // Indicate if marker is draggable
   var $defaultDraggableMarker  = false;
 
