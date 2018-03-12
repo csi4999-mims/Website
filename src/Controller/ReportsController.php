@@ -29,7 +29,7 @@ class ReportsController extends AppController{
 
         $report = $this->Missing->patchEntity($report, $this->request->getData());
 
-        //$dob = \Cake\Database\Type::build('date')->marshal($report->get('missing_date_of_birth'));
+        $dob = \Cake\Database\Type::build('date')->marshal($report->get('missing_date_of_birth'));
 
         try {
           if
@@ -53,7 +53,7 @@ class ReportsController extends AppController{
               'weight_pounds' => $report->get('missing_weight_pounds'),
               'height_inches' => (($report->get('missing_height_feet') * 12) + $report->get('missing_height_inches')), //this needs to be calculated based on feet * 12 + inches
               //'date_of_birth' => $report->get('missing_date_of_birth'),
-              //'date_of_birth' => $dob,
+              'date_of_birth' => $dob,
               'facebook_username' => $report->get('missing_facebook_username'),
               'twitter_username' => $report->get('missing_twitter_username'),
               'instagram_username' => $report->get('missing_instagram_username'),
@@ -61,7 +61,7 @@ class ReportsController extends AppController{
               'misc' => $report->get('missing_misc')
             ])
           )
-
+/*
         if
         (
           $conn->insert('place',
@@ -167,7 +167,7 @@ class ReportsController extends AppController{
             //'end_date' => $report->get('workplace_end_date')         // dates need to be worked on
           ])
         )
-
+*/
 
           {
             $this->Flash->success(__('The report has been submitted'));
