@@ -51,6 +51,13 @@ class UsersController extends AppController{
       //set report model
       //$this->set('report',$report);
       $this->set('reports', $report);
+      $myreport = $this->Reports
+        ->find()
+        ->where(['SubmitterEmail =' => $user->get('email')])
+        ->toArray();
+      //set report model
+      //$this->set('report',$report);
+      $this->set('myreports', $myreport);
     }
 
 //function used to register a new user
