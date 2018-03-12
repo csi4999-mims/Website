@@ -191,9 +191,9 @@ class ReportsController extends AppController{
       //edit phone
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'phone' => $this->request->data['editPhone'],
+              'Phone' => $this->request->data['editPhone'],
               ]);
-          if ($report->dirty('phone') == true){
+          if ($report->dirty('Phone') == true){
             if ($this->Reports->save($report)) {
                 $this->Flash->success('The Phone is successfully changed');
             } else {
