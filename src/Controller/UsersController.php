@@ -6,7 +6,7 @@ class UsersController extends AppController{
 
   //adding google maps helper
   public $helpers = array('GoogleMap');
-  
+
 //built in function of cakePHP
     public $paginate = array(
         'limit' => 25,
@@ -46,7 +46,7 @@ class UsersController extends AppController{
       //get all rows in reports table in db
       $report = $this->Reports
         ->find()
-        ->where(['Report_ID >=' => 0])
+        ->where(['status =' => 'Active'])
         ->toArray();
       //set report model
       //$this->set('report',$report);
