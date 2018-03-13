@@ -4,6 +4,7 @@
     <?php echo $this->Form->create('$report', [
 	'context' => ['validator' => 'report']
     ]);
+    $this->Html->css('custom');
     ?>
     <fieldset>
 
