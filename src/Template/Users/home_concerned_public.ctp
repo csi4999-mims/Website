@@ -2,7 +2,7 @@
 <html>
 <head>
   <?= $this->Html->script("//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", [false]); ?>
-  <?= $this->Html->script('http://maps.google.com/maps/api/js?key=AIzaSyB5X03H1AvAfoqOWYIGb4fUUgyk7Bocd2w&sensor=true', [false]); ?>
+  <?= $this->Html->script('http://maps.google.com/maps/api/js?key=AIzaSyD0h-HXglQ5F0qt0pCRanVJsPwO6EnJYBg&sensor=true', [false]); ?>
 </head>
 <body>
   <div class="jumbotron jumbotron-public-home">
@@ -15,9 +15,13 @@
 <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
+        <?php
+        foreach ($myreports as $myreport):
+          $count += 1;
+          ?>
         <div class="panel panel-default mising-panel">
             <div class="panel-heading">
-                <h3 class="panel-title">My Case</h3>
+                <h3 class="panel-title">My Case <?php echo $count ?></h3>
             </div>
             <div class="panel-body">
               <div class=" row panel-img">
@@ -25,19 +29,19 @@
               </div>
               <div class="row">
                 <ul>
-                    <li>Case Status:</li>
-                    <li>Date Created:</li>
-                    <li>Case Number:</li>
-                    <li>Associated Officer(s):</li>
+                    <li>Case Status:<?php echo $this->Form->label('status', array('value' => $myreport->get('status'))); ?></li>
+                    <li>Date Created:<?php echo $this->Form->label('date', array('value' => $myreport->get('date'))); ?></li>
+                    <li>Case Number:<?php echo $this->Form->label('Report_ID', array('value' => $myreport->get('Report_ID'))); ?></li>
                     <li>Latest Update:</li>
                 </ul>
-                <!-- Comment Button trigger modal -->
-                <button type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#commentModal">
-                  comment
-                </button>
               </div>
+              <!-- Comment Button trigger modal -->
+              <button type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#commentModal">
+                comment
+              </button>
             </div>
         </div>
+        <?php endforeach; ?>
       </div>
       <legend><?php echo __('Missing People'); ?></legend>
       <div class="col-md-8 display-missing">
