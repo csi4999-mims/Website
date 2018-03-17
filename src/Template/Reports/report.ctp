@@ -4,6 +4,7 @@
     <?php echo $this->Form->create('$report', [
 	'context' => ['validator' => 'report']
     ]);
+    $this->Html->css('custom');
     ?>
     <fieldset>
         <legend><?php echo __('Missing Person Information'); ?></legend>
@@ -63,6 +64,7 @@
         echo $this->Form->input('FamilyZip', array('label' => 'zip', 'maxLength' => 5, 'title' => 'zip', 'type' => 'text'));
         echo $this->Form->input('FamilyPhone', array('label' => 'Phone', 'placeholder' => 'XXXXXXXXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'text'));
         echo $this->Form->input('FamilyEmail', array('label' => 'Email', 'maxLength' => 256, 'title' => 'Email', 'type' => 'email'));
+        echo $this->Form->hidden('SubmitterEmail', array('value' => $user->get('email')));
         ?>
     </fieldset>
     <fieldset>
