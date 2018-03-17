@@ -44,6 +44,11 @@ input.approve-button:hover {
   background-color: #116D76;
   margin: 5px;
 }
+.comment-button {
+  color: #ffffff !important;
+  background-color: #116D76 !important;
+  margin: 5px;
+}
 
 button {
   color: #ffffff !important;
@@ -193,4 +198,4 @@ h1.home_button{
 
 .top-bar-section ul li>a{
   font-size: 20px !important;
-} 
+}
