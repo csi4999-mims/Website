@@ -149,7 +149,7 @@
         );
       ?>
       <?= $this->GoogleMap->map($map_options); ?>
-          <?php foreach ($reports as $report): ?>
+      <?php foreach ($reports as $report): ?>
             <?= $this->GoogleMap->addMarker("map_canvas", 1, $report->get('FamilyStreet') . $report->get('FamilyCity') . $report->get('FamilyState') . $report->get('FamilyZip'), array(
           "showWindow"   => true,
           "windowText"   => "Name: " . $report->get('FirstName') . " " . $report->get('LastName') .  " DOB: " . $report->get('DoB') . " Last Seen: "
