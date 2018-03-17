@@ -31,7 +31,7 @@
                 <ul>
                     <li>Case Status:<?php echo $this->Form->label('status', array('value' => $myreport->get('status'))); ?></li>
                     <li>Date Created:<?php echo $this->Form->label('date', array('value' => $myreport->get('date'))); ?></li>
-                    <li>Case Number:<?php echo $this->Form->label('Report_ID', array('value' => $myreport->get('Report_ID'))); ?></li>
+                    <li>Case Number:<?= $this->Html->link($myreport->Report_ID, ['controller' => 'reports','action' => 'publicDetailedReport', $myreport->Report_ID]) ?></li>
                     <li>Latest Update:</li>
                 </ul>
               </div>
@@ -95,7 +95,7 @@
                       <li>Weight: <?php echo $this->Form->label('Weight', array('value' => $report->get('Weight'))); ?></li>
                       <li>Marks/Tattoos: <?php echo $this->Form->label('MarksTattoos', array('value' => $report->get('MarksTattoos'))); ?></li>
                       <li>Gender: <?php echo $this->Form->label('Gender', array('value' => $report->get('Gender'))); ?></li>
-                      <li>Last Seen:</li>
+                      <li>Last Seen: <?php echo $this->Form->label('LastSeen', array('value' => $report->get('LastSeen'))); ?></li>
                   </ul>
               </div>
           </div>
