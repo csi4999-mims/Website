@@ -95,7 +95,7 @@
                       <li>Weight: <?php echo $this->Form->label('Weight', array('value' => $report->get('Weight'))); ?></li>
                       <li>Marks/Tattoos: <?php echo $this->Form->label('MarksTattoos', array('value' => $report->get('MarksTattoos'))); ?></li>
                       <li>Gender: <?php echo $this->Form->label('Gender', array('value' => $report->get('Gender'))); ?></li>
-                      <li>Last Seen:</li>
+                      <li>Last Seen: <?php echo $this->Form->label('LastSeen', array('value' => $report->get('LastSeen'))); ?></li>
                   </ul>
               </div>
           </div>
