@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 use App\Controller\AppController;
+use App\Controller\UsersController;
 class ReportsController extends AppController{
 
 //built in function of cakePHP
@@ -13,9 +14,10 @@ class ReportsController extends AppController{
 //function to render report page
 //functionality needs to be added
     public function report() {
-        $this->loadModel('Users');
-        $this->set(compact('user'));
-        $user =$this->Users->get($this->Auth->user('id'));
+      //Load the user model
+      $this->loadModel('Users');
+      $user =$this->Users->get($this->Auth->user('id'));
+      $this->set('user',$user);
         $report = $this->Reports->newEntity();
         if ($this->request->is('post')) {
             // Prior to 3.4.0 $this->request->data() was used.
@@ -41,6 +43,8 @@ class ReportsController extends AppController{
     public function detailedReport($Report_ID = null) {
       $report = $this->Reports->get($Report_ID);
       $this->set(compact('report'));
+
+    }
 
       //Edit Missing Person Info Section
       //edit first name
@@ -413,6 +417,12 @@ class ReportsController extends AppController{
       }
 
       $this->set('report',$report);
+    }
+//function to display the public detailed report
+//this report has all readonly fields
+    public function publicDetailedReport($Report_ID = null) {
+      $report = $this->Reports->get($Report_ID);
+      $this->set(compact('report'));
     }
 
 }

@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="page-header">
-    <h1> Welcome <span class="display-user"><?php echo $this->Form->label('FirstName', array('value' => $user->get('FirstName'))); ?></span></h1>
+    <h1> Welcome </h1>
 </div>
 <div class="containter-fluid">
     <table>
