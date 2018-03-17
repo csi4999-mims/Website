@@ -95,7 +95,7 @@
         <div class="row">
           <div class="col-md-4">
             <?php echo $this->Form->input('missing_eye_color', array('id' => 'MEC',
-            'options' => array('amber' => 'Amber','black' => 'Black','blue' => 'Blue',
+            'options' => array('-' => '-', 'amber' => 'Amber','black' => 'Black','blue' => 'Blue',
             'brown' => 'Brown','green' => 'Green','grey' => 'Grey','hazel' => 'Hazel','other' => 'Other')
           , 'onchange' => 'mecOther(this)'
         )); ?>
@@ -110,7 +110,7 @@
 
             <div class="col-md-4">
               <?php echo $this->Form->input('missing_hair_color', array('id' => 'MHC', 'onchange' => 'mhcOther(this)', 'options'
-               => array('auburn' => 'Auburn','black' => 'Black','blonde' => 'Blonde',
+               => array('-' => '-', 'auburn' => 'Auburn','black' => 'Black','blonde' => 'Blonde',
                'brown' => 'Brown','grey' => 'Grey','red' => 'Red','white' => 'White','other' => 'Other'))); ?>
             </div>
             <div class="col-md-4">

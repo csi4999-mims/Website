@@ -15,7 +15,7 @@ class ReportsController extends AppController{
 
 //function to render report page
 //functionality needs to be added
-    public function report() {
+    public function reports() {
 
       $this->LoadModel('Users');
       $this->LoadModel('Missing');
@@ -27,9 +27,12 @@ class ReportsController extends AppController{
       if ($this->request->is('post')) {
         $conn = ConnectionManager::get('default');
 
-        $report = $this->Missing->patchEntity($report, $this->request->getData());
+        $report = $this->Missing->patchEntity($reports, $this->request->getData());
 
         $dob = \Cake\Database\Type::build('date')->marshal($report->get('missing_date_of_birth'));
+        $last_seen_date = \Cake\Database\Type::build('date')->marshal($report->get('seen_when'));
+        $workplace_start = \Cake\Database\Type::build('date')->marshal($report->get('workplace_start_date'));
+        $workplace_stop = \Cake\Database\Type::build('date')->marshal($report->get('workplace_end_date'));
 
         try {
           if
@@ -51,8 +54,7 @@ class ReportsController extends AppController{
               'hair_color_other' => $report->get('missing_hair_color_other'),
               'markings' => $report->get('missing_markings'),
               'weight_pounds' => $report->get('missing_weight_pounds'),
-              'height_inches' => (($report->get('missing_height_feet') * 12) + $report->get('missing_height_inches')), //this needs to be calculated based on feet * 12 + inches
-              //'date_of_birth' => $report->get('missing_date_of_birth'),
+              'height_inches' => (($report->get('missing_height_feet') * 12) + $report->get('missing_height_inches')),
               'date_of_birth' => $dob,
               'facebook_username' => $report->get('missing_facebook_username'),
               'twitter_username' => $report->get('missing_twitter_username'),
@@ -61,6 +63,26 @@ class ReportsController extends AppController{
               'misc' => $report->get('missing_misc')
             ])
           )
+
+        if
+        (
+          //query for submitter_id
+          //query for missing_id
+
+          //$missing_id = $conn->execute('SELECT max(id) FROM missing')->fetchAll('assoc');
+
+
+          $conn->insert('reports',
+          [
+            'submitter_id' => $this->Users->get($this->Auth->user('id')),
+            'missing_id' => $missing_id,
+            'law_enforcement_id' => '',
+            'approved_datetime' => '',
+            'submit_datetime' => $this->User->saveField('submit_datetime', date("Y-m-d H:i:s")),
+            'missing_status' => 'on hold',
+            'case_number' => ''
+          ])
+        )
 /*
         if
         (
@@ -79,12 +101,22 @@ class ReportsController extends AppController{
         if
         (
           //write a query that will store the report_id and place_id into variables
+          //query for report_id
+          //query for place_id
+          $l_s_p = $report->get('seen_name')
+
+          $report_id = $conn->execute('SELECT max(id) FROM report')->fetchAll('assoc')
+
+          $place_id = $conn
+            ->execute('SELECT id FROM place WHERE name = :name', ['name' => $l_s_p])
+            ->fetchAll('assoc');
+
 
           $conn->insert('last_seen',
           [
-            //'report_id' => $reportIdVariable
-            //'place_id' => $placeIdVariable
-            //'when' => $report->get('seen_when'),   Dates need to be worked on
+            'report_id' => $report_id
+            'place_id' => $place_id
+            'when' => $last_seen_date,
             'notes' => $report->get('seen_notes')
           ])
         )
@@ -93,16 +125,25 @@ class ReportsController extends AppController{
         (
           $conn->insert('place',
           [
-            'street' => $report->get('ff_soemthinng'),
-            'city' => $report->get('ff_something else'),
-            'state' => $report->get('ff_something more'),
-            'zip' => $report->get('ff_lastsomething')
+            'street' => $report->get('ff_street'),
+            'city' => $report->get('ff_city'),
+            'state' => $report->get('ff_state'),
+            'zip' => $report->get('ff_zip')
           ])
         )
 
         if
         (
           //write a query that will retrieve the home_id from the places table
+          //query for home_id
+          $home_street = $report->get('ff_street');
+          $home_city = $report->get('ff_city');
+          $home_state = $report->get('ff_state');
+          $home_zip = $report->get('ff_zip');
+
+          $home_id = $conn
+            ->execute('SELECT id FROM place where street = :steet AND city = :city AND state = :state AND zip = :zip AND name is null', ['street' => $home_street, 'city' => $home_city, 'state' => $home_state, 'zip' => $home_zip])
+            ->fetchAll('assoc');
 
           $conn->insert('friend_family',
           [
@@ -110,7 +151,7 @@ class ReportsController extends AppController{
             'last_name' => $report->get('ff_last_name'),
             'middle_name' => $report->get('ff_middle_name'),
             'alias' => $report->get('ff_alias'),
-            //'home_id' => $homeIdVariable,
+            'home_id' => $home_id,
             'gender' => $report->get('ff_gender'),
             'ethnicity' => $report->get('ff_ethnicity'),
             'ethnicity_other' => $report->get('ff_ethnicity_other')
@@ -120,11 +161,15 @@ class ReportsController extends AppController{
         if
         (
           //write queries to retire friend_family_id and missing_id and store them as variables
+          //query for friend_family_id
+          //query for missing_id
+          $friend_family_id = $conn->execute('SELECT max(id) FROM friend_family')->fetchAll('assoc');
+          $missing_id = $conn->execute('SELECT max(id) FROM missing')->fetchAll('assoc');
 
           $conn->insert('missing_relation',
           [
-            //'friend_family_id' => $ffIDvariable
-            //'missing_id' => $missingIDvariable
+            'friend_family_id' => $friend_family_id
+            'missing_id' => $missing_id
             'relation_type' => $report->get('ff_relation'),
             'relation_type_other' => $report->get('ff_relation_other')
           ])
@@ -159,19 +204,27 @@ class ReportsController extends AppController{
         if
         (
           //write queries to retrieve missingid and placeid and store them as variables
+          //query for missing_id
+          //query for place_id
+
+          $missing_id = $conn->execute('SELECT max(id) FROM missing')->fetchAll('assoc');
+          $workplace_id = $conn
+            ->execute('SELECT max(id) FROM place where name = :name'), ['name' => $report->get('place_name')]
+            ->fetchAll('assoc');
+
+
           $conn->insert('workplace',
           [
-            //'missing_id' => $missingIDvariable,
-            //'place_id' => $placeIdVariable,
-            //'start_date' => $report->get('workplace_start_date'),    //dates need to be worked on
-            //'end_date' => $report->get('workplace_end_date')         // dates need to be worked on
+            'missing_id' => $missing_id,
+            'place_id' => $workplace_id,
+            'start_date' => $workplace_start,
+            'end_date' => $workplace_stop
           ])
         )
 */
-
           {
             $this->Flash->success(__('The report has been submitted'));
-            //return $this->redirect(['action' => 'homeConcernedPublic']);
+            return $this->redirect(['action' => 'homeConcernedPublic']);
           }
         }
         catch (\Exception $e)
