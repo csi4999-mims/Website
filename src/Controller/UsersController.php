@@ -4,6 +4,9 @@ use App\Controller\AppController;
 use App\Controller\ReportsController;
 class UsersController extends AppController{
 
+  //adding google maps helper
+  public $helpers = array('GoogleMap');
+
 //built in function of cakePHP
     public $paginate = array(
         'limit' => 25,
@@ -43,11 +46,18 @@ class UsersController extends AppController{
       //get all rows in reports table in db
       $report = $this->Reports
         ->find()
-        ->where(['Report_ID >=' => 0])
+        ->where(['status =' => 'Active'])
         ->toArray();
       //set report model
       //$this->set('report',$report);
       $this->set('reports', $report);
+      $myreport = $this->Reports
+        ->find()
+        ->where(['SubmitterEmail =' => $user->get('email')])
+        ->toArray();
+      //set report model
+      //$this->set('report',$report);
+      $this->set('myreports', $myreport);
     }
 
 //function used to register a new user
