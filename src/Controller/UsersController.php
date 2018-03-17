@@ -5,6 +5,9 @@ use App\Controller\ReportsController;
 use Cake\Datasource\ConnectionManager;
 class UsersController extends AppController{
 
+  //adding google maps helper
+  public $helpers = array('GoogleMap');
+
 //built in function of cakePHP
     public $paginate = array(
         'limit' => 25,
@@ -44,11 +47,18 @@ class UsersController extends AppController{
       //get all rows in reports table in db
       $report = $this->Report
         ->find()
-        ->where(['id >=' => 0])
+        ->where(['status =' => 'Active'])
         ->toArray();
       //set report model
       //$this->set('report',$report);
       $this->set('reports', $report);
+      $myreport = $this->Reports
+        ->find()
+        ->where(['SubmitterEmail =' => $user->get('email')])
+        ->toArray();
+      //set report model
+      //$this->set('report',$report);
+      $this->set('myreports', $myreport);
     }
 
 //function used to register a new user
@@ -298,6 +308,6 @@ class UsersController extends AppController{
 
 //function to handle logout functionality
     public function logout() {
-        return $this->redirect($this->Auth->logout());
+        return $this->redirect(array('action' => 'home'),$this->Auth->logout());
     }
 }
