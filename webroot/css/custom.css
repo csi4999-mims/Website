@@ -177,3 +177,20 @@ a.home-footer:hover {
   margin-top: 20px !important;
   margin-bottom: 20px !important;
 }
+label.control-label{
+  font-size: 17px !important;
+}
+
+input.form-control{
+  font-size: 15px !important;
+}
+input.form-submit{
+  font-size: 15px !important;
+}
+h1.home_button{
+  font-size: 25px !important;
+}
+
+.top-bar-section ul li>a{
+  font-size: 20px !important;
+} 
