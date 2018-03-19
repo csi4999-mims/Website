@@ -49,12 +49,42 @@
           <div class="row well missing-info">
               <div class="col-md-6">
                   <?php echo $this->Html->image('usericon2.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
+                  <div class="row view-comment-row">
+                    <!-- View Comment Button trigger modal -->
+                    <button  type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#viewCommentModal">
+                      View Comments
+                    </button>
+                    <!-- View Comment Modal -->
+                    <div class="modal fade" id="viewCommentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">View Comments</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <?php echo $this->Form->create('$comment');
+                            $this->Html->css('custom');
+                            ?>
+                            <fieldset>
+                                <?php foreach ($comments as $comment): ?>
+                                    <li><?php echo $this->Form->label('Comment_Description', array('value' => $comment->get('Comment_Description'))); ?></li>
+                                <?php endforeach; ?>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </fieldset>
+                            <?php echo $this->Form->end(); ?>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="row comment-row">
                     <!-- Comment Button trigger modal -->
-                    <button type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#commentModal">
-                      comment
+                    <button  type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#commentModal">
+                      Comment
                     </button>
-
                     <!-- Modal -->
                     <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
@@ -66,20 +96,19 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <form>
-                              <div class="form-group">
-                                <label for="sender-email" class="col-form-label">Email:</label>
-                                <input type="text" class="form-control" id="sender-email">
-                              </div>
-                              <div class="form-group">
-                                <label for="comment-text" class="col-form-label">Comment:</label>
-                                <textarea class="form-control" id="comment-text"></textarea>
-                              </div>
-                            </form>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send Comment</button>
+                            <?php echo $this->Form->create('$comment');
+                            $this->Html->css('custom');
+                            ?>
+                            <fieldset>
+                                <?php
+                                echo $this->Form->input('Comment_Email', array('class' => 'report-input', 'label' => 'Email', 'maxLength' => 50, 'title' => 'Email', 'type' => 'email'));
+                                echo $this->Form->input('Comment_Description', array('class' => 'report-input', 'label' => 'Comment', 'maxLength' => 250, 'title' => 'Comment', 'type' => 'textarea'));
+                                echo $this->Form->submit('Submit Comment', array('class' => 'form-submit comment-submit',  'title' => 'Click here to') );
+                                echo $this->Form->hidden('Report_ID', array('value' => $report->get('Report_ID')));
+                                ?>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </fieldset>
+                            <?php echo $this->Form->end(); ?>
                           </div>
                         </div>
                       </div>
