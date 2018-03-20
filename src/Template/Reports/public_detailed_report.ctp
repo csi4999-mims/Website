@@ -18,26 +18,17 @@
                 <div class="col-md-6">
                   <div class="row">
                     <div class="col-md-12">
-                      <!-- Update Case Buttonl -->
-                      <?php
-                      echo $this->Form->submit('Update Case', array('class' => 'form-submit btn update-button',  'title' => 'Click here to update the user account') );
-                      ?>
+
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <!-- Categorize Button  -->
-                      <button type="button" class="button btn categorize-button" data-toggle="modal" data-target="#categorizeModal">
-                        Categorize
-                      </button>
+
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <!-- Mark As Found Button l -->
-                      <button type="button" class="button btn found-button" data-toggle="modal" data-target="#foundModal">
-                        Mark As Found
-                      </button>
+
                     </div>
                   </div>
                   <div class="row">
