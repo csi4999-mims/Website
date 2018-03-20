@@ -44,7 +44,7 @@ class ReportsController extends AppController{
       $report = $this->Reports->get($Report_ID);
       $this->set(compact('report'));
 
-    }
+
 
       //Edit Missing Person Info Section
       //edit first name
