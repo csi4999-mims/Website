@@ -63,7 +63,7 @@ class UsersController extends AppController{
       $this->loadModel('Comments');
       $comment = $this->Comments
         ->find()
-        ->where(['Comment_ID >=' => '0'])
+        ->where(['id >=' => '0'])
         ->toArray();
       $this->set('comments', $comment);
 
