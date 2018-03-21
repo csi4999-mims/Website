@@ -19,7 +19,7 @@ class CommentsController extends AppController{
     //load array of comments associated with the sepcific report
     $comments = $this->Comments
       ->find()
-      ->where(['id =' => $report->get('id')])
+      ->where(['Report_ID =' => $report->get('Report_ID')])
       ->toArray();
     $this->set('comments', $comments);
 
@@ -38,8 +38,8 @@ class CommentsController extends AppController{
               'table' => 'reports',
               'type' => 'INNER',
               'conditions' => [
-                'r.id = c.id',
-                'c.id =' => $report->get('id')
+                'r.Report_ID = c.Report_ID',
+                'c.Report_ID =' => $report->get('Report_ID')
               ]
           ]
       ])
