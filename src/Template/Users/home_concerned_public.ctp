@@ -35,11 +35,7 @@
                     <li>Latest Update:</li>
                 </ul>
               </div>
-              <!-- View Comment Button trigger modal -->
-              <button type="button" class="btn btn-primary view-comment-button" data-toggle="modal" data-target="#viewCommentModal">
-                View Comments
-              </button>
-              <!-- Comment Button trigger modal -->
+              <!-- Comment Button -->
               <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $myreport->Report_ID), array( 'class' => 'comment-button button')) ?>
             </div>
         </div>
@@ -51,14 +47,8 @@
           <div class="row well missing-info">
               <div class="col-md-6">
                   <?php echo $this->Html->image('usericon2.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
-                  <div class="row view-comment-row">
-                    <!-- View Comment Button trigger modal -->
-                    <button  type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#viewCommentModal">
-                      View Comments
-                    </button>
-                  </div>
                   <div class="row comment-row">
-                    <!-- Comment Button trigger modal -->
+                    <!-- Comment Button  -->
                     <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button button')) ?>
                   </div>
               </div>
