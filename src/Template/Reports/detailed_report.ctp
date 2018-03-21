@@ -26,6 +26,12 @@
                       ?>
                     </div>
                   </div>
+                  <div class="row comment-row">
+                    <div class="col-md-12">
+                      <!-- Comment Button trigger modal -->
+                      <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button button')) ?>
+                    </div>
+                  </div>
                   <div class="row">
                     <div class="col-md-12">
                       <!-- Categorize Button trigger modal -->
