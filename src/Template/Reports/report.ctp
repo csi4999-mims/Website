@@ -87,7 +87,7 @@
               'white' => 'White','other' => 'Other'))); ?>
             </div>
             <div class="col-md-4">
-              <?php echo $this->Form->input('MissingEthnicityOther', array('id' => 'MEO', 'label'
+              <?php echo $this->Form->input('MissingEhnicityOther', array('id' => 'MEO', 'label'
               => 'Ethnicity Other', 'maxLength' => 255, 'title' => 'EthinicityOther', 'type' => 'text', 'disabled' => 'disabled')); ?>
             </div>
         </div>
@@ -369,11 +369,11 @@
 
         <div class="row">
             <div class="col-md-4">
-              <?php echo $this->Form->input('WorkplaceName', array('label' => 'Workplace Name',
+              <?php echo $this->Form->input('Workplacename', array('label' => 'Workplace Name',
               'maxLength' => 30, 'title' => 'Workplace Name', 'type' => 'text')); ?>
             </div>
             <div class="col-md-4">
-             <?php echo $this->Form->input('WorkplaceSteet', array('label' => 'Street Name',
+             <?php echo $this->Form->input('WorkplaceStreet', array('label' => 'Street Name',
               'maxLength' => 20, 'title' => 'Street', 'type' => 'text')); ?>
             </div>
             <div class="col-md-4">
@@ -460,7 +460,7 @@
         </div> -->
         <div class="row">
           <div class="col-md-4">
-            <?php echo $this->Form->input('workplace_misc', array('label' => 'Additional Information',
+            <?php echo $this->Form->input('WorkplaceMisc', array('label' => 'Additional Information',
              'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
           </div>
         </div>
