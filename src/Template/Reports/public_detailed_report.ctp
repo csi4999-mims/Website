@@ -18,54 +18,8 @@
                 <div class="col-md-6">
                   <div class="row">
                     <div class="col-md-12">
-
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
                       <!-- Comment Button -->
-                      <button type="button" class="btn btn-primary comment-button" data-toggle="modal" data-target="#commentModal">
-                        comment
-                      </button>
-                    </div>
-                  </div>
-                  <!-- Modal -->
-                  <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Enter Your Comment</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <form>
-                            <div class="form-group">
-                              <label for="sender-email" class="col-form-label">Email:</label>
-                              <input type="text" class="form-control" id="sender-email">
-                            </div>
-                            <div class="form-group">
-                              <label for="comment-text" class="col-form-label">Comment:</label>
-                              <textarea class="form-control" id="comment-text"></textarea>
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Send Comment</button>
-                        </div>
-                      </div>
+                      <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button button')) ?>
                     </div>
                   </div>
                 </div>
@@ -148,63 +102,6 @@
               </div>
       </div>
     </fieldset>
-</div>
-<!-- Categorize Modal -->
-<div class="modal fade" id="categorizeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Categorize Missing Person</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>
-          Are you sure you want to approve this case? If so, enter the Official Report Number.
-        </p>
-        <form>
-          <div class="form-group">
-            <label for="category" class="col-form-label">Pick A Category:</label>
-            <form action="/action_page.php">
-            <select name="cars">
-              <option value="Runaway">Runaway</option>
-              <option value="HumanTrafficking">Human Trafficking</option>
-              <option value="SubstanceAbuser">Substance Abuser</option>
-              <option value="RomeoJuliet">Romeo & Juliet</option>
-            </select>
-          </form>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Confirm</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Found Modal -->
-<div class="modal fade" id="foundModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Mark As Found</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>
-          Are you sure you want to mark this person as found?
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Confirm</button>
-      </div>
-    </div>
-  </div>
 </div>
 </body>
 </html>
