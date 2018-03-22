@@ -58,6 +58,29 @@ class UsersController extends AppController{
       //set report model
       //$this->set('report',$report);
       $this->set('myreports', $myreport);
+
+      //Load the comment model
+      $this->loadModel('Comments');
+      $comment = $this->Comments
+        ->find()
+        ->where(['id >=' => '0'])
+        ->toArray();
+      $this->set('comments', $comment);
+
+      //create new comment
+      $this->loadModel('Comments');
+      $comment = $this->Comments->newEntity();
+      if ($this->request->is('post')) {
+          // Prior to 3.4.0 $this->request->data() was used.
+          $comment = $this->Comments->patchEntity($comment, $this->request->getData());
+          if ($this->Comments->save($comment)) {
+              $this->Flash->success(__('The comment has been saved.'));
+          }else{
+              $this->Flash->error(__('Unable to add the comment.'));
+          }
+
+      }
+      $this->set('comment', $comment);
     }
 
 //function used to register a new user
