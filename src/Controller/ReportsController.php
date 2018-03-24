@@ -45,6 +45,20 @@ class ReportsController extends AppController{
       $this->set(compact('report'));
 
       //Edit Missing Person Info Section
+      //edit category
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'category' => $this->request->data['editCategory'],
+          ]);
+          if ($report->dirty('category') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The category is successfully changed');
+            } else {
+                $this->Flash->error('category was not saved');
+            }
+          }
+
+      }
       //edit first name
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
