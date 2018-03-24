@@ -13,7 +13,7 @@ class AddCategoryToReports extends AbstractMigration
     public function change()
     {
         $table = $this->table('reports');
-        $table->addColumn('category', 'text', [
+        $table->addColumn('category', 'string', [
             'default' => 'none',
             'null' => false,
         ])
