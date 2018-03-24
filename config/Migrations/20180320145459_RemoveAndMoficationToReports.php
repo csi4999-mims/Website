@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class RemoveAndMoficationToReports extends AbstractMigration
+class AllowNullsInReports extends AbstractMigration
 {
     /**
      * Change Method.
