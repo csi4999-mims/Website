@@ -15,6 +15,7 @@
 <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
+        <?php $count = 0 ?>
         <?php
         foreach ($myreports as $myreport):
           $count += 1;
