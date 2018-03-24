@@ -13,7 +13,7 @@
     </fieldset>
     <?php foreach ($comments as $comment): ?>
         <div class="display-comments">
-          <strong>Comment:</strong> <?php echo $this->Form->label('Comment_Description', array('value' => $comment->get('Comment_Description'))); ?></br>
+          <strong>Comment:</strong> <?php echo $this->Form->label('description', array('value' => $comment->get('description'))); ?></br>
         </div>
     <?php endforeach; ?>
   </div>
@@ -21,8 +21,8 @@
   <fieldset>
       <legend><?php echo __('Submit Your Comment'); ?></legend>
       <?php
-      echo $this->Form->input('Comment_Email', array('class' => 'report-input', 'label' => 'Email', 'maxLength' => 50, 'title' => 'Email', 'type' => 'email'));
-      echo $this->Form->input('Comment_Description', array('class' => 'report-input', 'label' => 'Comment', 'maxLength' => 250, 'title' => 'Comment', 'type' => 'textarea'));
+      echo $this->Form->input('email', array('class' => 'report-input', 'label' => 'Email', 'maxLength' => 50, 'title' => 'Email', 'type' => 'email'));
+      echo $this->Form->input('description', array('class' => 'report-input', 'label' => 'Comment', 'maxLength' => 250, 'title' => 'Comment', 'type' => 'textarea'));
       echo $this->Form->hidden('Report_ID', array('value' => $report->get('Report_ID')));
       echo $this->Form->submit('Submit Comment', array('class' => 'form-submit comment-submit',  'title' => 'Click here to') );
       ?>

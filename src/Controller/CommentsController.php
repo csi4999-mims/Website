@@ -32,7 +32,7 @@ class CommentsController extends AppController{
           'c' => [
               'table' => 'comments',
               'type' => 'INNER',
-              'conditions' => 'c.email = users.email',
+              'conditions' => 'c.email = Users.email',
           ],
           'r' => [
               'table' => 'reports',
