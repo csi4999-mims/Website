@@ -16,7 +16,6 @@ class AllowNullsInReports extends AbstractMigration
         $reports->changeColumn('DateCreated', 'datetime', ['null' => true])
                 ->changeColumn('MiddleName', 'text', ['null' => true])
                 ->changeColumn('Alias', 'text', ['null' => true])
-                ->changeColumn('MissingEthnicityOther', 'text', ['null' => true])
                 ->changeColumn('Alias', 'text', ['null' => true])
                 ->changeColumn('MissingEhnicityOther', 'text', ['null' => true])
                 ->changeColumn('MissingEyeColorOther', 'text', ['null' => true])
