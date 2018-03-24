@@ -10,7 +10,7 @@ class AllowNullsInReports extends AbstractMigration
      * http://docs.phinx.org/en/latest/migrations.html#the-change-method
      * @return void
      */
-    public function change()
+    public function up()
     {
         $reports = $this->table('reports');
         $reports->changeColumn('DateCreated', 'datetime', ['null' => true])
@@ -66,4 +66,9 @@ class AllowNullsInReports extends AbstractMigration
                 ->changeColumn('WorkplaceMisc', 'text', ['null' => true])
                 ->save();
     }
+
+    public function down()
+    {
+    }
+
 }
