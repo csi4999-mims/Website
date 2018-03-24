@@ -62,6 +62,10 @@
                               <?php echo $this->Form->input('status', array('value' => $report->get('status'))); ?>
                           </div>
                       </div>
+                      <?php echo $this->Form->input('editCategory', array('id' => 'editCategory', 'value' => $report->get('category'),'label'
+                           => 'Edit Category','options' => array('None' => 'None', 'Runaway' =>
+                           'Runaway','Romeo_Juliet' => 'Romeo and Juliet', 'Substance_Abuser' =>
+                           'Substance Abuser','Human_Trafficking' => 'Human Trafficking'))); ?>
                       <?php echo $this->Form->input('editLastSeen', array('value' => $report->get('LastSeen'))); ?>
                       <?php echo $this->Form->input('editFirstName', array('value' => $report->get('FirstName'))); ?>
                       <?php echo $this->Form->input('editLastName', array('value' => $report->get('LastName'))); ?>
@@ -145,11 +149,11 @@
           <div class="form-group">
             <label for="category" class="col-form-label">Pick A Category:</label>
             <form action="/action_page.php">
-            <select name="cars">
+            <select name="category">
               <option value="Runaway">Runaway</option>
               <option value="HumanTrafficking">Human Trafficking</option>
               <option value="SubstanceAbuser">Substance Abuser</option>
-              <option value="RomeoJuliet">Romeo & Juliet</option>
+              <option value="RomeoJuliet">Romeo and Juliet</option>
             </select>
           </form>
           </div>

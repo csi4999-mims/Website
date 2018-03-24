@@ -26,6 +26,7 @@ class Report extends Entity
         'Phone' => true,
         'SocialMediaAccount' => true,
         'ReportMiscInfo' => true,
+        'category' => true,
     ];
 
 }
