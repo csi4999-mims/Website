@@ -87,7 +87,7 @@
               'white' => 'White','other' => 'Other'))); ?>
             </div>
             <div class="col-md-4">
-              <?php echo $this->Form->input('MissingEhnicityOther', array('id' => 'MEO', 'label'
+              <?php echo $this->Form->input('MissingEthnicityOther', array('id' => 'MEO', 'label'
               => 'Ethnicity Other', 'maxLength' => 255, 'title' => 'EthinicityOther', 'type' => 'text', 'disabled' => 'disabled')); ?>
             </div>
         </div>
