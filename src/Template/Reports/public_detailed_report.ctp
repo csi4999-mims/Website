@@ -51,11 +51,15 @@
                       </div>
                     </div>
 
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editCategory', array('id' => 'editCategory', 'value' => $report->get('category'), 'readonly' => 'readonly','label'
+                               => 'Edit Category','options' => array('None' => 'None', 'Runaway' =>
+                               'Runaway','RomeoJuliet' => 'Romeo and Juliet', 'SubstanceAbuser' =>
+                               'Substance Abuser','HumanTrafficking' => 'Human Trafficking'))); ?>
+                      </div>
+                    </div>
 
-                    <?php echo $this->Form->input('editCategory', array('id' => 'editCategory', 'value' => $report->get('category'), 'readonly' => 'readonly','label'
-                           => 'Edit Category','options' => array('None' => 'None', 'Runaway' =>
-                           'Runaway','RomeoJuliet' => 'Romeo and Juliet', 'SubstanceAbuser' =>
-                           'Substance Abuser','HumanTrafficking' => 'Human Trafficking'))); ?>
                     <?php
                     echo $this->Form->label('Date of Birth');
                     echo $this->Form->date('editDoB', [
