@@ -15,9 +15,10 @@ a brief summary of those requirements in order to create a testing
 environment:
 
 1. An installation of [PHP][php]
-2. A database with the ability to create databases and grant access to
-   those databases
-3. The ability to run [`composer`][composer]
+2. An installation of git
+3. A MySQL (or [similar][cake-supported-databases]) installation with
+   the ability to create databases and grant access to those databases
+4. An installation of [`composer`][composer]
 
 [php]: https://secure.php.net/
 [cake-supported-databases]: https://book.cakephp.org/3.0/en/orm/database-basics.html#supported-databases
