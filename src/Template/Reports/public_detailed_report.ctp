@@ -18,6 +18,14 @@
                 <div class="col-md-6">
                   <div class="row">
                     <div class="col-md-12">
+                      <!-- Update Case Button trigger modal -->
+                      <?php
+                      echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeConcernedPublic'), array( 'class' => 'return-home-button button'));
+                      ?>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
                       <!-- Comment Button -->
                       <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button button')) ?>
                     </div>
