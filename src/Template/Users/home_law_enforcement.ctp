@@ -29,12 +29,12 @@
       <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
       <td><?php echo $this->Form->label('LastSeen', array('value' => $report->get('LastSeen'))); ?></td>
       <td><?php echo $this->Form->label('status', array('value' => $report->get('status'))); ?></td>
-      <td><input class="approve-button" type="button" value="Approve" data-toggle="modal" data-target="#approveModal"></td>
+      <td><input class="approve-button" type="button" value="Approve" data-toggle="modal" data-target="#approveModal" onclick="clearModalForm()"></td>
     </tr>
   <?php endforeach; ?>
 </table>
 <!-- Approve Modal -->
-<div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" =clearModalForm(this)>
+<div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -48,15 +48,15 @@
         <p>
           Are you sure you want to approve this case? If so, enter the Official Report Number.
         </p>
-        <form>
+        <form id="modal-form">
           <div class="form-group">
             <label for="report-number" class="col-form-label">Enter Case Number:</label>
-            <input type="text" class="form-control" id="CaseNumber"></input>
+            <input type="text" class="modal-form-control form-control" id="CaseNumber"></input>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-secondary cancel-button" data-dismiss="modal" >Cancel</button>
         <button type="button" class="btn btn-primary" id="approveCase">Approve</button>
       </div>
     </div>
@@ -126,65 +126,9 @@
 </body>
 </html>
 
-<!-- <script>
-
-$(".modal").on("hidden.bs.modal", function(){
-    $(".form-control").html("");
-  });
-
-</script> -->
-
-<!-- <script>
-
-$(function () {
-    // when the modal is closed
-    $('#modal-container').on('hidden.bs.modal', function () {
-        // remove the bs.modal data attribute from it
-        $(this).removeData('bs.modal');
-        // and empty the modal-content element
-        $('#modal-container .modal-content').empty();
-    });
-});
-
-</script> -->
-
-<!-- <script>
-
-$("#CaseNumber").on("hidden.bs.modal", ".modal", function () {
-        $(this).removeData("bs.modal");
-      });
-
-</script> -->
-
-<!-- <script>
-
-    $('#approveModal').on('hidden.bs.modal', function e() {
-      $(this).find('form-control').trigger('reset');
-    })
-</script> -->
-
 <script>
-
+//function to clear modal content
 function clearModalForm(){
-
-alert("Javascript Is Called");
-
-  var m = document.getElementById("approveModal");
-  var h = m.options[m.hidden];
-  var f = document.getElementById("form-control");
-  if(h == true){
-    m.trigger('reset');
-  }
+document.getElementById("modal-form").reset();
 }
-
 </script>
-
-<!-- <script>
-
-$('#approveModal').on('hidden.bs.modal', function (e) {
-  $(this)
-    .find("input,textarea,select")
-       .val('')
-       .end();
-     })
-</script> -->
