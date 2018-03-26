@@ -39,6 +39,9 @@ environment:
    composer update
    ```
 
+   This will download and install all the necessary components to run
+   the MIMS site.
+
 ## Database Setup ##
 
 1. Create two empty databases, one for production data and another for
