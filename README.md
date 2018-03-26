@@ -44,6 +44,8 @@ environment:
 
 ## Database Setup ##
 
+### Create the databases ###
+
 1. Create two empty databases, one for production data and another for
    test data.  These might have names like `mims` and `mims_test`.
 
@@ -61,4 +63,27 @@ environment:
 
    GRANT ALL PRIVILEGES ON `mims_test`.* TO 'cake_test_user'@'localhost'
        IDENTIFIED BY 'someSecretTestPassword';
+   ```
+
+### Connect CakePHP to the databases ###
+
+1. Copy `config/app.default.php` to `config/app.php`.
+2. Edit the `default` and `test` sections of `Datasources` in
+   `config/app.php` to match your settings above:
+
+   ``` php
+    'Datasources' => [
+        'default' => [
+            'host' => 'localhost',
+            'username' => 'cake_user',
+            'password' => 'someSecretPassword',
+            'database' => 'mims',
+		    // ...
+		],
+        'test' => [
+            'host' => 'localhost',
+            'username' => 'cake_test_user',
+            'password' => 'someSecretTestPassword',
+            'database' => 'mims_test',
+			// ...
    ```
