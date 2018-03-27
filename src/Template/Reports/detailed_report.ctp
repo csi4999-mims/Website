@@ -22,7 +22,7 @@
                     <div class="col-md-12">
                       <!-- Update Case Button trigger modal -->
                       <?php
-                      echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeLawEnforcement'), array( 'class' => 'return-home-button button'));
+                      echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeLawEnforcement'), array( 'class' => 'return-home-button btn button'));
                       ?>
                     </div>
                   </div>
@@ -30,14 +30,14 @@
                     <div class="col-md-12">
                       <!-- Update Case Button trigger modal -->
                       <?php
-                      echo $this->Form->submit('Update Case', array('class' => 'form-submit btn update-button',  'title' => 'Click here to update the user account') );
+                      echo $this->Form->submit('Update Case', array('class' => 'form-submit btn button update-button',  'title' => 'Click here to update the user account') );
                       ?>
                     </div>
                   </div>
-                  <div class="row comment-row">
+                  <div class="row">
                     <div class="col-md-12">
                       <!-- Comment Button -->
-                      <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button button')) ?>
+                      <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button btn button')) ?>
                     </div>
                   </div>
                   <div class="row">
