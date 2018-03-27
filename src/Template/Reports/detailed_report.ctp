@@ -79,9 +79,9 @@
                     <div class="row">
                       <div class="col-md-4">
                         <?php echo $this->Form->input('editCategory', array('id' => 'editCategory', 'value' => $report->get('category'), 'label'
-                               => 'Edit Category','options' => array('None' => 'None', 'Runaway' =>
-                               'Runaway','RomeoJuliet' => 'Romeo and Juliet', 'SubstanceAbuser' =>
-                               'Substance Abuser','HumanTrafficking' => 'Human Trafficking'))); ?>
+                               => 'Edit Category','options' => array('None' => 'none', 'runaway' =>
+                               'Runaway','romeo_juliet' => 'Romeo and Juliet', 'substance_abuser' =>
+                               'Substance Abuser','human_trafficking' => 'Human Trafficking'))); ?>
                       </div>
                     </div>
                     <?php

@@ -27,7 +27,7 @@
       <td><?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></td>
       <td><?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></td>
       <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
-      <td><?php echo $this->Form->label('category', array('value' => $report->get('cateogry'))); ?></td>
+      <td><?php echo $this->Form->label('category', array('value' => $report->get('category'))); ?></td>
       <td><?php echo $this->Form->label('status', array('value' => $report->get('status'))); ?></td>
       <td><input class="approve-button" type="button" value="Approve" data-toggle="modal" data-target="#approveModal"></td>
     </tr>
