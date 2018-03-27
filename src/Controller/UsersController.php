@@ -21,6 +21,23 @@ class UsersController extends AppController{
     }
 //law enforcement home page
     public function homeLawEnforcement() {
+
+      //Approving Modal Input
+      $this->loadModel('Reports');
+      $casenumber = $this->report_case_number->get($this->reports('CaseNumber'));
+      if ($this->request->is('post')) {
+          $casenumber = $this->report_case_number->patchEntity($casenumber, $this->request->getData());
+          if ($this->report_case_number->save($casenumber)) {
+              $this->Flash->success(__('The case was approved.'));
+          }else{
+              $this->Flash->error(__('Unable to approve the case.'));
+          }
+          $this->set('CaseNumber', $casenumber);
+        }
+
+      //if approveCase is clicked
+      //CaseNumber to current ReportID
+
       //Load the user model
       $user =$this->Users->get($this->Auth->user('id'));
       $this->set('user',$user);
@@ -32,6 +49,10 @@ class UsersController extends AppController{
         //grab all of the rows in the reports table in db
         ->where(['Report_ID >=' => 0])
         ->toArray();
+
+
+
+
       //set report model
       $this->set('reports', $reports);
     }
