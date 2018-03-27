@@ -70,7 +70,7 @@
 
                     <div class="row">
                       <div class="col-md-4">
-                        <?php echo $this->Form->input('editCategory', array('id' => 'editCategory', 'value' => $report->get('category'), 'readonly' => 'readonly','label'
+                        <?php echo $this->Form->input('editCategory', array('id' => 'editCategory', 'value' => $report->get('category'), 'label'
                                => 'Edit Category','options' => array('None' => 'None', 'Runaway' =>
                                'Runaway','RomeoJuliet' => 'Romeo and Juliet', 'SubstanceAbuser' =>
                                'Substance Abuser','HumanTrafficking' => 'Human Trafficking'))); ?>
