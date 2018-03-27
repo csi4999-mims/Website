@@ -22,14 +22,22 @@
                     <div class="col-md-12">
                       <!-- Update Case Button trigger modal -->
                       <?php
-                      echo $this->Form->submit('Update Case', array('class' => 'form-submit btn update-button',  'title' => 'Click here to update the user account') );
+                      echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeLawEnforcement'), array( 'class' => 'return-home-button btn button'));
                       ?>
                     </div>
                   </div>
-                  <div class="row comment-row">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <!-- Update Case Button trigger modal -->
+                      <?php
+                      echo $this->Form->submit('Update Case', array('class' => 'form-submit btn button update-button',  'title' => 'Click here to update the user account') );
+                      ?>
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-12">
                       <!-- Comment Button -->
-                      <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button button')) ?>
+                      <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button btn button')) ?>
                     </div>
                   </div>
                   <div class="row">
@@ -71,9 +79,9 @@
                     <div class="row">
                       <div class="col-md-4">
                         <?php echo $this->Form->input('editCategory', array('id' => 'editCategory', 'value' => $report->get('category'), 'label'
-                               => 'Edit Category','options' => array('None' => 'None', 'Runaway' =>
-                               'Runaway','RomeoJuliet' => 'Romeo and Juliet', 'SubstanceAbuser' =>
-                               'Substance Abuser','HumanTrafficking' => 'Human Trafficking'))); ?>
+                               => 'Edit Category','options' => array('None' => 'none', 'runaway' =>
+                               'Runaway','romeo_juliet' => 'Romeo and Juliet', 'substance_abuser' =>
+                               'Substance Abuser','human_trafficking' => 'Human Trafficking'))); ?>
                       </div>
                     </div>
                     <?php
