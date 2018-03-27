@@ -73,6 +73,20 @@ class ReportsController extends AppController{
           }
 
       }
+      //edit middle name
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'MiddleName' => $this->request->data['editMiddleName'],
+          ]);
+          if ($report->dirty('MiddleName') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Middle Name is successfully changed');
+            } else {
+                $this->Flash->error('Middle Name was not saved');
+            }
+          }
+
+      }
       //edit last name
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
@@ -83,6 +97,20 @@ class ReportsController extends AppController{
                 $this->Flash->success('The Last Name is successfully changed');
             } else {
                 $this->Flash->error('Last Name was not saved');
+            }
+          }
+
+      }
+      //edit alias
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'Alias' => $this->request->data['editAlias'],
+          ]);
+          if ($report->dirty('Alias') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Alias is successfully changed');
+            } else {
+                $this->Flash->error('Alias was not saved');
             }
           }
 
@@ -113,6 +141,19 @@ class ReportsController extends AppController{
             }
           }
       }
+      //edit ethnicity other
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'MissingEthnicityOther' => $this->request->data['editMissingEthnicityOther'],
+          ]);
+          if ($report->dirty('MissingEthnicityOther') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Ethnicity Other is successfully changed');
+            } else {
+                $this->Flash->error('Ethnicity Other was not saved');
+            }
+          }
+      }
       //edit dob
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
@@ -129,9 +170,9 @@ class ReportsController extends AppController{
       //edit height(feet)
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'Feet' => $this->request->data['editFeet'],
+              'HeightFeet' => $this->request->data['editHeightFeet'],
           ]);
-            if ($report->dirty('Feet') == true){
+            if ($report->dirty('HeightFeet') == true){
             if ($this->Reports->save($report)) {
                 $this->Flash->success('The Height Feet is successfully changed');
             } else {
@@ -142,9 +183,9 @@ class ReportsController extends AppController{
       //edit height(inches)
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'Inches' => $this->request->data['editInches'],
+              'HeightInches' => $this->request->data['editHeightInches'],
           ]);
-          if ($report->dirty('Inches') == true){
+          if ($report->dirty('HeightInches') == true){
             if ($this->Reports->save($report)) {
                 $this->Flash->success('The Height Inches is successfully changed');
             } else {
@@ -191,6 +232,19 @@ class ReportsController extends AppController{
             }
           }
       }
+      //edit eye color other
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'MissingEyeColorOther' => $this->request->data['editMissingEyeColorOther'],
+          ]);
+          if ($report->dirty('MissingEyeColorOther') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Eye Color Other is successfully changed');
+            } else {
+                $this->Flash->error('Eye Color Other was not saved');
+            }
+          }
+      }
       //edit hair color
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
@@ -201,6 +255,19 @@ class ReportsController extends AppController{
                 $this->Flash->success('The Hair Color is successfully changed');
             } else {
                 $this->Flash->error('Hair Color was not saved');
+            }
+          }
+      }
+      //edit hair color other
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'MissingHairColorOther' => $this->request->data['editMissingHairColorOther'],
+          ]);
+          if ($report->dirty('MissingHairColorOther') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Hair Color Other is successfully changed');
+            } else {
+                $this->Flash->error('Hair Color Other was not saved');
             }
           }
       }
@@ -217,19 +284,177 @@ class ReportsController extends AppController{
             }
           }
       }
-      //edit social media
+      //edit facebook
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'SocialMediaAccount' => $this->request->data['editSocialMediaAccount'],
+              'missing_facebook_username' => $this->request->data['edit_missing_facebook_username'],
               ]);
-          if ($report->dirty('SocialMediaAccount') == true){
+          if ($report->dirty('missing_facebook_username') == true){
             if ($this->Reports->save($report)) {
-                $this->Flash->success('The Social Media is successfully changed');
+                $this->Flash->success('The Facebook account is successfully changed');
             } else {
-                $this->Flash->error('Social Media was not saved');
+                $this->Flash->error('Facebook account was not saved');
             }
           }
       }
+      //edit twitter
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'missing_twitter_username' => $this->request->data['edit_missing_twitter_username'],
+              ]);
+          if ($report->dirty('missing_twitter_username') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Twitter account is successfully changed');
+            } else {
+                $this->Flash->error('Twitter account was not saved');
+            }
+          }
+      }
+      //edit snap chat
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'missing_snapchat_username' => $this->request->data['edit_missing_snapchat_username'],
+              ]);
+          if ($report->dirty('missing_snapchat_username') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Snapchat account is successfully changed');
+            } else {
+                $this->Flash->error('Snapchat account was not saved');
+            }
+          }
+      }
+      //edit instagram
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'missing_instagram_username' => $this->request->data['edit_missing_instagram_username'],
+              ]);
+          if ($report->dirty('missing_instagram_username') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Instagram account is successfully changed');
+            } else {
+                $this->Flash->error('Instagram account was not saved');
+            }
+          }
+      }
+      //edit report misc info
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'ReportMiscInfo' => $this->request->data['editReportMiscInfo'],
+              ]);
+          if ($report->dirty('ReportMiscInfo') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Misc Info is successfully changed');
+            } else {
+                $this->Flash->error('Misc Info was not saved');
+            }
+          }
+      }
+      //edit last seen place name
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'SeenName' => $this->request->data['editSeenName'],
+              ]);
+          if ($report->dirty('SeenName') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Last Seen Place Name is successfully changed');
+            } else {
+                $this->Flash->error('Last Seen Place Name was not saved');
+            }
+          }
+      }
+      //edit last seen street
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'SeenStreet' => $this->request->data['editSeenStreet'],
+              ]);
+          if ($report->dirty('SeenStreet') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Last Seen Place Street Name is successfully changed');
+            } else {
+                $this->Flash->error('Last Seen Place Street Name was not saved');
+            }
+          }
+      }
+      //edit last seen number
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'SeenNumber' => $this->request->data['editSeenNumber'],
+              ]);
+          if ($report->dirty('SeenNumber') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Last Seen Place Street Number is successfully changed');
+            } else {
+                $this->Flash->error('Last Seen Place Street Number was not saved');
+            }
+          }
+      }
+      //edit last seen city
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'SeenCity' => $this->request->data['editSeenCity'],
+              ]);
+          if ($report->dirty('SeenCity') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Last Seen Place City is successfully changed');
+            } else {
+                $this->Flash->error('Last Seen Place City was not saved');
+            }
+          }
+      }
+      //edit last seen state
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'SeenState' => $this->request->data['editSeenState'],
+              ]);
+          if ($report->dirty('SeenState') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Last Seen Place State is successfully changed');
+            } else {
+                $this->Flash->error('Last Seen Place State was not saved');
+            }
+          }
+      }
+      //edit last seen zip
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'SeenZip' => $this->request->data['editSeenZip'],
+              ]);
+          if ($report->dirty('SeenZip') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Last Seen Place Zip is successfully changed');
+            } else {
+                $this->Flash->error('Last Seen Place Zip was not saved');
+            }
+          }
+      }
+      //edit last seen when
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'SeenWhen' => $this->request->data['editSeenWhen'],
+              ]);
+          if ($report->dirty('SeenWhen') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Last Seen Date is successfully changed');
+            } else {
+                $this->Flash->error('Last Seen Date was not saved');
+            }
+          }
+      }
+      //edit last seen notes
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'SeenNotes' => $this->request->data['editSeenNotes'],
+              ]);
+          if ($report->dirty('SeenNotes') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Last Seen Notes are successfully changed');
+            } else {
+                $this->Flash->error('Last Seen Notes were not saved');
+            }
+          }
+      }
+
+
       //Edit Family/Friend Info Section
       //edit family first name
       if(!empty($this->request->data)) {
@@ -241,6 +466,19 @@ class ReportsController extends AppController{
                 $this->Flash->success('The Family First Name is successfully changed');
             } else {
                 $this->Flash->error('Family First Name was not saved');
+            }
+          }
+      }
+      //edit family middle name
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FamilyMiddleName' => $this->request->data['editFamilyMiddleName'],
+              ]);
+          if ($report->dirty('FamilyMiddleName') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Family Middle Name is successfully changed');
+            } else {
+                $this->Flash->error('Family Middle Name was not saved');
             }
           }
       }
@@ -270,6 +508,32 @@ class ReportsController extends AppController{
             }
           }
       }
+      //edit family ethnicity
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FamilyEthnicity' => $this->request->data['editFamilyEthnicity'],
+              ]);
+          if ($report->dirty('FamilyEthnicity') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Family Ethnicity is successfully changed');
+            } else {
+                $this->Flash->error('Family Ethnicity was not saved');
+            }
+          }
+      }
+      //edit family ethnicity other
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'FamilyEthnicityOther' => $this->request->data['editFamilyEthnicityOther'],
+              ]);
+          if ($report->dirty('FamilyEthnicityOther') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Family Ethnicity Other is successfully changed');
+            } else {
+                $this->Flash->error('Family Ethnicity Other was not saved');
+            }
+          }
+      }
       //edit family relation
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
@@ -280,6 +544,19 @@ class ReportsController extends AppController{
                 $this->Flash->success('The Relation is successfully changed');
             } else {
                 $this->Flash->error('Relation was not saved');
+            }
+          }
+      }
+      //edit family relation other
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'RelationOther' => $this->request->data['editRelationOther'],
+              ]);
+          if ($report->dirty('RelationOther') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Relation Other is successfully changed');
+            } else {
+                $this->Flash->error('Relation Other was not saved');
             }
           }
       }
@@ -361,69 +638,214 @@ class ReportsController extends AppController{
             }
           }
       }
+
+
       //Edit the Workplace/Hangouts section of the form
-      //edit place name
+      //edit Hangout name
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'PlaceName' => $this->request->data['editPlaceName'],
+              'HangoutName' => $this->request->data['editHangoutName'],
               ]);
-          if ($report->dirty('PlaceName') == true){
+          if ($report->dirty('Hangout Name') == true){
             if ($this->Reports->save($report)) {
-                $this->Flash->success('The Place Name is successfully changed');
+                $this->Flash->success('The Hangout Name is successfully changed');
             } else {
-                $this->Flash->error('Place Name was not saved');
+                $this->Flash->error('Hangout Name was not saved');
             }
           }
       }
-      //edit place street
+      //edit Hangout street
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'PlaceStreet' => $this->request->data['editPlaceStreet'],
+              'HangoutStreet' => $this->request->data['editHangoutStreet'],
               ]);
-          if ($report->dirty('PlaceStreet') == true){
+          if ($report->dirty('HangoutStreet') == true){
             if ($this->Reports->save($report)) {
-                $this->Flash->success('The Street is successfully changed');
+                $this->Flash->success('The Hangout Street is successfully changed');
             } else {
-                $this->Flash->error('Street was not saved');
+                $this->Flash->error('Hangout Street was not saved');
             }
           }
       }
-      //edit place city
+      //edit Hangout street number
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'PlaceCity' => $this->request->data['editPlaceCity'],
+              'HangoutNumber' => $this->request->data['editHangoutNumber'],
               ]);
-          if ($report->dirty('PlaceCity') == true){
+          if ($report->dirty('HangoutNumber') == true){
             if ($this->Reports->save($report)) {
-                $this->Flash->success('The City is successfully changed');
+                $this->Flash->success('The Hangout Street Number is successfully changed');
             } else {
-                $this->Flash->error('City was not saved');
+                $this->Flash->error('Hangout Street Number was not saved');
             }
           }
       }
-      //edit place state
+      //edit Hangout city
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'PlaceState' => $this->request->data['editPlaceState'],
+              'HangoutCity' => $this->request->data['editHangoutCity'],
               ]);
-          if ($report->dirty('PlaceState') == true){
+          if ($report->dirty('HangoutCity') == true){
             if ($this->Reports->save($report)) {
-                $this->Flash->success('The State is successfully changed');
+                $this->Flash->success('The Hangout City is successfully changed');
             } else {
-                $this->Flash->error('State was not saved');
+                $this->Flash->error('Hangout City was not saved');
             }
           }
       }
-      //edit place zip
+      //edit Hangout state
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
-              'PlaceZip' => $this->request->data['editPlaceZip'],
+              'HangoutState' => $this->request->data['editHangoutState'],
               ]);
-          if ($report->dirty('PlaceZip') == true){
+          if ($report->dirty('HangoutState') == true){
             if ($this->Reports->save($report)) {
-                $this->Flash->success('The Zip is successfully changed');
+                $this->Flash->success('The Hangout State is successfully changed');
             } else {
-                $this->Flash->error('Zip was not saved');
+                $this->Flash->error('Hangout State was not saved');
+            }
+          }
+      }
+      //edit Hangout zip
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'HangoutZip' => $this->request->data['editHangoutZip'],
+              ]);
+          if ($report->dirty('HangoutZip') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Hangout Zip is successfully changed');
+            } else {
+                $this->Flash->error('Hangout Zip was not saved');
+            }
+          }
+      }
+      //edit Hangout misc
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'HangoutMisc' => $this->request->data['editHangoutMisc'],
+              ]);
+          if ($report->dirty('HangoutMisc') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Hangout Misc Info is successfully changed');
+            } else {
+                $this->Flash->error('Hangout Misc Info was not saved');
+            }
+          }
+      }
+      //edit Workplace name
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'HangoutName' => $this->request->data['editHangoutName'],
+              ]);
+          if ($report->dirty('Hangout Name') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Hangout Name is successfully changed');
+            } else {
+                $this->Flash->error('Hangout Name was not saved');
+            }
+          }
+      }
+      //edit Workplace street
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'WorkplaceStreet' => $this->request->data['editWorkplaceStreet'],
+              ]);
+          if ($report->dirty('WorkplaceStreet') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Workplace Street is successfully changed');
+            } else {
+                $this->Flash->error('Workplace Street was not saved');
+            }
+          }
+      }
+      //edit Workplace street number
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'WorkplaceNumber' => $this->request->data['editWorkplaceNumber'],
+              ]);
+          if ($report->dirty('WorkplaceNumber') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Workplace Street Number is successfully changed');
+            } else {
+                $this->Flash->error('Workplace Street Number was not saved');
+            }
+          }
+      }
+      //edit Workplace city
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'WorkplaceCity' => $this->request->data['editWorkplaceCity'],
+              ]);
+          if ($report->dirty('WorkplaceCity') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Workplace City is successfully changed');
+            } else {
+                $this->Flash->error('Workplace City was not saved');
+            }
+          }
+      }
+      //edit Workplace state
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'WorkplaceState' => $this->request->data['editWorkplaceState'],
+              ]);
+          if ($report->dirty('WorkplaceState') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Workplace State is successfully changed');
+            } else {
+                $this->Flash->error('Workplace State was not saved');
+            }
+          }
+      }
+      //edit Workplace zip
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'WorkplaceZip' => $this->request->data['editWorkplaceZip'],
+              ]);
+          if ($report->dirty('WorkplaceZip') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Workplace Zip is successfully changed');
+            } else {
+                $this->Flash->error('Workplace Zip was not saved');
+            }
+          }
+      }
+      //edit Workplace misc
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'WorkplaceMisc' => $this->request->data['editWorkplaceMisc'],
+              ]);
+          if ($report->dirty('WorkplaceMisc') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Workplace Misc Info is successfully changed');
+            } else {
+                $this->Flash->error('Workplace Misc Info was not saved');
+            }
+          }
+      }
+      //edit Workplace start date
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'WorkplaceStartDate' => $this->request->data['editWorkplaceStartDate'],
+              ]);
+          if ($report->dirty('WorkplaceStartDate') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Workplace Start Date is successfully changed');
+            } else {
+                $this->Flash->error('Workplace Start Date was not saved');
+            }
+          }
+      }
+      //edit Workplace end date
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'WorkplaceEndDate' => $this->request->data['editWorkplaceEndDate'],
+              ]);
+          if ($report->dirty('WorkplaceEndDate') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Workplace End Date is successfully changed');
+            } else {
+                $this->Flash->error('Workplace End Date was not saved');
             }
           }
       }
