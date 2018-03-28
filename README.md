@@ -89,3 +89,41 @@ environment:
             'database' => 'mims_test',
 			// ...
    ```
+
+### Migrate the database schema ###
+
+In a terminal, navigate to the root of the project folder and run the
+following command:
+
+``` shell
+bin/cake migrations migrate
+```
+
+This will work its way through the list of migrations and update your
+database schema accordingly.
+
+If you run into any issues during this process, or want to know the
+status of the migrations, you can use the following command:
+
+``` shell
+bin/cake migrations status
+```
+
+## Run the php server ##
+
+You can use php's built-in web server functionality for dev testing,
+*but this should not be used for production environments*.  For
+production environments, you should use a fully-fledged web server
+like Apache or nginx.  More details on this can be found in the
+CakePHP documentation.
+
+To run php's built-in web server, run the following command from the
+root of the project:
+
+``` shell
+bin/cake server
+```
+
+Then, open a browser to the location specified in the output,
+including the port number.  This should display the MIMS homepage,
+where you can create an account and log in.
