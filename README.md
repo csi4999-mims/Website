@@ -1,3 +1,5 @@
+<!-- -*- mode: gfm; -*- -->
+
 # MIMS Website #
 
 ## Description ##
