@@ -120,13 +120,17 @@
             <?= $this->GoogleMap->addMarker("map_canvas", 1, $report->get('FamilyStreet') . $report->get('FamilyCity') . $report->get('FamilyState') . $report->get('FamilyZip'), array(
           "showWindow"   => true,
           "windowText"   => "Name: " . $report->get('FirstName') . " " . $report->get('LastName') .  " DOB: " . $report->get('DoB') . " Last Seen: "
-          . $report->get('LastSeen') . " Hair Color: " . $report->get('HairColor') . " Eye Color: " . $report->get('EyeColor') . " Height: "
-          . $report->get('Height') . " Weight: " . $report->get('Weight'),
+          . $report->get('SeenWhen'),
           "markerTitle"  => "Title",
           "markerIcon"   => "http://labs.google.com/ridefinder/images/mm_20_purple.png",
           "markerShadow" => "http://labs.google.com/ridefinder/images/mm_20_purpleshadow.png"
         )); ?>
       <?php endforeach; ?>
+      <?= $this->GoogleMap->addMarker("map_canvas", 1, array('latitude' => 42.6829642, 'longitude' => -83.13825199999997)); ?>
+      <?= $this->GoogleMap->addMarker("map_canvas", 1, array('latitude' => 42.6718957, 'longitude' => -83.22226649999999)); ?>
+      <?= $this->GoogleMap->addMarker("map_canvas", 1, array('latitude' => 42.6257074, 'longitude' => -83.03609569999998)); ?>
+      <?= $this->GoogleMap->addMarker("map_canvas", 1, array('latitude' => 42.6808395, 'longitude' => -83.03398419999996)); ?>
+      <?= $this->GoogleMap->addMarker("map_canvas", 1, array('latitude' => 42.521799, 'longitude' => -83.109352)); ?>
     </div>
   </div>
 </div>

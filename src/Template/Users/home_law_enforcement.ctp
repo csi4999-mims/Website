@@ -118,8 +118,7 @@
             <?= $this->GoogleMap->addMarker("map_canvas", 1, $report->get('FamilyStreet') . $report->get('FamilyCity') . $report->get('FamilyState') . $report->get('FamilyZip'), array(
           "showWindow"   => true,
           "windowText"   => "Name: " . $report->get('FirstName') . " " . $report->get('LastName') .  " DOB: " . $report->get('DoB') . " Last Seen: "
-          . $report->get('SeenWhen') . " Hair Color: " . $report->get('HairColor') . " Eye Color: " . $report->get('EyeColor') . " Height: "
-          . ($report->get('HeightFeet') * 12 + $report->get('HeightInches')) . " Weight: " . $report->get('Weight'),
+          . $report->get('SeenWhen'),
           "markerTitle"  => "Title",
           "markerIcon"   => "http://labs.google.com/ridefinder/images/mm_20_purple.png",
           "markerShadow" => "http://labs.google.com/ridefinder/images/mm_20_purpleshadow.png"
