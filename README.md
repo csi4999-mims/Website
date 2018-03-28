@@ -34,15 +34,13 @@ environment:
    git clone https://github.com/csi4999-mims/Website.git ./mims-website
    ```
 
-2. Navigate to that directory and run `composer update`.
+2. Navigate to that directory and run `composer update` to download
+   and install all the required libraries.
 
    ``` shell
    cd ./mims-website
    composer update
    ```
-
-   This will download and install all the necessary components to run
-   the MIMS site.
 
 ## Database Setup ##
 
@@ -69,9 +67,11 @@ environment:
 
 ### Connect CakePHP to the databases ###
 
-1. Copy `config/app.default.php` to `config/app.php`.
+1. Navigate to the `config/` directory and create a copy of
+   `app.default.php` and name it `app.php`.
 2. Edit the `default` and `test` sections of `Datasources` in
-   `config/app.php` to match your settings above:
+   `app.php` to match your database settings you set in the previous
+   section.  For example:
 
    ``` php
     'Datasources' => [
