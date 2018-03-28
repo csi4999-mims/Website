@@ -185,142 +185,143 @@
                     <legend class="report-legend"><?php echo __('Missing Person Family/Friend Information'); ?></legend>
                     <div class="row">
                       <div class="col-md-4">
-                        <label class="report-label"> Family Member First Name: <span><?php echo $report->get('FamilyFirstName')?></span></label>
+                        <label class="report-label"> First Name: <span><?php echo $report->get('FamilyFirstName')?></span></label>
                       </div>
                       <div class="col-md-4">
-                        <label class="report-label"> Family Member Middle Name: <span><?php echo $report->get('FamilyMiddleName')?></span></label>
+                        <label class="report-label"> Middle Name: <span><?php echo $report->get('FamilyMiddleName')?></span></label>
                       </div>
                       <div class="col-md-4">
-                        <label class="report-label"> Family Member Last Name: <span><?php echo $report->get('FamilyLastName')?></span></label>
+                        <label class="report-label"> Last Name: <span><?php echo $report->get('FamilyLastName')?></span></label>
                       </div>
                     </div>
                     <hr>
                     <div class="row">
                       <div class="col-md-6">
-                        <label class="report-label"> Family Member Phone: <span><?php echo $report->get('FamilyPhone')?></span></label>
+                        <label class="report-label"> Phone: <span><?php echo $report->get('FamilyPhone')?></span></label>
                       </div>
                       <div class="col-md-6">
-                        <label class="report-label"> Family Member Email: <span><?php echo $report->get('FamilyEmail')?></span></label>
+                        <label class="report-label"> Email: <span><?php echo $report->get('FamilyEmail')?></span></label>
                       </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
-                          <label class="report-label"> Family Member Gender: <span><?php echo $report->get('FamilyGender')?></span></label>
+                          <label class="report-label"> Gender: <span><?php echo $report->get('FamilyGender')?></span></label>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-6">
-                          <label class="report-label"> Family Member Ethnicity: <span><?php echo $report->get('FamilyEthnicity')?></span></label>
+                          <label class="report-label"> Ethnicity: <span><?php echo $report->get('FamilyEthnicity')?></span></label>
                         </div>
                         <div class="col-md-6">
-                          <label class="report-label"> Family Member Ethnicity Other: <span><?php echo $report->get('FamilyEthnicityOther')?></span></label>
+                          <label class="report-label"> Ethnicity Other: <span><?php echo $report->get('FamilyEthnicityOther')?></span></label>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-6">
-                          <label class="report-label"> Family Member Realtion To Missing: <span><?php echo $report->get('Relation')?></span></label>
+                          <label class="report-label"> Realtion To Missing: <span><?php echo $report->get('Relation')?></span></label>
                         </div>
                         <div class="col-md-6">
-                          <label class="report-label"> Family Member Relation To Missing Other: <span><?php echo $report->get('RelationOther')?></span></label>
+                          <label class="report-label"> Relation To Missing Other: <span><?php echo $report->get('RelationOther')?></span></label>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                       <div class="col-md-6">
-                        <label class="report-label"> Family Member Street: <span><?php echo $report->get('FamilyStreet')?></span></label>
+                        <label class="report-label"> Street: <span><?php echo $report->get('FamilyStreet')?></span></label>
                       </div>
                       <div class="col-md-6">
-                        <label class="report-label"> Family Member City: <span><?php echo $report->get('FamilyCity')?></span></label>
+                        <label class="report-label"> City: <span><?php echo $report->get('FamilyCity')?></span></label>
                       </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-6">
-                          <label class="report-label"> Family Member State: <span><?php echo $report->get('FamilyState')?></span></label>
+                          <label class="report-label"> State: <span><?php echo $report->get('FamilyState')?></span></label>
                         </div>
                         <div class="col-md-6">
-                          <label class="report-label"> Family Member Zipcode: <span><?php echo $report->get('FamilyZip')?></span></label>
+                          <label class="report-label"> Zipcode: <span><?php echo $report->get('FamilyZip')?></span></label>
                         </div>
                     </div>
                   </br>
                   <legend class="report-legend"><?php echo __('Missing Person Hangouts'); ?></legend>
                     <div class="row">
                         <div class="col-md-4">
-                          <label class="report-label"> Hanout Name: <span><?php echo $report->get('HangoutName')?></span></label>
+                          <label class="report-label"> Name: <span><?php echo $report->get('HangoutName')?></span></label>
                         </div>
                         <div class="col-md-4">
-                          <label class="report-label"> Hangout Street: <span><?php echo $report->get('HangoutStreet')?></span></label>
+                          <label class="report-label"> Street: <span><?php echo $report->get('HangoutStreet')?></span></label>
                         </div>
                         <div class="col-md-4">
-                          <label class="report-label"> Hangout Street Number: <span><?php echo $report->get('HangoutNumber')?></span></label>
+                          <label class="report-label"> Street Number: <span><?php echo $report->get('HangoutNumber')?></span></label>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                       <div class="col-md-4">
-                        <label class="report-label"> Hangout City: <span><?php echo $report->get('HangoutCity')?></span></label>
+                        <label class="report-label"> City: <span><?php echo $report->get('HangoutCity')?></span></label>
                       </div>
                       <div class="col-md-4">
-                        <label class="report-label"> Hangout State: <span><?php echo $report->get('HangoutState')?></span></label>
+                        <label class="report-label"> State: <span><?php echo $report->get('HangoutState')?></span></label>
                       </div>
                       <div class="col-md-4">
-                        <label class="report-label"> Handout Zipcode: <span><?php echo $report->get('HangoutZip')?></span></label>
+                        <label class="report-label"> Zipcode: <span><?php echo $report->get('HangoutZip')?></span></label>
                       </div>
                     </div>
                     <hr>
                     <div class="row">
                       <div class="col-md-12">
-                        <label class="report-label"> Hangout Miscellaneous Info: <span><?php echo $report->get('HangoutMisc')?></span></label>
+                        <label class="report-label"> Miscellaneous Info: <span><?php echo $report->get('HangoutMisc')?></span></label>
                       </div>
                     </div>
                   </br>
                   <legend class="report-legend"><?php echo __('Missing Person Workplace'); ?></legend>
                     <div class="row">
                         <div class="col-md-4">
-                          <label class="report-label"> Workplace Name: <span><?php echo $report->get('WorkplaceName')?></span></label>
+                          <label class="report-label">  Name: <span><?php echo $report->get('WorkplaceName')?></span></label>
                         </div>
                         <div class="col-md-4">
-                          <label class="report-label"> Workplace Street Name: <span><?php echo $report->get('WorkplaceStreet')?></span></label>
+                          <label class="report-label">  Street Name: <span><?php echo $report->get('WorkplaceStreet')?></span></label>
                         </div>
                         <div class="col-md-4">
-                          <label class="report-label"> Workplace Street Number: <span><?php echo $report->get('WorkplaceNumber')?></span></label>
+                          <label class="report-label">  Street Number: <span><?php echo $report->get('WorkplaceNumber')?></span></label>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                       <div class="col-md-4">
-                        <label class="report-label"> Workplace City: <span><?php echo $report->get('WorkplaceCity')?></span></label>
+                        <label class="report-label">  City: <span><?php echo $report->get('WorkplaceCity')?></span></label>
                       </div>
                       <div class="col-md-4">
-                        <label class="report-label"> Workplace State: <span><?php echo $report->get('WorkplaceState')?></span></label>
+                        <label class="report-label">  State: <span><?php echo $report->get('WorkplaceState')?></span></label>
                       </div>
                       <div class="col-md-4">
-                        <label class="report-label"> Workplace Zipcode: <span><?php echo $report->get('WorkplaceZip')?></span></label>
+                        <label class="report-label">  Zipcode: <span><?php echo $report->get('WorkplaceZip')?></span></label>
                       </div>
                     </div>
                     <hr>
                     <div class="row">
                       <div class="col-md-12">
-                        <label class="report-label"> Workplace Started Working Date: <span><?php echo $report->get('WorkplaceStartDate')?></span></label>
+                        <label class="report-label">  Started Working Date: <span><?php echo $report->get('WorkplaceStartDate')?></span></label>
                       </div>
                       </div>
                     </row>
                     <hr>
                     <div class="row">
                       <div class="col-md-12">
-                        <label class="report-label"> Workplace End Working Date: <span><?php echo $report->get('WorkplaceEndDate')?></span></label>
+                        <label class="report-label">  End Working Date: <span><?php echo $report->get('WorkplaceEndDate')?></span></label>
                       </div>
                       </div>
                     </row>
                     <hr>
                     <div class="row">
                       <div class="col-md-12">
-                        <label class="report-label"> Workplace Miscellaneous Info: <span><?php echo $report->get('WorkplaceMisc')?></span></label>
+                        <label class="report-label">  Miscellaneous Info: <span><?php echo $report->get('WorkplaceMisc')?></span></label>
                       </div>
                     </div>
+                  </br>
               </div>
               </div>
       </div>
