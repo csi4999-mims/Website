@@ -241,3 +241,17 @@ h1.home_button{
     /* Add a grey background color to the table header and on hover */
     background-color: #f1f1f1;
 }
+
+.report-label {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.report-label span {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.report-legend {
+  color: #cc0000;
+}
