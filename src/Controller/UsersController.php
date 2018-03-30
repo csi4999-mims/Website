@@ -58,27 +58,27 @@ class UsersController extends AppController{
         ->toArray();
 
 
-        //Approving Modal Input
-        $this->loadModel('Reports');
-
-
-        $report = $this->Reports->get($Report_ID);
-
-        $this->set(compact('report'));
-
-        if (!empty($this->request->data)) {
-            $report = $this->Reports->patchEntity($report, [
-                    'CaseNumber'  => $this->request->data['report_case_number']
-                ]);
-            if ($report->dirty('CaseNumber' == true)) {
-              if($this->Reports->save($report)){
-                $this->Flash->success('The report has been approved');
-                //Make Current Report "In Progress"
-            } else {
-                $this->Flash->error('There was an error during the approval');
-            }
-          }
-        }
+        // //Approving Modal Input
+        // $this->loadModel('Reports');
+        //
+        //
+        // $report = $this->Reports->get($Report_ID);
+        //
+        // $this->set(compact('report'));
+        //
+        // if (!empty($this->request->data)) {
+        //     $report = $this->Reports->patchEntity($report, [
+        //             'CaseNumber'  => $this->request->data['report_case_number']
+        //         ]);
+        //     if ($report->dirty('CaseNumber' == true)) {
+        //       if($this->Reports->save($report)){
+        //         $this->Flash->success('The report has been approved');
+        //         //Make Current Report "In Progress"
+        //     } else {
+        //         $this->Flash->error('There was an error during the approval');
+        //     }
+        //   }
+        // }
 
 
 

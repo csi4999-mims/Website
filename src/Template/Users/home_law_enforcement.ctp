@@ -29,12 +29,12 @@
       <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
       <td><?php echo $this->Form->label('LastSeen', array('value' => $report->get('LastSeen'))); ?></td>
       <td><?php echo $this->Form->label('status', array('value' => $report->get('status'))); ?></td>
-      <td><input class="approve-button" type="button" value="Approve" data-toggle="modal" data-target="#approveModal" onclick="clearModalForm()"></td>
+      <td><?php echo $this->Html->link("Approve", array('controller' => 'approve','action'=> 'approveModal', $report->Report_ID), array( 'class' => 'approve-button button')) ?></td>
     </tr>
   <?php endforeach; ?>
 </table>
 <!-- Approve Modal -->
-<div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+<!-- <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -62,7 +62,7 @@
     </div>
   </div>
 </div>
-</div>
+</div> -->
 <div class="containter-fluid map">
   <div class="row map-row law">
     <div class="col-md-6">
