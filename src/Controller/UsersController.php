@@ -2,6 +2,8 @@
 namespace App\Controller;
 use App\Controller\AppController;
 use App\Controller\ReportsController;
+
+
 class UsersController extends AppController{
 
   //adding google maps helper
@@ -20,20 +22,25 @@ class UsersController extends AppController{
 	     $this->render();
     }
 //law enforcement home page
-    public function homeLawEnforcement() {
+    public function homeLawEnforcement($Report_ID = null) {
 
-      //Approving Modal Input
-      $this->loadModel('Reports');
-      $casenumber = $this->report_case_number->get($this->reports('CaseNumber'));
-      if ($this->request->is('post')) {
-          $casenumber = $this->report_case_number->patchEntity($casenumber, $this->request->getData());
-          if ($this->report_case_number->save($casenumber)) {
-              $this->Flash->success(__('The case was approved.'));
-          }else{
-              $this->Flash->error(__('Unable to approve the case.'));
-          }
-          $this->set('CaseNumber', $casenumber);
-        }
+
+
+
+      // $this->loadModel('Reports');
+      // // $this->set(compact('report'));
+      // $reportnumber = $this->Reports->get($this->reports('Report_ID'));
+      //
+      // // $casenumber = $this->report_case_number->newEntity($this->reports('CaseNumber'));
+      // if ($this->request->is('post')) {
+      //     $casenumber = $this->report_case_number->patchEntity($casenumber, $this->request->getData());
+      //     if ($this->report_case_number->save($casenumber)) {
+      //         $this->Flash->success(__('The case was approved.'));
+      //     }else{
+      //         $this->Flash->error(__('Unable to approve the case.'));
+      //     }
+      //     $this->set('CaseNumber', $casenumber);
+      //   }
 
       //if approveCase is clicked
       //CaseNumber to current ReportID
@@ -49,6 +56,30 @@ class UsersController extends AppController{
         //grab all of the rows in the reports table in db
         ->where(['Report_ID >=' => 0])
         ->toArray();
+
+
+        //Approving Modal Input
+        $this->loadModel('Reports');
+
+
+        $report = $this->Reports->get($Report_ID);
+
+        $this->set(compact('report'));
+
+        if (!empty($this->request->data)) {
+            $report = $this->Reports->patchEntity($report, [
+                    'CaseNumber'  => $this->request->data['report_case_number']
+                ]);
+            if ($report->dirty('CaseNumber' == true)) {
+              if($this->Reports->save($report)){
+                $this->Flash->success('The report has been approved');
+                //Make Current Report "In Progress"
+            } else {
+                $this->Flash->error('There was an error during the approval');
+            }
+          }
+        }
+
 
 
 

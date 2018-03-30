@@ -57,7 +57,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary cancel-button" data-dismiss="modal" >Cancel</button>
-        <button type="button" class="btn btn-primary" id="approveCase">Approve</button>
+        <button type="submit" class="btn btn-primary" id="approveCase">Approve</button>
       </div>
     </div>
   </div>
@@ -130,5 +130,12 @@
 //function to clear modal content
 function clearModalForm(){
 document.getElementById("modal-form").reset();
+}
+</script>
+
+<script>
+//function to make unique modal for each report
+function ogModals(clickedBtn){
+  document.getElementById("approveModalmodal").value = clickedBtn;
 }
 </script>
