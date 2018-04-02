@@ -136,8 +136,8 @@ a.home-footer:hover {
 }
 
 .button.register-button:hover {
-  background-color: #808080;
-  text-decoration: none;
+  background-color: #808080 !important;
+  text-decoration: none !important;
 }
 
 .button.login-button.btn.btn-default {
@@ -290,6 +290,7 @@ nav.top-bar.expanded a:hover {
 
 nav.top-bar.expanded ul.right a {
   padding: 15px;
+
 }
 
 .welcome-banner {
