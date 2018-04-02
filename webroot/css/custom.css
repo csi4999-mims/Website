@@ -131,12 +131,25 @@ a.home-footer:hover {
   margin-top: 5px;
   font-size: 14px;
   background-color: #116D76;
+  font-weight: bold;
 
 }
 
 .button.register-button:hover {
   background-color: #808080;
   text-decoration: none;
+}
+
+.button.login-button.btn.btn-default {
+  margin-top: 5px;
+  font-size: 14px;
+  background-color: #116D76;
+
+}
+
+.button.login-button.btn.btn-default:hover {
+  background-color: #808080 !important;
+  text-decoration: none !important;
 }
 
 
@@ -239,7 +252,7 @@ h1.home_button{
 
 #myTable tr.header, #myTable tr:hover {
     /* Add a grey background color to the table header and on hover */
-    background-color: #f1f1f1;
+    background-color: #e9fafc;
 }
 
 .report-label {
@@ -254,4 +267,43 @@ h1.home_button{
 
 .report-legend {
   color: #cc0000;
+}
+
+nav.top-bar.expanded {
+  height: 60px;
+}
+
+nav.top-bar.expanded a {
+  padding: 15px;
+}
+
+nav.top-bar.expanded a:hover {
+  text-decoration: none;
+}
+
+nav.top-bar.expanded ul.right a {
+  padding: 15px;
+}
+
+.welcome-banner {
+  color: #116D76;
+}
+
+.map-banner {
+  color: #116D76;
+  text-decoration: underline;
+}
+
+a.report-id {
+  font-size: 17px;
+  color: #000000;
+}
+
+a.report-id:hover {
+  color: #116D76;
+  text-decoration: none;
+}
+
+.map-info {
+  font-size: 14px;
 }
