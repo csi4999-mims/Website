@@ -14,7 +14,7 @@
         <?= $this->Html->link($report->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $report->Report_ID]) ?>
       </legend>
       <?php
-      echo $this->Form->input('report_case_number', array('class' => 'report-input', 'label' => 'Case Number', 'maxLength' => 250, 'title' => 'Case Number', 'type' => 'text'));
+      echo $this->Form->input('report_case_number', array('class' => 'report-input', 'label' => 'Case Number', 'maxLength' => 250, 'title' => 'Case Number', 'type' => 'number'));
       echo $this->Form->hidden('Report_ID', array('value' => $report->get('Report_ID')));
       echo $this->Form->submit('Submit Approval', array('class' => 'form-submit approve-submit',  'title' => 'Click here to') );
       ?>
