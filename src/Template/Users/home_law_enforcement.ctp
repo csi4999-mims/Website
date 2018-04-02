@@ -14,13 +14,17 @@
 <table id="myTable">
   <thead>
     <tr>
-      <th>Report Number</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>DOB</th>
-      <th>Category</th>
-      <th>Status</th>
-      <th>Approve Case</th>
+
+      <td>
+            <?= $this->Html->link($report->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $report->Report_ID]) ?>
+      </td>
+      <td><?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></td>
+      <td><?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></td>
+      <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
+      <td><?php echo $this->Form->label('LastSeen', array('value' => $report->get('LastSeen'))); ?></td>
+      <td><?php echo $this->Form->label('status', array('value' => $report->get('status'))); ?></td>
+      <td><?php echo $this->Html->link("Approve", array('controller' => 'reports','action'=> 'approveModal', $report->Report_ID), array( 'class' => 'approve-button button')) ?></td>
+
     </tr>
   </thead>
   <tbody>
@@ -40,34 +44,35 @@
   </tbody>
 </table>
 <!-- Approve Modal -->
-<div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Approve Case</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
+
         </button>
       </div>
       <div class="modal-body">
         <p>
           Are you sure you want to approve this case? If so, enter the Official Report Number.
         </p>
-        <form>
+        <form id="modal-form">
           <div class="form-group">
-            <label for="report-number" class="col-form-label">Enter Report Number:</label>
-            <input type="text" class="form-control" id="report-number"></input>
+            <label for="report-number" class="col-form-label">Enter Case Number:</label>
+            <input type="text" class="modal-form-control form-control" id="CaseNumber"></input>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Approve</button>
+        <button type="button" class="btn btn-secondary cancel-button" data-dismiss="modal" >Cancel</button>
+        <button type="submit" class="btn btn-primary" id="approveCase">Approve</button>
       </div>
     </div>
   </div>
 </div>
-</div>
+</div> -->
 <div class="containter-fluid map">
   <div class="row map-row law">
     <div class="col-md-6">
