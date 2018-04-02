@@ -49,6 +49,11 @@ input.form-submit.btn.update-button.btn-default {
   background-color: #116D76 !important;
   margin: 5px;
   border-radius: 0px !important;
+  font-size: 14px;
+}
+.comment-button:hover {
+  background-color: #808080 !important;
+  text-decoration: none;
 }
 
 button {
@@ -71,7 +76,7 @@ button {
 .jumbotron.jumbotron-public-home {
   background-image: url('../img/park2.png');
   background-size: 100% 100%;
-  height: 200px;
+  height: 250px;
   margin-top: 10px;
 }
 
@@ -226,6 +231,13 @@ h1.home_button{
   background-color: #116D76;
   margin: 5px;
   border-radius: 0px !important;
+  font-size:14px;
+}
+
+.button.return-home-button:hover {
+  text-decoration: none;
+  background-color: #808080;
+
 }
 
 
@@ -274,6 +286,8 @@ h1.home_button{
 
 .report-legend {
   color: #cc0000;
+  text-decoration: underline;
+  padding-bottom: 10px;
 }
 
 nav.top-bar.expanded {

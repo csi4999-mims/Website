@@ -5,7 +5,7 @@
 </head>
 <body>
 <div class="page-header">
-    <h1> Detailed Report </h1>
+    <h1 class="welcome-banner"> Detailed Report </h1>
 </div>
 <div class="reports form">
     <?php echo $this->Form->create('$report'); ?>
@@ -35,8 +35,7 @@
                 </div>
               </div>
               <div class="row">
-                <legend class="report-legend"><?php echo __('Missing Person Information'); ?></legend>
-
+                <h1 class="report-legend">Missing Person Information</h1>
                   <div id="display-missing" class="container-fluid">
                     <div class="row">
                         <div class="col-md-4">
@@ -142,9 +141,10 @@
                         <label class="report-label"> Additional Information: <span><?php echo $report->get('ReportMiscInfo')?></span></label>
                       </div>
                     </div>
-
+                  </div>
                   </br>
-                    <legend class="report-legend"><?php echo __('Missing Person Last Seen'); ?></legend>
+                  <div class="row ">
+                    <h1 class="report-legend">Missing Person Last Seen</h1>
                     <div class="row">
                         <div class="col-md-4">
                           <label class="report-label"> Last Seen At: <span><?php echo $report->get('SeenName')?></span></label>
@@ -180,9 +180,10 @@
                         <label class="report-label"> Notes About Last Seen: <span><?php echo $report->get('SeenNotes')?></span></label>
                       </div>
                     </div>
-
+                  </div>
                   </br>
-                    <legend class="report-legend"><?php echo __('Missing Person Family/Friend Information'); ?></legend>
+                  <div class="row ">
+                    <h1 class="report-legend">Missing Person Family/Friend Information</h1>
                     <div class="row">
                       <div class="col-md-4">
                         <label class="report-label"> First Name: <span><?php echo $report->get('FamilyFirstName')?></span></label>
@@ -245,84 +246,88 @@
                           <label class="report-label"> Zipcode: <span><?php echo $report->get('FamilyZip')?></span></label>
                         </div>
                     </div>
+                  </div>
                   </br>
-                  <legend class="report-legend"><?php echo __('Missing Person Hangouts'); ?></legend>
-                    <div class="row">
+                  <div class="row ">
+                    <h1 class="report-legend">Missing Person Hangouts</h1>
+                      <div class="row">
+                          <div class="col-md-4">
+                            <label class="report-label"> Name: <span><?php echo $report->get('HangoutName')?></span></label>
+                          </div>
+                          <div class="col-md-4">
+                            <label class="report-label"> Street: <span><?php echo $report->get('HangoutStreet')?></span></label>
+                          </div>
+                          <div class="col-md-4">
+                            <label class="report-label"> Street Number: <span><?php echo $report->get('HangoutNumber')?></span></label>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="row">
                         <div class="col-md-4">
-                          <label class="report-label"> Name: <span><?php echo $report->get('HangoutName')?></span></label>
+                          <label class="report-label"> City: <span><?php echo $report->get('HangoutCity')?></span></label>
                         </div>
                         <div class="col-md-4">
-                          <label class="report-label"> Street: <span><?php echo $report->get('HangoutStreet')?></span></label>
+                          <label class="report-label"> State: <span><?php echo $report->get('HangoutState')?></span></label>
                         </div>
                         <div class="col-md-4">
-                          <label class="report-label"> Street Number: <span><?php echo $report->get('HangoutNumber')?></span></label>
+                          <label class="report-label"> Zipcode: <span><?php echo $report->get('HangoutZip')?></span></label>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <label class="report-label"> City: <span><?php echo $report->get('HangoutCity')?></span></label>
                       </div>
-                      <div class="col-md-4">
-                        <label class="report-label"> State: <span><?php echo $report->get('HangoutState')?></span></label>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label class="report-label"> Miscellaneous Info: <span><?php echo $report->get('HangoutMisc')?></span></label>
+                        </div>
                       </div>
-                      <div class="col-md-4">
-                        <label class="report-label"> Zipcode: <span><?php echo $report->get('HangoutZip')?></span></label>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <label class="report-label"> Miscellaneous Info: <span><?php echo $report->get('HangoutMisc')?></span></label>
-                      </div>
-                    </div>
+                  </div>
                   </br>
-                  <legend class="report-legend"><?php echo __('Missing Person Workplace'); ?></legend>
-                    <div class="row">
+                  <div class="row ">
+                    <h1 class="report-legend">Missing Person Workplace</h1>
+                      <div class="row">
+                          <div class="col-md-4">
+                            <label class="report-label">  Name: <span><?php echo $report->get('WorkplaceName')?></span></label>
+                          </div>
+                          <div class="col-md-4">
+                            <label class="report-label">  Street Name: <span><?php echo $report->get('WorkplaceStreet')?></span></label>
+                          </div>
+                          <div class="col-md-4">
+                            <label class="report-label">  Street Number: <span><?php echo $report->get('WorkplaceNumber')?></span></label>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="row">
                         <div class="col-md-4">
-                          <label class="report-label">  Name: <span><?php echo $report->get('WorkplaceName')?></span></label>
+                          <label class="report-label">  City: <span><?php echo $report->get('WorkplaceCity')?></span></label>
                         </div>
                         <div class="col-md-4">
-                          <label class="report-label">  Street Name: <span><?php echo $report->get('WorkplaceStreet')?></span></label>
+                          <label class="report-label">  State: <span><?php echo $report->get('WorkplaceState')?></span></label>
                         </div>
                         <div class="col-md-4">
-                          <label class="report-label">  Street Number: <span><?php echo $report->get('WorkplaceNumber')?></span></label>
+                          <label class="report-label">  Zipcode: <span><?php echo $report->get('WorkplaceZip')?></span></label>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <label class="report-label">  City: <span><?php echo $report->get('WorkplaceCity')?></span></label>
                       </div>
-                      <div class="col-md-4">
-                        <label class="report-label">  State: <span><?php echo $report->get('WorkplaceState')?></span></label>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label class="report-label">  Started Working Date: <span><?php echo $report->get('WorkplaceStartDate')?></span></label>
+                        </div>
+                        </div>
+                      </row>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label class="report-label">  End Working Date: <span><?php echo $report->get('WorkplaceEndDate')?></span></label>
+                        </div>
+                        </div>
+                      </row>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label class="report-label">  Miscellaneous Info: <span><?php echo $report->get('WorkplaceMisc')?></span></label>
+                        </div>
                       </div>
-                      <div class="col-md-4">
-                        <label class="report-label">  Zipcode: <span><?php echo $report->get('WorkplaceZip')?></span></label>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <label class="report-label">  Started Working Date: <span><?php echo $report->get('WorkplaceStartDate')?></span></label>
-                      </div>
-                      </div>
-                    </row>
-                    <hr>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <label class="report-label">  End Working Date: <span><?php echo $report->get('WorkplaceEndDate')?></span></label>
-                      </div>
-                      </div>
-                    </row>
-                    <hr>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <label class="report-label">  Miscellaneous Info: <span><?php echo $report->get('WorkplaceMisc')?></span></label>
-                      </div>
-                    </div>
+                  </div>
                   </br>
-              </div>
               </div>
       </div>
     </fieldset>
