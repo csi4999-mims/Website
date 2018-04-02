@@ -5,11 +5,13 @@
 </head>
 <body>
 <div class="users form">
+</br>
     <?php echo $this->Form->create('$user', [
 	'context' => ['validator' => 'edit']
     ]); ?>
     <fieldset>
         <legend><?php echo __('Edit User'); ?></legend>
+      </br>
         <?php
         echo $this->Form->input('FirstName', array('readonly' => 'readonly','value' => $user->get('FirstName')));
         echo $this->Form->input('LastName', array('readonly' => 'readonly', 'value' => $user->get('LastName')));
@@ -23,12 +25,11 @@
     </fieldset>
 </div>
 <?php
-echo $this->Html->link( "Return to Dashboard",   array('action'=>'home') );
+  if($user->get('role') == 'thepublic') {
+    echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeConcernedPublic'), array( 'class' => 'dashboard-button button'));
+  }elseif($user->get('role') == 'lawenforcement') {
+    echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeLawEnforcement'), array( 'class' => 'dashboard-button button'));
+  }
 ?>
-<br/>
-<?php
-echo $this->Html->link( "Logout",   array('action'=>'logout') );
-?>
-
 </body>
 </html>
