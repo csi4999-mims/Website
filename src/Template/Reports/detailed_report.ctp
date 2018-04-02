@@ -22,22 +22,22 @@
                     <div class="col-md-12">
                       <!-- Update Case Button trigger modal -->
                       <?php
-                      echo $this->Form->submit('Update Case', array('class' => 'form-submit btn update-button',  'title' => 'Click here to update the user account') );
+                      echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeLawEnforcement'), array( 'class' => 'return-home-button btn button'));
                       ?>
-                    </div>
-                  </div>
-                  <div class="row comment-row">
-                    <div class="col-md-12">
-                      <!-- Comment Button -->
-                      <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button button')) ?>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <!-- Categorize Button trigger modal -->
-                      <button type="button" class="button btn categorize-button" data-toggle="modal" data-target="#categorizeModal">
-                        Categorize
-                      </button>
+                      <!-- Update Case Button trigger modal -->
+                      <?php
+                      echo $this->Form->submit('Update Case', array('class' => 'form-submit btn button update-button',  'title' => 'Click here to update the user account') );
+                      ?>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <!-- Comment Button -->
+                      <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button btn button')) ?>
                     </div>
                   </div>
                   <div class="row">
@@ -51,116 +51,475 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-4">
-                  <legend><?php echo __('Missing Person'); ?></legend>
-                    <ul>
-                      <div class="row">
-                          <div class="col-md-6 inline-left">
-                              <?php echo $this->Form->input('Report_ID', array('value' => $report->get('Report_ID'))); ?>
-                          </div>
-                          <div class="col-md-6 inline-right">
-                              <?php echo $this->Form->input('status', array('value' => $report->get('status'))); ?>
-                          </div>
+                <legend><?php echo __('Missing Person Information'); ?></legend>
+
+                  <div id="display-missing" class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editFirstName', array('value' => $report->get('FirstName'), 'label'
+                           => 'First Name', 'maxLength' => 50,'title' => 'FirstName', 'type' => 'text')); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editMiddleName', array('value' => $report->get('MiddleName'),'label'
+                           => 'Middle Name', 'maxLength' => 50, 'title' => 'MiddleName', 'type' => 'text')); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editLastName', array('value' => $report->get('LastName'),'label'
+                           => 'Last Name', 'maxLength' => 50, 'title' => 'LastName', 'type' => 'text')); ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editAlias', array('value' => $report->get('Alias'),'label' => 'Alias',
+                        'maxLength' => 100, 'title' => 'Alias', 'type' => 'text')); ?>
                       </div>
-                      <?php echo $this->Form->input('editLastSeen', array('value' => $report->get('LastSeen'))); ?>
-                      <?php echo $this->Form->input('editFirstName', array('value' => $report->get('FirstName'))); ?>
-                      <?php echo $this->Form->input('editLastName', array('value' => $report->get('LastName'))); ?>
-                      <div class="row">
-                          <div class="col-md-6 inline-left">
-                              <?php echo $this->Form->input('editGender', array('value' => $report->get('Gender'))); ?>
-                          </div>
-                          <div class="col-md-6 inline-right">
-                              <?php echo $this->Form->input('editEthnicity', array('value' => $report->get('Ethnicity'))); ?>
-                          </div>
+                    </div>
+
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editCategory', array('id' => 'editCategory', 'value' => $report->get('category'), 'label'
+                               => 'Edit Category','options' => array('None' => 'none', 'runaway' =>
+                               'Runaway','romeo_juliet' => 'Romeo and Juliet', 'substance_abuser' =>
+                               'Substance Abuser','human_trafficking' => 'Human Trafficking'))); ?>
                       </div>
-                      <?php echo $this->Form->input('editDoB', array('value' => $report->get('DoB'))); ?>
-                      <div class="row">
-                          <div class="col-md-6 inline-left">
-                              <?php echo $this->Form->input('editFeet', array('value' => $report->get('HeightFeet')));  ?>
-                          </div>
-                          <div class="col-md-6 inline-right">
-                              <?php echo $this->Form->input('editInches', array('value' => $report->get('HeightInches')));  ?>
-                          </div>
+                    </div>
+                    <?php
+                    echo $this->Form->label('Date of Birth');
+                    echo $this->Form->date('editDoB', [
+                      'minYear' => 1900,
+                      'monthNames' => true,
+                      'empty' => [
+                        'year' => true,
+                        'year' => 'Choose Year...',
+                        'month' => 'Choose Month...',
+                        'day' => 'Choose Day...'
+                      ],
+                      'day' => true,
+                      'day' => [
+                        'class' => 'report-input'
+                      ],
+                      'month' => [
+                        'class' => 'report-input'
+                      ],
+                      'year' => [
+                          'label' => 'Date of Birth',
+                          'class' => 'report-input',
+                          'title' => 'DoB'
+                      ]
+                    ]); ?>
+
+
+
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editSubmitterEmail', array('value' => $report->get('SubmitterEmail'),'label'
+                         => 'Email Address', 'maxLength' => 100, 'title' => 'Email', 'type' => 'email')); ?>
                       </div>
-                      <?php echo $this->Form->input('editMarksTattoos', array('value' => $report->get('MarksTattoos'))); ?>
-                      <div class="row">
-                          <div class="col-md-4 inline-left">
-                              <?php echo $this->Form->input('editWeight', array('value' => $report->get('Weight'))); ?>
-                          </div>
-                          <div class="col-md-4 inline-middle">
-                              <?php echo $this->Form->input('editEyeColor', array('value' => $report->get('EyeColor'))); ?>
-                          </div>
-                          <div class="col-md-4 inline-right">
-                              <?php echo $this->Form->input('editHairColor', array('value' => $report->get('HairColor'))); ?>
-                          </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editPhone', array('value' => $report->get('Phone'),'label'
+                         => 'Phone', 'placeholder' => '(XXX)XXX-XXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'text')); ?>
                       </div>
-                      <?php echo $this->Form->input('editPhone', array('value' => $report->get('Phone'))); ?>
-                      <?php echo $this->Form->input('editSocialMediaAccount', array('value' => $report->get('SocialMediaAccounts'))); ?>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                  <legend><?php echo __('Family/Friend'); ?></legend>
-                    <ul>
-                      <?php echo $this->Form->input('editFamilyFirstName', array('value' => $report->get('FamilyFirstName'))); ?>
-                      <?php echo $this->Form->input('editFamilyLastName', array('value' => $report->get('FamilyLastName'))); ?>
-                      <?php echo $this->Form->input('editFamilyGender', array('value' => $report->get('FamilyGender'))); ?>
-                      <?php echo $this->Form->input('editRelation', array('value' => $report->get('Relation'))); ?>
-                      <?php echo $this->Form->input('editFamilyStreet', array('value' => $report->get('FamilyStreet'))); ?>
-                      <?php echo $this->Form->input('editFamilyCity', array('value' => $report->get('FamilyCity'))); ?>
-                      <?php echo $this->Form->input('editFamilyState', array('value' => $report->get('FamilyState'))); ?>
-                      <?php echo $this->Form->input('editFamilyZip', array('value' => $report->get('FamilyZip'))); ?>
-                      <?php echo $this->Form->input('editFamilyPhone', array('value' => $report->get('FamilyPhone'))); ?>
-                      <?php echo $this->Form->input('editFamilyEmail', array('value' => $report->get('FamilyEmail'))); ?>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                  <legend><?php echo __('Workplace/Hangout'); ?></legend>
-                    <ul>
-                      <?php echo $this->Form->input('editPlaceName', array('value' => $report->get('PlaceName'))); ?>
-                      <?php echo $this->Form->input('editPlaceStreet', array('value' => $report->get('PlaceStreet'))); ?>
-                      <?php echo $this->Form->input('editPlaceCity', array('value' => $report->get('PlaceCity'))); ?>
-                      <?php echo $this->Form->input('editPlaceState', array('value' => $report->get('PlaceState'))); ?>
-                      <?php echo $this->Form->input('editPlaceZip', array('value' => $report->get('PlaceZip'))); ?>
-                    </ul>
-                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editGender', array('value' => $report->get('Gender'),'label' =>
+                          'Gender', 'options' => array('-' => '-', 'Male' => 'Male','Female' =>'Female','androgynous' => 'Androgynous'))); ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editEthnicity', array('value' => $report->get('Ethnicity'),'id' => 'ME', 'onchange' => 'meOther(this)','label'
+                           => 'Ethnicity','options' => array('-' => '-', 'american_indian' =>
+                           'Native American','asian' => 'Asian', 'african_american' =>
+                           'African American','hispanic_latino' => 'Hispanic/Latino','middle_eastern' =>
+                           'Middle Eastern','pacific_islander' => 'Pacific Islander',
+                          'white' => 'White','other' => 'Other'))); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editMissingEthnicityOther', array('value' => $report->get('MissingEthnicityOther'),'id' => 'MEO', 'label'
+                          => 'Ethnicity Other', 'maxLength' => 255, 'title' => 'EthinicityOther', 'type' => 'text')); ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editEyeColor', array('value' => $report->get('EyeColor'),'id' => 'MEC',
+                        'options' => array('amber' => 'Amber','black' => 'Black','blue' => 'Blue',
+                        'brown' => 'Brown','green' => 'Green','grey' => 'Grey','hazel' => 'Hazel','other' => 'Other')
+                      , 'onchange' => 'mecOther(this)'
+                    )); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input( 'editMissingEyeColorOther', array('value' => $report->get('MissingEyeColorOther'),'id' => 'MECO','label'
+                        => 'Eye Color Other', 'maxLength' => 255, 'title' => 'EyeColorOther', 'type' => 'text')); ?>
+                      </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editHairColor', array('value' => $report->get('HairColor'),'id' => 'MHC', 'onchange' => 'mhcOther(this)', 'options'
+                           => array('auburn' => 'Auburn','black' => 'Black','blonde' => 'Blonde',
+                           'brown' => 'Brown','grey' => 'Grey','red' => 'Red','white' => 'White','other' => 'Other'))); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editMissingHairColorOther', array('value' => $report->get('MissingHairColorOther'),'id' => 'MHCO','label'
+                           => 'Hair Color Other', 'maxLength' => 255, 'title' => 'EyeColorOther', 'type' => 'text')); ?>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editMarksTattoos', array('value' => $report->get('MarksTattoos'),'label'
+                          => 'Marks/Tattoos', 'maxLength' => 256, 'title' => 'marks', 'type' => 'textarea')); ?>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editWeight', array('value' => $report->get('Weight'),'label'
+                         => 'Weight (lbs)', 'maxLength' => 20, 'title' => 'weight', 'type' => 'number')); ?>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editHeightFeet', array('value' => $report->get('HeightFeet'),'label'
+                         => 'Height (ft)', 'maxLength' => 1, 'title' => 'Feet', 'type' => 'number')); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editHeightInches', array('value' => $report->get('HeightInches'),'label'
+                         => 'Height (in)', 'maxLength' => 20, 'title' => 'Inches', 'type' => 'number')); ?>
+                      </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('edit_missing_facebook_username', array('value' => $report->get('missing_facebook_username'),'label'
+                           => 'Facebook Account Name', 'maxLength' => 50, 'title' => 'SocialMedia', 'type' => 'text')); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('edit_missing_twitter_username', array('value' => $report->get('missing_twitter_username'),'label'
+                           => 'Twitter Account', 'maxLength' => 50, 'title' => 'SocialMedia', 'type' => 'text')); ?>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('edit_missing_snapchat_username', array('value' => $report->get('missing_snapchat_username'),'label'
+                         => 'Snapchat Account', 'maxLength' => 50, 'title' => 'SocialMedia', 'type' => 'text')); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('edit_missing_instagram_username', array('value' => $report->get('missing_instagram_username'),'label'
+                         => 'Instagram Account', 'maxLength' => 50, 'title' => 'SocialMedia', 'type' => 'text')); ?>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editReportMiscInfo', array('value' => $report->get('ReportMiscInfo'),'label' =>
+                        'Additional Information', 'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
+                      </div>
+                    </div>
+
+                    <legend><?php echo __('Missing Person Last Seen'); ?></legend>
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editSeenName', array('value' => $report->get('SeenName'),'label' =>
+                          'Name of place last seen', 'maxLength' => 30, 'title' => 'Name', 'type' => 'text')); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editSeenStreet', array('value' => $report->get('SeenStreet'),'label' =>
+                          'Street Name', 'maxLength' => 20, 'title' => 'Street', 'type' => 'text')); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editSeenNumber', array('value' => $report->get('SeenNumber'),'label' =>
+                          'Address Number', 'maxLength' => 10, 'title' => 'Address', 'type' => 'text')); ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editSeenCity', array('value' => $report->get('SeenCity'),'label' => 'City',
+                         'maxLength' => 20, 'title' => 'City', 'type' => 'text')); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editSeenState', array('value' => $report->get('SeenState'),'label' => 'State',
+                         'maxLength' => 2, 'title' => 'State', 'type' => 'text')); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editSeenZip', array('value' => $report->get('SeenZip'),'label' => 'Zip',
+                        'maxLength' => 5, 'title' => 'Zip', 'type' => 'text')); ?>
+                      </div>
+                    </div>
+
+
+                            <?php
+                            echo $this->Form->label('Date of Occurance');
+                            echo $this->Form->date('editSeenWhen', [
+                              'minYear' => 1900,
+                              'monthNames' => true,
+                              'empty' => [
+                                'year' => true,
+                                'year' => 'Choose Year...',
+                                'month' => 'Choose Month...',
+                                'day' => 'Choose Day...'
+                              ],
+                              'day' => true,
+                              'day' => [
+                                'class' => 'report-input'
+                              ],
+                              'month' => [
+                                'class' => 'report-input'
+                              ],
+                              'year' => [
+                                  'label' => 'Date of Birth',
+                                  'class' => 'report-input',
+                                  'title' => 'Date of Birth'
+                              ]
+                            ]); ?>
+
+                    <!-- <div class="row">
+                        <div class="col-md-6">
+                          <?php echo $this->Form->input('seen_when', array('label' => 'Date of occurance ',
+                          'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'datetime')); ?>
+                        </div>
+
+                    </div> -->
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editSeenNotes', array('value' => $report->get('SeenNotes'),'label' => 'Additional Information',
+                         'maxLength' => 2000, 'title' => 'Description', 'type' => 'textarea')); ?>
+                      </div>
+                    </div>
+
+
+
+                    <legend><?php echo __('Missing Person Family/Friend Information'); ?></legend>
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editFamilyFirstName', array('value' => $report->get('FamilyFirstName'),'label' => 'First Name',
+                         'maxLength' => 256, 'title' => 'FirstName', 'type' => 'text')); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editFamilyMiddleName', array('value' => $report->get('FamilyMiddleName'),'label' => 'Middle Name',
+                        'maxLength' => 256, 'title' => 'LastName', 'type' => 'text')); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editFamilyLastName', array('value' => $report->get('FamilyLastName'),'label' => 'Last Name',
+                         'maxLength' => 256, 'title' => 'LastName', 'type' => 'text')); ?>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editFamilyPhone', array('value' => $report->get('FamilyPhone'),'label' => 'Phone',
+                         'placeholder' => '(XXX)XXX-XXXX', 'maxLength' => 10, 'title' => 'Phone', 'type' => 'text')); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editFamilyEmail', array('value' => $report->get('FamilyEmail'),'label' => 'Email',
+                         'maxLength' => 256, 'title' => 'Email', 'type' => 'email')); ?>
+                      </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editFamilyGender', array('value' => $report->get('FamilyGender'),'label' => 'Gender',
+                          'options' => array('-' => '-', 'Male' => 'Male','Female' =>'Female'))); ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editFamilyEthnicity', array('value' => $report->get('FamilyEthnicity'), 'id' => 'FFE', 'onchange' => 'ffeOther(this)','label' => 'Ethnicity','options' =>
+                              array('-' => '-', 'american_indian' => 'Native American','asian' => 'Asian',
+                              'african_american' => 'African American','hispanic_latino' => 'Hispanic/Latino','middle_eastern' => 'Middle Eastern','pacific_islander' => 'Pacific Islander',
+                              'white' => 'White','other' => 'Other'))); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editFamilyEthnicityOther', array('value' => $report->get('FamilyEthnicityOther'),'id' => 'FFEO', 'label' =>
+                          'Ethnicity Other', 'maxLength' => 255, 'title' => 'EthinicityOther', 'type' => 'text')); ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editRelation', array('value' => $report->get('Relation'),'id' => 'FFA', 'onchange' => 'ffaOther(this)','label' => 'Relation to Missing', 'options' =>
+                            array('-' => '-', 'Mother' => 'Mother', 'Father' =>
+                           'Father', 'Daughter' => 'Daughter', 'Son' => 'Son', 'Sister' => 'Sister','Brother' => 'Brother', 'Aunt' => 'Aunt', 'Uncle' => 'Uncle', 'Niece' =>
+                           'Niece', 'Nephew' => 'Nephew', 'Cousin' => 'Cousin', 'Friend' => 'Friend', 'Other' => 'Other' ))); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editRelationOther', array('value' => $report->get('RelationOther'),'id' => 'FFAO', 'label' =>
+                          'Relation Other', 'maxLength' => 256, 'title' => 'Relation Other', 'type' => 'text')); ?>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editFamilyStreet', array('value' => $report->get('FamilyStreet'),'label' => 'Street',
+                         'maxLength' => 256, 'title' => 'street', 'type' => 'text')); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editFamilyCity', array('value' => $report->get('FamilyCity'),'label' => 'City',
+                        'maxLength' => 256, 'title' => 'city', 'type' => 'text')); ?>
+                      </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editFamilyState', array('value' => $report->get('FamilyState'),'label' => 'State',
+                           'maxLength' => 2, 'title' => 'state', 'type' => 'text')); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editFamilyZip', array('value' => $report->get('FamilyZip'),'label' => 'Zip',
+                          'maxLength' => 5, 'title' => 'zip', 'type' => 'text')); ?>
+                        </div>
+                    </div>
+
+
+
+                  <legend><?php echo __('Missing Person Hangouts'); ?></legend>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editHangoutName', array('value' => $report->get('HangoutName'),'label' => 'Hangout Name',
+                           'maxLength' => 30, 'title' => 'Hangout Name', 'type' => 'text')); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editHangoutStreet', array('value' => $report->get('HangoutStreet'),'label' => 'Street Name',
+                          'maxLength' => 20, 'title' => 'Street', 'type' => 'text')); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editHangoutNumber', array('value' => $report->get('HangoutNumber'),'label' => 'Address Number',
+                          'maxLength' => 10, 'title' => 'address', 'type' => 'text')); ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editHangoutCity', array('value' => $report->get('HangoutCity'),'label' => 'City',
+                         'maxLength' => 20, 'title' => 'City', 'type' => 'text')); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editHangoutState', array('value' => $report->get('HangoutState'),'label' => 'State',
+                         'maxLength' => 2, 'title' => 'State', 'type' => 'text'));?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editHangoutZip', array('value' => $report->get('HangoutZip'),'label' => 'Zip',
+                        'maxLength' => 5, 'title' => 'Zip', 'type' => 'text')); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editHangoutMisc', array('value' => $report->get('HangoutMisc'),'label' =>
+                         'Additional Information', 'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea'));?>
+                      </div>
+                    </div>
+
+
+
+                  <legend><?php echo __('Missing Person Workplace'); ?></legend>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editWorkplacename', array('value' => $report->get('Workplacename'),'label' => 'Workplace Name',
+                          'maxLength' => 30, 'title' => 'Workplace Name', 'type' => 'text')); ?>
+                        </div>
+                        <div class="col-md-4">
+                         <?php echo $this->Form->input('editWorkplaceStreet', array('value' => $report->get('WorkplaceStreet'),'label' => 'Street Name',
+                          'maxLength' => 20, 'title' => 'Street', 'type' => 'text')); ?>
+                        </div>
+                        <div class="col-md-4">
+                          <?php echo $this->Form->input('editWorkplaceNumber', array('value' => $report->get('WorkplaceNumber'),'label' => 'Address Number',
+                           'maxLength' => 10, 'title' => 'address', 'type' => 'text')); ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editWorkplaceCity', array('value' => $report->get('WorkplaceCity'),'label' => 'City',
+                        'maxLength' => 20, 'title' => 'City', 'type' => 'text')); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editWorkplaceState', array('value' => $report->get('WorkplaceState'),'label' => 'State',
+                         'maxLength' => 2, 'title' => 'State', 'type' => 'text')); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editWorkplaceZip', array('value' => $report->get('WorkplaceZip'),'label' => 'Zip', 'maxLength'
+                         => 5, 'title' => 'Zip', 'type' => 'text')); ?>
+                      </div>
+                    </div>
+
+                    <?php
+                    echo $this->Form->label('Started Working:');
+                    echo $this->Form->date('editWorkplaceStartDate', [
+                      'minYear' => 1900,
+                      'monthNames' => true,
+                      'empty' => [
+                        'year' => true,
+                        'year' => 'Choose Year...',
+                        'month' => 'Choose Month...',
+                        'day' => 'Choose Day...'
+                      ],
+                      'day' => true,
+                      'day' => [
+                        'class' => 'report-input'
+                      ],
+                      'month' => [
+                        'class' => 'report-input'
+                      ],
+                      'year' => [
+                          'label' => 'Date of Birth',
+                          'class' => 'report-input',
+                          'title' => 'Date of Birth'
+                      ]
+                    ]); ?>
+
+                    <?php
+                    echo $this->Form->label('Stopped Working:');
+                    echo $this->Form->date('editWorkplaceEndDate', [
+                      'minYear' => 1900,
+                      'monthNames' => true,
+                      'empty' => [
+                        'year' => true,
+                        'year' => 'Choose Year...',
+                        'month' => 'Choose Month...',
+                        'day' => 'Choose Day...'
+                      ],
+                      'day' => true,
+                      'day' => [
+                        'class' => 'report-input'
+                      ],
+                      'month' => [
+                        'class' => 'report-input'
+                      ],
+                      'year' => [
+                          'label' => 'Date of Birth',
+                          'class' => 'report-input',
+                          'title' => 'Date of Birth'
+                      ]
+                    ]); ?>
+
+                    <!-- <div class="row">
+                        <div class="col-md-3">
+                          <?php echo $this->Form->input('workplace_start_date', array('label'
+                          => 'Started working: ', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'date')); ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                          <?php echo $this->Form->input('workplace_end_date', array('label'
+                          => 'Stopped working: ', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'date')); ?>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php echo $this->Form->input('editWorkplaceMisc', array('value' => $report->get('WorkplaceMisc'),'label' => 'Additional Information',
+                         'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
+                      </div>
+                    </div>
               </div>
       </div>
     </fieldset>
-</div>
-<!-- Categorize Modal -->
-<div class="modal fade" id="categorizeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Categorize Missing Person</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>
-          Are you sure you want to approve this case? If so, enter the Official Report Number.
-        </p>
-        <form>
-          <div class="form-group">
-            <label for="category" class="col-form-label">Pick A Category:</label>
-            <form action="/action_page.php">
-            <select name="cars">
-              <option value="Runaway">Runaway</option>
-              <option value="HumanTrafficking">Human Trafficking</option>
-              <option value="SubstanceAbuser">Substance Abuser</option>
-              <option value="RomeoJuliet">Romeo & Juliet</option>
-            </select>
-          </form>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Confirm</button>
-      </div>
-    </div>
-  </div>
 </div>
 <!-- Found Modal -->
 <div class="modal fade" id="foundModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
