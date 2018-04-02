@@ -98,7 +98,7 @@ class UsersController extends AppController{
       //get all rows in reports table in db
       $report = $this->Reports
         ->find()
-        ->where(['status =' => 'Active'])
+        ->where(['status =' => 'In Progress'])
         ->toArray();
       //set report model
       //$this->set('report',$report);

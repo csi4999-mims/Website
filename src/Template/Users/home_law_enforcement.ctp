@@ -29,7 +29,7 @@
       <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
       <td><?php echo $this->Form->label('LastSeen', array('value' => $report->get('LastSeen'))); ?></td>
       <td><?php echo $this->Form->label('status', array('value' => $report->get('status'))); ?></td>
-      <td><?php echo $this->Html->link("Approve", array('controller' => 'approve','action'=> 'approveModal', $report->Report_ID), array( 'class' => 'approve-button button')) ?></td>
+      <td><?php echo $this->Html->link("Approve", array('controller' => 'reports','action'=> 'approveModal', $report->Report_ID), array( 'class' => 'approve-button button')) ?></td>
     </tr>
   <?php endforeach; ?>
 </table>
