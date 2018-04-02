@@ -8,7 +8,15 @@
   </br>
     <fieldset>
 
-    <legend><?php echo __('Missing Person Information'); ?></legend>
+    <legend><?php echo __('Missing Person Information'); ?>
+      <?php
+        if($user->get('role') == 'thepublic') {
+          echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeConcernedPublic'), array( 'class' => 'dashboard-button-top button'));
+        }elseif($user->get('role') == 'lawenforcement') {
+          echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeLawEnforcement'), array( 'class' => 'dashboard-button-top button'));
+        }
+      ?>
+    </legend>
   </br>
       <div id="display-missing" class="container-fluid">
         <div class="row">
