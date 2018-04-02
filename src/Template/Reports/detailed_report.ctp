@@ -5,7 +5,7 @@
 </head>
 <body>
 <div class="page-header">
-    <h1> Detailed Report </h1>
+    <h1 class="welcome-banner"> Detailed Report </h1>
 </div>
 <div class="users form">
     <?php echo $this->Form->create('$user', [
@@ -50,7 +50,7 @@
               </div>
               <div class="row">
                 <legend><?php echo __('Missing Person Information'); ?></legend>
-
+              </br>
                   <div id="display-missing" class="container-fluid">
                     <div class="row">
                         <div class="col-md-4">
@@ -168,7 +168,7 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                           <?php echo $this->Form->input('editMarksTattoos', array('value' => $report->get('MarksTattoos'),'label'
                           => 'Marks/Tattoos', 'maxLength' => 256, 'title' => 'marks', 'type' => 'textarea')); ?>
                         </div>
@@ -216,15 +216,14 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-8">
                         <?php echo $this->Form->input('editReportMiscInfo', array('value' => $report->get('ReportMiscInfo'),'label' =>
                         'Additional Information', 'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
                       </div>
                     </div>
 
                     <legend><?php echo __('Missing Person Last Seen'); ?></legend>
-
-
+                  </br>
                     <div class="row">
                         <div class="col-md-4">
                           <?php echo $this->Form->input('editSeenName', array('value' => $report->get('SeenName'),'label' =>
@@ -280,15 +279,8 @@
                               ]
                             ]); ?>
 
-                    <!-- <div class="row">
-                        <div class="col-md-6">
-                          <?php echo $this->Form->input('seen_when', array('label' => 'Date of occurance ',
-                          'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'datetime')); ?>
-                        </div>
-
-                    </div> -->
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-8">
                         <?php echo $this->Form->input('editSeenNotes', array('value' => $report->get('SeenNotes'),'label' => 'Additional Information',
                          'maxLength' => 2000, 'title' => 'Description', 'type' => 'textarea')); ?>
                       </div>
@@ -297,7 +289,7 @@
 
 
                     <legend><?php echo __('Missing Person Family/Friend Information'); ?></legend>
-
+                  </br>
                     <div class="row">
                       <div class="col-md-4">
                         <?php echo $this->Form->input('editFamilyFirstName', array('value' => $report->get('FamilyFirstName'),'label' => 'First Name',
@@ -380,7 +372,7 @@
 
 
                   <legend><?php echo __('Missing Person Hangouts'); ?></legend>
-
+                </br>
                     <div class="row">
                         <div class="col-md-4">
                           <?php echo $this->Form->input('editHangoutName', array('value' => $report->get('HangoutName'),'label' => 'Hangout Name',
@@ -408,7 +400,7 @@
                         <?php echo $this->Form->input('editHangoutZip', array('value' => $report->get('HangoutZip'),'label' => 'Zip',
                         'maxLength' => 5, 'title' => 'Zip', 'type' => 'text')); ?>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-8">
                         <?php echo $this->Form->input('editHangoutMisc', array('value' => $report->get('HangoutMisc'),'label' =>
                          'Additional Information', 'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea'));?>
                       </div>
@@ -417,7 +409,7 @@
 
 
                   <legend><?php echo __('Missing Person Workplace'); ?></legend>
-
+                </br>
                     <div class="row">
                         <div class="col-md-4">
                           <?php echo $this->Form->input('editWorkplacename', array('value' => $report->get('Workplacename'),'label' => 'Workplace Name',
@@ -471,7 +463,7 @@
                           'title' => 'Date of Birth'
                       ]
                     ]); ?>
-
+                  </br>
                     <?php
                     echo $this->Form->label('Stopped Working:');
                     echo $this->Form->date('editWorkplaceEndDate', [
@@ -496,21 +488,9 @@
                           'title' => 'Date of Birth'
                       ]
                     ]); ?>
-
-                    <!-- <div class="row">
-                        <div class="col-md-3">
-                          <?php echo $this->Form->input('workplace_start_date', array('label'
-                          => 'Started working: ', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'date')); ?>
-                        </div>
-                    </div>
+                  </br>
                     <div class="row">
-                        <div class="col-md-3">
-                          <?php echo $this->Form->input('workplace_end_date', array('label'
-                          => 'Stopped working: ', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'date')); ?>
-                        </div>
-                    </div> -->
-                    <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-8">
                         <?php echo $this->Form->input('editWorkplaceMisc', array('value' => $report->get('WorkplaceMisc'),'label' => 'Additional Information',
                          'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
                       </div>
@@ -518,28 +498,6 @@
               </div>
       </div>
     </fieldset>
-</div>
-<!-- Found Modal -->
-<div class="modal fade" id="foundModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Mark As Found</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>
-          Are you sure you want to mark this person as found?
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Confirm</button>
-      </div>
-    </div>
-  </div>
 </div>
 </body>
 </html>
