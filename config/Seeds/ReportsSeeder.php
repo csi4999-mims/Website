@@ -86,6 +86,35 @@ class ReportsSeeder extends AbstractSeed
      */
     public function run()
     {
+        /* We're going to need the faker library to generate random
+           names and places. */
+        $faker = Faker\Factory::create();
 
+        /* Then a place to store all the data we create. */
+        $data = [];
+
+        /* Let's also get a list of valid email addresses.  These will
+           be used to link the report submitter to the users table. */
+        $users = $this->fetchAll('SELECT email FROM users');
+
+        /* Next, let's loop 20 times to create some users. */
+        for ($i = 0; $i < 20; $i++) {
+            /* We'll base some other decisions on the gender of the
+               person being reported missing, so we'll store that
+               first. */
+            $data[$i]['Gender'] = $faker->randomElement(['Androgynous', 'Female', 'Male']);
+            switch ($data[$i]['Gender']) {
+                case 'Androgynous':
+                    $data[$i]['FirstName'] = $faker->firstName($gender = null);
+                    break;
+                case 'Female':
+                    $data[$i]['FirstName'] = $faker->firstName($gender = 'female');
+                    break;
+                case 'Male':
+                    $data[$i]['FirstName'] = $faker->firstName($gender = 'male');
+                    break;
+            }
+        }
+        print_r($data);
     }
 }
