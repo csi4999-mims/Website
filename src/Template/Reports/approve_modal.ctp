@@ -13,6 +13,7 @@
         <?php echo __('Add A Case Number To Approve Report ID: ');?>
         <?= $this->Html->link($report->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $report->Report_ID]) ?>
       </legend>
+      <br>
       <?php
       echo $this->Form->input('report_case_number', array('class' => 'report-input', 'label' => 'Case Number', 'maxLength' => 250, 'title' => 'Case Number', 'type' => 'number'));
       echo $this->Form->hidden('Report_ID', array('value' => $report->get('Report_ID')));

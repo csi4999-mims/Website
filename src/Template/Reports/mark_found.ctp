@@ -10,12 +10,22 @@
   </br>
   <fieldset>
       <legend>
-        <?php echo __('Has this person been found?');?>
-        <?= $this->Html->link($report->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $report->Report_ID]) ?>
+        <?php echo __('Has this person been found?:');?>
+        <?php echo __($report->FirstName);?>
+        <?php echo __($report->MiddleName);?>
+        <?php echo __($report->LastName);?>
       </legend>
+      <br>
+      <legend>
+        <?php echo __('Edit Report:');?>
+
+        <?= $this->Html->link($report->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $report->Report_ID]) ?>
+
+      </legend>
+      <br>
       <?php
       echo $this->Form->hidden('Report_ID', array('value' => $report->get('Report_ID')));
-      echo $this->Form->submit('Submit', array('class' => 'form-submit found-submit',  'title' => 'Click here to') );
+      echo $this->Form->submit('Found', array('class' => 'form-submit found-submit',  'title' => 'Click here to') );
       ?>
   </fieldset>
   <?php echo $this->Form->end(); ?>
