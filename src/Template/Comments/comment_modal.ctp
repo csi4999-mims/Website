@@ -7,19 +7,23 @@
   $this->Html->css('custom');
   ?>
   <div class="view-comments">
+  </br>
     <fieldset>
       <legend><?php echo __('Existing Case Comments'); ?></legend>
     </br>
     </fieldset>
+    <div class="show-comments">
     <?php foreach ($comments as $comment): ?>
-        <div class="display-comments">
+        <div class="display-comments well">
           <strong>Comment:</strong> <?php echo $this->Form->label('description', array('value' => $comment->get('description'))); ?></br>
         </div>
     <?php endforeach; ?>
   </div>
+  </div>
   </br>
   <fieldset>
       <legend><?php echo __('Submit Your Comment'); ?></legend>
+    </br>
       <?php
       echo $this->Form->input('email', array('class' => 'report-input', 'label' => 'Email', 'maxLength' => 50, 'title' => 'Email', 'type' => 'email'));
       echo $this->Form->input('description', array('class' => 'report-input', 'label' => 'Comment', 'maxLength' => 250, 'title' => 'Comment', 'type' => 'textarea'));

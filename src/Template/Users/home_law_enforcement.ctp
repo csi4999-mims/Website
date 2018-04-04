@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="page-header">
-    <h1> Welcome </h1>
+    <h1 class="welcome-banner"> Welcome </h1>
 </div>
 <div class="containter-fluid">
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Cases By Name...">
@@ -27,52 +27,26 @@
     <?php foreach ($reports as $report): ?>
       <tr>
         <td>
-              <?= $this->Html->link($report->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $report->Report_ID]) ?>
+              <?= $this->Html->link($report->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $report->Report_ID], array('class' => 'report-id')) ?>
         </td>
         <td><?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></td>
         <td><?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></td>
         <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
         <td><?php echo $this->Form->label('category', array('value' => $report->get('category'))); ?></td>
         <td><?php echo $this->Form->label('status', array('value' => $report->get('status'))); ?></td>
-        <td><input class="approve-button" type="button" value="Approve" data-toggle="modal" data-target="#approveModal"></td>
+        <td><?php echo $this->Html->link("Approve", array('controller' => 'reports','action'=> 'approveModal', $report->Report_ID), array( 'class' => 'approve-button button')) ?></td>
       </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
-<!-- Approve Modal -->
-<div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Approve Case</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>
-          Are you sure you want to approve this case? If so, enter the Official Report Number.
-        </p>
-        <form>
-          <div class="form-group">
-            <label for="report-number" class="col-form-label">Enter Report Number:</label>
-            <input type="text" class="form-control" id="report-number"></input>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Approve</button>
-      </div>
-    </div>
-  </div>
-</div>
+<hr>
 </div>
 <div class="containter-fluid map">
   <div class="row map-row law">
-    <div class="col-md-6">
-      <legend><?php echo __('Map of Missing People'); ?></legend>
-      <p>
+
+    <div class="col-md-8">
+      <h1 class="map-banner"> Map of Missing People </h1>
+      <p class="map-info">
         The map to the right has the last seen locations of people who were reported missing and adresses for local police stations.
       </br>
       </br>
@@ -106,13 +80,14 @@
       </p>
 
     </div>
-    <div class="col-md-6">
+
+    <div class="col-md-4 map-column">
       <?php
         // Override any of the following default options to customize your map
         $map_options = array(
           'id' => 'map_canvas',
-          'width' => '600px',
-          'height' => '600px',
+          'width' => '500px',
+          'height' => '500px',
           'style' => '',
           'zoom' => 10,
           'type' => 'ROADMAP',

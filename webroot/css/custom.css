@@ -49,6 +49,17 @@ input.form-submit.btn.update-button.btn-default {
   background-color: #116D76 !important;
   margin: 5px;
   border-radius: 0px !important;
+  font-size: 14px;
+}
+.comment-button:hover {
+  background-color: #808080 !important;
+  text-decoration: none;
+}
+
+.show-comments {
+  height: 300px;
+  overflow-y:scroll;
+  margin-bottom: 50px;
 }
 
 button {
@@ -71,7 +82,7 @@ button {
 .jumbotron.jumbotron-public-home {
   background-image: url('../img/park2.png');
   background-size: 100% 100%;
-  height: 200px;
+  height: 250px;
   margin-top: 10px;
 }
 
@@ -131,12 +142,25 @@ a.home-footer:hover {
   margin-top: 5px;
   font-size: 14px;
   background-color: #116D76;
+  font-weight: bold;
 
 }
 
 .button.register-button:hover {
-  background-color: #808080;
-  text-decoration: none;
+  background-color: #808080 !important;
+  text-decoration: none !important;
+}
+
+.button.login-button.btn.btn-default {
+  margin-top: 5px;
+  font-size: 14px;
+  background-color: #116D76;
+
+}
+
+.button.login-button.btn.btn-default:hover {
+  background-color: #808080 !important;
+  text-decoration: none !important;
 }
 
 
@@ -189,9 +213,16 @@ label.control-label{
 
 input.form-control{
   font-size: 15px !important;
+  border-radius: 4px;
+  padding: 6px 12px;
+  height: 34px;
 }
 input.form-submit{
   font-size: 15px !important;
+  margin-top: 5px !important;
+  font-size: 14px !important;
+  background-color: #116D76 !important;
+  color: #ffffff !important;
 }
 h1.home_button{
   font-size: 25px !important;
@@ -206,6 +237,13 @@ h1.home_button{
   background-color: #116D76;
   margin: 5px;
   border-radius: 0px !important;
+  font-size:14px;
+}
+
+.button.return-home-button:hover {
+  text-decoration: none;
+  background-color: #808080;
+
 }
 
 
@@ -239,7 +277,106 @@ h1.home_button{
 
 #myTable tr.header, #myTable tr:hover {
     /* Add a grey background color to the table header and on hover */
-    background-color: #f1f1f1;
+    background-color: #e9fafc;
+}
+
+.report-label {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.report-label span {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.report-legend {
+  color: #cc0000;
+  text-decoration: underline;
+  padding-bottom: 10px;
+}
+
+nav.top-bar.expanded {
+  height: 60px;
+}
+
+nav.top-bar.expanded a {
+  padding: 15px;
+}
+
+nav.top-bar.expanded a:hover {
+  text-decoration: none;
+}
+
+nav.top-bar.expanded ul.right a {
+  padding: 15px;
+
+}
+
+.welcome-banner {
+  color: #116D76;
+}
+
+.map-banner {
+  color: #116D76;
+  text-decoration: underline;
+}
+
+a.report-id {
+  font-size: 17px;
+  color: #000000;
+}
+
+a.report-id:hover {
+  color: #116D76;
+  text-decoration: none;
+}
+
+.map-info {
+  font-size: 14px;
+}
+
+input.form-submit.submit-report-button.button.btn.btn-default {
+  margin-top: 5px !important;
+  font-size: 14px !important;
+  background-color: #116D76 !important;
+
+}
+
+input.form-submit.submit-report-button.button.btn.btn-default:hover {
+  background-color: #808080 !important;
+  text-decoration: none !important;
+}
+
+.button.dashboard-button {
+  color: #ffffff !important;
+  background-color: #116D76;
+  margin: 5px;
+  border-radius: 0px !important;
+  text-decoration: none;
+  font-weight: bold !important;
+  font-size: 14px;
+}
+
+.button.dashboard-button:hover {
+  background-color: #808080 !important;
+  text-decoration: none !important;
+}
+
+.button.dashboard-button-top {
+  color: #ffffff !important;
+  background-color: #116D76;
+  margin: 5px;
+  border-radius: 0px !important;
+  text-decoration: none;
+  font-weight: bold !important;
+  font-size: 14px;
+  float: right;
+}
+
+.button.dashboard-button-top:hover {
+  background-color: #808080 !important;
+  text-decoration: none !important;
 }
 
 .red-marker-icon {

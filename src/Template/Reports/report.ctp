@@ -5,10 +5,19 @@
 	'context' => ['validator' => 'report']
     ]);
     ?>
+  </br>
     <fieldset>
 
-    <legend><?php echo __('Missing Person Information'); ?></legend>
-
+    <legend><?php echo __('Missing Person Information'); ?>
+      <?php
+        if($user->get('role') == 'thepublic') {
+          echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeConcernedPublic'), array( 'class' => 'dashboard-button-top button'));
+        }elseif($user->get('role') == 'lawenforcement') {
+          echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeLawEnforcement'), array( 'class' => 'dashboard-button-top button'));
+        }
+      ?>
+    </legend>
+  </br>
       <div id="display-missing" class="container-fluid">
         <div class="row">
             <div class="col-md-4">
@@ -30,37 +39,35 @@
             'maxLength' => 100, 'title' => 'Alias', 'type' => 'text')); ?>
           </div>
         </div>
-
-
-
-        <?php
-        echo $this->Form->label('Date of Birth');
-        echo $this->Form->date('DoB', [
-          'minYear' => 1900,
-          'monthNames' => true,
-          'empty' => [
-            'year' => true,
-            'year' => 'Choose Year...',
-            'month' => 'Choose Month...',
-            'day' => 'Choose Day...'
-          ],
-          'day' => true,
-          'day' => [
-            'class' => 'report-input'
-          ],
-          'month' => [
-            'class' => 'report-input'
-          ],
-          'year' => [
-              'label' => 'Date of Birth',
-              'class' => 'report-input',
-              'title' => 'DoB'
-          ]
-        ]); ?>
-
-
-
-
+        <div class="row">
+          <div class="col-md-12">
+            <?php
+            echo $this->Form->label('Date of Birth');
+            echo $this->Form->date('DoB', [
+              'minYear' => 1900,
+              'monthNames' => true,
+              'empty' => [
+                'year' => true,
+                'year' => 'Choose Year...',
+                'month' => 'Choose Month...',
+                'day' => 'Choose Day...'
+              ],
+              'day' => true,
+              'day' => [
+                'class' => 'report-input'
+              ],
+              'month' => [
+                'class' => 'report-input'
+              ],
+              'year' => [
+                  'label' => 'Date of Birth',
+                  'class' => 'report-input',
+                  'title' => 'DoB'
+              ]
+            ]); ?>
+          </div>
+        </div>
+      </br>
         <div class="row">
           <div class="col-md-4">
             <?php echo $this->Form->input('SubmitterEmail', array('label'
@@ -119,7 +126,7 @@
 
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-8">
               <?php echo $this->Form->input('MarksTattoos', array('label'
               => 'Marks/Tattoos', 'maxLength' => 256, 'title' => 'marks', 'type' => 'textarea')); ?>
             </div>
@@ -167,15 +174,14 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-8">
             <?php echo $this->Form->input('ReportMiscInfo', array('label' =>
             'Additional Information', 'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
           </div>
         </div>
 
         <legend><?php echo __('Missing Person Last Seen'); ?></legend>
-
-
+      </br>
         <div class="row">
             <div class="col-md-4">
               <?php echo $this->Form->input('SeenName', array('label' =>
@@ -204,51 +210,42 @@
             'maxLength' => 5, 'title' => 'Zip', 'type' => 'text')); ?>
           </div>
         </div>
-
-
-                <?php
-                echo $this->Form->label('Date of Occurance');
-                echo $this->Form->date('SeenWhen', [
-                  'minYear' => 1900,
-                  'monthNames' => true,
-                  'empty' => [
-                    'year' => true,
-                    'year' => 'Choose Year...',
-                    'month' => 'Choose Month...',
-                    'day' => 'Choose Day...'
-                  ],
-                  'day' => true,
-                  'day' => [
-                    'class' => 'report-input'
-                  ],
-                  'month' => [
-                    'class' => 'report-input'
-                  ],
-                  'year' => [
-                      'label' => 'Date of Birth',
-                      'class' => 'report-input',
-                      'title' => 'Date of Birth'
-                  ]
-                ]); ?>
-
-        <!-- <div class="row">
-            <div class="col-md-6">
-              <?php echo $this->Form->input('seen_when', array('label' => 'Date of occurance ',
-              'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'datetime')); ?>
-            </div>
-
-        </div> -->
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-12">
+            <?php
+            echo $this->Form->label('Date of Occurance');
+            echo $this->Form->date('SeenWhen', [
+              'minYear' => 1900,
+              'monthNames' => true,
+              'empty' => [
+                'year' => true,
+                'year' => 'Choose Year...',
+                'month' => 'Choose Month...',
+                'day' => 'Choose Day...'
+              ],
+              'day' => true,
+              'day' => [
+                'class' => 'report-input'
+              ],
+              'month' => [
+                'class' => 'report-input'
+              ],
+              'year' => [
+                  'label' => 'Date of Birth',
+                  'class' => 'report-input',
+                  'title' => 'Date of Birth'
+              ]
+            ]); ?>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
             <?php echo $this->Form->input('SeenNotes', array('label' => 'Additional Information',
              'maxLength' => 2000, 'title' => 'Description', 'type' => 'textarea')); ?>
           </div>
         </div>
-
-
-
         <legend><?php echo __('Missing Person Family/Friend Information'); ?></legend>
-
+      </br>
         <div class="row">
           <div class="col-md-4">
             <?php echo $this->Form->input('FamilyFirstName', array('label' => 'First Name',
@@ -329,7 +326,7 @@
 
 
       <legend><?php echo __('Missing Person Hangouts'); ?></legend>
-
+    </br>
         <div class="row">
             <div class="col-md-4">
               <?php echo $this->Form->input('HangoutName', array('label' => 'Hangout Name',
@@ -366,7 +363,7 @@
 
 
       <legend><?php echo __('Missing Person Workplace'); ?></legend>
-
+    </br>
         <div class="row">
             <div class="col-md-4">
               <?php echo $this->Form->input('Workplacename', array('label' => 'Workplace Name',
@@ -395,96 +392,88 @@
              => 5, 'title' => 'Zip', 'type' => 'text')); ?>
           </div>
         </div>
-
-        <?php
-        echo $this->Form->label('Started Working:');
-        echo $this->Form->date('WorkplaceStartDate', [
-          'minYear' => 1900,
-          'monthNames' => true,
-          'empty' => [
-            'year' => true,
-            'year' => 'Choose Year...',
-            'month' => 'Choose Month...',
-            'day' => 'Choose Day...'
-          ],
-          'day' => true,
-          'day' => [
-            'class' => 'report-input'
-          ],
-          'month' => [
-            'class' => 'report-input'
-          ],
-          'year' => [
-              'label' => 'Date of Birth',
-              'class' => 'report-input',
-              'title' => 'Date of Birth'
-          ]
-        ]); ?>
-
-        <?php
-        echo $this->Form->label('Stopped Working:');
-        echo $this->Form->date('WorkplaceEndDate', [
-          'minYear' => 1900,
-          'monthNames' => true,
-          'empty' => [
-            'year' => true,
-            'year' => 'Choose Year...',
-            'month' => 'Choose Month...',
-            'day' => 'Choose Day...'
-          ],
-          'day' => true,
-          'day' => [
-            'class' => 'report-input'
-          ],
-          'month' => [
-            'class' => 'report-input'
-          ],
-          'year' => [
-              'label' => 'Date of Birth',
-              'class' => 'report-input',
-              'title' => 'Date of Birth'
-          ]
-        ]); ?>
-
-        <!-- <div class="row">
-            <div class="col-md-3">
-              <?php echo $this->Form->input('workplace_start_date', array('label'
-              => 'Started working: ', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'date')); ?>
-            </div>
+        <div class="row">
+          <div class="col-md-12">
+            <?php
+            echo $this->Form->label('Started Working:');
+            echo $this->Form->date('WorkplaceStartDate', [
+              'minYear' => 1900,
+              'monthNames' => true,
+              'empty' => [
+                'year' => true,
+                'year' => 'Choose Year...',
+                'month' => 'Choose Month...',
+                'day' => 'Choose Day...'
+              ],
+              'day' => true,
+              'day' => [
+                'class' => 'report-input'
+              ],
+              'month' => [
+                'class' => 'report-input'
+              ],
+              'year' => [
+                  'label' => 'Date of Birth',
+                  'class' => 'report-input',
+                  'title' => 'Date of Birth'
+              ]
+            ]); ?>
+          </div>
         </div>
+      </br>
         <div class="row">
-            <div class="col-md-3">
-              <?php echo $this->Form->input('workplace_end_date', array('label'
-              => 'Stopped working: ', 'placeholder' => 'mm/dd/yyyy', 'maxLength' => 10, 'title' => 'Date', 'type' => 'date')); ?>
-            </div>
-        </div> -->
+          <div class="col-md-12">
+            <?php
+            echo $this->Form->label('Stopped Working:');
+            echo $this->Form->date('WorkplaceEndDate', [
+              'minYear' => 1900,
+              'monthNames' => true,
+              'empty' => [
+                'year' => true,
+                'year' => 'Choose Year...',
+                'month' => 'Choose Month...',
+                'day' => 'Choose Day...'
+              ],
+              'day' => true,
+              'day' => [
+                'class' => 'report-input'
+              ],
+              'month' => [
+                'class' => 'report-input'
+              ],
+              'year' => [
+                  'label' => 'Date of Birth',
+                  'class' => 'report-input',
+                  'title' => 'Date of Birth'
+              ]
+            ]); ?>
+          </div>
+        </div>
+      </br>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-8">
             <?php echo $this->Form->input('WorkplaceMisc', array('label' => 'Additional Information',
              'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
           </div>
         </div>
-
-
         <div class="row">
           <div class="col-md-4">
-            <?php echo $this->Form->submit('Submit Report', array('class' => 'form-submit',
+            <?php echo $this->Form->submit('Submit Report', array('class' => 'form-submit submit-report-button',
               'title' => 'Click here to') ); ?>
+              <?php
+                if($user->get('role') == 'thepublic') {
+                  echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeConcernedPublic'), array( 'class' => 'dashboard-button button'));
+                }elseif($user->get('role') == 'lawenforcement') {
+                  echo $this->Html->link("Return Home", array('controller' => 'users','action'=> 'homeLawEnforcement'), array( 'class' => 'dashboard-button button'));
+                }
+              ?>
           </div>
         </div>
       </div>
-
     </fieldset>
-
     <?php echo $this->Form->end(); ?>
 </div>
-<?php echo $this->Html->link( "Return to Dashboard",   array('action'=>'home') );
-?>
 </html>
-
-
-
-
 
 <script>
   function meOther() {

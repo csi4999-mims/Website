@@ -9,7 +9,7 @@
     <h2 class="home-title"> MIMS <h2>
   </div>
 <div class="page-header">
-    <h1> Welcome </h1>
+    <h1 class="welcome-banner"> Welcome </h1>
 </div>
 
 <div class="container-fluid">
@@ -42,8 +42,8 @@
         </div>
         <?php endforeach; ?>
       </div>
-      <legend><?php echo __('Missing People'); ?></legend>
       <div class="col-md-8 display-missing">
+        <h1 class="map-banner">Missing People </h1>
         <?php foreach ($reports as $report): ?>
           <div class="row well missing-info">
               <div class="col-md-6">
@@ -72,9 +72,10 @@
 </div>
 <div class="containter-fluid map">
   <div class="row map-row">
-    <div class="col-md-6">
-      <legend><?php echo __('Map of Missing People'); ?></legend>
-      <p>
+
+    <div class="col-md-8">
+      <h1 class="map-banner"> Map of Missing People </h1>
+      <p class="map-info">
         The map to the right has the last seen locations of people who were reported missing and adresses for local police stations.
       </br>
       </br>
@@ -108,13 +109,13 @@
       </p>
 
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <?=
         // Override any of the following default options to customize your map
         $map_options = array(
           'id' => 'map_canvas',
-          'width' => '400px',
-          'height' => '400px',
+          'width' => '500px',
+          'height' => '500px',
           'style' => '',
           'zoom' => 10,
           'type' => 'ROADMAP',
