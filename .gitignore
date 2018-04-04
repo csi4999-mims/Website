@@ -5,7 +5,7 @@
 /logs/*
 /tmp/*
 /vendor/*
-/config/Migrations/schema-dump-default.lock
+/config/Migrations/schema-dump-*.lock
 
 ##################
 # Composer files #
