@@ -117,6 +117,7 @@ class ReportsSeeder extends AbstractSeed
                 'MiddleName' => $faker->randomElement([$faker->firstName($gender), null]),
                 'LastName'   => $faker->lastName(),
                 'Alias'      => $faker->randomElement([$faker->firstName($gender), null, null, null, null, null, null, null]),
+                /* 'DoB'        => $faker->randomElement([$faker->dateTimeBetween($startDate = '-70 years', $endDate = '-1 year'), null], null), */
             ];
         }
         print_r($data);
