@@ -129,6 +129,9 @@ class ReportsSeeder extends AbstractSeed
             $data[$i]['Alias'] = $faker->randomElement([$faker->firstName($gender),
                                                         null, null, null, null, null,
                                                         null, null, null, null]);
+
+            /* Choose a date of birth. */
+            $data[$i]['DoB'] = $faker->date($format = 'Y-m-d', $max = 'now');
         }
         print_r($data);
     }
