@@ -132,6 +132,13 @@ class ReportsSeeder extends AbstractSeed
 
             /* Choose a date of birth. */
             $data[$i]['DoB'] = $faker->date($format = 'Y-m-d', $max = 'now');
+
+            /* Choose an email.  Although the email in the form
+               _looks_ like it would be for the missing person, it is
+               stored as 'SubmitterEmail'. */
+            $data[$i]['SubmitterEmail'] = $user_emails[mt_rand(0,count($user_emails) - 1)];
+
+
         }
         print_r($data);
     }
