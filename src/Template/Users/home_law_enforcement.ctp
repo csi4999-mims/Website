@@ -73,11 +73,16 @@
     <div class="col-md-6">
       <legend><?php echo __('Map of Missing People'); ?></legend>
       <p>
-        The map to the right has the last seen locations of people who were reported missing.
+        The map to the right has the last seen locations of people who were reported missing and adresses for local police stations.
       </br>
       </br>
-        When you click on a map marker you can see the following information about the missing person:
+        When you click on a purple map marker you can see the following information about the missing person:
       </br>
+      <div class="purple-marker-icon">
+        <?php echo $this->Html->image('purple-con.png', ['alt' => 'Purple Marker', 'class' => 'purple-marker']); ?>
+      </div>
+      <br>
+      <br>
       <ul>
         <li>Name</li>
         <li>Date of Birth</li>
@@ -86,6 +91,17 @@
         <li>Eye Color</li>
         <li>Height</li>
         <li>Weight</li>
+      </ul>
+    </br>
+      When you click on a red map marker you can see the following information about the police station:
+    </br>
+    <br>
+      <div class="red-marker-icon">
+        <?php echo $this->Html->image('red-icon.jpg', ['alt' => 'Red Marker', 'class' => 'red-marker']); ?>
+      </div>
+      <ul>
+        <li>Name of Police Station</li>
+        <li>Address of Police Station</li>
       </ul>
       </p>
 
@@ -124,11 +140,16 @@
           "markerShadow" => "http://labs.google.com/ridefinder/images/mm_20_purpleshadow.png"
         )); ?>
       <?php endforeach; ?>
-      <?= $this->GoogleMap->addMarker("map_canvas", 1, array('latitude' => 42.6829642, 'longitude' => -83.13825199999997)); ?>
-      <?= $this->GoogleMap->addMarker("map_canvas", 1, array('latitude' => 42.6718957, 'longitude' => -83.22226649999999)); ?>
-      <?= $this->GoogleMap->addMarker("map_canvas", 1, array('latitude' => 42.6257074, 'longitude' => -83.03609569999998)); ?>
-      <?= $this->GoogleMap->addMarker("map_canvas", 1, array('latitude' => 42.6808395, 'longitude' => -83.03398419999996)); ?>
-      <?= $this->GoogleMap->addMarker("map_canvas", 1, array('latitude' => 42.521799, 'longitude' => -83.109352)); ?>
+      <?= $this->GoogleMap->addMarker("map_canvas", 1, "400 6th St, Rochester, Michigan 48307",array('showWindow'   => true,
+      'windowText'   => "Rochester Police: 400 6th St, Rochester, MI 48307")); ?>
+      <?= $this->GoogleMap->addMarker("map_canvas", 1, "1899 N Squirrel Rd, Auburn Hills, Michigan 48326",array('showWindow'   => true,
+      'windowText'   => "Aubrun Hills Police: 1899 N Squirrel Rd, Auburn Hills, MI 48326")); ?>
+      <?= $this->GoogleMap->addMarker("map_canvas", 1, "7550 Auburn Rd, Utica, Michigan 48317",array('showWindow'   => true,
+      'windowText'   => "Utica Police: 7550 Auburn Rd, Utica, MI 48317")); ?>
+      <?= $this->GoogleMap->addMarker("map_canvas", 1, "52530 Van Dyke, Shelby Charter Township, Michigan 48316",array('showWindow'   => true,
+      'windowText'   => "Shelby Township Police: 52530 Van Dyke, Shelby Charter Township, MI 48316")); ?>
+      <?= $this->GoogleMap->addMarker("map_canvas", 1, "280 13 Mile Rd, Madison Heights, Michigan 48071",array('showWindow'   => true,
+      'windowText'   => "Madison Heights Police: 280 13 Mile Rd, Madison Heights, MI 48071")); ?>
     </div>
   </div>
 </div>

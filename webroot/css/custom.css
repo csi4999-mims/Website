@@ -241,3 +241,14 @@ h1.home_button{
     /* Add a grey background color to the table header and on hover */
     background-color: #f1f1f1;
 }
+
+.red-marker-icon {
+  height: 70px;
+  width: 80px;
+}
+
+.purple-marker-icon {
+  height: 30px;
+  width: 40px;
+  padding-bottom: 15px;
+}
