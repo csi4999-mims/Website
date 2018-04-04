@@ -378,3 +378,14 @@ input.form-submit.submit-report-button.button.btn.btn-default:hover {
   background-color: #808080 !important;
   text-decoration: none !important;
 }
+
+.red-marker-icon {
+  height: 70px;
+  width: 80px;
+}
+
+.purple-marker-icon {
+  height: 30px;
+  width: 40px;
+  padding-bottom: 15px;
+}
