@@ -108,24 +108,13 @@ class ReportsSeeder extends AbstractSeed
                first. */
             $data[$i]['Gender'] = $faker->randomElement(['Androgynous', 'Female', 'Male']);
 
-            /* Let's get a first and middle name out of the way. */
-            switch ($data[$i]['Gender']) {
-                case 'Androgynous':
-                    $data[$i]['FirstName']  = $faker->firstName($gender = null);
-                    $data[$i]['MiddleName'] = $faker->firstName($gender = null);
-                    break;
-                case 'Female':
-                    $data[$i]['FirstName']  = $faker->firstName($gender = 'female');
-                    $data[$i]['MiddleName'] = $faker->firstName($gender = 'female');
-                    break;
-                case 'Male':
-                    $data[$i]['FirstName']  = $faker->firstName($gender = 'male');
-                    $data[$i]['MiddleName'] = $faker->firstName($gender = 'male');
-                    break;
-            }
+            /* Let's get their name out of the way. */
+            $faker_gender = strtolower($data[$i]['Gender']);
+            if ($faker_gender == 'androgynous') $faker_gender = null;
 
-            /* Then the last name. */
-            $data[$i]['LastName'] = $faker->lastName();
+            $data[$i]['FirstName']  = $faker->firstName($gender = $faker_gender);
+            $data[$i]['MiddleName'] = $faker->firstName($gender = $faker_gender);
+            $data[$i]['LastName']   = $faker->lastName();
         }
         print_r($data);
     }
