@@ -10,7 +10,7 @@
   </br>
   <fieldset>
       <legend>
-        <?php echo __('Has this person been found?:');?>
+        <?php echo __('This person has been marked as "Found":');?>
         <?php echo __($report->FirstName);?>
         <?php echo __($report->MiddleName);?>
         <?php echo __($report->LastName);?>
