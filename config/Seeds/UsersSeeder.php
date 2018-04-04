@@ -3,7 +3,7 @@
 use Phinx\Seed\AbstractSeed;
 use Cake\Auth\DefaultPasswordHasher;
 
-class UserSeeder extends AbstractSeed
+class UsersSeeder extends AbstractSeed
 {
     public function run()
     {
