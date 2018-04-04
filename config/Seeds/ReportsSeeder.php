@@ -113,7 +113,7 @@ class ReportsSeeder extends AbstractSeed
             if ($gender == 'androgynous') $gender = null;
 
             $data[$i]['FirstName']  = $faker->firstName($gender);
-            $data[$i]['MiddleName'] = $faker->firstName($gender);
+            $data[$i]['MiddleName'] = $faker->randomElement([$faker->firstName($gender), null]);
             $data[$i]['LastName']   = $faker->lastName();
         }
         print_r($data);
