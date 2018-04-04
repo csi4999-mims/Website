@@ -102,10 +102,13 @@ class ReportsSeeder extends AbstractSeed
 
         /* Next, let's loop 20 times to create some users. */
         for ($i = 0; $i < 20; $i++) {
+
             /* We'll base some other decisions on the gender of the
                person being reported missing, so we'll store that
                first. */
             $data[$i]['Gender'] = $faker->randomElement(['Androgynous', 'Female', 'Male']);
+
+            /* Let's get a first name out of the way. */
             switch ($data[$i]['Gender']) {
                 case 'Androgynous':
                     $data[$i]['FirstName'] = $faker->firstName($gender = null);
