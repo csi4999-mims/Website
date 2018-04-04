@@ -120,6 +120,9 @@ class ReportsSeeder extends AbstractSeed
                     $data[$i]['FirstName'] = $faker->firstName($gender = 'male');
                     break;
             }
+
+            /* Then the last name. */
+            $data[$i]['LastName'] = $faker->lastName();
         }
         print_r($data);
     }
