@@ -55,7 +55,12 @@ class CommentsController extends AppController{
         $comment = $this->Comments->patchEntity($comment, $this->request->getData());
         if ($this->Comments->save($comment)) {
             $this->Flash->success(__('The comment has been saved.'));
-            return $this->redirect(['controller'=> 'Users', 'action' => 'homeConcernedPublic']);
+            if ( $user['role'] == 'thepublic'){
+              return $this->redirect(array('controller' => 'users', 'action' => 'home_concerned_public'));
+            }
+            elseif ( $user['role'] == 'lawenforcement'){
+              return $this->redirect(array('controller' => 'users', 'action' => 'home_law_enforcement'));
+            }
         }else{
             $this->Flash->error(__('Unable to add the comment.'));
         }
