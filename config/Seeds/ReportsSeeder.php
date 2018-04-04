@@ -115,7 +115,7 @@ class ReportsSeeder extends AbstractSeed
             $data[$i]['FirstName']  = $faker->firstName($gender);
             $data[$i]['MiddleName'] = $faker->randomElement([$faker->firstName($gender), null]);
             $data[$i]['LastName']   = $faker->lastName();
-            $data[$i]['Alias']      = $faker->randomElement([$faker->firstName($gender), null]);
+            $data[$i]['Alias']      = $faker->randomElement([$faker->firstName($gender), null, null, null, null, null, null, null]);
         }
         print_r($data);
     }
