@@ -858,6 +858,37 @@ class ReportsController extends AppController{
       $report = $this->Reports->get($Report_ID);
       $this->set(compact('report'));
     }
+//function to approve and apply case number to reports
+public function approveModal($Report_ID = null) {
+
+  //load user for home button
+  $this->loadModel('Users');
+  $user =$this->Users->get($this->Auth->user('id'));
+  $this->set('user',$user);
+
+  //load reports model
+  $report = $this->Reports->get($Report_ID);
+  $this->set(compact('report'));
+
+  //change casenumber and status
+  if(!empty($this->request->data)) {
+      $report = $this->Reports->patchEntity($report, [
+          'CaseNumber' => $this->request->data['report_case_number'],
+          'status' => 'In Progress',
+          ]);
+      if ($report->dirty('CaseNumber') == true){
+        if ($this->Reports->save($report)) {
+
+            $this->Flash->success('The case number has been saved.');
+        } else {
+            $this->Flash->error('Unable to add the case number');
+        }
+      }
+    }
+
+    $this->set('report',$report);
+
+}
 
 }
 ?>
