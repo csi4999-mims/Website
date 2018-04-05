@@ -221,6 +221,12 @@ class ReportsSeeder extends AbstractSeed
                 ]);
             }
 
+            /* Additional Information */
+            $data[$i]['ReportMiscInfo'] = $faker->randomElement([
+                $faker->text(200),
+                null, null
+            ]);
+
         }
         print_r($data);
     }
