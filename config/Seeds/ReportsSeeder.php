@@ -144,13 +144,13 @@ class ReportsSeeder extends AbstractSeed
 
             /* Ethnicity */
             $data[$i]['Ethnicity'] = $faker->randomElement([
-                'american_indian', 'american_indian',
-                'asian', 'asian',
+                'american_indian',  'american_indian',
+                'asian',            'asian',
                 'african_american', 'african_american',
-                'hispanic_latino', 'hispanic_latino',
-                'middle_eastern', 'middle_eastern',
+                'hispanic_latino',  'hispanic_latino',
+                'middle_eastern',   'middle_eastern',
                 'pacific_islander', 'pacific_islander',
-                'white', 'white',
+                'white',            'white',
                 'other'
             ]);
 
@@ -165,10 +165,10 @@ class ReportsSeeder extends AbstractSeed
             $data[$i]['EyeColor'] = $faker->randomElement([
                 'amber', 'amber',
                 'black', 'black',
-                'blue', 'blue',
+                'blue',  'blue',
                 'brown', 'brown',
                 'green', 'green',
-                'grey', 'grey',
+                'grey',  'grey',
                 'hazel', 'hazel',
                 'other'
             ]);
@@ -181,12 +181,12 @@ class ReportsSeeder extends AbstractSeed
             /* Hair Color */
             $data[$i]['HairColor'] = $faker->randomElement([
                 'auburn', 'auburn',
-                'black', 'black',
+                'black',  'black',
                 'blonde', 'blonde',
-                'brown', 'brown',
-                'grey', 'grey',
-                'red', 'red',
-                'white', 'white',
+                'brown',  'brown',
+                'grey',   'grey',
+                'red',    'red',
+                'white',  'white',
                 'other'
             ]);
 
