@@ -118,17 +118,21 @@ class ReportsSeeder extends AbstractSeed
 
             /* Not everyone has a middle name.  Make it about
                50/50. */
-            $data[$i]['MiddleName'] = $faker->randomElement([$faker->firstName($gender),
-                                                             null]);
+            $data[$i]['MiddleName'] = $faker->randomElement([
+		$faker->firstName($gender),
+                null
+	    ]);
 
             /* Choose a last name. */
             $data[$i]['LastName'] = $faker->lastName();
 
             /* Choose an alias, but only for one in every ten
                people. */
-            $data[$i]['Alias'] = $faker->randomElement([$faker->firstName($gender),
-                                                        null, null, null, null, null,
-                                                        null, null, null, null]);
+            $data[$i]['Alias'] = $faker->randomElement([
+		$faker->firstName($gender),
+                null, null, null, null, null,
+                null, null, null, null, null
+	    ]);
 
             /* Choose a date of birth. */
             $data[$i]['DoB'] = $faker->date($format = 'Y-m-d', $max = 'now');
@@ -140,33 +144,32 @@ class ReportsSeeder extends AbstractSeed
 
             /* Ethnicity */
             $data[$i]['Ethnicity'] = $faker->randomElement([
-                'american_indian',
-                'asian',
-                'african_american',
-                'hispanic_latino',
-                'middle_eastern',
-                'pacific_islander',
-                'white',
+                'american_indian', 'american_indian',
+                'asian', 'asian',
+                'african_american', 'african_american',
+                'hispanic_latino', 'hispanic_latino',
+                'middle_eastern', 'middle_eastern',
+                'pacific_islander', 'pacific_islander',
+                'white', 'white',
                 'other'
             ]);
 
             if ($data[$i]['Ethnicity'] == 'other') {
                 $data[$i]['MissingEthnicityOther'] = $faker->randomElement([
                     'oompa_loompa',
-                    'martian',
-                    'deez_nuts'
+                    'martian'
                 ]);
             }
 
             /* Eye Color */
             $data[$i]['EyeColor'] = $faker->randomElement([
-                'amber',
-                'black',
-                'blue',
-                'brown',
-                'green',
-                'grey',
-                'hazel',
+                'amber', 'amber',
+                'black', 'black',
+                'blue', 'blue',
+                'brown', 'brown',
+                'green', 'green',
+                'grey', 'grey',
+                'hazel', 'hazel',
                 'other'
             ]);
 
@@ -176,13 +179,13 @@ class ReportsSeeder extends AbstractSeed
 
             /* Hair Color */
             $data[$i]['HairColor'] = $faker->randomElement([
-                'auburn',
-                'black',
-                'blonde',
-                'brown',
-                'grey',
-                'red',
-                'white',
+                'auburn', 'auburn',
+                'black', 'black',
+                'blonde', 'blonde',
+                'brown', 'brown',
+                'grey', 'grey',
+                'red', 'red',
+                'white', 'white',
                 'other'
             ]);
 
@@ -192,8 +195,8 @@ class ReportsSeeder extends AbstractSeed
 
 	    /* Marks/Tattoos */
 	    $data[$i]['MarksTattoos'] = $faker->randomElement([
-		null, null, null, null, null,
-		$faker->text($maxNbChars = 100)
+		$faker->text($maxNbChars = 100),
+		null, null, null, null, null
 	    ]);
 
         }
