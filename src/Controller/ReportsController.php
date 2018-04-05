@@ -41,6 +41,12 @@ class ReportsController extends AppController{
 
 //function to view the detailed reports page
     public function detailedReport($Report_ID = null) {
+      //load user for home button
+      $this->loadModel('Users');
+      $user =$this->Users->get($this->Auth->user('id'));
+      $this->set('user',$user);
+
+
       $report = $this->Reports->get($Report_ID);
       $this->set(compact('report'));
 
