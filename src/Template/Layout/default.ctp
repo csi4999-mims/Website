@@ -53,7 +53,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <ul class="right">
                 <li><a href="/reports/report">Submit Report</a></li>
                 <li><a href="/users/edit">My Account</a></li>
-                <li><a href="/users/logout">Logout</a></li>
+                <li>
+                    <?php if ($this->request->session()->read('Auth.User')){
+                      echo $this->Html->link("Logout", array('controller' => 'users', 'action'=> 'logout'));
+                    }else{
+                      echo $this->Html->link("Login", array('controller' => 'users', 'action'=> 'login'));
+                      }
+                    ?>
+                </li>
             </ul>
         </div>
     </nav>
