@@ -46,7 +46,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
             <li class="name">
-                <h1 class="home_button"><a href="/users/home">MIMS</a></h1>
+              <h1 class="home_button">
+              <?php
+              if ($this->request->session()->read('Auth.User')){
+                if ($user->get('role') == 'lawenforcement'){
+                  echo $this->Html->link("MIMS", array('controller'=>'users','action'=>'homeLawEnforcement'));
+                } elseif($user->get('role') == 'thepublic'){
+                  echo $this->Html->link("MIMS", array('controller'=>'users','action'=>'homeConcernedPublic'));
+                } else{
+                echo $this->Html->link("MIMS", array('controller'=>'users','action'=>'home'));
+                }
+              } else{
+                echo $this->Html->link("MIMS", array('controller'=>'users','action'=>'home'));
+              }
+              ?>
+            </h1>
             </li>
         </ul>
         <div class="top-bar-section">
