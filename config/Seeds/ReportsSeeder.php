@@ -208,6 +208,19 @@ class ReportsSeeder extends AbstractSeed
             /* Between 4' and 7' tall. */
             $data[$i]['Height'] = mt_rand(48, 84);
 
+            /* Sochmeeds */
+            $accounts = ['missing_facebook_username',
+                         'missing_twitter_username',
+                         'missing_snapchat_username',
+                         'missing_instagram_username'];
+
+            foreach ($accounts as $account) {
+                $data[$i][$account] = $faker->randomElement([
+                    $faker->userName(),
+                    null
+                ]);
+            }
+
         }
         print_r($data);
     }
