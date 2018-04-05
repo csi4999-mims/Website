@@ -249,9 +249,7 @@ class ReportsSeeder extends AbstractSeed
             ]);
 
             /* Zip (Last Seen) */
-            $data[$i]['SeenZip'] = $faker->randomElement([
-                mt_rand(00001,99999)
-            ]);
+            $data[$i]['SeenZip'] = mt_rand(00001,99999);
 
         }
         print_r($data);
