@@ -227,6 +227,29 @@ class ReportsSeeder extends AbstractSeed
                 null, null
             ]);
 
+            /* Name of place last seen (Last Seen) */
+            $data[$i]['SeenName'] = $faker->word();
+
+            /* Street Name (Last Seen) */
+            $data[$i]['SeenStreet'] = $faker->streetName();
+
+            /* Address Number (Last Seen) */
+            $data[$i]['SeenNumber'] = mt_rand(10,99999);
+
+            /* City (Last Seen) */
+            $data[$i]['SeenCity'] = $faker->city();
+
+            /* State (Last Seen) */
+            $data[$i]['SeenState'] = $faker->randomElement([
+                $faker->state(),
+                $faker->stateAbbr()
+            ]);
+
+            /* Zip (Last Seen) */
+            $data[$i]['SeenZip'] = $faker->randomElement([
+                mt_rand(00001,99999)
+            ]);
+
         }
         print_r($data);
     }
