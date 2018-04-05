@@ -204,9 +204,12 @@ class ReportsSeeder extends AbstractSeed
             /* Weight (lbs) */
             $data[$i]['Weight'] = mt_rand(100, 300);
 
-            /* Height (in) */
+            /* Height (ft) */
             /* Between 4' and 7' tall. */
-            $data[$i]['Height'] = mt_rand(48, 84);
+            $data[$i]['HeightFeet'] = mt_rand(4, 7);
+
+            /* Height (in) */
+            $data[$i]['HeightInches'] = mt_rand(0, 11);
 
             /* Sochmeeds */
             $accounts = ['missing_facebook_username',
