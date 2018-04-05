@@ -173,6 +173,7 @@ class ReportsSeeder extends AbstractSeed
                 'other'
             ]);
 
+            /* Eye Color Other */
             if ($data[$i]['EyeColor'] == 'other') {
                 $data[$i]['MissingEyeColorOther'] = $faker->colorName();
             }
