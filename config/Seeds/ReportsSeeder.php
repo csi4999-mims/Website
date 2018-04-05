@@ -255,5 +255,7 @@ class ReportsSeeder extends AbstractSeed
 
         }
         print_r($data);
+
+        $this->insert('reports', $data);
     }
 }
