@@ -119,9 +119,9 @@ class ReportsSeeder extends AbstractSeed
             /* Not everyone has a middle name.  Make it about
                50/50. */
             $data[$i]['MiddleName'] = $faker->randomElement([
-		$faker->firstName($gender),
+                $faker->firstName($gender),
                 null
-	    ]);
+            ]);
 
             /* Choose a last name. */
             $data[$i]['LastName'] = $faker->lastName();
@@ -129,10 +129,10 @@ class ReportsSeeder extends AbstractSeed
             /* Choose an alias, but only for one in every ten
                people. */
             $data[$i]['Alias'] = $faker->randomElement([
-		$faker->firstName($gender),
+                $faker->firstName($gender),
                 null, null, null, null, null,
                 null, null, null, null, null
-	    ]);
+            ]);
 
             /* Choose a date of birth. */
             $data[$i]['DoB'] = $faker->date($format = 'Y-m-d', $max = 'now');
