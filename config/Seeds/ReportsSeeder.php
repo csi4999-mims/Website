@@ -138,6 +138,26 @@ class ReportsSeeder extends AbstractSeed
                stored as 'SubmitterEmail'. */
             $data[$i]['SubmitterEmail'] = $user_emails[mt_rand(0,count($user_emails) - 1)];
 
+            /* Ethnicity */
+            $data[$i]['Ethnicity'] = $faker->randomElement([
+                'american_indian',
+                'asian',
+                'african_american',
+                'hispanic_latino',
+                'middle_eastern',
+                'pacific_islander',
+                'white',
+                'other'
+            ]);
+
+            if ($data[$i]['Ethnicity'] == 'other') {
+                $data[$i]['MissingEthnicityOther'] = $faker->randomElement([
+                    'oompa_loompa',
+                    'martian',
+                    'deez_nuts'
+                ]);
+            }
+
 
         }
         print_r($data);
