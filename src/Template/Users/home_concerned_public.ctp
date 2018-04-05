@@ -146,7 +146,7 @@
       <?= $this->GoogleMap->addMarker("map_canvas", 1, "400 6th St, Rochester, Michigan 48307",array('showWindow'   => true,
       'windowText'   => "Rochester Police: 400 6th St, Rochester, MI 48307")); ?>
       <?= $this->GoogleMap->addMarker("map_canvas", 1, "1899 N Squirrel Rd, Auburn Hills, Michigan 48326",array('showWindow'   => true,
-      'windowText'   => "Aubrun Hills Police: 1899 N Squirrel Rd, Auburn Hills, MI 48326")); ?>
+      'windowText'   => "Auburn Hills Police: 1899 N Squirrel Rd, Auburn Hills, MI 48326")); ?>
       <?= $this->GoogleMap->addMarker("map_canvas", 1, "7550 Auburn Rd, Utica, Michigan 48317",array('showWindow'   => true,
       'windowText'   => "Utica Police: 7550 Auburn Rd, Utica, MI 48317")); ?>
       <?= $this->GoogleMap->addMarker("map_canvas", 1, "52530 Van Dyke, Shelby Charter Township, Michigan 48316",array('showWindow'   => true,
