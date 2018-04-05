@@ -190,6 +190,11 @@ class ReportsSeeder extends AbstractSeed
 		$data[$i]['MissingHairColorOther'] = $faker->colorName();
 	    }
 
+	    /* Marks/Tattoos */
+	    $data[$i]['MarksTattoos'] = $faker->randomElement([
+		null, null, null, null, null,
+		$faker->text($maxNbChars = 100)
+	    ]);
 
         }
         print_r($data);
