@@ -174,6 +174,22 @@ class ReportsSeeder extends AbstractSeed
                 $data[$i]['MissingEyeColorOther'] = $faker->colorName();
             }
 
+            /* Hair Color */
+            $data[$i]['HairColor'] = $faker->randomElement([
+                'auburn',
+                'black',
+                'blonde',
+                'brown',
+                'grey',
+                'red',
+                'white',
+                'other'
+            ]);
+
+	    if ($data[$i]['HairColor'] == 'other') {
+		$data[$i]['MissingHairColorOther'] = $faker->colorName();
+	    }
+
 
         }
         print_r($data);
