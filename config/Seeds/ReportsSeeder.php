@@ -158,6 +158,22 @@ class ReportsSeeder extends AbstractSeed
                 ]);
             }
 
+            /* Eye Color */
+            $data[$i]['EyeColor'] = $faker->randomElement([
+                'amber',
+                'black',
+                'blue',
+                'brown',
+                'green',
+                'grey',
+                'hazel',
+                'other'
+            ]);
+
+            if ($data[$i]['EyeColor'] == 'other') {
+                $data[$i]['MissingEyeColorOther'] = $faker->colorName();
+            }
+
 
         }
         print_r($data);
