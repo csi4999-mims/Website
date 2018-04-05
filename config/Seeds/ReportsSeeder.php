@@ -201,6 +201,13 @@ class ReportsSeeder extends AbstractSeed
                 null, null, null, null, null
             ]);
 
+            /* Weight (lbs) */
+            $data[$i]['Weight'] = mt_rand(100, 300);
+
+            /* Height (in) */
+            /* Between 4' and 7' tall. */
+            $data[$i]['Height'] = mt_rand(48, 84);
+
         }
         print_r($data);
     }
