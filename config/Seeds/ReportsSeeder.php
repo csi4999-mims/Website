@@ -190,15 +190,16 @@ class ReportsSeeder extends AbstractSeed
                 'other'
             ]);
 
-	    if ($data[$i]['HairColor'] == 'other') {
-		$data[$i]['MissingHairColorOther'] = $faker->colorName();
-	    }
+            /* Hair Color Other */
+            if ($data[$i]['HairColor'] == 'other') {
+                $data[$i]['MissingHairColorOther'] = $faker->colorName();
+            }
 
-	    /* Marks/Tattoos */
-	    $data[$i]['MarksTattoos'] = $faker->randomElement([
-		$faker->text($maxNbChars = 100),
-		null, null, null, null, null
-	    ]);
+            /* Marks/Tattoos */
+            $data[$i]['MarksTattoos'] = $faker->randomElement([
+                $faker->text(100),
+                null, null, null, null, null
+            ]);
 
         }
         print_r($data);
