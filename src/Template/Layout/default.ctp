@@ -46,14 +46,35 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
             <li class="name">
-                <h1 class="home_button"><a href="/users/home">MIMS</a></h1>
+              <h1 class="home_button">
+              <?php
+              if ($this->request->session()->read('Auth.User')){
+                if ($user->get('role') == 'lawenforcement'){
+                  echo $this->Html->link("MIMS", array('controller'=>'users','action'=>'homeLawEnforcement'));
+                } elseif($user->get('role') == 'thepublic'){
+                  echo $this->Html->link("MIMS", array('controller'=>'users','action'=>'homeConcernedPublic'));
+                } else{
+                echo $this->Html->link("MIMS", array('controller'=>'users','action'=>'home'));
+                }
+              } else{
+                echo $this->Html->link("MIMS", array('controller'=>'users','action'=>'home'));
+              }
+              ?>
+            </h1>
             </li>
         </ul>
         <div class="top-bar-section">
             <ul class="right">
                 <li><a href="/reports/report">Submit Report</a></li>
                 <li><a href="/users/edit">My Account</a></li>
-                <li><a href="/users/logout">Logout</a></li>
+                <li>
+                    <?php if ($this->request->session()->read('Auth.User')){
+                      echo $this->Html->link("Logout", array('controller' => 'users', 'action'=> 'logout'));
+                    }else{
+                      echo $this->Html->link("Login", array('controller' => 'users', 'action'=> 'login'));
+                      }
+                    ?>
+                </li>
             </ul>
         </div>
     </nav>
