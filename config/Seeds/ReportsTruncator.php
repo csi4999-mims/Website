@@ -11,7 +11,8 @@ class ReportsTruncator extends AbstractSeed
         $comments = $this->table('comments');
         $comments->truncate();
 
-        $reports = $this->table('reports');
-        $reports->truncate();
+        /* 'reports' cannot be truncated due to the foreign key
+           constraint in 'comments'.  This does the same thing. */
+        $this->execute('DELETE FROM reports');
     }
 }
