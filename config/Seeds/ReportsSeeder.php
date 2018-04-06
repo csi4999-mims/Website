@@ -254,6 +254,12 @@ class ReportsSeeder extends AbstractSeed
             /* Zip (Last Seen) */
             $data[$i]['SeenZip'] = mt_rand(00001,99999);
 
+            /* Date Of Occurrence (Last Seen) */
+            $data[$i]['SeenWhen'] = $faker->date($format = 'Y-m-d', $max = 'now');
+
+            /* Additional Information (Last Seen) */
+            $data[$i]['SeenNotes'] = $faker->text($maxNbChars = 200);
+
         }
         print_r($data);
 
