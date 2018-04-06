@@ -389,3 +389,12 @@ input.form-submit.submit-report-button.button.btn.btn-default:hover {
   width: 40px;
   padding-bottom: 15px;
 }
+
+canvas {
+  margin: 70px;
+}
+
+.le-table {
+  height: 300px;
+  overflow-y: scroll;
+}
