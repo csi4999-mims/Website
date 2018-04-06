@@ -407,9 +407,34 @@ class ReportsSeeder extends AbstractSeed
                 null, null
             ]);
 
-        }
-        print_r($data);
+            /* Determine a status for the report */
+            $data[$i]['status'] = $faker->randomElement([
+                'In Progress',
+                'On Hold',
+                'Found'
+            ]);
 
-        $this->insert('reports', $data);
+            /* Grab a list of case numbers from the database. */
+            $case_numbers = $this->fetchAll('SELECT CaseNumber FROM reports');
+            foreach ($case_numbers as $case_number) {
+                $my_case_numbers[] = $case_number['CaseNumber'];
+            }
+
+            /* If the case is marked as 'In Progress' or 'Found' ... */
+            if ($data[$i]['status'] == 'In Progress' || $data[$i]['status'] == 'Found') {
+                /* ... then assign a case number.  If that case number
+                   is already in the database, keep trying until you
+                   get an unused one.  This does _not_ check if we've
+                   assigned the case number already within this
+                   session. */
+                do {
+                    $data[$i]['CaseNumber'] = mt_rand(1, 999999999999999);
+                } while (in_array($data[$i]['CaseNumber'], $my_case_numbers));
+            }
+
+            print_r($data);
+
+            /* $this->insert('reports', $data); */
+        }
     }
 }
