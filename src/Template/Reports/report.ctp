@@ -213,7 +213,7 @@
         <div class="row">
           <div class="col-md-12">
             <?php
-            echo $this->Form->label('Date of Occurance');
+            echo $this->Form->label('Date of Occurrence');
             echo $this->Form->date('SeenWhen', [
               'minYear' => 1900,
               'monthNames' => true,

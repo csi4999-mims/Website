@@ -3,21 +3,29 @@
 <head>
 
 </head>
-  <?php echo $this->Form->create('$approve');
+  <?php echo $this->Form->create('$found');
   $this->Html->css('custom');
   ?>
 
   </br>
   <fieldset>
       <legend>
-        <?php echo __('Add A Case Number To Approve Report ID: ');?>
+        <?php echo __('This person has been marked as "Found":');?>
+        <?php echo __($report->FirstName);?>
+        <?php echo __($report->MiddleName);?>
+        <?php echo __($report->LastName);?>
+      </legend>
+      <br>
+      <legend>
+        <?php echo __('Edit Report:');?>
+
         <?= $this->Html->link($report->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $report->Report_ID]) ?>
+
       </legend>
       <br>
       <?php
-      echo $this->Form->input('report_case_number', array('class' => 'report-input', 'label' => 'Case Number', 'maxLength' => 250, 'title' => 'Case Number', 'type' => 'number'));
       echo $this->Form->hidden('Report_ID', array('value' => $report->get('Report_ID')));
-      echo $this->Form->submit('Submit Approval', array('class' => 'form-submit approve-submit',  'title' => 'Click here to') );
+      echo $this->Form->submit('Found', array('class' => 'form-submit found-submit',  'title' => 'Click here to') );
       ?>
   </fieldset>
   <?php echo $this->Form->end(); ?>

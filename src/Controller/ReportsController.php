@@ -41,6 +41,12 @@ class ReportsController extends AppController{
 
 //function to view the detailed reports page
     public function detailedReport($Report_ID = null) {
+      //load user for home button
+      $this->loadModel('Users');
+      $user =$this->Users->get($this->Auth->user('id'));
+      $this->set('user',$user);
+
+
       $report = $this->Reports->get($Report_ID);
       $this->set(compact('report'));
 
@@ -888,6 +894,30 @@ public function approveModal($Report_ID = null) {
 
     $this->set('report',$report);
 
+}
+
+//function to mark the report status as found-submit
+public function markFound($Report_ID = null){
+
+  //load user for home button
+  $this->loadModel('Users');
+  $user =$this->Users->get($this->Auth->user('id'));
+  $this->set('user',$user);
+
+  //load reports model
+  $report = $this->Reports->get($Report_ID);
+  $this->set(compact('report'));
+
+  //change status to found
+  $report = $this->Reports->patchEntity($report, [
+    'status' => 'Found'
+  ]);
+  if ($this->Reports->save($report)) {
+
+      $this->Flash->success('The report has been marked as Found');
+  } else {
+      $this->Flash->error('Unable to mark as Found');
+  }
 }
 
 }

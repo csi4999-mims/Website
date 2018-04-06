@@ -38,14 +38,6 @@
                       <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button btn button')) ?>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <!-- Mark As Found Button trigger modal -->
-                      <button type="button" class="button btn found-button" data-toggle="modal" data-target="#foundModal">
-                        Mark As Found
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div class="row">
@@ -255,7 +247,7 @@
 
 
                             <?php
-                            echo $this->Form->label('Date of Occurance');
+                            echo $this->Form->label('Date of Occurrence');
                             echo $this->Form->date('editSeenWhen', [
                               'minYear' => 1900,
                               'monthNames' => true,
