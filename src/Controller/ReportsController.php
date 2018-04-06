@@ -2,6 +2,7 @@
 namespace App\Controller;
 use App\Controller\AppController;
 use App\Controller\UsersController;
+use Ramsey\Uuid\Uuid;
 class ReportsController extends AppController{
 
 //built in function of cakePHP
