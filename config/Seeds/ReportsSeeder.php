@@ -260,6 +260,89 @@ class ReportsSeeder extends AbstractSeed
             /* Additional Information (Last Seen) */
             $data[$i]['SeenNotes'] = $faker->text($maxNbChars = 200);
 
+            /* Missing Person Family/Friend Information */
+
+            /* Gender */
+            $data[$i]['FamilyGender'] = $faker->randomElement(['Female', 'Male']);
+            $family_gender = strtolower($data[$i]['FamilyGender']);
+
+            /* First Name (Family/Friend) */
+            $data[$i]['FamilyFirstName'] = $faker->firstName($gender);
+
+            /* Middle Name (Family/Friend) */
+            $data[$i]['FamilyMiddleName'] = $faker->randomElement([
+                $faker->firstName($gender),
+                null
+            ]);
+
+            /* Last Name (Family/Friend) */
+            $data[$i]['FamilyLastName'] = $faker->lastName();
+
+            /* Phone (Family/Friend) */
+            $data[$i]['FamilyPhone'] = (string)mt_rand(100000000000000, 999999999999999);
+
+            /* Email (Family/Friend) */
+            $data[$i]['FamilyEmail'] = $faker->email();
+
+            /* Ethnicity (Family/Friend) */
+            $data[$i]['FamilyEthnicity'] = $faker->randomElement([
+                'american_indian',  'american_indian',
+                'asian',            'asian',
+                'african_american', 'african_american',
+                'hispanic_latino',  'hispanic_latino',
+                'middle_eastern',   'middle_eastern',
+                'pacific_islander', 'pacific_islander',
+                'white',            'white',
+                'other'
+            ]);
+
+            if ($data[$i]['FamilyEthnicity'] == 'other') {
+                $data[$i]['FamilyEthnicityOther'] = $faker->randomElement([
+                    'oompa_loompa',
+                    'martian'
+                ]);
+            }
+
+            /* Relation to Missing (Friend/Family) */
+            $data[$i]['Relation'] = $faker->randomElement([
+                'Mother',   'Mother',
+                'Father',   'Father',
+                'Daughter', 'Daughter',
+                'Son',      'Son',
+                'Sister',   'Sister',
+                'Brother',  'Brother',
+                'Aunt',     'Aunt',
+                'Uncle',    'Uncle',
+                'Niece',    'Niece',
+                'Nephew',   'Nephew',
+                'Cousin',   'Cousin',
+                'Friend',   'Friend',
+                'Other'
+            ]);
+
+            /* Relation Other (Friend/Family) */
+            if ($data[$i]['Relation'] == 'Other') {
+                $data[$i]['RelationOther'] = $faker->randomElement([
+                    'Wife', 'Husband', 'Girlfriend', 'Boyfriend',
+                    'Spouse', null, null
+                ]);
+            }
+
+            /* Street (Family/Friend) */
+            $data[$i]['FamilyStreet'] = $faker->streetName();
+
+            /* City (Family/Friend) */
+            $data[$i]['FamilyCity'] = $faker->city();
+
+            /* State (Family/Friend) */
+            $data[$i]['FamilyState'] = $faker->randomElement([
+                $faker->state(),
+                $faker->stateAbbr()
+            ]);
+
+            /* Zip (Family/Friend) */
+            $data[$i]['FamilyZip'] = mt_rand(00001,99999);
+
         }
         print_r($data);
 
