@@ -372,6 +372,41 @@ class ReportsSeeder extends AbstractSeed
                 null, null
             ]);
 
+            /* Missing Person Workplace */
+
+            /* Workplace Name */
+            $data[$i]['Workplacename'] = $faker->text($maxNbChars = 30);
+
+            /* Street Name (Workplace) */
+            $data[$i]['WorkplaceStreet'] = $faker->streetName();
+
+            /* Address Number (Workplace) */
+            $data[$i]['WorkplaceNumber'] = mt_rand(10,99999);
+
+            /* City (Workplace) */
+            $data[$i]['WorkplaceCity'] = $faker->city();
+
+            /* State (Workplace) */
+            $data[$i]['WorkplaceState'] = $faker->randomElement([
+                $faker->state(),
+                $faker->stateAbbr()
+            ]);
+
+            /* Zip (Workplace) */
+            $data[$i]['WorkplaceZip'] = mt_rand(00001,99999);
+
+            /* Started Working */
+            $data[$i]['WorkplaceStartDate'] = $faker->date($format = 'Y-m-d', $max = 'now');
+
+            /* Stopped Working */
+            $data[$i]['WorkplaceEndDate'] = $faker->date($format = 'Y-m-d', $max = 'now');
+
+            /* Additional Information (Workplace) */
+            $data[$i]['WorkplaceMisc'] = $faker->randomElement([
+                $faker->text(200),
+                null, null
+            ]);
+
         }
         print_r($data);
 
