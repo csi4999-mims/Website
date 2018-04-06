@@ -343,6 +343,35 @@ class ReportsSeeder extends AbstractSeed
             /* Zip (Family/Friend) */
             $data[$i]['FamilyZip'] = mt_rand(00001,99999);
 
+            /* Missing Person Hangouts */
+
+            /* Hangout Name */
+            $data[$i]['HangoutName'] = $faker->text($maxNbChars = 30);
+
+            /* Street Name (Hangout) */
+            $data[$i]['HangoutStreet'] = $faker->streetName();
+
+            /* Address Number (Hangout) */
+            $data[$i]['HangoutNumber'] = mt_rand(10,99999);
+
+            /* City (Hangout) */
+            $data[$i]['HangoutCity'] = $faker->city();
+
+            /* State (Hangout) */
+            $data[$i]['HangoutState'] = $faker->randomElement([
+                $faker->state(),
+                $faker->stateAbbr()
+            ]);
+
+            /* Zip (Hangout) */
+            $data[$i]['HangoutZip'] = mt_rand(00001,99999);
+
+            /* Additional Information (Hangout) */
+            $data[$i]['HangoutMisc'] = $faker->randomElement([
+                $faker->text(200),
+                null, null
+            ]);
+
         }
         print_r($data);
 
