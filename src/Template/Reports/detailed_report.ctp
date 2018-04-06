@@ -247,7 +247,7 @@
 
 
                             <?php
-                            echo $this->Form->label('Date of Occurance');
+                            echo $this->Form->label('Date of Occurrence');
                             echo $this->Form->date('editSeenWhen', [
                               'minYear' => 1900,
                               'monthNames' => true,
