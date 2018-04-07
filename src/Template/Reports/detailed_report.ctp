@@ -104,7 +104,7 @@
 
                     <div class="row">
                       <div class="col-md-4">
-                        <?php echo $this->Form->input('editSubmitterEmail', array('value' => $report->get('SubmitterEmail'),'label'
+                        <?php echo $this->Form->input('editMissingEmail', array('value' => $report->get('SubmitterEmail'),'label'
                          => 'Email Address', 'maxLength' => 100, 'title' => 'Email', 'type' => 'email')); ?>
                       </div>
                       <div class="col-md-4">
