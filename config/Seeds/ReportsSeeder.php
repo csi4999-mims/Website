@@ -31,6 +31,9 @@ class ReportsSeeder extends AbstractSeed
         /* Next, let's loop 20 times to create some users. */
         for ($i = 0; $i < 20; $i++) {
 
+            /* Submitter Email */
+            $data[$i]['SubmitterEmail'] = $user_emails[mt_rand(0,count($user_emails) - 1)];
+
             /* We'll base some other decisions on the gender of the
                person being reported missing, so we'll store that
                first. */
@@ -65,10 +68,8 @@ class ReportsSeeder extends AbstractSeed
             /* Choose a date of birth. */
             $data[$i]['DoB'] = $faker->date($format = 'Y-m-d', $max = 'now');
 
-            /* Choose an email.  Although the email in the form
-               _looks_ like it would be for the missing person, it is
-               stored as 'SubmitterEmail'. */
-            $data[$i]['SubmitterEmail'] = $user_emails[mt_rand(0,count($user_emails) - 1)];
+            /* Missing Person's Email */
+            $data[$i]['MissingEmail'] = $faker->email();
 
             /* Phone */
             $data[$i]['Phone'] = (string)mt_rand(100000000000000, 999999999999999);
