@@ -290,6 +290,19 @@ class ReportsController extends AppController{
             }
           }
       }
+      //edit email
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'MissingEmail' => $this->request->data['editMissingEmail'],
+              ]);
+          if ($report->dirty('MissingEmail') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Email is successfully changed');
+            } else {
+                $this->Flash->error('Email was not saved');
+            }
+          }
+      }
       //edit facebook
       if(!empty($this->request->data)) {
           $report = $this->Reports->patchEntity($report, [
@@ -864,7 +877,7 @@ class ReportsController extends AppController{
       $this->loadModel('Users');
       $user =$this->Users->get($this->Auth->user('id'));
       $this->set('user',$user);
-      
+
       $report = $this->Reports->get($Report_ID);
       $this->set(compact('report'));
     }
