@@ -359,8 +359,7 @@ class ReportsSeeder extends AbstractSeed
                     $data[$i]['CaseNumber'] = mt_rand(1, 999999999999999);
                 } while (in_array($data[$i]['CaseNumber'], $my_case_numbers));
             }
-
-            $this->insert('reports', $data);
         }
+        $this->insert('reports', $data);
     }
 }
