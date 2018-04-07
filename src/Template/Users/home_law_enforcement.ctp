@@ -7,6 +7,7 @@
   <?= $this->Html->script("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"); ?>
   <?= $this->Html->script("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"); ?>
   <?= $this->Html->script("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"); ?>
+  <?= $this->Html->css('custom'); ?>
 </head>
 <body>
 <div class="page-header">
@@ -16,19 +17,19 @@
   <div class="le-table">
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Cases By Name...">
   <table id="myTable">
-  <tr>
-    <th>Report Number</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>DOB</th>
-    <th>Last Seen:</th>
-    <th>Status</th>
-    <th>Approve Case</th>
-    <th>Found?</th>
+  <tr class = "column-titles">
+    <th class = "column-titles">Report Number</th>
+    <th class = "column-titles">First Name</th>
+    <th class = "column-titles">Last Name</th>
+    <th class = "column-titles">DOB</th>
+    <th class = "column-titles">Last Seen:</th>
+    <th class = "column-titles">Status</th>
+    <th class = "column-titles">Approve Case</th>
+    <th class = "column-titles">Found?</th>
   </tr>
   <?php foreach ($reports as $report): ?>
     <tr>
-      <td>
+      <td class="report-number">
             <?= $this->Html->link($report->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $report->Report_ID]) ?>
       </td>
       <td><?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></td>

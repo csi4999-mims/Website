@@ -77,6 +77,7 @@
                     <?php
                     echo $this->Form->label('Date of Birth');
                     echo $this->Form->date('editDoB', [
+                      'value' => $report->get('DoB'),
                       'minYear' => 1900,
                       'monthNames' => true,
                       'empty' => [
@@ -249,6 +250,7 @@
                             <?php
                             echo $this->Form->label('Date of Occurrence');
                             echo $this->Form->date('editSeenWhen', [
+                              'value' => $report->get('SeenWhen'),
                               'minYear' => 1900,
                               'monthNames' => true,
                               'empty' => [
@@ -434,6 +436,7 @@
                     <?php
                     echo $this->Form->label('Started Working:');
                     echo $this->Form->date('editWorkplaceStartDate', [
+                      'value' => $report->get('WorkplaceStartDate'),
                       'minYear' => 1900,
                       'monthNames' => true,
                       'empty' => [
@@ -459,6 +462,7 @@
                     <?php
                     echo $this->Form->label('Stopped Working:');
                     echo $this->Form->date('editWorkplaceEndDate', [
+                      'value' => $report->get('WorkplaceEndDate'),
                       'minYear' => 1900,
                       'monthNames' => true,
                       'empty' => [
@@ -487,6 +491,13 @@
                          'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
                       </div>
                     </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <?php
+                  echo $this->Form->submit('Update Case', array('class' => 'form-submit btn button update-button',  'title' => 'Click here to update the user account') );
+                  ?>
+                </div>
               </div>
       </div>
     </fieldset>

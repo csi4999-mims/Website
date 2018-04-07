@@ -398,3 +398,10 @@ canvas {
   height: 300px;
   overflow-y: scroll;
 }
+th.column-titles{
+  font-size: 15px;
+}
+.report-number{
+  font-size: 20px;
+  font-weight: bold;
+}
