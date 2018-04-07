@@ -125,6 +125,21 @@ This will first add test users to your system, all with the password
 of `password`.  It will then add reports based on those users, then
 add comments to those reports.  All the data will be linked together.
 
+### Clearing the database ###
+
+If you wish to clear out the database of all the information, you can
+do so with the truncation files.  **These will delete anything and
+everything in their respective tables**, so only run them if you know
+you do not need the data that is currently stored there.
+
+They are run in reverse order of the seed files:
+
+``` shell
+bin/cake migrations seed --seed=CommentsTruncator
+bin/cake migrations seed --seed=ReportsTruncator
+bin/cake migrations seed --seed=UserTruncator
+```
+
 ## Run the php server ##
 
 You can use php's built-in web server functionality for dev testing,
