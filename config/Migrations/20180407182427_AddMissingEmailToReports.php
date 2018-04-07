@@ -17,5 +17,6 @@ class AddMissingEmailToReports extends AbstractMigration
             'null' => true,
             'default' => null,
         ]);
+        $reports->save();
     }
 }
