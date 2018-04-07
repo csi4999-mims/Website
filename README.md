@@ -109,6 +109,22 @@ status of the migrations, you can use the following command:
 bin/cake migrations status
 ```
 
+### Add seed data to the database ###
+
+To add test data to your database, run the following commands in a
+terminal from the root of the project.  (The order is important, and
+this should **not** be done in a production environment.)
+
+``` shell
+bin/cake migrations seed --seed=UserSeeder
+bin/cake migrations seed --seed=ReportsSeeder
+bin/cake migrations seed --seed=CommentsSeeder
+```
+
+This will first add test users to your system, all with the password
+of `password`.  It will then add reports based on those users, then
+add comments to those reports.  All the data will be linked together.
+
 ## Run the php server ##
 
 You can use php's built-in web server functionality for dev testing,
