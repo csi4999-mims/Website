@@ -360,8 +360,6 @@ class ReportsSeeder extends AbstractSeed
                 } while (in_array($data[$i]['CaseNumber'], $my_case_numbers));
             }
 
-            print_r($data);
-
             $this->insert('reports', $data);
         }
     }
