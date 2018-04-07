@@ -861,6 +861,10 @@ class ReportsController extends AppController{
 //function to display the public detailed report
 //this report has all readonly fields
     public function publicDetailedReport($Report_ID = null) {
+      $this->loadModel('Users');
+      $user =$this->Users->get($this->Auth->user('id'));
+      $this->set('user',$user);
+      
       $report = $this->Reports->get($Report_ID);
       $this->set(compact('report'));
     }
