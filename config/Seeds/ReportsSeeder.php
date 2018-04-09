@@ -128,7 +128,11 @@ class ReportsSeeder extends AbstractSeed
             /* We'll base some other decisions on the gender of the
                person being reported missing, so we'll store that
                first. */
-            $data[$i]['Gender'] = $faker->randomElement(['Androgynous', 'Female', 'Male']);
+            $data[$i]['Gender'] = $faker->randomElement([
+                'Androgynous',
+                'Female', 'Female', 'Female', 'Female',
+                'Male',   'Male',   'Male',   'Male'
+            ]);
 
             /* Faker understands 'male', 'female', and null.  We have
                'Male', 'Female', and 'Androgynous'. */
