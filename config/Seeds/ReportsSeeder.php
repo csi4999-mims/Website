@@ -319,20 +319,12 @@ class ReportsSeeder extends AbstractSeed
                 ]);
             }
 
-            /* Street (Family/Friend) */
-            $data[$i]['FamilyStreet'] = $faker->streetName();
-
-            /* City (Family/Friend) */
-            $data[$i]['FamilyCity'] = $faker->city();
-
-            /* State (Family/Friend) */
-            $data[$i]['FamilyState'] = $faker->randomElement([
-                $faker->state(),
-                $faker->stateAbbr()
-            ]);
-
-            /* Zip (Family/Friend) */
-            $data[$i]['FamilyZip'] = mt_rand(00001,99999);
+            /* Family/Friend Location */
+            $family_place = $places[mt_rand(0, count($places) - 1)];
+            $data[$i]['FamilyStreet'] = $family_place['number'] . " " . $family_place['street'];
+            $data[$i]['FamilyCity']   = $family_place['city'];
+            $data[$i]['FamilyState']  = $family_place['state'];
+            $data[$i]['FamilyZip']    = $family_place['zip'];
 
             /* Missing Person Hangouts */
 
