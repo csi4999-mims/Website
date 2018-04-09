@@ -12,14 +12,16 @@ class AddDefaultValueToCaseNumber extends AbstractMigration
      */
     public function up()
     {
-      $reports = $this->table('reports');
-      $reports->changeColumn('CaseNumber', 'integer', ['default' => 0])
-      ->save();
+        $reports = $this->table('reports');
+        $reports->changeColumn('CaseNumber', 'integer', ['default' => 0])
+                ->save();
     }
-    public function down(){
-      $reports = $this->table('reports');
-      $reports->changeColumn('CaseNumber', 'integer', ['default' => null])
-      ->save();
 
+    public function down()
+    {
+        $reports = $this->table('reports');
+        $reports->changeColumn('CaseNumber', 'integer', ['default' => null])
+                ->save();
     }
+
 }
