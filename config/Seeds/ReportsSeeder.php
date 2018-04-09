@@ -387,6 +387,12 @@ class ReportsSeeder extends AbstractSeed
                 do {
                     $data[$i]['CaseNumber'] = mt_rand(1, 999999999999999);
                 } while (in_array($data[$i]['CaseNumber'], $case_numbers));
+
+                /* Also assign a category. */
+                $data[$i]['category'] = $faker->randomElement([
+                    'none', 'runaway', 'romeo_juliet',
+                    'substance_abuser', 'human_trafficking'
+                ]);
             }
         }
         $this->insert('reports', $data);
