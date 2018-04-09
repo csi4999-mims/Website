@@ -207,6 +207,8 @@ var substanceAbuserCount = substanceAbuser.length;
 var humanTrafficking = <?php echo json_encode($humanTrafficking) ?>;
 var humanTraffickingCount = humanTrafficking.length;
 
+var maxValue = Math.max(inProgressCount,holdCount,foundCount);
+
 var ctx = document.getElementById('statusBarChart').getContext('2d');
 var myBarChart = new Chart(ctx, {
 
@@ -230,12 +232,7 @@ var myBarChart = new Chart(ctx, {
        scales: {
            yAxes: [{
                    display: true,
-                   ticks: {
-                       beginAtZero: true,
-                       steps: 10,
-                       stepValue: 5,
-                       max: 100
-                   }
+                   ticks: {beginAtZero:true,max:maxValue}
                }]
        },
        title: {
@@ -246,7 +243,7 @@ var myBarChart = new Chart(ctx, {
 });
 
 var ctx = document.getElementById('categoryPieChart').getContext('2d');
-var myBarChart = new Chart(ctx, {
+var myPieChart = new Chart(ctx, {
 
     type: 'pie',
     data: {
