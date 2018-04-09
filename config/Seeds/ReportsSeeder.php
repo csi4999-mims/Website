@@ -327,33 +327,14 @@ class ReportsSeeder extends AbstractSeed
             $data[$i]['FamilyZip']    = $family_place['zip'];
 
             /* Missing Person Hangouts */
-
-            /* Hangout Name */
-            $data[$i]['HangoutName'] = $faker->text($maxNbChars = 30);
-
-            /* Street Name (Hangout) */
-            $data[$i]['HangoutStreet'] = $faker->streetName();
-
-            /* Address Number (Hangout) */
-            $data[$i]['HangoutNumber'] = mt_rand(10,99999);
-
-            /* City (Hangout) */
-            $data[$i]['HangoutCity'] = $faker->city();
-
-            /* State (Hangout) */
-            $data[$i]['HangoutState'] = $faker->randomElement([
-                $faker->state(),
-                $faker->stateAbbr()
-            ]);
-
-            /* Zip (Hangout) */
-            $data[$i]['HangoutZip'] = mt_rand(00001,99999);
-
-            /* Additional Information (Hangout) */
-            $data[$i]['HangoutMisc'] = $faker->randomElement([
-                $faker->text(200),
-                null, null
-            ]);
+            $hangout_place = $places[mt_rand(0, count($places) - 1)];
+            $data[$i]['HangoutName']   = $hangout_place['name'];
+            $data[$i]['HangoutNumber'] = $hangout_place['number'];
+            $data[$i]['HangoutStreet'] = $hangout_place['street'];
+            $data[$i]['HangoutCity']   = $hangout_place['city'];
+            $data[$i]['HangoutState']  = $hangout_place['state'];
+            $data[$i]['HangoutZip']    = $hangout_place['zip'];
+            $data[$i]['HangoutMisc']   = $faker->randomElement([$faker->text(200), null, null]);
 
             /* Missing Person Workplace */
 
