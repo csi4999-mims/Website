@@ -28,6 +28,80 @@ class ReportsSeeder extends AbstractSeed
             $user_emails[] = $user['email'];
         }
 
+        /* Make a list of places where people might be. */
+        $places = [
+
+            ['name'   => 'The Jagged Fork',
+             'number' => '188',
+             'street' => 'Adams Rd',
+             'city'   => 'Rochester Hills',
+             'state'  => 'MI',
+             'zip'    => '48309'],
+
+            ['name'   => '2941 Street Food',
+             'number' => '2071',
+             'street' => 'N Squirrel Rd',
+             'city'   => 'Auburn Hills',
+             'state'  => 'MI',
+             'zip'    => '48326'],
+
+            ['name'   => 'Oakland Tea House',
+             'number' => '3081',
+             'street' => 'E Walton Blvd',
+             'city'   => 'Auburn Hills',
+             'state'  => 'MI',
+             'zip'    => '48326'],
+
+            ['name'   => 'Makimoto Sushi Bar & Asian Kitchen',
+             'number' => '2741',
+             'street' => 'University Dr',
+             'city'   => 'Auburn Hills',
+             'state'  => 'MI',
+             'zip'    => '48326'],
+
+            ['name'   => "P.F. Chang's",
+             'number' => '122',
+             'street' => 'Adams Rd',
+             'city'   => 'Rochester Hills',
+             'state'  => 'MI',
+             'zip'    => '48309'],
+
+            ['name'   => "Chadd's Bistro",
+             'number' => '1838',
+             'street' => 'E Auburn Rd',
+             'city'   => 'Rochester Hills',
+             'state'  => 'MI',
+             'zip'    => '48307'],
+
+            ['name'   => 'Carnival Market',
+             'number' => '1101',
+             'street' => 'E Walton Blvd',
+             'city'   => 'Pontiac',
+             'state'  => 'MI',
+             'zip'    => '48340'],
+
+            ['name'   => 'Burgrz',
+             'number' => '3204',
+             'street' => 'Walton Blvd',
+             'city'   => 'Rochester Hills',
+             'state'  => 'MI',
+             'zip'    => '48309'],
+
+            ['name'   => '112 Pizzeria Bistro',
+             'number' => '2528',
+             'street' => 'S Adams Rd',
+             'city'   => 'Rochester Hills',
+             'state'  => 'MI',
+             'zip'    => '48309'],
+
+            ['name'   => '2941 Street Food',
+             'number' => '87',
+             'street' => 'W Auburn Rd',
+             'city'   => 'Rochester Hills',
+             'state'  => 'MI',
+             'zip'    => '48307']
+        ];
+
         /* Next, let's loop 20 times to create some users. */
         for ($i = 0; $i < 20; $i++) {
 
