@@ -54,7 +54,7 @@ class UsersController extends AppController{
       $reports = $this->Reports
         ->find()
         //grab all of the rows in the reports table in db
-        ->where(['Report_ID >=' => 0])
+        ->where(['status !=' => 'Found'])
         ->toArray();
 
 
