@@ -14,7 +14,8 @@
 
 <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 my-missing">
+        <h1 class="map-banner">My Cases </h1>
         <?php $count = 0 ?>
         <?php
         foreach ($myreports as $myreport):
@@ -70,11 +71,12 @@
       </div>
     </div>
 </div>
+<div class="page-header">
+    <h1 class="welcome-banner"> Map of Missing </h1>
+</div>
 <div class="containter-fluid map">
   <div class="row map-row">
-
     <div class="col-md-8">
-      <h1 class="map-banner"> Map of Missing People </h1>
       <p class="map-info">
         The map to the right has the last seen locations of people who were reported missing and adresses for local police stations.
       </br>
