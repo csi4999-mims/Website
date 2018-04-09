@@ -236,26 +236,14 @@ class ReportsSeeder extends AbstractSeed
                 null, null
             ]);
 
-            /* Name of place last seen (Last Seen) */
-            $data[$i]['SeenName'] = $faker->word();
-
-            /* Street Name (Last Seen) */
-            $data[$i]['SeenStreet'] = $faker->streetName();
-
-            /* Address Number (Last Seen) */
-            $data[$i]['SeenNumber'] = mt_rand(10,99999);
-
-            /* City (Last Seen) */
-            $data[$i]['SeenCity'] = $faker->city();
-
-            /* State (Last Seen) */
-            $data[$i]['SeenState'] = $faker->randomElement([
-                $faker->state(),
-                $faker->stateAbbr()
-            ]);
-
-            /* Zip (Last Seen) */
-            $data[$i]['SeenZip'] = mt_rand(00001,99999);
+            /* Last Seen section */
+            $last_seen_place = $places[mt_rand(0, count($places) - 1)];
+            $data[$i]['SeenName']   = $last_seen_place['name'];
+            $data[$i]['SeenStreet'] = $last_seen_place['street'];
+            $data[$i]['SeenNumber'] = $last_seen_place['number'];
+            $data[$i]['SeenCity']   = $last_seen_place['city'];
+            $data[$i]['SeenState']  = $last_seen_place['state'];
+            $data[$i]['SeenZip']    = $last_seen_place['zip'];
 
             /* Date Of Occurrence (Last Seen) */
             $data[$i]['SeenWhen'] = $faker->date($format = 'Y-m-d', $max = 'now');
