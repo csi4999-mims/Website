@@ -31,12 +31,19 @@ class ReportsSeeder extends AbstractSeed
         /* Grab a list of case numbers from the database. */
         $cases = $this->fetchAll('SELECT CaseNumber FROM reports');
         /* Filter the list to just the case numbers. */
-        foreach ($cases as $case) {$case_numbers[] = $case['CaseNumber'];}
-        /* Trim out any null, 0, '', or false values. */
-        $cases_numbers = array_filter($case_numbers);
-        /* If there's nothing left over, then just give it a
-           placeholder value. */
-        if (empty($case_numbers)) $case_numbers = [0];
+        foreach ($cases as $case) $case_numbers[] = $case['CaseNumber'];
+        if (defined('case_numbers')) {
+            /* If we got something back from the database, let's clean
+               it up by removing 0, null, '', and false values (just in
+               case). */
+            $cases_numbers = array_filter($case_numbers);
+            /* If that's all there was, just make it 0. */
+            if (empty($case_numbers)) $case_numbers = [0];
+        } else {
+            /* If there was nothing in the database, just make it
+               0. */
+            $case_numbers = [0];
+        }
 
         /* Make a list of places where people might be. */
         $places = [
