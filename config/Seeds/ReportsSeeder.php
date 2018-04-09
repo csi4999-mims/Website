@@ -343,7 +343,14 @@ class ReportsSeeder extends AbstractSeed
                 'Found'
             ]);
 
-            /* Grab a list of case numbers from the database. */
+            /* If the status is 'On Hold', assign a case number of
+               0. */
+            if ($data[$i]['status'] == 'On Hold') {
+                $data[$i]['CaseNumber'] = 0;
+            }
+
+            /* Grab a list of case numbers from the database so we
+               make sure not to repeat ourselves. */
             $case_numbers = $this->fetchAll('SELECT CaseNumber FROM reports');
             foreach ($case_numbers as $case_number) {
                 $my_case_numbers[] = $case_number['CaseNumber'];
