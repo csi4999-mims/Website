@@ -21,11 +21,28 @@ class ReportsSeeder extends AbstractSeed
         /* Then a place to store all the data we create. */
         $data = [];
 
-        /* Let's also get a list of valid email addresses.  These will
-           be used to link the report submitter to the users table. */
+        /* Let's get a list of valid email addresses.  These will be
+           used to link the report submitter to the users table. */
         $users = $this->fetchAll('SELECT email FROM users');
         foreach ($users as $user) {
             $user_emails[] = $user['email'];
+        }
+
+        /* Grab a list of case numbers from the database. */
+        $cases = $this->fetchAll('SELECT CaseNumber FROM reports');
+        /* Filter the list to just the case numbers. */
+        foreach ($cases as $case) $case_numbers[] = $case['CaseNumber'];
+        if (defined('case_numbers')) {
+            /* If we got something back from the database, let's clean
+               it up by removing 0, null, '', and false values (just in
+               case). */
+            $cases_numbers = array_filter($case_numbers);
+            /* If that's all there was, just make it 0. */
+            if (empty($case_numbers)) $case_numbers = [0];
+        } else {
+            /* If there was nothing in the database, just make it
+               0. */
+            $case_numbers = [0];
         }
 
         /* Make a list of places where people might be. */
@@ -356,12 +373,6 @@ class ReportsSeeder extends AbstractSeed
                 'Found'
             ]);
 
-            /* Grab a list of case numbers from the database. */
-            $case_numbers = $this->fetchAll('SELECT CaseNumber FROM reports');
-            foreach ($case_numbers as $case_number) {
-                $my_case_numbers[] = $case_number['CaseNumber'];
-            }
-
             /* If the case is marked as 'In Progress' or 'Found' ... */
             if ($data[$i]['status'] == 'In Progress' || $data[$i]['status'] == 'Found') {
                 /* ... then assign a case number.  If that case number
@@ -371,7 +382,7 @@ class ReportsSeeder extends AbstractSeed
                    session. */
                 do {
                     $data[$i]['CaseNumber'] = mt_rand(1, 999999999999999);
-                } while (in_array($data[$i]['CaseNumber'], $my_case_numbers));
+                } while (in_array($data[$i]['CaseNumber'], $case_numbers));
             }
         }
         $this->insert('reports', $data);
