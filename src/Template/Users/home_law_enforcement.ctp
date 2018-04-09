@@ -214,11 +214,21 @@ var myBarChart = new Chart(ctx, {
 
     type: 'bar',
     data: {
-        labels: ["In Progress", "On Hold", "Found"],
+        label: ["Missing People Status'"],
         datasets: [{
-            label: "Missing People Status",
-            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
-            data: [inProgressCount, holdCount, foundCount],
+            label: "On Hold",
+            backgroundColor: ["#3e95cd"],
+            data: [holdCount],
+        },
+        {
+            label: "In Progress",
+            backgroundColor: ["#8e5ea2"],
+            data: [inProgressCount],
+        },
+        {
+            label: "Found",
+            backgroundColor: ["#3cba9f"],
+            data: [foundCount],
         }]
       },
       options: {
