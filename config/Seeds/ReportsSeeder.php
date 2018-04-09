@@ -72,7 +72,7 @@ class ReportsSeeder extends AbstractSeed
             $data[$i]['MissingEmail'] = $faker->email();
 
             /* Phone */
-            $data[$i]['Phone'] = (string)mt_rand(100000000000000, 999999999999999);
+            $data[$i]['Phone'] = (string)mt_rand(1000000000, 9999999999);
 
             /* Ethnicity */
             $data[$i]['Ethnicity'] = $faker->randomElement([
@@ -208,7 +208,7 @@ class ReportsSeeder extends AbstractSeed
             $data[$i]['FamilyLastName'] = $faker->lastName();
 
             /* Phone (Family/Friend) */
-            $data[$i]['FamilyPhone'] = (string)mt_rand(100000000000000, 999999999999999);
+            $data[$i]['FamilyPhone'] = (string)mt_rand(1000000000, 9999999999);
 
             /* Email (Family/Friend) */
             $data[$i]['FamilyEmail'] = $faker->email();
