@@ -21,8 +21,8 @@ class ReportsSeeder extends AbstractSeed
         /* Then a place to store all the data we create. */
         $data = [];
 
-        /* Let's also get a list of valid email addresses.  These will
-           be used to link the report submitter to the users table. */
+        /* Let's get a list of valid email addresses.  These will be
+           used to link the report submitter to the users table. */
         $users = $this->fetchAll('SELECT email FROM users');
         foreach ($users as $user) {
             $user_emails[] = $user['email'];
