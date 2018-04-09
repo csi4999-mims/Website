@@ -98,7 +98,7 @@ class UsersController extends AppController{
       //get all rows in reports table in db
       $report = $this->Reports
         ->find()
-        ->where(['status =' => 'In Progress'])
+        ->where(['status !=' => 'On Hold'])
         ->toArray();
       //set report model
       //$this->set('report',$report);
@@ -106,6 +106,7 @@ class UsersController extends AppController{
       $myreport = $this->Reports
         ->find()
         ->where(['SubmitterEmail =' => $user->get('email')])
+        ->where(['status !=' => 'Found'])
         ->toArray();
       //set report model
       //$this->set('report',$report);
