@@ -18,7 +18,7 @@
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Cases By Name...">
   <table id="myTable">
   <tr class = "column-titles">
-    <th class = "column-titles">Report Number</th>
+    <th class = "column-titles">Report ID</th>
     <th class = "column-titles">First Name</th>
     <th class = "column-titles">Last Name</th>
     <th class = "column-titles">DOB</th>
@@ -35,7 +35,7 @@
       <td><?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></td>
       <td><?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></td>
       <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
-      <td><?php echo $this->Form->label('LastSeen', array('value' => $report->get('LastSeen'))); ?></td>
+      <td><?php echo $this->Form->label('LastSeen', array('value' => $report->get('SeenWhen'))); ?></td>
       <td><?php echo $this->Form->label('status', array('value' => $report->get('status'))); ?></td>
       <td><?php echo $this->Html->link("Approve", array('controller' => 'reports','action'=> 'approveModal', $report->Report_ID), array( 'class' => 'approve-button button')) ?></td>
       <td><?php echo $this->Html->link("Mark As Found", array('controller' => 'reports','action'=> 'markFound', $report->Report_ID), array( 'class' => 'button')) ?></td>
