@@ -54,6 +54,11 @@ class UsersController extends AppController{
       $reports = $this->Reports
         ->find()
         //grab all of the rows in the reports table in db
+        ->where(['Report_ID >=' => 0])
+        ->toArray();
+      $TableReports = $this->Reports
+        ->find()
+        //grab all of the rows in the reports table in db
         ->where(['status !=' => 'Found'])
         ->toArray();
 
@@ -86,6 +91,7 @@ class UsersController extends AppController{
 
       //set report model
       $this->set('reports', $reports);
+      $this->set('TableReports', $TableReports);
     }
 
 //concerned public home page
