@@ -32,15 +32,6 @@
       <td class="report-number">
             <?= $this->Html->link($TableReport->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $TableReport->Report_ID]) ?>
       </td>
-<<<<<<< HEAD
-      <td><?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></td>
-      <td><?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></td>
-      <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
-      <td><?php echo $this->Form->label('LastSeen', array('value' => $report->get('SeenWhen'))); ?></td>
-      <td><?php echo $this->Form->label('status', array('value' => $report->get('status'))); ?></td>
-      <td><?php echo $this->Html->link("Approve", array('controller' => 'reports','action'=> 'approveModal', $report->Report_ID), array( 'class' => 'approve-button button')) ?></td>
-      <td><?php echo $this->Html->link("Mark As Found", array('controller' => 'reports','action'=> 'markFound', $report->Report_ID), array( 'class' => 'button')) ?></td>
-=======
       <td><?php echo $this->Form->label('FirstName', array('value' => $TableReport->get('FirstName'))); ?></td>
       <td><?php echo $this->Form->label('LastName', array('value' => $TableReport->get('LastName'))); ?></td>
       <td><?php echo $this->Form->label('DoB', array('value' => $TableReport->get('DoB'))); ?></td>
@@ -48,7 +39,6 @@
       <td><?php echo $this->Form->label('status', array('value' => $TableReport->get('status'))); ?></td>
       <td><?php echo $this->Html->link("Approve", array('controller' => 'reports','action'=> 'approveModal', $TableReport->Report_ID), array( 'class' => 'approve-button button')) ?></td>
       <td><?php echo $this->Html->link("Mark As Found", array('controller' => 'reports','action'=> 'markFound', $TableReport->Report_ID), array( 'class' => 'button')) ?></td>
->>>>>>> 306cccfa6f8d04e6bf0ce2b2d9ed60135f57168c
     </tr>
   <?php endforeach; ?>
 </table>
