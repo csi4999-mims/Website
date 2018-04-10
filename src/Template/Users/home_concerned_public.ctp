@@ -14,7 +14,8 @@
 
 <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 my-missing">
+        <h1 class="map-banner">My Cases </h1>
         <?php $count = 0 ?>
         <?php
         foreach ($myreports as $myreport):
@@ -31,8 +32,8 @@
               <div class="row">
                 <ul>
                     <li>Case Status:<?php echo $this->Form->label('status', array('value' => $myreport->get('status'))); ?></li>
-                    <li>Date Created:<?php echo $this->Form->label('date', array('value' => $myreport->get('date'))); ?></li>
-                    <li>Case Number:<?= $this->Html->link($myreport->Report_ID, ['controller' => 'reports','action' => 'publicDetailedReport', $myreport->Report_ID]) ?></li>
+                    <li>Last Seen: <?php echo $this->Form->label('LastSeen', array('value' => $report->get('SeenWhen'))); ?></li>
+                    <li>Report ID:<?= $this->Html->link($myreport->Report_ID, ['controller' => 'reports','action' => 'publicDetailedReport', $myreport->Report_ID]) ?></li>
                     <li>Latest Update:</li>
                 </ul>
               </div>
@@ -62,7 +63,7 @@
                       <li>Weight: <?php echo $this->Form->label('Weight', array('value' => $report->get('Weight'))); ?></li>
                       <li>Marks/Tattoos: <?php echo $this->Form->label('MarksTattoos', array('value' => $report->get('MarksTattoos'))); ?></li>
                       <li>Gender: <?php echo $this->Form->label('Gender', array('value' => $report->get('Gender'))); ?></li>
-                      <li>Last Seen: <?php echo $this->Form->label('LastSeen', array('value' => $report->get('LastSeen'))); ?></li>
+                      <li>Last Seen: <?php echo $this->Form->label('LastSeen', array('value' => $report->get('SeenWhen'))); ?></li>
                   </ul>
               </div>
           </div>
@@ -70,11 +71,12 @@
       </div>
     </div>
 </div>
+<div class="page-header">
+    <h1 class="welcome-banner"> Map of Missing </h1>
+</div>
 <div class="containter-fluid map">
   <div class="row map-row">
-
     <div class="col-md-8">
-      <h1 class="map-banner"> Map of Missing People </h1>
       <p class="map-info">
         The map to the right has the last seen locations of people who were reported missing and adresses for local police stations.
       </br>

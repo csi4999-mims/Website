@@ -7,6 +7,7 @@
   <?= $this->Html->script("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"); ?>
   <?= $this->Html->script("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"); ?>
   <?= $this->Html->script("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"); ?>
+  <?= $this->Html->css('custom'); ?>
 </head>
 <body>
 <div class="page-header">
@@ -16,28 +17,28 @@
   <div class="le-table">
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Cases By Name...">
   <table id="myTable">
-  <tr>
-    <th>Report Number</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>DOB</th>
-    <th>Last Seen:</th>
-    <th>Status</th>
-    <th>Approve Case</th>
-    <th>Found?</th>
+  <tr class = "column-titles">
+    <th class = "column-titles">Report ID</th>
+    <th class = "column-titles">First Name</th>
+    <th class = "column-titles">Last Name</th>
+    <th class = "column-titles">DOB</th>
+    <th class = "column-titles">Last Seen:</th>
+    <th class = "column-titles">Status</th>
+    <th class = "column-titles">Approve Case</th>
+    <th class = "column-titles">Found?</th>
   </tr>
-  <?php foreach ($reports as $report): ?>
+  <?php foreach ($TableReports as $TableReport): ?>
     <tr>
-      <td>
-            <?= $this->Html->link($report->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $report->Report_ID]) ?>
+      <td class="report-number">
+            <?= $this->Html->link($TableReport->Report_ID, ['controller' => 'reports','action' => 'detailedReport', $TableReport->Report_ID]) ?>
       </td>
-      <td><?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></td>
-      <td><?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></td>
-      <td><?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></td>
-      <td><?php echo $this->Form->label('LastSeen', array('value' => $report->get('LastSeen'))); ?></td>
-      <td><?php echo $this->Form->label('status', array('value' => $report->get('status'))); ?></td>
-      <td><?php echo $this->Html->link("Approve", array('controller' => 'reports','action'=> 'approveModal', $report->Report_ID), array( 'class' => 'approve-button button')) ?></td>
-      <td><?php echo $this->Html->link("Mark As Found", array('controller' => 'reports','action'=> 'markFound', $report->Report_ID), array( 'class' => 'button')) ?></td>
+      <td><?php echo $this->Form->label('FirstName', array('value' => $TableReport->get('FirstName'))); ?></td>
+      <td><?php echo $this->Form->label('LastName', array('value' => $TableReport->get('LastName'))); ?></td>
+      <td><?php echo $this->Form->label('DoB', array('value' => $TableReport->get('DoB'))); ?></td>
+      <td><?php echo $this->Form->label('LastSeen', array('value' => $TableReport->get('LastSeen'))); ?></td>
+      <td><?php echo $this->Form->label('status', array('value' => $TableReport->get('status'))); ?></td>
+      <td><?php echo $this->Html->link("Approve", array('controller' => 'reports','action'=> 'approveModal', $TableReport->Report_ID), array( 'class' => 'approve-button button')) ?></td>
+      <td><?php echo $this->Html->link("Mark As Found", array('controller' => 'reports','action'=> 'markFound', $TableReport->Report_ID), array( 'class' => 'button')) ?></td>
     </tr>
   <?php endforeach; ?>
 </table>
@@ -107,11 +108,11 @@
         );
       ?>
       <?= $this->GoogleMap->map($map_options); ?>
-      <?php foreach ($reports as $report): ?>
-            <?= $this->GoogleMap->addMarker("map_canvas", 1, $report->get('FamilyStreet') . $report->get('FamilyCity') . $report->get('FamilyState') . $report->get('FamilyZip'), array(
+      <?php foreach ($TableReports as $TableReport): ?>
+            <?= $this->GoogleMap->addMarker("map_canvas", 1, $TableReport->get('FamilyStreet') . $TableReport->get('FamilyCity') . $TableReport->get('FamilyState') . $TableReport->get('FamilyZip'), array(
           "showWindow"   => true,
-          "windowText"   => "Name: " . $report->get('FirstName') . " " . $report->get('LastName') .  " DOB: " . $report->get('DoB') . " Last Seen: "
-          . $report->get('SeenWhen'),
+          "windowText"   => "Name: " . $TableReport->get('FirstName') . " " . $TableReport->get('LastName') .  " DOB: " . $TableReport->get('DoB') . " Last Seen: "
+          . $TableReport->get('SeenWhen'),
           "markerTitle"  => "Title",
           "markerIcon"   => "http://labs.google.com/ridefinder/images/mm_20_purple.png",
           "markerShadow" => "http://labs.google.com/ridefinder/images/mm_20_purpleshadow.png"
@@ -206,16 +207,28 @@ var substanceAbuserCount = substanceAbuser.length;
 var humanTrafficking = <?php echo json_encode($humanTrafficking) ?>;
 var humanTraffickingCount = humanTrafficking.length;
 
+var maxValue = Math.max(inProgressCount,holdCount,foundCount);
+
 var ctx = document.getElementById('statusBarChart').getContext('2d');
 var myBarChart = new Chart(ctx, {
 
     type: 'bar',
     data: {
-        labels: ["In Progress", "On Hold", "Found"],
+        label: ["Missing People Status'"],
         datasets: [{
-            label: "Missing People Status",
-            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
-            data: [inProgressCount, holdCount, foundCount],
+            label: "On Hold",
+            backgroundColor: ["#3e95cd"],
+            data: [holdCount],
+        },
+        {
+            label: "In Progress",
+            backgroundColor: ["#8e5ea2"],
+            data: [inProgressCount],
+        },
+        {
+            label: "Found",
+            backgroundColor: ["#3cba9f"],
+            data: [foundCount],
         }]
       },
       options: {
@@ -229,12 +242,7 @@ var myBarChart = new Chart(ctx, {
        scales: {
            yAxes: [{
                    display: true,
-                   ticks: {
-                       beginAtZero: true,
-                       steps: 10,
-                       stepValue: 5,
-                       max: 100
-                   }
+                   ticks: {beginAtZero:true,max:maxValue}
                }]
        },
        title: {
@@ -245,7 +253,7 @@ var myBarChart = new Chart(ctx, {
 });
 
 var ctx = document.getElementById('categoryPieChart').getContext('2d');
-var myBarChart = new Chart(ctx, {
+var myPieChart = new Chart(ctx, {
 
     type: 'pie',
     data: {
