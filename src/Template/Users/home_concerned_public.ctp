@@ -32,7 +32,7 @@
               <div class="row">
                 <ul>
                     <li>Case Status:<?php echo $this->Form->label('status', array('value' => $myreport->get('status'))); ?></li>
-                    <li>Last Seen: <?php echo $this->Form->label('SeenWhen', array('value' => $report->get('SeenWhen'))); ?></li>
+                    <li>Last Seen: <?php echo $this->Form->label('SeenWhen', array('value' => $myreport->get('SeenWhen'))); ?></li>
                     <li>Report ID:<?= $this->Html->link($myreport->Report_ID, ['controller' => 'reports','action' => 'publicDetailedReport', $myreport->Report_ID]) ?></li>
                     <li>Latest Update:</li>
                 </ul>
