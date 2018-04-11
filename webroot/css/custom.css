@@ -410,3 +410,11 @@ th.column-titles{
   overflow-y:scroll;
   margin-bottom: 50px;
 }
+
+.approve-heading {
+  color: #cc0000;
+}
+
+.found-heading {
+  color: #cc0000;
+}
