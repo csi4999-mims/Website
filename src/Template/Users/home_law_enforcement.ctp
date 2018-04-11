@@ -2,7 +2,7 @@
 <html>
 <head>
   <?= $this->Html->script("//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", [false]); ?>
-  <?= $this->Html->script('http://maps.google.com/maps/api/js?key=AIzaSyD0h-HXglQ5F0qt0pCRanVJsPwO6EnJYBg&sensor=true', [false]); ?>
+  <?= $this->Html->script('https://maps.google.com/maps/api/js?key=AIzaSyD0h-HXglQ5F0qt0pCRanVJsPwO6EnJYBg&sensor=true', [false]); ?>
   <?= $this->Html->script("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"); ?>
   <?= $this->Html->script("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"); ?>
   <?= $this->Html->script("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"); ?>
