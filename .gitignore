@@ -47,4 +47,4 @@ nbproject/*
 .sass-cache/
 
 # images directory, containing the images of the missing
-webroot/img/*
+webroot/img/missing_person_photos/*
