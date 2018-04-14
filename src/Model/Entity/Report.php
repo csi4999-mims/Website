@@ -104,6 +104,9 @@ class Report extends Entity
       'seen_state' => true,
       'seen_zip' => true,
 
+      //photo
+      'Photo' => true,
+
     ];
 
 }
