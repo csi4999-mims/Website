@@ -2,7 +2,7 @@
 <html>
 <head>
   <?= $this->Html->script("//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", [false]); ?>
-  <?= $this->Html->script('http://maps.google.com/maps/api/js?key=AIzaSyD0h-HXglQ5F0qt0pCRanVJsPwO6EnJYBg&sensor=true', [false]); ?>
+  <?= $this->Html->script('https://maps.google.com/maps/api/js?key=AIzaSyD0h-HXglQ5F0qt0pCRanVJsPwO6EnJYBg&sensor=true', [false]); ?>
   <?= $this->Html->script("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"); ?>
   <?= $this->Html->script("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"); ?>
   <?= $this->Html->script("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"); ?>
@@ -35,7 +35,7 @@
       <td><?php echo $this->Form->label('FirstName', array('value' => $TableReport->get('FirstName'))); ?></td>
       <td><?php echo $this->Form->label('LastName', array('value' => $TableReport->get('LastName'))); ?></td>
       <td><?php echo $this->Form->label('DoB', array('value' => $TableReport->get('DoB'))); ?></td>
-      <td><?php echo $this->Form->label('LastSeen', array('value' => $TableReport->get('LastSeen'))); ?></td>
+      <td><?php echo $this->Form->label('SeenWhen', array('value' => $TableReport->get('SeenWhen'))); ?></td>
       <td><?php echo $this->Form->label('status', array('value' => $TableReport->get('status'))); ?></td>
       <td><?php echo $this->Html->link("Approve", array('controller' => 'reports','action'=> 'approveModal', $TableReport->Report_ID), array( 'class' => 'approve-button button')) ?></td>
       <td><?php echo $this->Html->link("Mark As Found", array('controller' => 'reports','action'=> 'markFound', $TableReport->Report_ID), array( 'class' => 'button')) ?></td>

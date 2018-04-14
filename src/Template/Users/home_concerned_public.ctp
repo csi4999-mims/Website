@@ -2,7 +2,7 @@
 <html>
 <head>
   <?= $this->Html->script("//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", [false]); ?>
-  <?= $this->Html->script('http://maps.google.com/maps/api/js?key=AIzaSyD0h-HXglQ5F0qt0pCRanVJsPwO6EnJYBg&sensor=true', [false]); ?>
+  <?= $this->Html->script('https://maps.google.com/maps/api/js?key=AIzaSyD0h-HXglQ5F0qt0pCRanVJsPwO6EnJYBg&sensor=true', [false]); ?>
 </head>
 <body>
   <div class="jumbotron jumbotron-public-home">
@@ -32,7 +32,7 @@
               <div class="row">
                 <ul>
                     <li>Case Status:<?php echo $this->Form->label('status', array('value' => $myreport->get('status'))); ?></li>
-                    <li>Last Seen: <?php echo $this->Form->label('LastSeen', array('value' => $report->get('SeenWhen'))); ?></li>
+                    <li>Last Seen: <?php echo $this->Form->label('SeenWhen', array('value' => $myreport->get('SeenWhen'))); ?></li>
                     <li>Report ID:<?= $this->Html->link($myreport->Report_ID, ['controller' => 'reports','action' => 'publicDetailedReport', $myreport->Report_ID]) ?></li>
                     <li>Latest Update:</li>
                 </ul>
