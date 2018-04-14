@@ -6,10 +6,21 @@ use Cake\Validation\Validator;
 
 class ReportsTable extends Table
 {
-    
+  public function initialize(array $config)
+  {
+
+      // for CakePHP 3.0.x-3.3.x, use the following lines instead of the previous:
+      $this->table('reports');
+      $this->displayField('Report_ID');
+      $this->primaryKey('Report_ID');
+
+      $this->addBehavior('Josegonzalez/Upload.Upload', [
+            'photo',
+        ]);
+  }
     public function validationReport(Validator $validator)
     {
-        
+
         return $validator
             ->notEmpty('FirstName', 'A first name is required')
 			->notEmpty('LastName', 'A last name is required')
@@ -24,12 +35,12 @@ class ReportsTable extends Table
 			->notEmpty('Phone', 'Please enter a phone number for the missing person');
 			//->notEmpty('SocialMedia', 'Please enter the missing persons social media account information')
 			//->notEmpty('additional', 'Please enter any additional information') This should be allowed to be null
-            
+
 	}
-    
+
     public function validationReport2(Validator $validator)
     {
-        
+
      return $validator
          ->notEmpty('FirstName', 'A first name is required')
          ->notempty('LastName', 'A last name is required')
@@ -41,14 +52,14 @@ class ReportsTable extends Table
          ->notempty('Zip', 'A Zip Code is reqired')
          ->notempty('Phone', 'A Phone Number is required')
          ->notempty('Email', 'An Email is required');
-         
+
 
     }
-    
+
     public function validationReport3(Validator $validator)
     {
-     
-        
+
+
         return $validator
             ->notempty('Name','A name of the place is required')
             ->notempty('Street','A street is required')
@@ -56,7 +67,7 @@ class ReportsTable extends Table
             ->notempty('State','A state is required')
             ->notempty('Zip','A Zip Code is required')
             ->notempty('Email','An Email is requred');
-                        
+
     }
 }
 
