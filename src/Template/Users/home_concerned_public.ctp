@@ -26,9 +26,15 @@
                 <h3 class="panel-title">My Case <?php echo $count ?></h3>
             </div>
             <div class="panel-body">
-              <div class=" row panel-img">
-                <?php echo $this->Html->image('usericon2.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
-              </div>
+                <div class=" row panel-img">
+                    <?php
+                    $picture_of_missing = 'missing_person_photos/' . $myreport->Report_ID . '.jpg';
+                    if (!file_exists('img/' . $picture_of_missing)) {
+                        $picture_of_missing = 'usericon.png';
+                    }
+                    ?>
+                    <?php echo $this->Html->image($picture_of_missing, ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
+                </div>
               <div class="row">
                 <ul>
                     <li>Case Status:<?php echo $this->Form->label('status', array('value' => $myreport->get('status'))); ?></li>
@@ -48,7 +54,13 @@
         <?php foreach ($reports as $report): ?>
           <div class="row well missing-info">
               <div class="col-md-6">
-                  <?php echo $this->Html->image('usericon2.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
+                  <?php
+                  $picture_of_missing = 'missing_person_photos/' . $report->Report_ID . '.jpg';
+                  if (!file_exists('img/' . $picture_of_missing)) {
+                      $picture_of_missing = 'usericon.png';
+                  }
+                  ?>
+                  <?php echo $this->Html->image($picture_of_missing, ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
                   <div class="row comment-row">
                     <!-- Comment Button  -->
                     <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button button')) ?>
