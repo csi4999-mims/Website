@@ -15,7 +15,7 @@
       <div id="display-missing" class="container-fluid">
               <div class="row photo-row">
                 <div class="col-md-6">
-                    <?php echo $this->Html->image('usericon2.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
+                    <?php echo $this->Html->image($report->Report_ID . '.jpg', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
                 </div>
                 <div class="col-md-6">
                   <div class="row">
