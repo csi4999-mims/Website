@@ -38,14 +38,6 @@
                       <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button btn button')) ?>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <!-- Mark As Found Button trigger modal -->
-                      <button type="button" class="button btn found-button" data-toggle="modal" data-target="#foundModal">
-                        Mark As Found
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div class="row">
@@ -85,6 +77,7 @@
                     <?php
                     echo $this->Form->label('Date of Birth');
                     echo $this->Form->date('editDoB', [
+                      'value' => $report->get('DoB'),
                       'minYear' => 1900,
                       'monthNames' => true,
                       'empty' => [
@@ -112,7 +105,7 @@
 
                     <div class="row">
                       <div class="col-md-4">
-                        <?php echo $this->Form->input('editSubmitterEmail', array('value' => $report->get('SubmitterEmail'),'label'
+                        <?php echo $this->Form->input('editMissingEmail', array('value' => $report->get('SubmitterEmail'),'label'
                          => 'Email Address', 'maxLength' => 100, 'title' => 'Email', 'type' => 'email')); ?>
                       </div>
                       <div class="col-md-4">
@@ -255,8 +248,9 @@
 
 
                             <?php
-                            echo $this->Form->label('Date of Occurance');
+                            echo $this->Form->label('Date of Occurrence');
                             echo $this->Form->date('editSeenWhen', [
+                              'value' => $report->get('SeenWhen'),
                               'minYear' => 1900,
                               'monthNames' => true,
                               'empty' => [
@@ -442,6 +436,7 @@
                     <?php
                     echo $this->Form->label('Started Working:');
                     echo $this->Form->date('editWorkplaceStartDate', [
+                      'value' => $report->get('WorkplaceStartDate'),
                       'minYear' => 1900,
                       'monthNames' => true,
                       'empty' => [
@@ -467,6 +462,7 @@
                     <?php
                     echo $this->Form->label('Stopped Working:');
                     echo $this->Form->date('editWorkplaceEndDate', [
+                      'value' => $report->get('WorkplaceEndDate'),
                       'minYear' => 1900,
                       'monthNames' => true,
                       'empty' => [
@@ -495,6 +491,13 @@
                          'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
                       </div>
                     </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <?php
+                  echo $this->Form->submit('Update Case', array('class' => 'form-submit btn button update-button',  'title' => 'Click here to update the user account') );
+                  ?>
+                </div>
               </div>
       </div>
     </fieldset>

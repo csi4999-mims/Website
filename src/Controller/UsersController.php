@@ -56,6 +56,11 @@ class UsersController extends AppController{
         //grab all of the rows in the reports table in db
         ->where(['Report_ID >=' => 0])
         ->toArray();
+      $TableReports = $this->Reports
+        ->find()
+        //grab all of the rows in the reports table in db
+        ->where(['status !=' => 'Found'])
+        ->toArray();
 
 
         // //Approving Modal Input
@@ -86,6 +91,7 @@ class UsersController extends AppController{
 
       //set report model
       $this->set('reports', $reports);
+      $this->set('TableReports', $TableReports);
     }
 
 //concerned public home page
@@ -98,7 +104,7 @@ class UsersController extends AppController{
       //get all rows in reports table in db
       $report = $this->Reports
         ->find()
-        ->where(['status =' => 'In Progress'])
+        ->where(['status !=' => 'On Hold'])
         ->toArray();
       //set report model
       //$this->set('report',$report);
@@ -106,6 +112,7 @@ class UsersController extends AppController{
       $myreport = $this->Reports
         ->find()
         ->where(['SubmitterEmail =' => $user->get('email')])
+        ->where(['status !=' => 'Found'])
         ->toArray();
       //set report model
       //$this->set('report',$report);

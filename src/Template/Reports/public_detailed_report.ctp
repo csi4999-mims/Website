@@ -63,7 +63,7 @@
                     <hr>
                     <div class="row">
                       <div class="col-md-8">
-                        <label class="report-label"> Report Submitter Email: <span><?php echo $report->get('SubmitterEmail')?></span></label>
+                        <label class="report-label"> Email: <span><?php echo $report->get('MissingEmail')?></span></label>
                       </div>
                       <div class="col-md-4">
                         <label class="report-label"> Phone: <span><?php echo $report->get('Phone')?></span></label>

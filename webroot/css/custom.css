@@ -389,3 +389,32 @@ input.form-submit.submit-report-button.button.btn.btn-default:hover {
   width: 40px;
   padding-bottom: 15px;
 }
+
+canvas {
+  margin: 70px;
+}
+
+.le-table {
+  height: 300px;
+  overflow-y: scroll;
+}
+th.column-titles{
+  font-size: 15px;
+}
+.report-number{
+  font-size: 20px;
+  font-weight: bold;
+}
+.my-missing {
+  height: 600px;
+  overflow-y:scroll;
+  margin-bottom: 50px;
+}
+
+.approve-heading {
+  color: #cc0000;
+}
+
+.found-heading {
+  color: #cc0000;
+}

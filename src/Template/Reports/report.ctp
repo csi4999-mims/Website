@@ -68,7 +68,10 @@
       </br>
         <div class="row">
           <div class="col-md-4">
-            <?php echo $this->Form->input('SubmitterEmail', array('label'
+            <?php echo $this->Form->hidden('SubmitterEmail', array('label'
+             => 'Email Address', 'maxLength' => 100, 'title' => 'Email', 'type' => 'email', 'value' => $user->get('email'))); ?>
+
+            <?php echo $this->Form->input('MissingEmail', array('label'
              => 'Email Address', 'maxLength' => 100, 'title' => 'Email', 'type' => 'email')); ?>
           </div>
           <div class="col-md-4">
@@ -211,7 +214,7 @@
         <div class="row">
           <div class="col-md-12">
             <?php
-            echo $this->Form->label('Date of Occurance');
+            echo $this->Form->label('Date of Occurrence');
             echo $this->Form->date('SeenWhen', [
               'minYear' => 1900,
               'monthNames' => true,

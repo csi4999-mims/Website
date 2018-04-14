@@ -42,6 +42,12 @@ class ReportsController extends AppController{
 
 //function to view the detailed reports page
     public function detailedReport($Report_ID = null) {
+      //load user for home button
+      $this->loadModel('Users');
+      $user =$this->Users->get($this->Auth->user('id'));
+      $this->set('user',$user);
+
+
       $report = $this->Reports->get($Report_ID);
       $this->set(compact('report'));
 
@@ -282,6 +288,19 @@ class ReportsController extends AppController{
                 $this->Flash->success('The Phone is successfully changed');
             } else {
                 $this->Flash->error('Phone was not saved');
+            }
+          }
+      }
+      //edit email
+      if(!empty($this->request->data)) {
+          $report = $this->Reports->patchEntity($report, [
+              'MissingEmail' => $this->request->data['editMissingEmail'],
+              ]);
+          if ($report->dirty('MissingEmail') == true){
+            if ($this->Reports->save($report)) {
+                $this->Flash->success('The Email is successfully changed');
+            } else {
+                $this->Flash->error('Email was not saved');
             }
           }
       }
@@ -856,6 +875,10 @@ class ReportsController extends AppController{
 //function to display the public detailed report
 //this report has all readonly fields
     public function publicDetailedReport($Report_ID = null) {
+      $this->loadModel('Users');
+      $user =$this->Users->get($this->Auth->user('id'));
+      $this->set('user',$user);
+
       $report = $this->Reports->get($Report_ID);
       $this->set(compact('report'));
     }
@@ -889,6 +912,30 @@ public function approveModal($Report_ID = null) {
 
     $this->set('report',$report);
 
+}
+
+//function to mark the report status as found-submit
+public function markFound($Report_ID = null){
+
+  //load user for home button
+  $this->loadModel('Users');
+  $user =$this->Users->get($this->Auth->user('id'));
+  $this->set('user',$user);
+
+  //load reports model
+  $report = $this->Reports->get($Report_ID);
+  $this->set(compact('report'));
+
+  //change status to found
+  $report = $this->Reports->patchEntity($report, [
+    'status' => 'Found'
+  ]);
+  if ($this->Reports->save($report)) {
+
+      $this->Flash->success('The report has been marked as Found');
+  } else {
+      $this->Flash->error('Unable to mark as Found');
+  }
 }
 
 }
