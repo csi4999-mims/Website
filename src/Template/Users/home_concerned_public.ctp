@@ -103,10 +103,6 @@
         <li>Name</li>
         <li>Date of Birth</li>
         <li>Last Seen Location</li>
-        <li>Hair Color</li>
-        <li>Eye Color</li>
-        <li>Height</li>
-        <li>Weight</li>
       </ul>
       </br>
       When you click on a red map marker you can see the following information about the police station:
@@ -146,16 +142,19 @@
         );
       ?>
       <?= $this->GoogleMap->map($map_options); ?>
+      <?php $markerCount = 0; ?>
       <?php foreach ($reports as $report): ?>
-            <?= $this->GoogleMap->addMarker("map_canvas", 1, $report->get('FamilyStreet') . $report->get('FamilyCity') . $report->get('FamilyState') . $report->get('FamilyZip'), array(
-          "showWindow"   => true,
-          "windowText"   => "Name: " . $report->get('FirstName') . " " . $report->get('LastName') .  " DOB: " . $report->get('DoB') . " Last Seen: "
-          . $report->get('SeenWhen'),
-          "markerTitle"  => "Title",
-          "markerIcon"   => "http://labs.google.com/ridefinder/images/mm_20_purple.png",
-          "markerShadow" => "http://labs.google.com/ridefinder/images/mm_20_purpleshadow.png"
-        )); ?>
-      <?php endforeach; ?>
+        <?php $markerCount +=1 ?>
+        <?php if($markerCount > 5) break; ?>
+                  <?= $this->GoogleMap->addMarker("map_canvas", 1, $report->get('FamilyStreet') . $report->get('FamilyCity') . $report->get('FamilyState') . $report->get('FamilyZip'), array(
+                "showWindow"   => true,
+                "windowText"   => "Name: " . $report->get('FirstName') . " " . $report->get('LastName') .  " DOB: " . $report->get('DoB') . " Last Seen: "
+                . $report->get('SeenWhen'),
+                "markerTitle"  => "Title",
+                "markerIcon"   => "http://labs.google.com/ridefinder/images/mm_20_purple.png",
+                "markerShadow" => "http://labs.google.com/ridefinder/images/mm_20_purpleshadow.png"
+              )); ?>
+            <?php endforeach; ?>
       <?= $this->GoogleMap->addMarker("map_canvas", 1, "400 6th St, Rochester, Michigan 48307",array('showWindow'   => true,
       'windowText'   => "Rochester Police: 400 6th St, Rochester, MI 48307")); ?>
       <?= $this->GoogleMap->addMarker("map_canvas", 1, "1899 N Squirrel Rd, Auburn Hills, Michigan 48326",array('showWindow'   => true,
