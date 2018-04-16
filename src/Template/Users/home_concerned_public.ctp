@@ -143,7 +143,10 @@
       ?>
       <?= $this->GoogleMap->map($map_options); ?>
         <?php
+        $report_count = 0;
         foreach ($reports as $report) {
+            $report_count += 1;
+            if ($report_count > 5) break;
             $window_text = "Name: " . $report->get('FirstName') . " " . $report->get('LastName') . " " .
                            "DOB: " . $report->get('DoB') . " " .
                            "Last Seen: " . $report->get('SeenWhen');
