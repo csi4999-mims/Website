@@ -160,7 +160,7 @@
                     "showWindow"   => true,
                     "markerTitle"  => "Title",
                     "markerIcon"   => "http://labs.google.com/ridefinder/images/mm_20_purple.png",
-                    "markerShadow" => "http://labs.google.com/ridefinder/images/mm_20_purpleshadow.png"
+                    "markerShadow" => "http://labs.google.com/ridefinder/images/mm_20_purpleshadow.png",
                     "windowText"   => $window_text,
                 ],
             );
