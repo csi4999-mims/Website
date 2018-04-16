@@ -26,15 +26,20 @@
                 <h3 class="panel-title">My Case <?php echo $count ?></h3>
             </div>
             <div class="panel-body">
-              <div class=" row panel-img">
-                <?php echo $this->Html->image('usericon2.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
-              </div>
+                <div class=" row panel-img">
+                    <?php
+                    $picture_of_missing = 'missing_person_photos/' . $myreport->Report_ID . '.jpg';
+                    if (!file_exists('img/' . $picture_of_missing)) {
+                        $picture_of_missing = 'usericon.png';
+                    }
+                    ?>
+                    <?php echo $this->Html->image($picture_of_missing, ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
+                </div>
               <div class="row">
                 <ul>
                     <li>Case Status:<?php echo $this->Form->label('status', array('value' => $myreport->get('status'))); ?></li>
                     <li>Last Seen: <?php echo $this->Form->label('SeenWhen', array('value' => $myreport->get('SeenWhen'))); ?></li>
                     <li>Report ID:<?= $this->Html->link($myreport->Report_ID, ['controller' => 'reports','action' => 'publicDetailedReport', $myreport->Report_ID]) ?></li>
-                    <li>Latest Update:</li>
                 </ul>
               </div>
               <!-- Comment Button -->
@@ -48,7 +53,13 @@
         <?php foreach ($reports as $report): ?>
           <div class="row well missing-info">
               <div class="col-md-6">
-                  <?php echo $this->Html->image('usericon2.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
+                  <?php
+                  $picture_of_missing = 'missing_person_photos/' . $report->Report_ID . '.jpg';
+                  if (!file_exists('img/' . $picture_of_missing)) {
+                      $picture_of_missing = 'usericon.png';
+                  }
+                  ?>
+                  <?php echo $this->Html->image($picture_of_missing, ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
                   <div class="row comment-row">
                     <!-- Comment Button  -->
                     <?php echo $this->Html->link("Comment", array('controller' => 'comments','action'=> 'commentModal', $report->Report_ID), array( 'class' => 'comment-button button')) ?>
@@ -59,7 +70,7 @@
                       <li>First Name: <?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></li>
                       <li>Last Name: <?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></li>
                       <li>Date of Birth: <?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></li>
-                      <li>Height: <?php echo $this->Form->label('Height', array('value' => $report->get('Height'))); ?></li>
+                      <li>Height: <?php echo $this->Form->label('HeightFeet', array('value' => $report->get('HeightFeet'))); ?>(ft) <?php echo $this->Form->label('HeightInches', array('value' => $report->get('HeightInches'))); ?>(in)</li>
                       <li>Weight: <?php echo $this->Form->label('Weight', array('value' => $report->get('Weight'))); ?></li>
                       <li>Marks/Tattoos: <?php echo $this->Form->label('MarksTattoos', array('value' => $report->get('MarksTattoos'))); ?></li>
                       <li>Gender: <?php echo $this->Form->label('Gender', array('value' => $report->get('Gender'))); ?></li>

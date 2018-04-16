@@ -17,7 +17,7 @@
                   <div class="col-md-6">
                       <?php
                       $picture_of_missing = 'missing_person_photos/' . $report->Report_ID . '.jpg';
-                      if (!file_exists($picture_of_missing)) {
+                      if (!file_exists('img/' . $picture_of_missing)) {
                           $picture_of_missing = 'usericon.png';
                       }
                       ?>

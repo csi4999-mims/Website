@@ -39,9 +39,15 @@
   ?>
 </div>
   <div class="row photo-row">
-    <div class="col-md-6">
-        <?php echo $this->Html->image('usericon2.png', ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
-    </div>
+      <div class="col-md-6">
+          <?php
+          $picture_of_missing = 'missing_person_photos/' . $report->Report_ID . '.jpg';
+          if (!file_exists('img/' . $picture_of_missing)) {
+              $picture_of_missing = 'usericon.png';
+          }
+          ?>
+          <?php echo $this->Html->image($picture_of_missing, ['alt' => 'Image of missing person', 'class' => 'photos-missing']); ?>
+      </div>
 </div>
   <div class="row">
     <h1 class="report-legend">Missing Person Information</h1>
