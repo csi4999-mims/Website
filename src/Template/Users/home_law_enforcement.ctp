@@ -104,7 +104,10 @@
         );
       ?>
       <?= $this->GoogleMap->map($map_options); ?>
+      <?php $markerCount = 0; ?>
       <?php foreach ($TableReports as $TableReport): ?>
+        <?php $markerCount +=1 ?>
+        <?php if($markerCount > 5) break; ?>
             <?= $this->GoogleMap->addMarker("map_canvas", 1, $TableReport->get('FamilyStreet') . $TableReport->get('FamilyCity') . $TableReport->get('FamilyState') . $TableReport->get('FamilyZip'), array(
           "showWindow"   => true,
           "windowText"   => "Name: " . $TableReport->get('FirstName') . " " . $TableReport->get('LastName') .  " DOB: " . $TableReport->get('DoB') . " Last Seen: "
