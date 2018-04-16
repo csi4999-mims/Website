@@ -103,10 +103,6 @@
         <li>Name</li>
         <li>Date of Birth</li>
         <li>Last Seen Location</li>
-        <li>Hair Color</li>
-        <li>Eye Color</li>
-        <li>Height</li>
-        <li>Weight</li>
       </ul>
       </br>
       When you click on a red map marker you can see the following information about the police station:
