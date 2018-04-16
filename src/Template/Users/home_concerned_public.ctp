@@ -142,16 +142,27 @@
         );
       ?>
       <?= $this->GoogleMap->map($map_options); ?>
-      <?php foreach ($reports as $report): ?>
-            <?= $this->GoogleMap->addMarker("map_canvas", 1, $report->get('FamilyStreet') . $report->get('FamilyCity') . $report->get('FamilyState') . $report->get('FamilyZip'), array(
-          "showWindow"   => true,
-          "windowText"   => "Name: " . $report->get('FirstName') . " " . $report->get('LastName') .  " DOB: " . $report->get('DoB') . " Last Seen: "
-          . $report->get('SeenWhen'),
-          "markerTitle"  => "Title",
-          "markerIcon"   => "http://labs.google.com/ridefinder/images/mm_20_purple.png",
-          "markerShadow" => "http://labs.google.com/ridefinder/images/mm_20_purpleshadow.png"
-        )); ?>
-      <?php endforeach; ?>
+        <?php
+        foreach ($reports as $report) {
+            $window_text = "Name: " . $report->get('FirstName') . " " . $report->get('LastName') . " " .
+                           "DOB: " . $report->get('DoB') . " " .
+                           "Last Seen: " . $report->get('SeenWhen');
+            $this->GoogleMap->addMarker(
+                "map_canvas", 1,
+                $report->get('FamilyStreet') .
+                $report->get('FamilyCity') .
+                $report->get('FamilyState') .
+                $report->get('FamilyZip'),
+                [
+                    "showWindow"   => true,
+                    "markerTitle"  => "Title",
+                    "markerIcon"   => "http://labs.google.com/ridefinder/images/mm_20_purple.png",
+                    "markerShadow" => "http://labs.google.com/ridefinder/images/mm_20_purpleshadow.png"
+                    "windowText"   => $window_text,
+                ],
+            );
+        }
+        ?>
       <?= $this->GoogleMap->addMarker("map_canvas", 1, "400 6th St, Rochester, Michigan 48307",array('showWindow'   => true,
       'windowText'   => "Rochester Police: 400 6th St, Rochester, MI 48307")); ?>
       <?= $this->GoogleMap->addMarker("map_canvas", 1, "1899 N Squirrel Rd, Auburn Hills, Michigan 48326",array('showWindow'   => true,
