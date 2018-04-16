@@ -34,7 +34,6 @@
                     <li>Case Status:<?php echo $this->Form->label('status', array('value' => $myreport->get('status'))); ?></li>
                     <li>Last Seen: <?php echo $this->Form->label('SeenWhen', array('value' => $myreport->get('SeenWhen'))); ?></li>
                     <li>Report ID:<?= $this->Html->link($myreport->Report_ID, ['controller' => 'reports','action' => 'publicDetailedReport', $myreport->Report_ID]) ?></li>
-                    <li>Latest Update:</li>
                 </ul>
               </div>
               <!-- Comment Button -->
@@ -59,7 +58,7 @@
                       <li>First Name: <?php echo $this->Form->label('FirstName', array('value' => $report->get('FirstName'))); ?></li>
                       <li>Last Name: <?php echo $this->Form->label('LastName', array('value' => $report->get('LastName'))); ?></li>
                       <li>Date of Birth: <?php echo $this->Form->label('DoB', array('value' => $report->get('DoB'))); ?></li>
-                      <li>Height: <?php echo $this->Form->label('Height', array('value' => $report->get('Height'))); ?></li>
+                      <li>Height: <?php echo $this->Form->label('HeightFeet', array('value' => $report->get('HeightFeet'))); ?>(ft) <?php echo $this->Form->label('HeightInches', array('value' => $report->get('HeightInches'))); ?>(in)</li>
                       <li>Weight: <?php echo $this->Form->label('Weight', array('value' => $report->get('Weight'))); ?></li>
                       <li>Marks/Tattoos: <?php echo $this->Form->label('MarksTattoos', array('value' => $report->get('MarksTattoos'))); ?></li>
                       <li>Gender: <?php echo $this->Form->label('Gender', array('value' => $report->get('Gender'))); ?></li>
