@@ -161,7 +161,7 @@ class ReportsSeeder extends AbstractSeed
             ]);
 
             /* Choose a date of birth. */
-            $data[$i]['DoB'] = $faker->date($format = 'Y-m-d', $max = 'now');
+            $data[$i]['DoB'] = $faker->dateTimeBetween($start_date = '-60 years', $end_date = '-2 years')->format('Y-m-d');
 
             /* Missing Person's Email */
             $data[$i]['MissingEmail'] = $faker->email();
@@ -267,7 +267,7 @@ class ReportsSeeder extends AbstractSeed
             $data[$i]['SeenZip']    = $last_seen_place['zip'];
 
             /* Date Of Occurrence (Last Seen) */
-            $data[$i]['SeenWhen'] = $faker->date($format = 'Y-m-d', $max = 'now');
+            $data[$i]['SeenWhen'] = $faker->dateTimeBetween($start_date = '-1 year', $end_date = 'now')->format('Y-m-d');
 
             /* Additional Information (Last Seen) */
             $data[$i]['SeenNotes'] = $faker->text($maxNbChars = 200);
@@ -383,8 +383,13 @@ class ReportsSeeder extends AbstractSeed
             $data[$i]['WorkplaceZip']       = $workplace['zip'];
             $data[$i]['WorkplaceMisc']      = $faker->randomElement([$faker->text(200), null, null]);
             $data[$i]['WorkplaceStartDate'] = $faker->date($format = 'Y-m-d', $max = 'now');
-            $data[$i]['WorkplaceEndDate']   = $faker->date($format = 'Y-m-d', $max = 'now');
             $data[$i]['WorkplaceMisc']      = $faker->randomElement([$faker->text(200), null, null]);
+            if ($faker->randomElement('employed', 'employed', 'employed', 'employed',
+                                      'employed', 'employed', 'employed', 'employed',
+                                      'employed', 'notEmployed') == 'notEmployed') {
+                $data[$i]['WorkplaceEndDate'] = $faker->dateTimeBetween($start_date = $data['WorkPlaceStartDate'],
+                                                                        $end_date = 'now')->format('Y-m-d');
+            }
 
             /* Determine a status for the report */
             $data[$i]['status'] = $faker->randomElement([
