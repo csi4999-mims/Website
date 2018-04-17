@@ -154,16 +154,18 @@ class UsersController extends AppController{
             $user = $this->Users->patchEntity($user, $this->request->getData());
 
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                //display success message
+                $this->Flash->success(__('Your account has been created. Please log in.'));
+                //redirect the user to the login page
                 return $this->redirect(['action' => 'login']);
 
                 //this is the code to check if there are any errors from the UsersTable.php
                 //If there are, it lists out all errors
             } elseif ($user->errors()) {
                 $error_msg = [];
-                foreach( $user->errors() as $errors) {
-                    if(is_array($errors)) {
-                        foreach($errors as $error) {
+                foreach ($user->errors() as $errors) {
+                    if (is_array($errors)) {
+                        foreach ($errors as $error) {
                             $error_msg[] = $error;
                         }
                     } else {
@@ -175,9 +177,13 @@ class UsersController extends AppController{
                         __("Please fix the following error(s):".implode("\n \r", $error_msg))
                     );
                 }
+            } else {
+                //display error message
+                $this->Flash->error(__('We were unable to create your account.'));
             }
-      }
-      $this->set('user', $user);
+        }
+        //set the user model
+        $this->set('user', $user);
     }
 
     //function used to register a new LE user
@@ -236,9 +242,9 @@ class UsersController extends AppController{
                 ['validate' => 'edit']
             );
             if ($this->Users->save($user)) {
-                $this->Flash->success('The password is successfully changed');
+                $this->Flash->success('Your password has been changed successfully.');
             } else {
-                $this->Flash->error('There was an error during the save!');
+                $this->Flash->error('We were unable to update your password.');
             }
         }
 
@@ -247,9 +253,9 @@ class UsersController extends AppController{
                 'email' => $this->request->data['newemail'],
             ]);
             if ($this->Users->save($user)) {
-                $this->Flash->success('The email is successfully changed');
+                $this->Flash->success('Your email address has been changed successfully.');
             } else {
-                $this->Flash->error('Email was not saved');
+                $this->Flash->error('We were unable to update your email address.');
             }
         }
 
@@ -258,9 +264,9 @@ class UsersController extends AppController{
                 'phone' => $this->request->data['newphone'],
                 ]);
             if ($this->Users->save($user)) {
-                $this->Flash->success('The Phone is successfully changed');
+                $this->Flash->success('Your phone number has been changed successfully.');
             } else {
-                $this->Flash->error('Phone was not saved');
+                $this->Flash->error('We were unable to update your phone number.');
             }
         }
         $this->set('user',$user);
@@ -297,7 +303,7 @@ class UsersController extends AppController{
                   return $this->redirect(array('action' => 'login'));
                 }
             }
-            $this->Flash->error(__('Invalid username or password, try again'));
+            $this->Flash->error(__('Invalid username or password; please try again.'));
         }
     }
 
