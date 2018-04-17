@@ -339,17 +339,20 @@ class ReportsSeeder extends AbstractSeed
             /* Relation Other (Friend/Family) */
             if ($data[$i]['Relation'] == 'Other') {
                 if ($data[$i]['Gender'] == 'Female') {
-                    $data[$i]['RelationOther'] = $faker->randomElement([
-                        'Wife', 'Girlfriend', 'Spouse', null, null
-                    ]);
+                    $data[$i]['RelationOther'] =
+                        $faker->randomElement([
+                            'Wife', 'Girlfriend', 'Spouse', null, null
+                        ]);
                 } elseif ($data[$i]['Gender'] == 'Male') {
-                    $data[$i]['RelationOther'] = $faker->randomElement([
-                        'Husband', 'Boyfriend', 'Spouse', null, null
-                    ]);
+                    $data[$i]['RelationOther'] =
+                        $faker->randomElement([
+                            'Husband', 'Boyfriend', 'Spouse', null, null
+                        ]);
                 } else {
-                    $data[$i]['RelationOther'] = $faker->randomElement([
-                        'Spouse', 'Partner', null
-                    ]);
+                    $data[$i]['RelationOther'] =
+                        $faker->randomElement([
+                            'Spouse', 'Partner', null
+                        ]);
                 }
             }
 
