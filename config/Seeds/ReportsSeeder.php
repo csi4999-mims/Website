@@ -316,21 +316,33 @@ class ReportsSeeder extends AbstractSeed
             }
 
             /* Relation to Missing (Friend/Family) */
-            $data[$i]['Relation'] = $faker->randomElement([
-                'Mother',   'Mother',
-                'Father',   'Father',
-                'Daughter', 'Daughter',
-                'Son',      'Son',
-                'Sister',   'Sister',
-                'Brother',  'Brother',
-                'Aunt',     'Aunt',
-                'Uncle',    'Uncle',
-                'Niece',    'Niece',
-                'Nephew',   'Nephew',
-                'Cousin',   'Cousin',
-                'Friend',   'Friend',
-                'Other'
-            ]);
+            $relationships_male = ['Father', 'Son', 'Brother', 'Uncle', 'Nephew'];
+            $relationships_female = ['Mother', 'Daughter', 'Sister', 'Aunt', 'Niece'];
+            $relationships_androgynous = ['Cousin', 'Friend'];
+
+            if ($data['Gender'] == 'Female') {
+                $data[$i]['Relation'] = $faker->randomElement([
+                    implode(',', $relationships_female),
+                    implode(',', $relationships_female),
+                    implode(',', $relationships_androgynous),
+                    implode(',', $relationships_androgynous),
+                    'Other'
+                ]);
+            } elseif ($data['Gender'] == 'Male') {
+                $data[$i]['Relation'] = $faker->randomElement([
+                    implode(',', $relationships_male),
+                    implode(',', $relationships_male),
+                    implode(',', $relationships_androgynous),
+                    implode(',', $relationships_androgynous),
+                    'Other'
+                ]);
+            } else {
+                $data[$i]['Relation'] = $faker->randomElement([
+                    implode(',', $relationships_androgynous),
+                    implode(',', $relationships_androgynous),
+                    'Other'
+                ]);
+            }
 
             /* Relation Other (Friend/Family) */
             if ($data[$i]['Relation'] == 'Other') {
