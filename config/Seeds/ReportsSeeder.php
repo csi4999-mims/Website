@@ -320,7 +320,7 @@ class ReportsSeeder extends AbstractSeed
             $relationships_female = ['Mother', 'Daughter', 'Sister', 'Aunt', 'Niece'];
             $relationships_androgynous = ['Cousin', 'Friend'];
 
-            if ($data['Gender'] == 'Female') {
+            if ($data[$i]['Gender'] == 'Female') {
                 $data[$i]['Relation'] = $faker->randomElement([
                     implode(',', $relationships_female),
                     implode(',', $relationships_female),
@@ -328,7 +328,7 @@ class ReportsSeeder extends AbstractSeed
                     implode(',', $relationships_androgynous),
                     'Other'
                 ]);
-            } elseif ($data['Gender'] == 'Male') {
+            } elseif ($data[$i]['Gender'] == 'Male') {
                 $data[$i]['Relation'] = $faker->randomElement([
                     implode(',', $relationships_male),
                     implode(',', $relationships_male),
