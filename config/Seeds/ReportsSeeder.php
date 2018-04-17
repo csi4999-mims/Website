@@ -318,30 +318,22 @@ class ReportsSeeder extends AbstractSeed
             /* Relation to Missing (Friend/Family) */
             $relationships_male = ['Father', 'Son', 'Brother', 'Uncle', 'Nephew'];
             $relationships_female = ['Mother', 'Daughter', 'Sister', 'Aunt', 'Niece'];
-            $relationships_androgynous = ['Cousin', 'Friend'];
+            $relationships_androgynous = ['Cousin', 'Friend', 'Other'];
 
             if ($data[$i]['Gender'] == 'Female') {
-                $data[$i]['Relation'] = $faker->randomElement([
-                    implode(',', $relationships_female),
-                    implode(',', $relationships_female),
-                    implode(',', $relationships_androgynous),
-                    implode(',', $relationships_androgynous),
-                    'Other'
-                ]);
+                $data[$i]['Relation'] =
+                    $faker->randomElement(array_merge($relationships_female,
+                                                      $relationships_female,
+                                                      $relationships_androgynous));
             } elseif ($data[$i]['Gender'] == 'Male') {
-                $data[$i]['Relation'] = $faker->randomElement([
-                    implode(',', $relationships_male),
-                    implode(',', $relationships_male),
-                    implode(',', $relationships_androgynous),
-                    implode(',', $relationships_androgynous),
-                    'Other'
-                ]);
+                $data[$i]['Relation'] =
+                    $faker->randomElement(array_merge($relationships_male,
+                                                      $relationships_male,
+                                                      $relationships_androgynous));
             } else {
-                $data[$i]['Relation'] = $faker->randomElement([
-                    implode(',', $relationships_androgynous),
-                    implode(',', $relationships_androgynous),
-                    'Other'
-                ]);
+                $data[$i]['Relation'] =
+                    $faker->randomElement(array_merge($relationships_androgynous,
+                                                      $relationships_androgynous));
             }
 
             /* Relation Other (Friend/Family) */
