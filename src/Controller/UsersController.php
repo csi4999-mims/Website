@@ -154,7 +154,7 @@ class UsersController extends AppController{
             $user = $this->Users->patchEntity($user, $this->request->getData());
 
             if ($this->Users->save($user)) {
-              //display success message
+                //display success message
                 $this->Flash->success(__('Your account has been created. Please log in.'));
                 //redirect the user to the login page
                 return $this->redirect(['action' => 'login']);
@@ -163,9 +163,9 @@ class UsersController extends AppController{
                 //If there are, it lists out all errors
             } elseif ($user->errors()) {
                 $error_msg = [];
-                foreach( $user->errors() as $errors) {
-                    if(is_array($errors)) {
-                        foreach($errors as $error) {
+                foreach ($user->errors() as $errors) {
+                    if (is_array($errors)) {
+                        foreach ($errors as $error) {
                             $error_msg[] = $error;
                         }
                     } else {
@@ -177,10 +177,9 @@ class UsersController extends AppController{
                         __("Please fix the following error(s):".implode("\n \r", $error_msg))
                     );
                 }
-            }
-            else{
-              //display error message
-              $this->Flash->error(__('We were unable to create your account.'));
+            } else{
+                //display error message
+                $this->Flash->error(__('We were unable to create your account.'));
             }
         }
         //set the user model
