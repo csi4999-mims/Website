@@ -177,7 +177,7 @@ class UsersController extends AppController{
                         __("Please fix the following error(s):".implode("\n \r", $error_msg))
                     );
                 }
-            } else{
+            } else {
                 //display error message
                 $this->Flash->error(__('We were unable to create your account.'));
             }
