@@ -5,6 +5,8 @@
 /logs/*
 /tmp/*
 /vendor/*
+/config/Migrations/schema-dump-*.lock
+phinx.yml
 
 ##################
 # Composer files #
@@ -43,3 +45,6 @@ nbproject/*
 .vscode
 # Sass preprocessor
 .sass-cache/
+
+# images directory, containing the images of the missing
+webroot/img/missing_person_photos/*

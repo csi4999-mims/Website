@@ -31,23 +31,50 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('custom.css') ?>
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('bootstrap-theme.css') ?>
-
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <?php
+    echo $this->Html->css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+    echo $this->Html->script([
+    'https://code.jquery.com/jquery-1.12.4.min.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
+      ]);
+      ?>
 </head>
 <body>
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
             <li class="name">
-                <h1><a href="/users/home">MIMS</a></h1>
+              <h1 class="home_button">
+              <?php
+              if ($this->request->session()->read('Auth.User')){
+                if ($user->get('role') == 'lawenforcement'){
+                  echo $this->Html->link("MIMS", array('controller'=>'users','action'=>'homeLawEnforcement'));
+                } elseif($user->get('role') == 'thepublic'){
+                  echo $this->Html->link("MIMS", array('controller'=>'users','action'=>'homeConcernedPublic'));
+                } else{
+                echo $this->Html->link("MIMS", array('controller'=>'users','action'=>'home'));
+                }
+              } else{
+                echo $this->Html->link("MIMS", array('controller'=>'users','action'=>'home'));
+              }
+              ?>
+            </h1>
             </li>
         </ul>
         <div class="top-bar-section">
             <ul class="right">
                 <li><a href="/reports/report">Submit Report</a></li>
                 <li><a href="/users/edit">My Account</a></li>
-                <li><a href="/users/logout">Logout</a></li>
+                <li>
+                    <?php if ($this->request->session()->read('Auth.User')){
+                      echo $this->Html->link("Logout", array('controller' => 'users', 'action'=> 'logout'));
+                    }else{
+                      echo $this->Html->link("Login", array('controller' => 'users', 'action'=> 'login'));
+                      }
+                    ?>
+                </li>
             </ul>
         </div>
     </nav>
@@ -56,6 +83,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('content') ?>
     </div>
     <footer>
+
     </footer>
 </body>
 </html>

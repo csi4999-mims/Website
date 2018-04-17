@@ -3,6 +3,418 @@
     width: 50%;
 }
 
-label .display-user {
+label.display-user {
     font-size: 36px;
+}
+
+select {
+  height: 30px;
+}
+
+ul li {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+input.approve-button {
+  color: #ffffff !important;
+  background-color: #116D76;
+}
+
+input.approve-button:hover {
+  color: #ffffff !important;
+  text-decoration: none;
+  background-color: #808080;
+}
+
+input.form-submit.btn.update-button.btn-default {
+  color: #ffffff !important;
+  background-color: #116D76 !important;
+  margin: 5px !important;
+}
+
+.button.btn.categorize-button {
+  color: #ffffff !important;
+  background-color: #116D76;
+  margin: 5px;
+}
+
+.button.btn.found-button {
+  color: #ffffff !important;
+  background-color: #116D76;
+  margin: 5px;
+}
+.comment-button {
+  color: #ffffff !important;
+  background-color: #116D76 !important;
+  margin: 5px;
+  border-radius: 0px !important;
+  font-size: 14px;
+}
+.comment-button:hover {
+  background-color: #808080 !important;
+  text-decoration: none;
+}
+
+.show-comments {
+  height: 300px;
+  overflow-y:scroll;
+  margin-bottom: 50px;
+}
+
+button {
+  color: #ffffff !important;
+  background-color: #116D76 !important;
+  border-radius: 0px !important;
+}
+
+.row {
+  margin: 0 auto !important;
+}
+
+.jumbotron {
+  background-image: url('../img/family2.png');
+  background-size: 100% 100%;
+  height: 400px;
+  margin-top: 10px;
+}
+
+.jumbotron.jumbotron-public-home {
+  background-image: url('../img/park2.png');
+  background-size: 100% 100%;
+  height: 250px;
+  margin-top: 10px;
+}
+
+.home-title {
+  color: #ffffff;
+  font-size: 100px;
+  text-align: center;
+}
+
+.button.home-button {
+    border-radius: 12px;
+}
+
+.home-button {
+  font-size: 50px;
+  margin: 2px;
+  border-radius: 12px;
+  background-color: #116D76;
+}
+
+.button.home-button:hover {
+  text-decoration: none;
+  background-color: #808080;
+}
+
+.about {
+  text-align: center;
+}
+
+.join {
+  text-align: center;
+}
+
+.about-paragraph {
+  font-size: 18px;
+}
+
+footer {
+  background-color: #000000;
+}
+
+.home-footer {
+  color: #ffffff;
+}
+
+a.home-footer:hover {
+  color: #008CBA !important;
+  text-decoration: none !important;
+}
+
+.contact-list {
+  color: #ffffff;
+  list-style-type: none;
+}
+
+.button.register-button {
+  margin-top: 5px;
+  font-size: 14px;
+  background-color: #116D76;
+  font-weight: bold;
+
+}
+
+.button.register-button:hover {
+  background-color: #808080 !important;
+  text-decoration: none !important;
+}
+
+.button.login-button.btn.btn-default {
+  margin-top: 5px;
+  font-size: 14px;
+  background-color: #116D76;
+
+}
+
+.button.login-button.btn.btn-default:hover {
+  background-color: #808080 !important;
+  text-decoration: none !important;
+}
+
+
+.inline-left {
+  padding-left: 0px !important;
+}
+
+.inline-right {
+  padding-left: 10px !important;
+  padding-right: 0px !important;
+}
+
+.photo-row {
+  padding-bottom: 20px;
+}
+
+.missing-info {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.display-missing {
+  height: 600px;
+  overflow-y:scroll;
+  margin-bottom: 50px;
+}
+
+.mising-panel {
+  margin-top: 60px;
+}
+
+.comment-row {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.map-row {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.row.map-row.law {
+  margin-left: 0px !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+label.control-label{
+  font-size: 17px !important;
+}
+
+input.form-control{
+  font-size: 15px !important;
+  border-radius: 4px;
+  padding: 6px 12px;
+  height: 34px;
+}
+input.form-submit{
+  font-size: 15px !important;
+  margin-top: 5px !important;
+  font-size: 14px !important;
+  background-color: #116D76 !important;
+  color: #ffffff !important;
+}
+h1.home_button{
+  font-size: 25px !important;
+}
+
+.top-bar-section ul li>a{
+  font-size: 20px !important;
+}
+
+.button.return-home-button {
+  color: #ffffff !important;
+  background-color: #116D76;
+  margin: 5px;
+  border-radius: 0px !important;
+  font-size:14px;
+}
+
+.button.return-home-button:hover {
+  text-decoration: none;
+  background-color: #808080;
+
+}
+
+
+#myInput {
+    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myTable {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 1px solid #ddd; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
+}
+
+#myTable th, #myTable td {
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+}
+
+#myTable tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #e9fafc;
+}
+
+.report-label {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.report-label span {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.report-legend {
+  color: #cc0000;
+  text-decoration: underline;
+  padding-bottom: 10px;
+}
+
+nav.top-bar.expanded {
+  height: 60px;
+}
+
+nav.top-bar.expanded a {
+  padding: 15px;
+}
+
+nav.top-bar.expanded a:hover {
+  text-decoration: none;
+}
+
+nav.top-bar.expanded ul.right a {
+  padding: 15px;
+
+}
+
+.welcome-banner {
+  color: #116D76;
+}
+
+.map-banner {
+  color: #116D76;
+  text-decoration: underline;
+}
+
+a.report-id {
+  font-size: 17px;
+  color: #000000;
+}
+
+a.report-id:hover {
+  color: #116D76;
+  text-decoration: none;
+}
+
+.map-info {
+  font-size: 14px;
+}
+
+input.form-submit.submit-report-button.button.btn.btn-default {
+  margin-top: 5px !important;
+  font-size: 14px !important;
+  background-color: #116D76 !important;
+
+}
+
+input.form-submit.submit-report-button.button.btn.btn-default:hover {
+  background-color: #808080 !important;
+  text-decoration: none !important;
+}
+
+.button.dashboard-button {
+  color: #ffffff !important;
+  background-color: #116D76;
+  margin: 5px;
+  border-radius: 0px !important;
+  text-decoration: none;
+  font-weight: bold !important;
+  font-size: 14px;
+}
+
+.button.dashboard-button:hover {
+  background-color: #808080 !important;
+  text-decoration: none !important;
+}
+
+.button.dashboard-button-top {
+  color: #ffffff !important;
+  background-color: #116D76;
+  margin: 5px;
+  border-radius: 0px !important;
+  text-decoration: none;
+  font-weight: bold !important;
+  font-size: 14px;
+  float: right;
+}
+
+.button.dashboard-button-top:hover {
+  background-color: #808080 !important;
+  text-decoration: none !important;
+}
+
+.red-marker-icon {
+  height: 70px;
+  width: 80px;
+}
+
+.purple-marker-icon {
+  height: 30px;
+  width: 40px;
+  padding-bottom: 15px;
+}
+
+canvas {
+  margin: 70px;
+}
+
+.le-table {
+  height: 300px;
+  overflow-y: scroll;
+}
+th.column-titles{
+  font-size: 15px;
+}
+.report-number{
+  font-size: 20px;
+  font-weight: bold;
+}
+.my-missing {
+  height: 600px;
+  overflow-y:scroll;
+  margin-bottom: 50px;
+}
+
+.approve-heading {
+  color: #cc0000;
+}
+
+.found-heading {
+  color: #cc0000;
 }

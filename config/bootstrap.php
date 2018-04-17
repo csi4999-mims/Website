@@ -214,3 +214,9 @@ Type::build('timestamp')
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
+
+Plugin::load('Bootstrap');
+
+Plugin::load('Migrations');
+
+Plugin::load('Josegonzalez/Upload');

@@ -16,23 +16,55 @@ class UsersTable extends Table
 //need to add additonal valition for each specific field still
     public function validationDefault(Validator $validator)
     {
-       return $validator
+
+        $validator
             ->notEmpty('FirstName', 'A first name is required.')
+            ->add('FirstName', 'alphaNumeric', [
+                'rule' => ['alphaNumeric', 'FirstName'],
+                'message' => 'The first name must only contain English letters'
+                  ])
+
             ->notEmpty('LastName', 'A last name is required.')
+            ->add('LastName', 'alphaNumeric', [
+                'rule' => ['alphaNumeric', 'LastName'],
+                'message' => 'The last name must only contain English letters'
+                  ])
+
+
+            ->add('password', [
+                'length' => [
+                    'rule' => ['minLength',4],
+                    'message' => 'The password you entered is too short.  Please try again.'
+                    ]
+                ])
             ->notEmpty('password', 'A password is required.')
+
+
+
             ->notEmpty('email', 'An email address is required.')
+
+
             ->notEmpty('phone', 'A phone number is required.')
-            ->notEmpty('role', 'A role is required.')
+
             ->add('role', 'inList', [
                 'rule' => ['inList', ['lawenforcement', 'thepublic']],
                 'message' => 'Please enter a valid role.'
             ])
+            ->notEmpty('role', 'A role is required.')
+
+
             ->add('confpass', 'compareWith', [
                 'rule' => ['compareWith', 'password'],
                 'message' => 'The passwords you entered do not match.'
-            ]);
-    }
+            ])
 
+			->add('email', [
+				'unique' => ['rule' => 'validateUnique', 'provider' => 'table'],
+				// 'message' => 'Email is already taken'
+					]);
+
+    return $validator;
+    }
 
 //function used for validation on edit.ctp password form fields
   public function validationEdit(Validator $validator)
@@ -83,6 +115,16 @@ class UsersTable extends Table
                     ]
                 ])
                 ->notEmpty('confpass');
+
+      $validator
+            ->add('newphone' ,[
+                'length' => [
+                    'rule' => ['minLength' ,10],
+                    'message' => 'Please enter 10 digits for the phone number.'
+                    ]
+                ])
+                ->allowEmpty;
+
 
         return $validator;
 
