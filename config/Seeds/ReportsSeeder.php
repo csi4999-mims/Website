@@ -161,7 +161,7 @@ class ReportsSeeder extends AbstractSeed
             ]);
 
             /* Choose a date of birth. */
-            $data[$i]['DoB'] = $faker->date($format = 'Y-m-d', $max = 'now');
+            $data[$i]['DoB'] = $faker->dateTimeBetween($start_date = '-60 years', $end_date = '-2 years')->format('Y-m-d');
 
             /* Missing Person's Email */
             $data[$i]['MissingEmail'] = $faker->email();
@@ -267,7 +267,7 @@ class ReportsSeeder extends AbstractSeed
             $data[$i]['SeenZip']    = $last_seen_place['zip'];
 
             /* Date Of Occurrence (Last Seen) */
-            $data[$i]['SeenWhen'] = $faker->date($format = 'Y-m-d', $max = 'now');
+            $data[$i]['SeenWhen'] = $faker->dateTimeBetween($start_date = '-1 year', $end_date = 'now')->format('Y-m-d');
 
             /* Additional Information (Last Seen) */
             $data[$i]['SeenNotes'] = $faker->text($maxNbChars = 200);
