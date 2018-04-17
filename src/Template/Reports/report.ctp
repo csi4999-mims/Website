@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <div class="report form">
-    <?php echo $this->Form->create('$report', ['type' => file]);
+    <?php echo $this->Form->create('$report', ['type' => 'file']);
     ?>
   </br>
     <fieldset>
