@@ -384,9 +384,9 @@ class ReportsSeeder extends AbstractSeed
             $data[$i]['WorkplaceMisc']      = $faker->randomElement([$faker->text(200), null, null]);
             $data[$i]['WorkplaceStartDate'] = $faker->date($format = 'Y-m-d', $max = 'now');
             $data[$i]['WorkplaceMisc']      = $faker->randomElement([$faker->text(200), null, null]);
-            if ($faker->randomElement('employed', 'employed', 'employed', 'employed',
-                                      'employed', 'employed', 'employed', 'employed',
-                                      'employed', 'notEmployed') == 'notEmployed') {
+            if ($faker->randomElement(['employed', 'employed', 'employed', 'employed',
+                                       'employed', 'employed', 'employed', 'employed',
+                                       'employed', 'notEmployed']) == 'notEmployed') {
                 $data[$i]['WorkplaceEndDate'] = $faker->dateTimeBetween($start_date = $data['WorkPlaceStartDate'],
                                                                         $end_date = 'now')->format('Y-m-d');
             }
