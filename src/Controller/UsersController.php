@@ -21,30 +21,9 @@ class UsersController extends AppController{
     public function home() {
 	     $this->render();
     }
+
 //law enforcement home page
     public function homeLawEnforcement($Report_ID = null) {
-
-
-
-
-      // $this->loadModel('Reports');
-      // // $this->set(compact('report'));
-      // $reportnumber = $this->Reports->get($this->reports('Report_ID'));
-      //
-      // // $casenumber = $this->report_case_number->newEntity($this->reports('CaseNumber'));
-      // if ($this->request->is('post')) {
-      //     $casenumber = $this->report_case_number->patchEntity($casenumber, $this->request->getData());
-      //     if ($this->report_case_number->save($casenumber)) {
-      //         $this->Flash->success(__('The case was approved.'));
-      //     }else{
-      //         $this->Flash->error(__('Unable to approve the case.'));
-      //     }
-      //     $this->set('CaseNumber', $casenumber);
-      //   }
-
-      //if approveCase is clicked
-      //CaseNumber to current ReportID
-
       //Load the user model
       $user =$this->Users->get($this->Auth->user('id'));
       $this->set('user',$user);
@@ -61,34 +40,6 @@ class UsersController extends AppController{
         //grab all of the rows in the reports table in db
         ->where(['status !=' => 'Found'])
         ->toArray();
-
-
-        // //Approving Modal Input
-        // $this->loadModel('Reports');
-        //
-        //
-        // $report = $this->Reports->get($Report_ID);
-        //
-        // $this->set(compact('report'));
-        //
-        // if (!empty($this->request->data)) {
-        //     $report = $this->Reports->patchEntity($report, [
-        //             'CaseNumber'  => $this->request->data['report_case_number']
-        //         ]);
-        //     if ($report->dirty('CaseNumber' == true)) {
-        //       if($this->Reports->save($report)){
-        //         $this->Flash->success('The report has been approved');
-        //         //Make Current Report "In Progress"
-        //     } else {
-        //         $this->Flash->error('There was an error during the approval');
-        //     }
-        //   }
-        // }
-
-
-
-
-
       //set report model
       $this->set('reports', $reports);
       $this->set('TableReports', $TableReports);
@@ -186,44 +137,6 @@ class UsersController extends AppController{
         $this->set('user', $user);
     }
 
-    //function used to register a new LE user
-        public function addle()
-        {
-            //creates a new User entity (model)
-            $user = $this->Users->newEntity();
-
-            if ($this->request->is('post')) {
-
-                // Prior to 3.4.0 $this->request->data() was used.
-                $user = $this->Users->patchEntity($user, $this->request->getData());
-
-                if ($this->Users->save($user)) {
-                    $this->Flash->success(__('The user has been saved.'));
-                    return $this->redirect(['action' => 'login']);
-
-                    //this is the code to check if there are any errors from the UsersTable.php
-                    //If there are, it lists out all errors
-                } elseif ($user->errors()) {
-                    $error_msg = [];
-                    foreach( $user->errors() as $errors) {
-                        if(is_array($errors)) {
-                            foreach($errors as $error) {
-                                $error_msg[] = $error;
-                            }
-                        } else {
-                            $error_msg[] = $errors;
-                        }
-                    }
-                    if (!empty($error_msg)) {
-                        $this->Flash->error(
-                            __("Please fix the following error(s):".implode("\n \r", $error_msg))
-                        );
-                    }
-                }
-          }
-          $this->set('user', $user);
-        }
-
 //function used to edit a users information
 //login needs to be added to pull in the current users info
     public function edit() {
@@ -272,20 +185,6 @@ class UsersController extends AppController{
         $this->set('user',$user);
     }
 
-//function to delete a users account
-//logic needs to be added
-//UI features for delete need to be added
-    public function delete($id = null) {
-
-    }
-
-//function to reactivate deleted account
-//logic needs to be added
-//dont even know if we want to use this
-    public function activate($id = null) {
-
-    }
-
 //function to handle login functionality
     public function login()
     {
@@ -306,27 +205,6 @@ class UsersController extends AppController{
             $this->Flash->error(__('Invalid username or password; please try again.'));
         }
     }
-
-    //function to handle LE login functionality
-        public function loginle()
-        {
-            if ($this->request->is('post')) {
-                $user = $this->Auth->identify();
-                if ($user) {
-                    $this->Auth->setUser($user);
-                    if ( $user['role'] == 'thepublic'){
-                      return $this->redirect(array('action' => 'home_concerned_public'));
-                    }
-                    elseif ( $user['role'] == 'lawenforcement'){
-                      return $this->redirect(array('action' => 'home_law_enforcement'));
-                    }
-                    else {
-                      return $this->redirect(array('action' => 'login'));
-                    }
-                }
-                $this->Flash->error(__('Invalid username or password, try again'));
-            }
-        }
 
 //function to handle logout functionality
     public function logout() {
