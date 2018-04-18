@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <div class="report form">
-    <?php echo $this->Form->create('$report', ['type' => file]);
+    <?php echo $this->Form->create('$report', ['type' => 'file', 'context' => ['validator' => 'validationReport']]);
     ?>
   </br>
     <fieldset>
@@ -456,8 +456,6 @@
             <?php echo $this->Form->input('WorkplaceMisc', array('label' => 'Additional Information',
              'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
           </div>
-          <?php echo $this->Form->input('photo', ['type' => file]); ?>
-        </div>
         <div class="row">
           <div class="col-md-4">
             <?php echo $this->Form->submit('Submit Report', array('class' => 'form-submit submit-report-button',

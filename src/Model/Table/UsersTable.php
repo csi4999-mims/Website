@@ -18,44 +18,44 @@ class UsersTable extends Table
     {
 
         $validator
-            ->notEmpty('FirstName', 'A First Name is required')
+            ->notEmpty('FirstName', 'A first name is required.')
             ->add('FirstName', 'alphaNumeric', [
                 'rule' => ['alphaNumeric', 'FirstName'],
-                'message' => 'First name must only contain the alphabet'
+                'message' => 'The first name must only contain English letters'
                   ])
 
-            ->notEmpty('LastName', 'A Last Name is required')
+            ->notEmpty('LastName', 'A last name is required.')
             ->add('LastName', 'alphaNumeric', [
                 'rule' => ['alphaNumeric', 'LastName'],
-                'message' => 'Last name must only contain the alphabet'
+                'message' => 'The last name must only contain English letters'
                   ])
 
 
             ->add('password', [
                 'length' => [
                     'rule' => ['minLength',4],
-                    'message' => 'Please enter at least 4 characters for your password.'
+                    'message' => 'The password you entered is too short.  Please try again.'
                     ]
                 ])
-            ->notEmpty('password', 'A password is required')
+            ->notEmpty('password', 'A password is required.')
 
 
 
-            ->notEmpty('email', 'An email is required')
+            ->notEmpty('email', 'An email address is required.')
 
 
-            ->notEmpty('phone', 'A phone is required')
+            ->notEmpty('phone', 'A phone number is required.')
 
             ->add('role', 'inList', [
                 'rule' => ['inList', ['lawenforcement', 'thepublic']],
-                'message' => 'Please enter a valid role'
+                'message' => 'Please enter a valid role.'
             ])
-            ->notEmpty('role', 'A role is required')
+            ->notEmpty('role', 'A role is required.')
 
 
             ->add('confpass', 'compareWith', [
                 'rule' => ['compareWith', 'password'],
-                'message' => 'Passwords do not match'
+                'message' => 'The passwords you entered do not match.'
             ])
 
 			->add('email', [
@@ -82,7 +82,7 @@ class UsersTable extends Table
                         }
                         return false;
                     },
-                    'message' => 'Your old password does not match the entered password!',
+                    'message' => 'Your old password does not match the entered password.',
                 ])
                 ->notEmpty('oldpass');
 
@@ -90,13 +90,13 @@ class UsersTable extends Table
                 ->add('newpass',[
                     'length' => [
                         'rule' => ['minLength',4],
-                        'message' => 'Please enter at least 4 characters in for your password.'
+                        'message' => 'Your new password is too short. Please try again.'
                     ]
                 ])
                 ->add('newpass',[
                     'match' => [
                         'rule' => ['compareWith','confpass'],
-                        'message' => 'Sorry! Password does not match. Please try again!'
+                        'message' => 'The passwords you entered do not match. Please try again.'
                     ]
                 ])
                 ->notEmpty('newpass');
@@ -105,13 +105,13 @@ class UsersTable extends Table
                 ->add('confpass',[
                     'length' => [
                         'rule' => ['minLength',4],
-                        'message' => 'Please enter at least 4 characters for your password.'
+                        'message' => 'Your new password is too short. Please try again.'
                     ]
                 ])
                 ->add('confpass',[
                     'match' => [
                         'rule' => ['compareWith','newpass'],
-                        'message' => 'Sorry! Password does not match. Please try again!'
+                        'message' => 'The passwords you entered do not match. Please try again.'
                     ]
                 ])
                 ->notEmpty('confpass');

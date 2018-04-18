@@ -161,7 +161,7 @@ class ReportsSeeder extends AbstractSeed
             ]);
 
             /* Choose a date of birth. */
-            $data[$i]['DoB'] = $faker->date($format = 'Y-m-d', $max = 'now');
+            $data[$i]['DoB'] = $faker->dateTimeBetween($start_date = '-60 years', $end_date = '-2 years')->format('Y-m-d');
 
             /* Missing Person's Email */
             $data[$i]['MissingEmail'] = $faker->email();
@@ -267,7 +267,7 @@ class ReportsSeeder extends AbstractSeed
             $data[$i]['SeenZip']    = $last_seen_place['zip'];
 
             /* Date Of Occurrence (Last Seen) */
-            $data[$i]['SeenWhen'] = $faker->date($format = 'Y-m-d', $max = 'now');
+            $data[$i]['SeenWhen'] = $faker->dateTimeBetween($start_date = '-1 year', $end_date = 'now')->format('Y-m-d');
 
             /* Additional Information (Last Seen) */
             $data[$i]['SeenNotes'] = $faker->text($maxNbChars = 200);
@@ -316,28 +316,44 @@ class ReportsSeeder extends AbstractSeed
             }
 
             /* Relation to Missing (Friend/Family) */
-            $data[$i]['Relation'] = $faker->randomElement([
-                'Mother',   'Mother',
-                'Father',   'Father',
-                'Daughter', 'Daughter',
-                'Son',      'Son',
-                'Sister',   'Sister',
-                'Brother',  'Brother',
-                'Aunt',     'Aunt',
-                'Uncle',    'Uncle',
-                'Niece',    'Niece',
-                'Nephew',   'Nephew',
-                'Cousin',   'Cousin',
-                'Friend',   'Friend',
-                'Other'
-            ]);
+            $relationships_male = ['Father', 'Son', 'Brother', 'Uncle', 'Nephew'];
+            $relationships_female = ['Mother', 'Daughter', 'Sister', 'Aunt', 'Niece'];
+            $relationships_androgynous = ['Cousin', 'Friend', 'Other'];
+
+            if ($data[$i]['Gender'] == 'Female') {
+                $data[$i]['Relation'] =
+                    $faker->randomElement(array_merge($relationships_female,
+                                                      $relationships_female,
+                                                      $relationships_androgynous));
+            } elseif ($data[$i]['Gender'] == 'Male') {
+                $data[$i]['Relation'] =
+                    $faker->randomElement(array_merge($relationships_male,
+                                                      $relationships_male,
+                                                      $relationships_androgynous));
+            } else {
+                $data[$i]['Relation'] =
+                    $faker->randomElement(array_merge($relationships_androgynous,
+                                                      $relationships_androgynous));
+            }
 
             /* Relation Other (Friend/Family) */
             if ($data[$i]['Relation'] == 'Other') {
-                $data[$i]['RelationOther'] = $faker->randomElement([
-                    'Wife', 'Husband', 'Girlfriend', 'Boyfriend',
-                    'Spouse', null, null
-                ]);
+                if ($data[$i]['Gender'] == 'Female') {
+                    $data[$i]['RelationOther'] =
+                        $faker->randomElement([
+                            'Wife', 'Girlfriend', 'Spouse', null, null
+                        ]);
+                } elseif ($data[$i]['Gender'] == 'Male') {
+                    $data[$i]['RelationOther'] =
+                        $faker->randomElement([
+                            'Husband', 'Boyfriend', 'Spouse', null, null
+                        ]);
+                } else {
+                    $data[$i]['RelationOther'] =
+                        $faker->randomElement([
+                            'Spouse', 'Partner', null
+                        ]);
+                }
             }
 
             /* Family/Friend Location */
@@ -367,8 +383,13 @@ class ReportsSeeder extends AbstractSeed
             $data[$i]['WorkplaceZip']       = $workplace['zip'];
             $data[$i]['WorkplaceMisc']      = $faker->randomElement([$faker->text(200), null, null]);
             $data[$i]['WorkplaceStartDate'] = $faker->date($format = 'Y-m-d', $max = 'now');
-            $data[$i]['WorkplaceEndDate']   = $faker->date($format = 'Y-m-d', $max = 'now');
             $data[$i]['WorkplaceMisc']      = $faker->randomElement([$faker->text(200), null, null]);
+            if ($faker->randomElement('employed', 'employed', 'employed', 'employed',
+                                      'employed', 'employed', 'employed', 'employed',
+                                      'employed', 'notEmployed') == 'notEmployed') {
+                $data[$i]['WorkplaceEndDate'] = $faker->dateTimeBetween($start_date = $data['WorkPlaceStartDate'],
+                                                                        $end_date = 'now')->format('Y-m-d');
+            }
 
             /* Determine a status for the report */
             $data[$i]['status'] = $faker->randomElement([
