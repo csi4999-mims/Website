@@ -455,6 +455,7 @@
           <div class="col-md-8">
             <?php echo $this->Form->input('WorkplaceMisc', array('label' => 'Additional Information',
              'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
+          </div>
         <div class="row">
           <div class="col-md-4">
             <?php echo $this->Form->submit('Submit Report', array('class' => 'form-submit submit-report-button',
