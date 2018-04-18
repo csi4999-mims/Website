@@ -456,7 +456,7 @@
             <?php echo $this->Form->input('WorkplaceMisc', array('label' => 'Additional Information',
              'maxLength' => 2000, 'title' => 'SocialMedia', 'type' => 'textarea')); ?>
           </div>
-          <?php echo $this->Form->input('photo', ['type' => file]); ?>
+          <?php echo $this->Form->input('photo', ['type' => 'file']); ?>
         </div>
         <div class="row">
           <div class="col-md-4">
