@@ -32,9 +32,10 @@ class ReportsTable extends Table
 			->notEmpty('Weight', 'Please enter a weight for the missing person')
 			->notEmpty('Height', 'Please enter a height for the missing person')
 			->notEmpty('DoB', 'Please enter a date of bitch')
-			->notEmpty('Phone', 'Please enter a phone number for the missing person');
+			->notEmpty('Phone', 'Please enter a phone number for the missing person')
 			//->notEmpty('SocialMedia', 'Please enter the missing persons social media account information')
 			//->notEmpty('additional', 'Please enter any additional information') This should be allowed to be null
+      ->allowEmpty('photo', 'A photo is optional');
 
 	}
 
